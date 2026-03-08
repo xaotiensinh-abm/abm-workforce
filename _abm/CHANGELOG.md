@@ -2,6 +2,31 @@
 
 Mọi thay đổi quan trọng của hệ thống ABM Workforce được ghi tại đây.
 
+## [2.2.0] — 2026-03-09
+
+### Thêm mới — 6 Multimedia Skills (Tạo ảnh/video AI)
+
+**Từ antigravity-awesome-skills (3 skills):**
+- `blockrun` — Gateway đa model: DALL-E, Nano Banana ($0.01/img), Grok, GPT-5.2 qua micropayment
+- `image-studio` — Routing thông minh: Gemini (ảnh người) vs Stability AI (art/editing)
+- `imagen` — Google Gemini image generation cho UI assets, docs, concept art
+
+**Xây dựng mới từ deep research (3 skills):**
+- `veo-video-gen` — Google VEO 3.1: video 4K, text/image-to-video, audio tích hợp, 8-148 giây
+- `grok-imagen` — xAI Aurora: photorealistic images, Grok Imagine API (01/2026)
+- `freepik-spaces` — Nền tảng node-based: Flux 2, Nano Banana Pro, Kling 3.0, Runway, VEO 3.1, Sora 2 Pro
+
+### Thêm mới — 4 Task Types
+- `image-gen` — Tạo ảnh AI (marketing-specialist)
+- `video-gen` — Tạo video AI (marketing-specialist)
+- `multimedia` — Tạo ảnh + video tổng hợp (marketing-specialist)
+- `design` — Thiết kế visual (marketing-specialist)
+
+### Thay đổi
+- Manifest: 48 → 54 skills
+- Thêm category mới: `multimedia`
+- Knowledge-Base: synced 54/54 skills
+
 ## [2.1.0] — 2026-03-09
 
 ### Thêm mới — 12 Skills từ antigravity-awesome-skills

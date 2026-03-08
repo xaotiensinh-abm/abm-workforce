@@ -1,4 +1,4 @@
-# Bảng kê Kỹ năng — ABM Workforce (48 Skills)
+# Bảng kê Kỹ năng — ABM Workforce (54 Skills)
 # Cập nhật: 2026-03-09 — Phiên bản Tiếng Việt
 
 # === KỸ NĂNG HỆ THỐNG / META (8) ===
@@ -69,3 +69,11 @@ name,category,description,mandatory,path
 "agent-improve","meta","Cải thiện agent — phân tích hiệu suất, prompt engineering, testing, triển khai có kiểm soát.",false,"skills/agent-improve/SKILL.md"
 "content-creator","marketing","Tạo nội dung SEO-optimized với brand voice nhất quán — blog, social media, content calendar.",false,"skills/content-creator/SKILL.md"
 "startup-financial-modeling","phân tích","Mô hình tài chính startup — doanh thu cohort-based, chi phí, cash flow, scenario analysis 3 kịch bản.",false,"skills/startup-financial-modeling/SKILL.md"
+
+# === KỸ NĂNG MULTIMEDIA — TẠO ẢNH/VIDEO AI (6) ===
+"blockrun","multimedia","Gateway đa model AI — DALL-E, Nano Banana, Grok, GPT-5.2 qua micropayment wallet.",false,"skills/blockrun/SKILL.md"
+"image-studio","multimedia","Studio tạo ảnh thông minh — routing tự động Gemini (ảnh người) vs Stability AI (art/editing).",false,"skills/image-studio/SKILL.md"
+"imagen","multimedia","Tạo ảnh Google Gemini — UI assets, documentation, concept art.",false,"skills/imagen/SKILL.md"
+"veo-video-gen","multimedia","Tạo video AI Google VEO 3.1 — 4K, text/image-to-video, audio tích hợp, 8-148 giây.",false,"skills/veo-video-gen/SKILL.md"
+"grok-imagen","multimedia","Tạo ảnh xAI Aurora — photorealistic, Grok Imagine API, text-to-image/video.",false,"skills/grok-imagen/SKILL.md"
+"freepik-spaces","multimedia","Nền tảng thiết kế AI đa model — node-based workflows, batch processing, Flux/VEO/Sora.",false,"skills/freepik-spaces/SKILL.md"
