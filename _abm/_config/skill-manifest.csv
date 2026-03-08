@@ -1,13 +1,14 @@
-# Bảng kê Kỹ năng — ABM Workforce (52 Skills)
+# Bảng kê Kỹ năng — ABM Workforce (53 Skills)
 # Cập nhật: 2026-03-09 — Phiên bản Tiếng Việt
 
-# === KỸ NĂNG HỆ THỐNG / META (8) ===
+# === KỸ NĂNG HỆ THỐNG / META (9) ===
 name,category,description,mandatory,path
 "delegation-chain","hệ thống","Giao thức cốt lõi: Hợp đồng → Chứng nhận → Xác minh. Trách nhiệm luôn đi lên.",true,"skills/delegation-chain/SKILL.md"
 "verification-before-completion","hệ thống","LUẬT SẮT: Phải có bằng chứng trước khi chấp nhận kết quả. Không ngoại lệ.",true,"skills/verification-before-completion/SKILL.md"
 "context-engineering","hệ thống","Lắp ráp ngữ cảnh 5 lớp + kiểm soát ngân sách token. Tối ưu context window.",true,"skills/context-engineering/SKILL.md"
 "knowledge-crystallizer","meta","Giao thức Tinh chế Tri thức — phân tích lịch sử, phát hiện patterns, trích xuất bài học.",false,"skills/knowledge-crystallizer/SKILL.md"
 "capability-evolver","meta","Động cơ tự tiến hóa: Tự soi → Chẩn đoán → Tiến hóa → Xác nhận → Lưu trữ.",false,"skills/capability-evolver/SKILL.md"
+"save","hệ thống","Lưu trạng thái công việc vào Second Brain — task save, daily save, milestone save. Hỗ trợ /save, /list-memory, /find-memory.",false,"skills/save/SKILL.md"
 "skill-creator","meta","Tạo và cải thiện kỹ năng mới cho hệ thống ABM. 7 pha: thu thập → phỏng vấn → viết → test → đánh giá → tối ưu → đăng ký.",false,"skills/skill-creator/SKILL.md"
 "memory-keeper","meta","Sao lưu ngữ cảnh quan trọng vào kho lưu trữ Git. Bảo vệ tri thức hệ thống.",false,"skills/memory-keeper/SKILL.md"
 "multi-dimensional-review","meta","Đánh giá đa chiều 6 bước: Thu thập → Chấm điểm → Phản biện 8 góc → Phát hiện → Đối chiếu → Hành động.",false,"skills/multi-dimensional-review/SKILL.md"
