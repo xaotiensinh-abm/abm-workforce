@@ -73,10 +73,31 @@ log:
     skills_used: ["content-strategy", "social-content", "copywriting"]
     summary: "Content calendar tháng 4 — 30 posts Facebook + LinkedIn, chủ đề ra mắt sản phẩm"
 
-# --- KPI SUMMARY ---
+# --- KPI SUMMARY (cập nhật tự động bởi Jarvis) ---
 # Total tasks: 5
 # Success rate: 100% (5/5)
 # Avg confidence: 0.87
 # Retry rate: 4% (1 retry / 5 tasks)
-# Skills most used: copywriting (2), office-documents (2)
-# Agents most used: marketing-specialist (2)
+#
+# --- SKILL USAGE COUNTER ---
+# copywriting: 2 (TG-002, TG-005)
+# office-documents: 2 (TG-003, TG-004)
+# marketing-psychology: 1 (TG-002)
+# content-strategy: 1 (TG-005)
+# social-content: 1 (TG-005)
+# email-marketing: 1 (TG-002)
+# data-analysis: 1 (TG-003)
+# hr-operations: 1 (TG-001)
+# workflow-automation: 1 (TG-004)
+#
+# --- AGENT USAGE COUNTER ---
+# marketing-specialist: 2 (TG-002, TG-005)
+# business-analyst: 1 (TG-003)
+# hr-specialist: 1 (TG-001)
+# office-manager: 1 (TG-004)
+#
+# --- UNUSED SKILLS (12 NEW — chưa test) ---
+# competitive-landscape, market-sizing-analysis, startup-analyst,
+# deep-research, seo-content-planner, sales-automator,
+# competitor-intelligence, multi-agent-brainstorming, kaizen,
+# agent-improve, content-creator, startup-financial-modeling

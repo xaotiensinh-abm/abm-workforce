@@ -31,19 +31,37 @@ Jarvis sẽ tự classify → chọn pipeline → delegate → verify → trả 
 
 ---
 
-## 📋 9 Task Types
+## 📋 23 Task Types (tự động routing)
 
-| Type | Skills Auto-loaded | Agent | Pipeline |
-|------|-------------------|-------|----------|
-| marketing | content-strategy, copywriting, psychology | marketing-specialist | marketing-pipeline |
-| hr | hr-operations, internal-comms | hr-specialist | hr-pipeline |
-| report | data-analysis, office-documents | business-analyst | report-pipeline |
-| docs | office-documents, brainstorming | office-manager | document-pipeline |
-| bug | systematic-debugging, code-review | code-worker | bug-fix-pipeline |
-| feature | writing-plans, subagent-dev, code-review | code-worker | feature-pipeline |
-| refactor | writing-plans, code-review, git-worktrees | code-worker | refactor-pipeline |
-| automation | workflow-automation, data-analysis | automation-engineer | document-pipeline |
-| security | verification-before-completion | security-evaluator | (manual) |
+### Kinh doanh & Phân tích
+| Type | Agent | Khi nào |
+|------|-------|---------|
+| competitive | business-analyst | Phân tích đối thủ, cạnh tranh |
+| research | business-analyst | Nghiên cứu chuyên sâu |
+| startup | business-analyst | Phân tích kinh doanh, financial modeling |
+| report | business-analyst | Báo cáo KPI, data analysis |
+
+### Marketing & Sales
+| Type | Agent | Khi nào |
+|------|-------|---------|
+| marketing | marketing-specialist | Content, copywriting, chiến lược |
+| seo-planning | marketing-specialist | SEO content plan, topic clusters |
+| sales | marketing-specialist | Cold email, follow-up, proposals |
+| pricing | marketing-specialist | Chiến lược giá, CRO |
+| launch | marketing-specialist | Ra mắt sản phẩm |
+| cro | marketing-specialist | Tối ưu chuyển đổi |
+| retention | marketing-specialist | Giảm churn, email marketing |
+
+### Dev & Vận hành
+| Type | Agent | Khi nào |
+|------|-------|---------|
+| bug | code-worker | Sửa bug |
+| feature | code-worker | Tính năng mới |
+| refactor | code-worker | Refactor code |
+| hr | hr-specialist | JD, onboarding, review |
+| docs | office-manager | SOP, proposal, memo |
+| automation | automation-engineer | Tự động hóa workflow |
+| improvement | jarvis | Cải tiến hệ thống, tối ưu agent |
 
 ---
 
@@ -51,18 +69,20 @@ Jarvis sẽ tự classify → chọn pipeline → delegate → verify → trả 
 
 ```
 G:\AGY\
-├── .agents/workflows/    ← Slash commands (global)
+├── .agents/workflows/    ← Slash commands (8 lệnh)
 │   ├── jarvis.md         ← /jarvis
 │   ├── marketing.md      ← /marketing
 │   ├── hr.md             ← /hr
 │   ├── report.md         ← /report
 │   ├── docs.md           ← /docs
 │   ├── dev.md            ← /dev
-│   └── review.md         ← /review
+│   ├── review.md         ← /review
+│   └── skill-sync.md     ← /skill-sync (NEW)
 ├── _abm/                 ← ABM Core
-│   ├── bmm/agents/       ← 27 skills + 18 agents
+│   ├── bmm/agents/skills/ ← 48 skills
 │   ├── bmm/workflows/    ← 14 orchestration workflows
-│   └── bmm/data/         ← governance, contracts, attestations
+│   ├── TOP-10-SKILLS.md  ← Quick Start Guide (NEW)
+│   └── CHANGELOG.md      ← Lịch sử thay đổi (NEW)
 └── _abm-output/          ← Runtime output
     ├── task-log.yaml
     ├── contracts/
@@ -77,3 +97,9 @@ G:\AGY\
 2. **Dùng slash** — `/marketing` nhanh hơn giải thích
 3. **Tin Jarvis** — Jarvis tự chọn pipeline, skills, agent. Bạn chỉ cần approve
 4. **Escalate** — Nếu kết quả không ổn, nói "sửa lại" hoặc "escalate"
+
+## 📚 Tài Liệu Thêm
+
+- [TOP-10-SKILLS.md](_abm/TOP-10-SKILLS.md) — Bắt đầu nhanh với 10 skills hay dùng nhất
+- [HUONG-DAN-SU-DUNG.md](_abm/HUONG-DAN-SU-DUNG.md) — Hướng dẫn chi tiết
+- [CHANGELOG.md](_abm/CHANGELOG.md) — Lịch sử thay đổi

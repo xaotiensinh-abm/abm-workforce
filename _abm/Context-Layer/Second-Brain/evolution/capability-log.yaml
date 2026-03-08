@@ -61,14 +61,39 @@ log:
     files_added: 278
     note: "Restructure — same files, new organization"
 
-  - upgrade_id: "U-008"
-    date: "2026-03-08T12:00:00+07:00"
-    type: "brain"
-    description: "Second-Brain buildout: sessions, snapshots, patterns, crystallized knowledge"
-    score_before: 8.72
-    score_after: null
-    files_added: 8
+  - upgrade_id: "U-009"
+    date: "2026-03-09T01:00:00+07:00"
+    type: "skills-expansion"
+    description: "12 skills mới từ antigravity-awesome-skills (P0:7 + P1:5). 11 system fixes (metadata, routing, conflict-resolution, docs). Manifest 36→48."
+    score_before: 7.85
+    score_after: 7.95
+    files_added: 15
+    files_changed: 10
+    skills_added:
+      - competitive-landscape
+      - market-sizing-analysis
+      - startup-analyst
+      - deep-research
+      - seo-content-planner
+      - sales-automator
+      - competitor-intelligence
+      - multi-agent-brainstorming
+      - kaizen
+      - agent-improve
+      - content-creator
+      - startup-financial-modeling
+
+  - upgrade_id: "U-010"
+    date: "2026-03-09T01:20:00+07:00"
+    type: "knowledge"
+    description: "Deep research duyệt 48 skills. Knowledge-Base sync 21 skills thiếu (48/48). Tạo skill-catalog.md cho Second Brain."
+    score_before: 7.95
+    score_after: 8.45
+    files_added: 22
+    artifacts:
+      - "patterns/skill-catalog.md — catalog 48 skills + dependency map + quality metrics"
+      - "Knowledge-Base/ — synced 21 missing skills"
 
 # === EVOLUTION TIMELINE ===
-# 5.55 → 7.95 → 8.36 → 8.14 (weighted) → 8.72 → current
-# Total upgrades: 8 trong 1 session
+# 5.55 → 7.95 → 8.36 → 8.14 (weighted) → 8.72 → 7.85 (full review) → 7.95 (P0 fix) → 8.45 (knowledge)
+# Total upgrades: 10

@@ -1,5 +1,5 @@
-# Bảng kê Kỹ năng — ABM Workforce (36 Skills)
-# Cập nhật: 2026-03-08 — Phiên bản Tiếng Việt
+# Bảng kê Kỹ năng — ABM Workforce (48 Skills)
+# Cập nhật: 2026-03-09 — Phiên bản Tiếng Việt
 
 # === KỸ NĂNG HỆ THỐNG / META (8) ===
 name,category,description,mandatory,path
@@ -53,3 +53,19 @@ name,category,description,mandatory,path
 # === KỸ NĂNG PHÂN TÍCH (2) ===
 "data-analysis","phân tích","Bảng KPI, phân tích xu hướng, insight từ dữ liệu kinh doanh.",false,"skills/data-analysis/SKILL.md"
 "workflow-automation","tự động hóa","Chuyển SOP thành tự động hóa: trigger → action. Tính ROI.",false,"skills/workflow-automation/SKILL.md"
+
+# === KỸ NĂNG P0 — BỔ SUNG TỪ ANTIGRAVITY-AWESOME-SKILLS (7) ===
+"competitive-landscape","phân tích","Phân tích bối cảnh cạnh tranh — Porter's Five Forces, đánh giá đối thủ, chiến lược định vị thị trường.",false,"skills/competitive-landscape/SKILL.md"
+"market-sizing-analysis","phân tích","Phân tích quy mô thị trường — tính TAM/SAM/SOM bằng 3 phương pháp: top-down, bottom-up, value theory.",false,"skills/market-sizing-analysis/SKILL.md"
+"startup-analyst","phân tích","Chuyên gia phân tích startup — market sizing, financial modeling, competitive analysis, strategic planning.",false,"skills/startup-analyst/SKILL.md"
+"deep-research","phân tích","Nghiên cứu chuyên sâu đa bước — phân tích thị trường, rà soát đối thủ, tổng quan kỹ thuật, due diligence.",false,"skills/deep-research/SKILL.md"
+"seo-content-planner","marketing","Lập kế hoạch nội dung SEO — topic clusters, content calendar, phân tích khoảng trống nội dung.",false,"skills/seo-content-planner/SKILL.md"
+"sales-automator","marketing","Tự động hóa bán hàng — cold email sequences, follow-up, proposal, case studies, objection handling.",false,"skills/sales-automator/SKILL.md"
+"competitor-intelligence","phân tích","Thu thập thông tin đối thủ — phân tích chiến lược, nội dung, giá cả, quảng cáo qua nhiều kênh.",false,"skills/competitor-intelligence/SKILL.md"
+
+# === KỸ NĂNG P1 — BỔ SUNG TỪ ANTIGRAVITY-AWESOME-SKILLS (5) ===
+"multi-agent-brainstorming","meta","Brainstorming đa agent — review thiết kế có cấu trúc với 5 vai trò agent, 3 giai đoạn.",false,"skills/multi-agent-brainstorming/SKILL.md"
+"kaizen","meta","Cải tiến liên tục Kaizen — 4 trụ cột: cải tiến từng bước, chống lỗi, chuẩn hóa, Just-In-Time.",false,"skills/kaizen/SKILL.md"
+"agent-improve","meta","Cải thiện agent — phân tích hiệu suất, prompt engineering, testing, triển khai có kiểm soát.",false,"skills/agent-improve/SKILL.md"
+"content-creator","marketing","Tạo nội dung SEO-optimized với brand voice nhất quán — blog, social media, content calendar.",false,"skills/content-creator/SKILL.md"
+"startup-financial-modeling","phân tích","Mô hình tài chính startup — doanh thu cohort-based, chi phí, cash flow, scenario analysis 3 kịch bản.",false,"skills/startup-financial-modeling/SKILL.md"

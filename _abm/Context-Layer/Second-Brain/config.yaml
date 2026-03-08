@@ -2,7 +2,7 @@
 # Cấu hình trung tâm cho hệ thống bộ nhớ ABM Workforce
 
 system: "ABM Workforce — Second Brain"
-version: "2.0.0"
+version: "2.1.0"
 owner: "jarvis-orchestrator"
 
 # === CẤU TRÚC 4 TẦNG ===
@@ -42,3 +42,4 @@ integration:
   capability_evolver: "Ghi kết quả → evolution/capability-log.yaml"
   context_engineering: "Layer 5 (History) đọc từ Second-Brain"
   heartbeat: "Check session end → trigger memory-keeper"
+  skill_catalog: "patterns/skill-catalog.md — knowledge map cho 48 skills"

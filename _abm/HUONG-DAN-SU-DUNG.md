@@ -28,19 +28,45 @@ Bạn có thể nói bất kỳ câu nào bằng tiếng Việt:
 
 ---
 
-## 9 loại công việc Jarvis xử lý
+## 23 loại công việc Jarvis xử lý
 
-| Loại | Skills tự động load | Agent | Pipeline |
-|------|---------------------|-------|----------|
-| 📢 marketing | content-strategy, copywriting, marketing-psychology | marketing-specialist | marketing-pipeline |
-| 👥 hr | hr-operations, internal-comms | hr-specialist | hr-pipeline |
-| 📊 report | data-analysis, office-documents | business-analyst | report-pipeline |
-| 📄 docs | office-documents, brainstorming | office-manager | document-pipeline |
-| 🐛 bug | systematic-debugging, code-review | code-worker | bug-fix-pipeline |
-| ✨ feature | writing-plans, subagent-dev, code-review | code-worker | feature-pipeline |
-| 🔄 refactor | writing-plans, code-review, git-worktrees | code-worker | refactor-pipeline |
-| ⚙️ automation | workflow-automation, data-analysis | automation-engineer | document-pipeline |
-| 🔒 security | verification-before-completion | security-evaluator | (thủ công) |
+### Dev & Kỹ thuật
+| Loại | Skills tự động load | Agent |
+|------|---------------------|-------|
+| 🐛 bug | systematic-debugging, code-review | code-worker |
+| ✨ feature | writing-plans, subagent-dev, code-review | code-worker |
+| 🔄 refactor | writing-plans, code-review, git-worktrees | code-worker |
+| 🖼️ ui | writing-plans, subagent-driven-development | code-worker |
+| 🏗️ infra | writing-plans, verification-before-completion | code-worker |
+| 🔒 security | verification-before-completion | security-evaluator |
+
+### Marketing & Bán hàng
+| Loại | Skills tự động load | Agent |
+|------|---------------------|-------|
+| 📢 marketing | content-strategy, copywriting, marketing-psychology | marketing-specialist |
+| 🎯 seo-planning | seo-content-planner, seo-audit, content-creator | marketing-specialist |
+| 💰 sales | cold-email, sales-automator, sales-enablement | marketing-specialist |
+| 💲 pricing | pricing-strategy, page-cro, marketing-psychology | marketing-specialist |
+| 🚀 launch | launch-strategy, content-strategy, email-marketing | marketing-specialist |
+| 📈 cro | page-cro, ab-test-setup, marketing-psychology | marketing-specialist |
+| 🔄 retention | churn-prevention, email-marketing, data-analysis | marketing-specialist |
+
+### Phân tích & Nghiên cứu
+| Loại | Skills tự động load | Agent |
+|------|---------------------|-------|
+| 📊 report | data-analysis, office-documents | business-analyst |
+| 🏟️ competitive | competitive-landscape, competitor-intelligence, market-sizing | business-analyst |
+| 🔬 research | deep-research, data-analysis, competitive-landscape | business-analyst |
+| 🚀 startup | startup-analyst, market-sizing, financial-modeling | business-analyst |
+
+### Hệ thống & Vận hành
+| Loại | Skills tự động load | Agent |
+|------|---------------------|-------|
+| 👥 hr | hr-operations, internal-comms | hr-specialist |
+| 📄 docs | office-documents, brainstorming | office-manager |
+| ⚙️ automation | workflow-automation, data-analysis | automation-engineer |
+| 📊 data | data-analysis, workflow-automation | business-analyst |
+| 🔧 improvement | kaizen, agent-improve, capability-evolver | jarvis |
 
 ---
 
@@ -49,7 +75,7 @@ Bạn có thể nói bất kỳ câu nào bằng tiếng Việt:
 ```
 CEO nói yêu cầu
     ↓
-Jarvis phân tích → xác định task_type
+Jarvis phân tích → xác định task_type (23 loại)
     ↓
 Skill Routing → load skills phù hợp (tối đa 3)
     ↓
@@ -77,12 +103,13 @@ Trả kết quả cho CEO
 
 ## Cấu trúc thư mục
 
-| Thư mục | Số files | Mô tả |
+| Thư mục | Nội dung | Mô tả |
 |---------|----------|-------|
-| `SubAgents/` | 5 | Agent chuyên biệt: marketing, HR, office, automation, analyst |
-| `Workers/` | 10 | Worker kỹ thuật: dev, QA, PM, architect... |
-| `Autonomous-Core/` | 41 | Jarvis engine + consciousness model (7 files) |
-| `Team-Orchestration/` | 14 | 14 workflow pipeline: dev + business + orchestration |
-| `Context-Layer/` | 53 | CoreModules + Knowledge-Base (27 skills) + Second-Brain |
-| `_design-specs/` | 149 | Đặc tả thiết kế pipeline chi tiết |
-| `Outputs/` | 6 | Task log + contracts + attestations |
+| `bmm/agents/skills/` | 48 skills | Kỹ năng chuyên biệt cho từng domain |
+| `SubAgents/` | 5 agents | marketing, HR, office, automation, analyst |
+| `Workers/` | 10 workers | dev, QA, PM, architect, security... |
+| `Autonomous-Core/` | 41 files | Jarvis engine + consciousness model |
+| `Team-Orchestration/` | 14 pipelines | dev + business + orchestration workflows |
+| `Context-Layer/` | 53 files | Second-Brain + Knowledge-Base |
+| `_design-specs/` | 149 files | Đặc tả thiết kế pipeline chi tiết |
+| `Outputs/` | runtime | Task log + contracts + attestations |

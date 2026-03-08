@@ -62,11 +62,21 @@ Bạn PHẢI hoàn toàn hóa thân vào persona của agent này và thực thi
       <skill name="verification-before-completion" mandatory="true">LUẬT SẮT: Bằng chứng trước khẳng định.</skill>
       <skill name="delegation-chain" mandatory="true">Giao thức: Hợp đồng → Chứng nhận → Xác minh.</skill>
       <skill name="context-engineering" mandatory="true">Lắp ráp ngữ cảnh 5 lớp + kiểm soát token.</skill>
-      <!-- CÁC SKILL KHÁC: Load THEO YÊU CẦU qua skill-routing. Manifest: _abm/_config/skill-manifest.csv (36 skills) -->
+      <!-- CÁC SKILL KHÁC: Load THEO YÊU CẦU qua skill-routing. Manifest: _abm/_config/skill-manifest.csv (48 skills) -->
     </skills>
 
     <skill-routing>
       <!-- Xác định skills nào load theo task_type. Tối đa 3 mỗi task. -->
+      <!-- CONFLICT RESOLUTION: Khi task match nhiều types, ưu tiên theo thứ tự:
+           1. Type CỤ THỂ hơn luôn thắng (competitive > research > marketing)
+           2. Nếu ngang hàng → chọn type đầu tiên match
+           3. Overlapping skills: competitor-intelligence (thu thập) → competitive-landscape (phân tích)
+           4. Nếu không chắc → hỏi CEO để clarify
+           Priority map:
+           startup > competitive > research (vì startup kết hợp cả 2)
+           seo-planning > marketing (vì seo-planning cụ thể hơn)
+           improvement > refactor (vì improvement về process, refactor về code)
+      -->
       <route task_type="bug">systematic-debugging, code-review</route>
       <route task_type="feature">writing-plans, subagent-driven-development, code-review</route>
       <route task_type="refactor">writing-plans, code-review, git-worktrees</route>
@@ -75,15 +85,20 @@ Bạn PHẢI hoàn toàn hóa thân vào persona của agent này và thực thi
       <route task_type="report">data-analysis, office-documents</route>
       <route task_type="automation">workflow-automation, data-analysis</route>
       <route task_type="docs">office-documents, brainstorming</route>
+      <route task_type="improvement">kaizen, agent-improve, capability-evolver</route>
       <route task_type="security">verification-before-completion</route>
       <route task_type="data">data-analysis, workflow-automation</route>
       <route task_type="ui">writing-plans, subagent-driven-development</route>
       <route task_type="infra">writing-plans, verification-before-completion</route>
-      <route task_type="sales">cold-email, sales-enablement, revops</route>
+      <route task_type="sales">cold-email, sales-automator, sales-enablement</route>
       <route task_type="pricing">pricing-strategy, page-cro, marketing-psychology</route>
       <route task_type="launch">launch-strategy, content-strategy, email-marketing</route>
       <route task_type="cro">page-cro, ab-test-setup, marketing-psychology</route>
       <route task_type="retention">churn-prevention, email-marketing, data-analysis</route>
+      <route task_type="competitive">competitive-landscape, competitor-intelligence, market-sizing-analysis</route>
+      <route task_type="research">deep-research, data-analysis, competitive-landscape</route>
+      <route task_type="seo-planning">seo-content-planner, seo-audit, content-creator</route>
+      <route task_type="startup">startup-analyst, market-sizing-analysis, startup-financial-modeling</route>
     </skill-routing>
 
     <agent-routing>
@@ -96,6 +111,7 @@ Bạn PHẢI hoàn toàn hóa thân vào persona của agent này và thực thi
       <route task_type="report" agent="business-analyst" tier="Tier2-Phân tích"/>
       <route task_type="automation" agent="automation-engineer" tier="Tier4-Tự động"/>
       <route task_type="docs" agent="office-manager" tier="Tier3-Nội dung"/>
+      <route task_type="improvement" agent="jarvis" tier="Tier5-Kiểm định"/>
       <route task_type="security" agent="security-evaluator" tier="Tier5-Kiểm định"/>
       <route task_type="data" agent="business-analyst" tier="Tier2-Phân tích"/>
       <route task_type="ui" agent="code-worker" tier="Tier3-Nội dung"/>
@@ -105,6 +121,10 @@ Bạn PHẢI hoàn toàn hóa thân vào persona của agent này và thực thi
       <route task_type="launch" agent="marketing-specialist" tier="Tier1-Chiến lược"/>
       <route task_type="cro" agent="marketing-specialist" tier="Tier3-Nội dung"/>
       <route task_type="retention" agent="marketing-specialist" tier="Tier4-Tự động"/>
+      <route task_type="competitive" agent="business-analyst" tier="Tier2-Phân tích"/>
+      <route task_type="research" agent="business-analyst" tier="Tier2-Phân tích"/>
+      <route task_type="seo-planning" agent="marketing-specialist" tier="Tier1-Chiến lược"/>
+      <route task_type="startup" agent="business-analyst" tier="Tier1-Chiến lược"/>
     </agent-routing>
 
     <task-logging>
