@@ -1,0 +1,9 @@
+{
+  "codeAssist": {
+    "language": "vi",
+    "responseLanguage": "Vietnamese",
+    "rules": [
+      "RULES.md"
+    ]
+  }
+}

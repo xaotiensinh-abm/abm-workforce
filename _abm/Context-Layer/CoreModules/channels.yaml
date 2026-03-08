@@ -1,0 +1,94 @@
+# Multi-Channel Delivery Configuration
+# Defines how Jarvis connects to external messaging channels
+# Based on CLAWDBOT's openclaw.json channel architecture
+
+# === CHANNEL DEFINITIONS ===
+channels:
+  # --- Telegram (Primary CEO channel) ---
+  telegram:
+    enabled: false  # Set true when bot token configured
+    bot_token: ""   # @BotFather token
+    dm_policy: "allowlist"  # open | allowlist
+    group_policy: "allowlist"
+    allow_from: []  # Telegram user IDs
+    streaming: "partial"
+    features:
+      - "text_messages"
+      - "file_upload"
+      - "inline_keyboards"
+      - "voice_messages"  # → Whisper transcription
+    use_for:
+      - "CEO commands"
+      - "Task status notifications"
+      - "Quick approvals (human gates)"
+      - "Report delivery"
+
+  # --- Zalo (Vietnamese business channel) ---
+  zalo:
+    enabled: false
+    profile: "default"
+    dm_policy: "allowlist"
+    group_policy: "allowlist"
+    allow_from: []
+    features:
+      - "text_messages"
+      - "file_sharing"
+      - "OA_broadcasts"  # Official Account broadcasts
+    use_for:
+      - "Customer communication"
+      - "Team notifications"
+      - "Marketing broadcasts"
+
+  # --- Slack (Team collaboration) ---
+  slack:
+    enabled: false
+    mode: "socket"
+    bot_token: ""
+    app_token: ""
+    group_policy: "allowlist"
+    streaming: "partial"
+    channels: {}
+    features:
+      - "text_messages"
+      - "threads"
+      - "reactions"
+      - "file_sharing"
+      - "slash_commands"
+    use_for:
+      - "Team task assignment"
+      - "CI/CD notifications"
+      - "Cross-team updates"
+
+  # --- Email (Formal communication) ---
+  email:
+    enabled: false
+    smtp_host: ""
+    smtp_port: 587
+    from_address: ""
+    features:
+      - "send_email"
+      - "html_templates"
+      - "attachments"
+    use_for:
+      - "Marketing email sequences"
+      - "Formal reports to stakeholders"
+      - "Client proposals"
+      - "HR communications"
+
+# === ROUTING RULES ===
+# Determines which channel to use for what
+routing:
+  ceo_commands: "telegram"  # Primary command channel
+  team_updates: "slack"     # Internal team notifications
+  client_comms: "zalo"      # Customer-facing messages
+  formal_docs: "email"      # Official documents and reports
+  approval_gates: "telegram" # Human gate approval requests
+
+# === SECURITY ===
+security:
+  elevated_tools:
+    enabled: true
+    require_channel_auth: true  # Commands with side-effects require authenticated channel
+  sensitive_data:
+    redact_in_channels: true    # Redact PII in messaging channels
+    allowed_channels: ["telegram"]  # Only certain channels can see sensitive data

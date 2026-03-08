@@ -1,0 +1,99 @@
+# Team: Enterprise Vibe Working
+# Full business operations team with all enterprise agents + skills
+
+name: "team-enterprise-vibe"
+description: "Enterprise team for Vibe Working — business operations, marketing, HR, and office automation"
+
+# Lead Orchestrator (always present)
+lead:
+  agent: "jarvis-orchestrator"
+  role: "Lead Orchestrator — delegates and verifies all business tasks"
+
+# Business Operations Workers
+workers:
+  # Marketing & Content
+  - agent: "marketing-specialist"
+    role: "Marketing Strategist"
+    skills:
+      - content-strategy
+      - copywriting
+      - social-content
+      - email-marketing
+      - marketing-psychology
+      - seo-audit
+    use_for:
+      - "Content calendar planning"
+      - "Copywriting for all channels"
+      - "Social media strategy"
+      - "Email campaigns"
+      - "SEO optimization"
+
+  # HR & People  
+  - agent: "hr-specialist"
+    role: "HR Operations Manager"
+    skills:
+      - hr-operations
+      - internal-comms
+      - office-documents
+    use_for:
+      - "Job descriptions"
+      - "Onboarding checklists"
+      - "Performance reviews"
+      - "Training plans"
+      - "Internal communications"
+
+  # Office & Documents
+  - agent: "office-manager"
+    role: "Office Document Specialist"
+    skills:
+      - office-documents
+      - internal-comms
+      - brainstorming
+      - data-analysis
+    use_for:
+      - "Business reports"
+      - "Proposals & decks"
+      - "Meeting minutes"
+      - "SOPs"
+      - "Analysis & insights"
+
+  # Automation & Process
+  - agent: "automation-engineer"
+    role: "Process Automation Specialist"
+    skills:
+      - workflow-automation
+      - data-analysis
+    use_for:
+      - "Identify automation opportunities"
+      - "Design automated workflows"
+      - "KPI dashboards"
+      - "Report generation"
+
+  # Strategy & Analysis
+  - agent: "business-analyst"
+    role: "Business Strategy Analyst"
+    skills:
+      - data-analysis
+      - brainstorming
+      - marketing-psychology
+    use_for:
+      - "Market research"
+      - "Competitive analysis"
+      - "Strategic planning"
+      - "Business case preparation"
+
+# Technical Support (from core team)
+technical:
+  - agent: "dev"
+    role: "Code Worker (khi cần development)"
+  - agent: "qa"
+    role: "QA (khi cần testing)"
+
+# Security (always active for sensitive business data)
+security:
+  - agent: "security-evaluator"
+    role: "Data Security Guardian"
+    auto_trigger:
+      - "employee data operations"
+      - "financial data handling"
+      - "customer PII processing"

@@ -1,0 +1,55 @@
+# Bảng kê Kỹ năng — ABM Workforce (36 Skills)
+# Cập nhật: 2026-03-08 — Phiên bản Tiếng Việt
+
+# === KỸ NĂNG HỆ THỐNG / META (8) ===
+name,category,description,mandatory,path
+"delegation-chain","hệ thống","Giao thức cốt lõi: Hợp đồng → Chứng nhận → Xác minh. Trách nhiệm luôn đi lên.",true,"skills/delegation-chain/SKILL.md"
+"verification-before-completion","hệ thống","LUẬT SẮT: Phải có bằng chứng trước khi chấp nhận kết quả. Không ngoại lệ.",true,"skills/verification-before-completion/SKILL.md"
+"context-engineering","hệ thống","Lắp ráp ngữ cảnh 5 lớp + kiểm soát ngân sách token. Tối ưu context window.",true,"skills/context-engineering/SKILL.md"
+"knowledge-crystallizer","meta","Giao thức Tinh chế Tri thức — phân tích lịch sử, phát hiện patterns, trích xuất bài học.",false,"skills/knowledge-crystallizer/SKILL.md"
+"capability-evolver","meta","Động cơ tự tiến hóa: Tự soi → Chẩn đoán → Tiến hóa → Xác nhận → Lưu trữ.",false,"skills/capability-evolver/SKILL.md"
+"skill-creator","meta","Tạo và cải thiện kỹ năng mới cho hệ thống ABM. 7 pha: thu thập → phỏng vấn → viết → test → đánh giá → tối ưu → đăng ký.",false,"skills/skill-creator/SKILL.md"
+"memory-keeper","meta","Sao lưu ngữ cảnh quan trọng vào kho lưu trữ Git. Bảo vệ tri thức hệ thống.",false,"skills/memory-keeper/SKILL.md"
+"multi-dimensional-review","meta","Đánh giá đa chiều 6 bước: Thu thập → Chấm điểm → Phản biện 8 góc → Phát hiện → Đối chiếu → Hành động.",false,"skills/multi-dimensional-review/SKILL.md"
+
+# === KỸ NĂNG PHÁT TRIỂN (7) ===
+"subagent-driven-development","phát triển","Mỗi task = 1 subagent mới + review 2 giai đoạn. Đảm bảo code sạch.",false,"skills/subagent-driven-development/SKILL.md"
+"dispatching-parallel-agents","phát triển","Chia công việc song song cho nhiều agent độc lập. Tăng tốc xử lý.",false,"skills/dispatching-parallel-agents/SKILL.md"
+"writing-plans","phát triển","Viết kế hoạch triển khai TDD nhỏ gọn, từng bước một.",false,"skills/writing-plans/SKILL.md"
+"code-review","phát triển","Review code 2 giai đoạn: tổng quan → chi tiết. Phát hiện lỗi sớm.",false,"skills/code-review/SKILL.md"
+"systematic-debugging","phát triển","Gỡ lỗi hệ thống 6 bước: từ triệu chứng đến nguyên nhân gốc.",false,"skills/systematic-debugging/SKILL.md"
+"finishing-a-development-branch","phát triển","Hoàn thành nhánh dev: merge, tạo PR, hoặc loại bỏ.",false,"skills/finishing-a-development-branch/SKILL.md"
+"git-worktrees","phát triển","Không gian làm việc Git riêng biệt cho phát triển song song.",false,"skills/git-worktrees/SKILL.md"
+
+# === KỸ NĂNG MARKETING — Content & Copy (6) ===
+"product-marketing-context","marketing","Nền tảng marketing — tạo tài liệu ngữ cảnh sản phẩm 12 sections. MỌI skill marketing đọc file này TRƯỚC.",false,"skills/product-marketing-context/SKILL.md"
+"content-strategy","marketing","Chiến lược nội dung: trụ cột, nghiên cứu từ khóa, lịch đăng bài.",false,"skills/content-strategy/SKILL.md"
+"copywriting","marketing","Viết copy chuyên nghiệp cho mọi kênh: landing page, email, quảng cáo, social.",false,"skills/copywriting/SKILL.md"
+"social-content","marketing","Công thức hook social media, tái sử dụng nội dung, tăng tương tác.",false,"skills/social-content/SKILL.md"
+"email-marketing","marketing","Chuỗi email tự động: chào mừng, nuôi dưỡng, chuyển đổi, tái kích hoạt.",false,"skills/email-marketing/SKILL.md"
+"marketing-psychology","marketing","50+ mô hình tâm lý thuyết phục: khan hiếm, uy tín, bằng chứng xã hội.",false,"skills/marketing-psychology/SKILL.md"
+
+# === KỸ NĂNG MARKETING — CRO & SEO (3) ===
+"page-cro","marketing","Tối ưu tỷ lệ chuyển đổi CRO — 7 trụ cột: value prop, headline, CTA, visual, trust, objection, friction.",false,"skills/page-cro/SKILL.md"
+"seo-audit","marketing","Kiểm tra SEO kỹ thuật + on-page. Tối ưu website cho tìm kiếm.",false,"skills/seo-audit/SKILL.md"
+"ab-test-setup","marketing","Thiết kế A/B test: hypothesis, variants, sample size, phân tích kết quả data-driven.",false,"skills/ab-test-setup/SKILL.md"
+
+# === KỸ NĂNG MARKETING — Sales & Strategy (5) ===
+"cold-email","marketing","Cold email B2B — outreach, follow-up sequence 5 bước, personalization, benchmarks.",false,"skills/cold-email/SKILL.md"
+"sales-enablement","marketing","Tài liệu bán hàng: sales deck, one-pager, battle cards, demo script.",false,"skills/sales-enablement/SKILL.md"
+"revops","marketing","Revenue Operations — lead scoring, pipeline management, lifecycle, metrics.",false,"skills/revops/SKILL.md"
+"pricing-strategy","marketing","Chiến lược giá: 3 trục, Van Westendorp, value metrics, tier structure, tâm lý giá.",false,"skills/pricing-strategy/SKILL.md"
+"launch-strategy","marketing","Ra mắt sản phẩm: ORB Framework, 5-phase launch, Product Hunt playbook.",false,"skills/launch-strategy/SKILL.md"
+
+# === KỸ NĂNG MARKETING — Retention (1) ===
+"churn-prevention","marketing","Ngăn rời bỏ: cancel flow, save offers theo lý do, dunning, win-back sequence.",false,"skills/churn-prevention/SKILL.md"
+
+# === KỸ NĂNG VĂN PHÒNG & NHÂN SỰ (4) ===
+"internal-comms","văn phòng","Cập nhật 3P, bản tin nội bộ, báo cáo sự cố.",false,"skills/internal-comms/SKILL.md"
+"hr-operations","văn phòng","Tuyển dụng (JD), onboarding, đánh giá hiệu suất, đào tạo, offboarding.",false,"skills/hr-operations/SKILL.md"
+"office-documents","văn phòng","Báo cáo, đề xuất, SOP, biên bản họp, ghi nhớ công việc.",false,"skills/office-documents/SKILL.md"
+"brainstorming","văn phòng","Phát tán/hội tụ ý tưởng, canvas, ma trận ưu tiên.",false,"skills/brainstorming/SKILL.md"
+
+# === KỸ NĂNG PHÂN TÍCH (2) ===
+"data-analysis","phân tích","Bảng KPI, phân tích xu hướng, insight từ dữ liệu kinh doanh.",false,"skills/data-analysis/SKILL.md"
+"workflow-automation","tự động hóa","Chuyển SOP thành tự động hóa: trigger → action. Tính ROI.",false,"skills/workflow-automation/SKILL.md"

@@ -1,0 +1,30 @@
+# Tiêu Chuẩn Tài Liệu — ABM Workforce
+# Quy tắc format cho mọi output của hệ thống
+
+standards:
+  general:
+    language: "Vietnamese — mặc định cho mọi output"
+    tone: "Chuyên nghiệp, trực tiếp, hướng hành động"
+    format: "Markdown — headers, tables, lists"
+    
+  documents:
+    structure: "Title → Executive Summary → Details → Action Items"
+    summary_length: "≤200 words"
+    action_items: "PHẢI có: gì, ai, khi nào"
+    no_placeholder: "KHÔNG CÓ text placeholder — mọi section phải được điền"
+
+  reports:
+    requirement: "Mọi insight PHẢI backed by specific data"
+    format: "Executive Summary → KPI Dashboard → Analysis → Recommendations"
+    charts: "Mô tả chart rõ ràng — axes, values, trends"
+    
+  code:
+    review: "2 giai đoạn: overview → detail"
+    comments: "Tiếng Việt cho business logic, tiếng Anh cho technical"
+    testing: "Test case trước, code sau (TDD-lite)"
+
+  naming:
+    files: "kebab-case cho tên file (ví dụ: success-patterns.yaml)"
+    skills: "kebab-case, duy nhất trong manifest"
+    agents: "kebab-case, có SOUL.md"
+    workflows: "{action}-pipeline (ví dụ: marketing-pipeline)"

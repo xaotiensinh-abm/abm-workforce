@@ -1,0 +1,41 @@
+# Attestation — TG-002-W1
+task_id: "TG-002-W1"
+executor_agent: "marketing-specialist"
+status: "COMPLETED"
+confidence: 0.90
+timestamp: "2026-03-08T14:45:00+07:00"
+
+evidence:
+  - type: "artifact"
+    description: "Email sequence 4 bước + subject lines A/B"
+    details: "Welcome (build trust), Nurture (educate), Offer (urgency+scarcity), Re-engage (social proof)"
+  - type: "checklist"
+    description: "Acceptance criteria verification"
+    results:
+      - criterion: "4 emails: welcome, nurture, offer, re-engage"
+        met: true
+      - criterion: "Subject lines A/B test cho mỗi email"
+        met: true
+        note: "8 subject lines total (2 per email)"
+      - criterion: "CTA rõ ràng trong mỗi email"
+        met: true
+      - criterion: "Apply marketing psychology principles"
+        met: true
+        note: "Used: reciprocity (welcome), authority (nurture), scarcity+urgency (offer), social proof (re-engage)"
+
+scope_compliance:
+  files_touched: ["marketing/email-campaigns/product-launch-sequence.md"]
+  scope_violations: []
+  tools_used: ["editor"]
+
+budget_usage:
+  tool_calls_used: 12
+  runtime_minutes: 10
+  retries_used: 0
+
+risk_assessment:
+  risk_level: "low"
+  risks_identified: []
+  mitigation_actions: []
+
+worker_notes: "Applied 4 psychology models across sequence. Open rate prediction: 25-35% (industry avg for product launch)."

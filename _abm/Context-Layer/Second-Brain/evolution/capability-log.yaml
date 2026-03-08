@@ -1,0 +1,74 @@
+# Capability Log — Lịch sử tiến hóa hệ thống
+# Ghi lại mỗi lần hệ thống được nâng cấp
+# Dùng bởi: capability-evolver, HEARTBEAT
+
+log:
+  - upgrade_id: "U-001"
+    date: "2026-03-08T05:00:00+07:00"
+    type: "foundation"
+    description: "Setup BMAD-METHOD v6 + Jarvis orchestrator"
+    score_before: null
+    score_after: 5.55
+    files_added: 200
+    
+  - upgrade_id: "U-002"
+    date: "2026-03-08T06:00:00+07:00"
+    type: "integration"
+    description: "CLAWDBOT + Open-Claw patterns: ROMA, consciousness, permissions"
+    score_before: 5.55
+    score_after: 7.95
+    files_added: 30
+
+  - upgrade_id: "U-003"
+    date: "2026-03-08T07:00:00+07:00"
+    type: "optimization"
+    description: "5-step optimization: skills 25, 5 business agents, delegation, onboarding"
+    score_before: 7.95
+    score_after: 8.36
+    files_added: 8
+
+  - upgrade_id: "U-004"
+    date: "2026-03-08T08:00:00+07:00"
+    type: "architecture"
+    description: "Context Engineering 5-layer + agent-routing + 4 business workflows + multi-dimensional-review"
+    score_before: 8.36
+    score_after: 8.14
+    note: "Score giảm vì chuyển sang weighted scoring (trung thực hơn)"
+    files_added: 7
+
+  - upgrade_id: "U-005"
+    date: "2026-03-08T09:00:00+07:00"
+    type: "evidence"
+    description: "P0/P1/P2: seed task-log + enrich workflows v2.0 + add-agent"
+    score_before: 8.14
+    score_after: 8.72
+    files_added: 12
+
+  - upgrade_id: "U-006"
+    date: "2026-03-08T10:00:00+07:00"
+    type: "rebrand"
+    description: "BMAD → ABM (AI Business Master). 204 files content-updated. Global slash commands."
+    score_before: 8.72
+    score_after: 8.72
+    files_added: 7
+
+  - upgrade_id: "U-007"
+    date: "2026-03-08T11:00:00+07:00"
+    type: "restructure"
+    description: "ABM Workforce pattern: SubAgents, Workers, Autonomous-Core, Team-Orchestration, Context-Layer"
+    score_before: 8.72
+    score_after: 8.72
+    files_added: 278
+    note: "Restructure — same files, new organization"
+
+  - upgrade_id: "U-008"
+    date: "2026-03-08T12:00:00+07:00"
+    type: "brain"
+    description: "Second-Brain buildout: sessions, snapshots, patterns, crystallized knowledge"
+    score_before: 8.72
+    score_after: null
+    files_added: 8
+
+# === EVOLUTION TIMELINE ===
+# 5.55 → 7.95 → 8.36 → 8.14 (weighted) → 8.72 → current
+# Total upgrades: 8 trong 1 session

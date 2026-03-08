@@ -1,0 +1,40 @@
+task_id: "TG-002-W1"
+parent_task_id: "TG-002"
+delegation_level: 1
+owner_agent: "jarvis-orchestrator"
+executor_agent: "marketing-specialist"
+objective: "Viết email sequence 4 bước giới thiệu sản phẩm mới cho 1000 subscribers"
+scope_in:
+  - "marketing/email-campaigns/"
+scope_out:
+  - "production/"
+  - "database/"
+workspace: "main"
+allowed_tools: ["editor", "read_files"]
+allowed_mcp_resources: []
+required_artifacts: ["email_sequence", "subject_lines_ab"]
+handoff_format: "structured_markdown"
+acceptance_criteria:
+  - "4 emails: welcome, nurture, offer, re-engage"
+  - "Subject lines A/B test cho mỗi email"
+  - "CTA rõ ràng trong mỗi email"
+  - "Apply marketing psychology principles"
+budget:
+  max_tool_calls: 20
+  max_runtime_minutes: 15
+  max_retries: 2
+  max_spawn_depth: 0
+  max_children: 0
+roma:
+  tier: "Tier3-Content"
+  pipeline_position: 2
+  upstream_task_id: ""
+  downstream_task_id: ""
+risk_level: "low"
+requires_human_gate: false
+requires_security_eval: false
+context_files: []
+context_artifacts: []
+context_knowledge_items: []
+required_skills: ["email-marketing", "copywriting"]
+recommended_skills: ["marketing-psychology"]

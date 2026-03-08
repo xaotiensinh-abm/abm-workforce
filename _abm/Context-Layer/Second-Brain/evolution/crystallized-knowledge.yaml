@@ -1,0 +1,35 @@
+# Crystallized Knowledge — Tri thức tinh chế
+# Output từ knowledge-crystallizer skill
+# Mỗi entry = 1 insight quan trọng trích xuất từ nhiều tasks
+
+crystals:
+  - crystal_id: "CK-001"
+    title: "Marketing Psychology Framework"
+    source_tasks: ["TG-002-W1", "TG-005-W1"]
+    insight: |
+      Email marketing hiệu quả nhất khi mỗi email trong sequence 
+      sử dụng 1 mô hình tâm lý KHÁC NHAU. Không lặp lại.
+      Thứ tự: Reciprocity → Authority → Scarcity → Social Proof
+    actionable: "Apply 4-model sequence cho mọi email campaign"
+    confidence: 0.9
+
+  - crystal_id: "CK-002"
+    title: "Report = Data + Story"
+    source_tasks: ["TG-003-W1"]
+    insight: |
+      CEO đọc executive summary TRƯỚC. Nếu summary không convince → 
+      không đọc tiếp. Mỗi insight PHẢI backed by specific number.
+      "Doanh thu tăng 15%" > "Doanh thu tăng".
+    actionable: "Executive summary luôn chứa 3 con số quan trọng nhất"
+    confidence: 0.85
+
+  - crystal_id: "CK-003"
+    title: "System Evolution = Evidence-Driven"
+    source_tasks: ["S-001", "S-002"]
+    insight: |
+      Hệ thống tốt cần 3 thứ: Spec + Evidence + Iteration.
+      Chỉ có Spec = 5.55/10. Spec + Evidence = 8.72/10.
+      Key lesson: Auditor perspective quan trọng nhất vì nó chỉ ra
+      khoảng cách giữa "thiết kế trên giấy" và "thực tế hoạt động".
+    actionable: "Sau mỗi feature → chạy ít nhất 1 task thật để verify"
+    confidence: 0.95

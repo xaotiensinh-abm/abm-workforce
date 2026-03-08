@@ -1,0 +1,29 @@
+# Multi-Agent Core Team Configuration
+# Jarvis + 4 core workers (Phase 1 recommended team)
+# Based on blueprint recommendation: "Lead Orchestrator + Code Worker + Test Verifier + Browser QA + Docs/Walkthrough Worker"
+
+team:
+  name: "multi-agent-core"
+  description: "Core multi-agent team for standard development tasks"
+  lead: "jarvis-orchestrator"
+
+  members:
+    - agent: "jarvis-orchestrator"
+      role: "Lead Orchestrator"
+      responsibility: "Task decomposition, delegation, verification, synthesis"
+
+    - agent: "dev"
+      role: "Code Worker"
+      responsibility: "Code implementation within contracted scope"
+
+    - agent: "qa"
+      role: "Test Verifier"
+      responsibility: "Test execution, verification, coverage analysis"
+
+    - agent: "browser-subagent"
+      role: "Browser QA"
+      responsibility: "UI verification, screenshots, recordings"
+
+    - agent: "tech-writer"
+      role: "Docs Worker"
+      responsibility: "Documentation, walkthroughs, knowledge items"

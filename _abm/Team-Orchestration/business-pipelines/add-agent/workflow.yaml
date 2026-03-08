@@ -1,0 +1,80 @@
+﻿# Agent Registration Workflow
+# Standardized process to add a new agent to the system
+# Solves: "4 touchpoints" ops burden (Operator review finding)
+
+name: add-agent
+description: "Register a new agent in the JARVIS system with all required files and config updates"
+
+# === PREREQUISITES ===
+prerequisites:
+  - "Agent name (kebab-case, e.g. 'data-scientist')"
+  - "Agent role description"
+  - "ROMA tier(s) assignment"
+  - "Skills the agent needs"
+  - "Who can this agent delegate to? ([] if leaf)"
+
+# === STEPS ===
+steps:
+  - step: 1
+    name: "Create SOUL.md"
+    file: "agents/{agent-name}/SOUL.md"
+    template: |
+      # SOUL
+      {one-line essence of what this agent does}
+
+      # IDENTITY
+      - Name: {Agent Display Name}
+      - Role: {ROMA Tier} — {Role Description}
+      - ROMA: {tier path}
+
+      # SKILLS
+      Required:
+      {list of skills from skill-manifest.csv}
+
+      # AGENTS
+      Mission: {mission statement}
+      Reports to: Jarvis (orchestrator)
+      Can delegate to: {allowAgents list}
+
+      # TOOLS
+      {tool usage guidelines}
+
+      # USER
+      - Boss → CEO, Vietnamese, execution-first
+
+  - step: 2
+    name: "Update Permission Tree"
+    file: "data/governance-policy.yaml"
+    section: "agent_permission_tree"
+    add: |
+      {agent-name}:
+        allowAgents: {delegation targets}
+        roma_tiers: {ROMA tier list}
+        max_spawn_depth: {0 for leaf, 1 for delegator}
+        max_children: {0 for leaf, 2 for delegator}
+
+  - step: 3
+    name: "Update AGENTS.md"
+    file: "agents/jarvis/AGENTS.md"
+    add: "- {agent-name} → {tier} {description}"
+
+  - step: 4
+    name: "Update Agent Routing"
+    file: "agents/jarvis-orchestrator.md"
+    section: "<agent-routing>"
+    add: '<route task_type="{task_type}" agent="{agent-name}" tier="{tier}"/>'
+
+  - step: 5
+    name: "Update Skill Manifest (if new skills)"
+    file: "_abm/_config/skill-manifest.csv"
+    condition: "Only if agent brings NEW skills"
+    add: "New skill entry row"
+
+# === VERIFICATION CHECKLIST ===
+verify:
+  - "[ ] SOUL.md created at agents/{name}/SOUL.md"
+  - "[ ] Permission tree updated in governance-policy.yaml"
+  - "[ ] AGENTS.md updated with new agent"
+  - "[ ] Agent routing updated in orchestrator"
+  - "[ ] Skill manifest updated (if applicable)"
+  - "[ ] Test: task of this type routes to new agent"

@@ -1,0 +1,82 @@
+# HR Operations Pipeline v2.0
+# Tier1 → Tier3 → Tier5 → Tier6
+# Enhanced: sub-type branching, compliance checks, revision loops
+
+name: hr-pipeline
+version: "2.0"
+description: "HR operations pipeline with sub-type branching and compliance gates"
+trigger: task_type in [hr]
+
+steps:
+  - step: 1
+    name: "Classify HR Request"
+    tier: "Tier1-Strategy"
+    agent: "jarvis-orchestrator"
+    action: |
+      Classify sub-type:
+      - JD: job listing → use jd_template
+      - ONBOARDING: new hire setup → use onboarding_template  
+      - REVIEW: performance evaluation → use review_template
+      - TRAINING: skill development → use training_template
+      - EXIT: offboarding → use exit_template
+      - COMMS: internal communication → use comms_template
+    output: "HR Brief + selected template type"
+    on_fail: "Ask human to clarify HR request type"
+
+  - step: 2
+    name: "Create HR Document"
+    tier: "Tier3-Content"
+    agent: "hr-specialist"
+    skills: [hr-operations, internal-comms]
+    action: |
+      Use template from hr-operations skill based on sub-type.
+      Fill all required sections.
+      Include: context, criteria, timelines, responsible parties.
+    output: "Draft HR document"
+    acceptance:
+      - "All template sections populated (no blanks)"
+      - "Measurable criteria where applicable"
+      - "Timeline/deadlines specified"
+      - "Responsible parties assigned"
+    max_retries: 2
+    on_fail: "RETRY with clearer instructions. After 2 → ESCALATE."
+    sub_type_rules:
+      JD: "Include: salary range, team size, growth path"
+      ONBOARDING: "Include: 30-60-90 day milestones"
+      REVIEW: "Include: self-assessment + manager-assessment + 360"
+      TRAINING: "Include: pre/post skill assessment"
+
+  - step: 3
+    name: "Compliance & Quality Gate"
+    tier: "Tier5-Validation"
+    agent: "jarvis-orchestrator"
+    action: |
+      Check:
+      □ All required sections complete?
+      □ Language professional and inclusive?
+      □ Vietnamese labor law compliance (if applicable)?
+      □ Salary/benefits competitive for market?
+      □ No discriminatory language?
+    gate:
+      - condition: "all checks pass"
+        action: "PROCEED"
+      - condition: "minor issues"
+        action: "RETURN to step 2 with feedback"
+      - condition: "compliance violation"
+        action: "ESCALATE to human — legal review needed"
+
+  - step: 4
+    name: "Package & Deliver"
+    tier: "Tier6-Synthesis"
+    agent: "jarvis-orchestrator"
+    action: |
+      Finalize HR package:
+      - Primary document
+      - Supporting materials (scorecard, checklist, timeline)
+      - Distribution list recommendation
+    output: "Complete HR package"
+
+error_handling:
+  max_pipeline_retries: 2
+  timeout_minutes: 20
+  on_timeout: "Deliver partial with [DRAFT] watermark"

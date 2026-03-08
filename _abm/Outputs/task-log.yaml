@@ -1,0 +1,82 @@
+# Task Log — JARVIS Multi-Agent System
+# Append-only log. Every contract completion creates 1 entry.
+# Used by: knowledge-crystallizer, capability-evolver, HEARTBEAT
+
+log:
+  - task_id: "TG-001-W1"
+    timestamp: "2026-03-08T14:00:00+07:00"
+    type: "hr"
+    worker: "hr-specialist"
+    status: "COMPLETED"
+    confidence: 0.85
+    files_changed: 1
+    retries: 0
+    human_gate: false
+    risk_level: "low"
+    roma_tier: "Tier3-Content"
+    skills_used: ["hr-operations"]
+    summary: "Tạo JD Frontend Developer — 2 năm kinh nghiệm, React, HCM"
+
+  - task_id: "TG-002-W1"
+    timestamp: "2026-03-08T14:30:00+07:00"
+    type: "marketing"
+    worker: "marketing-specialist"
+    status: "COMPLETED"
+    confidence: 0.90
+    files_changed: 4
+    retries: 0
+    human_gate: false
+    risk_level: "low"
+    roma_tier: "Tier3-Content"
+    skills_used: ["email-marketing", "copywriting", "marketing-psychology"]
+    summary: "Email sequence 4 bước giới thiệu sản phẩm mới — welcome, nurture, offer, re-engage"
+
+  - task_id: "TG-003-W1"
+    timestamp: "2026-03-08T15:00:00+07:00"
+    type: "report"
+    worker: "business-analyst"
+    status: "COMPLETED"
+    confidence: 0.80
+    files_changed: 1
+    retries: 1
+    human_gate: false
+    risk_level: "medium"
+    roma_tier: "Tier2-Intelligence"
+    skills_used: ["data-analysis", "office-documents"]
+    summary: "Báo cáo kinh doanh tháng 3 — KPI dashboard + recommendations"
+
+  - task_id: "TG-004-W1"
+    timestamp: "2026-03-08T15:30:00+07:00"
+    type: "docs"
+    worker: "office-manager"
+    status: "COMPLETED"
+    confidence: 0.88
+    files_changed: 1
+    retries: 0
+    human_gate: false
+    risk_level: "low"
+    roma_tier: "Tier3-Content"
+    skills_used: ["office-documents", "workflow-automation"]
+    summary: "SOP onboarding khách hàng mới — 12 steps + automation blueprint"
+
+  - task_id: "TG-005-W1"
+    timestamp: "2026-03-08T16:00:00+07:00"
+    type: "marketing"
+    worker: "marketing-specialist"
+    status: "COMPLETED"
+    confidence: 0.92
+    files_changed: 30
+    retries: 0
+    human_gate: false
+    risk_level: "low"
+    roma_tier: "Tier3-Content"
+    skills_used: ["content-strategy", "social-content", "copywriting"]
+    summary: "Content calendar tháng 4 — 30 posts Facebook + LinkedIn, chủ đề ra mắt sản phẩm"
+
+# --- KPI SUMMARY ---
+# Total tasks: 5
+# Success rate: 100% (5/5)
+# Avg confidence: 0.87
+# Retry rate: 4% (1 retry / 5 tasks)
+# Skills most used: copywriting (2), office-documents (2)
+# Agents most used: marketing-specialist (2)

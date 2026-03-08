@@ -1,0 +1,127 @@
+{
+    "name": "ABM Workforce",
+    "full_name": "AI Business Master — Multi-Agent Workforce",
+    "version": "2.0.0",
+    "date": "2026-03-08",
+    "owner": "CEO",
+    "orchestrator": "Jarvis",
+    "structure": {
+        "SubAgents": {
+            "path": "SubAgents/",
+            "description": "Các agent chuyên biệt theo lĩnh vực",
+            "count": 5,
+            "agents": [
+                "marketing-specialist",
+                "hr-specialist",
+                "office-manager",
+                "automation-engineer",
+                "business-analyst"
+            ]
+        },
+        "Workers": {
+            "path": "Workers/",
+            "description": "Các worker thực thi kỹ thuật",
+            "count": 10,
+            "agents": [
+                "dev",
+                "qa",
+                "pm",
+                "sm",
+                "analyst",
+                "architect",
+                "ux-designer",
+                "security-evaluator",
+                "task-router",
+                "quick-flow-solo-dev"
+            ]
+        },
+        "Autonomous-Core": {
+            "path": "Autonomous-Core/",
+            "description": "Jarvis orchestrator + engine + consciousness model",
+            "count": 41,
+            "components": [
+                "jarvis-orchestrator.md",
+                "consciousness/",
+                "engine/"
+            ]
+        },
+        "Team-Orchestration": {
+            "path": "Team-Orchestration/",
+            "description": "Quy trình phối hợp đội ngũ",
+            "count": 14,
+            "groups": {
+                "dev-pipelines": [
+                    "bug-fix",
+                    "feature",
+                    "refactor",
+                    "data"
+                ],
+                "business-pipelines": [
+                    "marketing",
+                    "hr",
+                    "report",
+                    "document",
+                    "add-agent"
+                ],
+                "orchestration": [
+                    "delegation-chain",
+                    "intake-triage",
+                    "verification-chain",
+                    "synthesis",
+                    "rollback"
+                ]
+            }
+        },
+        "Context-Layer": {
+            "path": "Context-Layer/",
+            "description": "Lớp ngữ cảnh và tri thức",
+            "count": 53,
+            "sublayers": {
+                "CoreModules": "Config, governance, contracts, templates",
+                "Knowledge-Base": "27 skills chuyên môn",
+                "Second-Brain": "Bộ nhớ, lịch sử, tiêu chuẩn"
+            }
+        },
+        "Outputs": {
+            "path": "Outputs/",
+            "description": "Thư mục kết quả runtime",
+            "components": [
+                "task-log.yaml",
+                "contracts/",
+                "attestations/"
+            ]
+        },
+        "_design-specs": {
+            "path": "_design-specs/",
+            "description": "Đặc tả thiết kế pipeline",
+            "count": 149
+        }
+    },
+    "routing": {
+        "skill_routes": 12,
+        "agent_routes": 12,
+        "task_types": [
+            "bug",
+            "feature",
+            "refactor",
+            "marketing",
+            "hr",
+            "report",
+            "automation",
+            "docs",
+            "security",
+            "data",
+            "ui",
+            "infra"
+        ]
+    },
+    "slash_commands": {
+        "/jarvis": "Gọi Jarvis — menu đầy đủ",
+        "/marketing": "Viết content, email, social, SEO",
+        "/hr": "Viết JD, onboarding, review, training",
+        "/report": "Báo cáo KPI, monthly report",
+        "/docs": "Proposal, SOP, minutes, memo",
+        "/dev": "Bug fix, feature, refactor",
+        "/review": "Đánh giá phản biện đa chiều"
+    }
+}

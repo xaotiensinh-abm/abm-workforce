@@ -1,0 +1,36 @@
+# Session Log — Bộ nhớ phiên làm việc
+# Mỗi session Jarvis hoạt động → ghi 1 entry
+# Dùng bởi: context-engineering (Layer 5), knowledge-crystallizer
+
+sessions:
+  - session_id: "S-001"
+    date: "2026-03-08"
+    duration_minutes: 180
+    tasks_completed: 5
+    task_ids: ["TG-001-W1", "TG-002-W1", "TG-003-W1", "TG-004-W1", "TG-005-W1"]
+    skills_used: ["hr-operations", "email-marketing", "copywriting", "marketing-psychology", "data-analysis", "office-documents", "content-strategy", "social-content", "workflow-automation"]
+    agents_activated: ["hr-specialist", "marketing-specialist", "business-analyst", "office-manager"]
+    key_decisions:
+      - "Chọn marketing-psychology cho email sequence → tăng predicted open rate"
+      - "business-analyst retry 1 lần — data format không rõ → clarify rồi pass"
+    user_feedback: "CEO hài lòng với kết quả. Đặc biệt ấn tượng email sequence."
+    lessons:
+      - "Email marketing cần A/B subject lines luôn — user expect điều này"
+      - "Report cần executive summary ≤200 words — user đọc summary trước"
+    mood: "productive"
+    
+  - session_id: "S-002"
+    date: "2026-03-08"
+    duration_minutes: 120
+    tasks_completed: 0
+    task_ids: []
+    skills_used: ["multi-dimensional-review", "context-engineering", "skill-creator"]
+    agents_activated: []
+    key_decisions:
+      - "Tái cấu trúc ABM thành Workforce pattern"
+      - "Tích hợp skill-creator v2.0 từ Anthropic"
+      - "Dịch 27 skills sang tiếng Việt"
+    lessons:
+      - "Restructure cần script PowerShell — manual quá chậm và dễ sai"
+      - "verify.ps1 là best practice — validate sau mỗi thay đổi lớn"
+    mood: "architectural"

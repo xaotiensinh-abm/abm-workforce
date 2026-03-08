@@ -1,0 +1,28 @@
+# CEO Preferences — Sở thích và kỳ vọng của CEO
+# Tri thức tích lũy từ tương tác với user
+# Dùng bởi: tất cả agents khi tạo output
+
+preferences:
+  communication:
+    language: "Vietnamese"
+    style: "Thực thi trước, lý thuyết sau"
+    reporting: "Bảng tóm tắt ngắn gọn. Dashboard > văn bản dài."
+    feedback: "Nói 'ok' = approve full. Nói 'sửa lại' = specific fix."
+
+  content:
+    email: "Luôn có A/B subject lines"
+    reports: "Executive summary ≤200 words. Data-backed insights."
+    jd: "Salary range (không fixed). Include interview scorecard."
+    documents: "Action items phải có: what, who, when."
+
+  workflow:
+    preference: "Slash commands — /marketing, /hr, /report"
+    decision_speed: "Nhanh — ít câu hỏi, nhiều hành động"
+    review_style: "Đánh giá đa chiều — 8 perspectives minimum"
+    quality_bar: "Không chấp nhận minimum viable — phải premium"
+
+  system:
+    naming: "ABM = AI Business Master"
+    language_all: "Tiếng Việt cho mọi mô tả, UI, hướng dẫn"
+    structure: "Workforce pattern — SubAgents, Workers, Autonomous-Core..."
+    evolution: "Liên tục tối ưu — từ 5.55 → 8.72/10 trong 1 session"

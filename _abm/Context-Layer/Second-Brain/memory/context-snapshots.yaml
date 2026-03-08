@@ -1,0 +1,26 @@
+# Context Snapshots — Ảnh chụp ngữ cảnh quan trọng
+# Khi gặp tình huống phức tạp → lưu snapshot để tham khảo sau
+# Dùng bởi: context-engineering (Layer 5), capability-evolver
+
+snapshots:
+  - snapshot_id: "CS-001"
+    date: "2026-03-08"
+    trigger: "Lần đầu chạy multi-dimensional review"
+    context:
+      task_type: "review"
+      target: "Toàn bộ hệ thống ABM"
+      approach: "6-step process: gather → score → adversarial → findings → cross-ref → action"
+      result: "Score 8.72/10. Auditor +4.5 jump."
+    insight: "Review cần evidence thật (file counts, line numbers) — không chỉ ý kiến. Weighted scoring trung thực hơn unweighted."
+    reuse_when: "Bất kỳ khi nào cần đánh giá hệ thống/dự án"
+
+  - snapshot_id: "CS-002"
+    date: "2026-03-08"
+    trigger: "Restructure 328 files sang Workforce pattern"
+    context:
+      task_type: "architecture"
+      target: "ABM directory structure"
+      approach: "PowerShell script — create dirs → copy files → verify"
+      result: "278 files, 22/22 checks passed"
+    insight: "Restructure lớn → PHẢI dùng script, KHÔNG manual. verify.ps1 = safety net."
+    reuse_when: "Khi cần di chuyển/tổ chức lại codebase"

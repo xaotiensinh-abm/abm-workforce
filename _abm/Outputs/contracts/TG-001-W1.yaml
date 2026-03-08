@@ -1,0 +1,39 @@
+task_id: "TG-001-W1"
+parent_task_id: "TG-001"
+delegation_level: 1
+owner_agent: "jarvis-orchestrator"
+executor_agent: "hr-specialist"
+objective: "Tạo JD cho vị trí Frontend Developer — 2 năm kinh nghiệm, React, làm việc tại HCM, lương 15-25M VND"
+scope_in:
+  - "job-descriptions/"
+scope_out:
+  - "*.config"
+  - "production/"
+workspace: "main"
+allowed_tools: ["editor", "read_files"]
+allowed_mcp_resources: []
+required_artifacts: ["jd_document", "interview_scorecard"]
+handoff_format: "structured_markdown"
+acceptance_criteria:
+  - "JD có đầy đủ: overview, responsibilities, requirements, benefits"
+  - "Interview scorecard có criteria rõ ràng"
+  - "Phù hợp thị trường IT Việt Nam"
+budget:
+  max_tool_calls: 15
+  max_runtime_minutes: 10
+  max_retries: 2
+  max_spawn_depth: 0
+  max_children: 0
+roma:
+  tier: "Tier3-Content"
+  pipeline_position: 2
+  upstream_task_id: ""
+  downstream_task_id: ""
+risk_level: "low"
+requires_human_gate: false
+requires_security_eval: false
+context_files: []
+context_artifacts: []
+context_knowledge_items: []
+required_skills: ["hr-operations"]
+recommended_skills: ["office-documents"]

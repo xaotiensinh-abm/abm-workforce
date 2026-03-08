@@ -1,0 +1,87 @@
+# Document Creation Pipeline v2.0
+# Tier1 → Tier3 → Tier5 → (loop) → Tier6
+# Enhanced: sub-type selection, revision loop, approval gate
+
+name: document-pipeline
+version: "2.0"
+description: "Business document pipeline with template selection, revision loop, and approval gate"
+trigger: task_type in [docs, automation]
+
+steps:
+  - step: 1
+    name: "Template Selection"
+    tier: "Tier1-Strategy"
+    agent: "jarvis-orchestrator"
+    action: |
+      Classify document type and select template:
+      - PROPOSAL: business proposal → proposal_template
+      - SOP: standard operating procedure → sop_template
+      - MINUTES: meeting minutes → minutes_template
+      - DECISION: decision matrix → matrix_template
+      - MEMO: internal memo → memo_template
+      - PLAN: project plan → plan_template
+    output: "Document Brief + selected template"
+    on_fail: "Ask human to specify document type"
+
+  - step: 2
+    name: "Draft Document"
+    tier: "Tier3-Content"
+    agent: "office-manager"
+    skills: [office-documents, brainstorming]
+    action: |
+      Create document from template:
+      - Fill all sections with provided content/data
+      - Add actionable items with owners and deadlines
+      - Include appendices if data-heavy
+    output: "Draft document"
+    acceptance:
+      - "All template sections populated"
+      - "Professional formatting"
+      - "Action items have: what, who, when"
+      - "No placeholder text remaining"
+    max_retries: 3
+    on_fail: "RETRY with simplified scope"
+    sub_type_rules:
+      PROPOSAL: "Include: executive summary, scope, timeline, pricing, terms"
+      SOP: "Include: purpose, scope, steps (numbered), responsible parties, exceptions"
+      MINUTES: "Include: attendees, agenda items, decisions, action items, next meeting"
+      DECISION: "Include: options, criteria, weights, scores, recommendation"
+
+  - step: 3
+    name: "Review & Approval Gate"
+    tier: "Tier5-Validation"
+    agent: "jarvis-orchestrator"
+    revision_count: 0
+    max_revisions: 3
+    action: |
+      Review checklist:
+      □ Complete — all sections filled?
+      □ Accurate — data/numbers correct?
+      □ Actionable — clear next steps?
+      □ Professional — formatting/language?
+      □ Concise — no unnecessary content?
+    gate:
+      - condition: "all checks pass"
+        action: "PROCEED to step 4"
+      - condition: "revision_count < max_revisions AND minor issues"
+        action: "INCREMENT revision_count. RETURN to step 2 with specific feedback."
+      - condition: "revision_count >= max_revisions"
+        action: "ESCALATE to human — max revisions reached"
+      - condition: "major issues"
+        action: "ESCALATE to human — fundamental rework needed"
+
+  - step: 4
+    name: "Finalize"
+    tier: "Tier6-Synthesis"
+    agent: "jarvis-orchestrator"
+    action: |
+      Final steps:
+      - Apply final formatting
+      - Generate table of contents (if >3 pages)
+      - Ready for distribution
+    output: "Final document"
+
+error_handling:
+  max_pipeline_retries: 2
+  timeout_minutes: 25
+  on_timeout: "Deliver draft with [DRAFT] watermark"

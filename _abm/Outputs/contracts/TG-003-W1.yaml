@@ -1,0 +1,39 @@
+task_id: "TG-003-W1"
+parent_task_id: "TG-003"
+delegation_level: 1
+owner_agent: "jarvis-orchestrator"
+executor_agent: "business-analyst"
+objective: "Tạo báo cáo kinh doanh tháng 3/2026 — doanh thu 2.5B, chi phí 1.8B, KPI đạt 85%"
+scope_in:
+  - "reports/"
+scope_out:
+  - "production/"
+workspace: "main"
+allowed_tools: ["editor", "read_files"]
+allowed_mcp_resources: []
+required_artifacts: ["business_report", "kpi_dashboard"]
+handoff_format: "structured_markdown"
+acceptance_criteria:
+  - "Executive summary ≤ 200 words"
+  - "KPI dashboard with trendlines"
+  - "Every insight backed by data"
+  - "Recommendations section with next steps"
+budget:
+  max_tool_calls: 20
+  max_runtime_minutes: 20
+  max_retries: 2
+  max_spawn_depth: 1
+  max_children: 1
+roma:
+  tier: "Tier2-Intelligence"
+  pipeline_position: 2
+  upstream_task_id: ""
+  downstream_task_id: "TG-003-W2"
+risk_level: "medium"
+requires_human_gate: false
+requires_security_eval: false
+context_files: []
+context_artifacts: []
+context_knowledge_items: []
+required_skills: ["data-analysis"]
+recommended_skills: ["office-documents"]

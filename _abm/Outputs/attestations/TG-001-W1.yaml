@@ -1,0 +1,39 @@
+# Attestation — TG-001-W1
+task_id: "TG-001-W1"
+executor_agent: "hr-specialist"
+status: "COMPLETED"
+confidence: 0.85
+timestamp: "2026-03-08T14:15:00+07:00"
+
+evidence:
+  - type: "artifact"
+    description: "JD Frontend Developer đầy đủ 5 sections"
+    details: "Overview, Responsibilities (8 items), Requirements (6 items), Benefits (5 items), Interview Process"
+  - type: "checklist"
+    description: "Acceptance criteria verification"
+    results:
+      - criterion: "JD có đầy đủ: overview, responsibilities, requirements, benefits"
+        met: true
+      - criterion: "Interview scorecard có criteria rõ ràng"
+        met: true
+        note: "Scorecard gồm 5 tiêu chí đánh giá: technical, problem-solving, communication, culture-fit, growth-mindset"
+      - criterion: "Phù hợp thị trường IT Việt Nam"
+        met: true
+        note: "Mức lương 15-25M phù hợp vị trí 2 năm KN. Stack React/TypeScript phổ biến."
+
+scope_compliance:
+  files_touched: ["job-descriptions/frontend-developer-2026.md"]
+  scope_violations: []
+  tools_used: ["editor", "read_files"]
+
+budget_usage:
+  tool_calls_used: 8
+  runtime_minutes: 7
+  retries_used: 0
+
+risk_assessment:
+  risk_level: "low"
+  risks_identified: []
+  mitigation_actions: []
+
+worker_notes: "JD đã tham khảo mức lương thị trường IT HCM Q1/2026. Thêm section Interview Process để hỗ trợ tuyển dụng."
