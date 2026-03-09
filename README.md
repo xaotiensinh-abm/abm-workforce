@@ -1,304 +1,302 @@
-# 🧠 ABM Workforce — AI Business Master
+# 🏢 ABM Workforce — Văn Phòng Số Thông Minh
 
-> **Hệ thống AI đa agent điều phối doanh nghiệp — biến AI thành đội ngũ nhân sự thực sự.**
+> **Hệ sinh thái AI Agent nâng cao năng suất doanh nghiệp — 9 phòng ban, 66 kỹ năng, 1 bộ não điều phối.**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![Skills](https://img.shields.io/badge/Skills-36-blue.svg)](_abm/_config/skill-manifest.csv)
-[![Language](https://img.shields.io/badge/Language-Vietnamese-red.svg)](.gemini/RULES.md)
+[![Skills](https://img.shields.io/badge/Skills-66-blue.svg)](_abm/_config/skill-manifest.csv)
+[![Workflows](https://img.shields.io/badge/Workflows-13-green.svg)](.agents/workflows/)
+[![Language](https://img.shields.io/badge/Language-Vietnamese_100%25-red.svg)](.gemini/RULES.md)
 
 ---
 
-## 📋 Giới thiệu
+## Tại sao ABM Workforce?
 
-**ABM Workforce** là nền tảng AI Multi-Agent được xây dựng theo mô hình **Chuỗi Ủy Quyền (Delegation Chain Management)** — nơi mọi task đều có hợp đồng, bằng chứng, và trách nhiệm rõ ràng.
-
-Hệ thống do **Jarvis** — Trưởng Điều Phối tối cao — quản lý toàn bộ đội ngũ agent chuyên biệt, từ marketing đến HR, từ phát triển đến phân tích dữ liệu.
-
-### Tại sao ABM Workforce?
-
-| Vấn đề | Giải pháp ABM |
-|--------|--------------|
-| AI chạy lung tung, không kiểm soát | Hợp đồng → Thực hiện → Chứng nhận → Xác minh |
-| Output không đáng tin cậy | Luật Sắt: Bằng chứng trước khi khẳng định |
-| Trách nhiệm không rõ ràng | Chuỗi trách nhiệm luôn đi lên: Agent → Worker → Jarvis → CEO |
-| AI trả lời tiếng Anh, khó hiểu | 100% tiếng Việt, dễ hiểu với mọi người dùng |
-| Cần nhớ quá nhiều lệnh | Slash commands đơn giản: `/jarvis`, `/marketing`, `/hr`... |
+| Vấn đề doanh nghiệp | Giải pháp ABM |
+|---------------------|--------------|
+| Mỗi phòng ban dùng AI kiểu khác | **9 phòng ban** với agent + skills + workflow riêng |
+| AI chạy lung tung, không kiểm soát | **Hợp đồng → Thực hiện → Chứng nhận → Xác minh** |
+| Output không đáng tin cậy | **Luật Sắt**: Bằng chứng trước khi khẳng định |
+| Cần nhớ quá nhiều lệnh | **13 slash commands**: `/jarvis`, `/marketing`, `/sales`... |
+| AI trả lời tiếng Anh | **100% tiếng Việt**, dễ hiểu với mọi nhân viên |
 
 ---
 
-## 🏗️ Kiến trúc hệ thống
+## 📋 9 Phòng Ban — Mapping Hoàn Chỉnh
 
 ```
-ABM Workforce
-├── 🧠 Jarvis (Trưởng Điều Phối)
-│   ├── Delegation Chain Protocol
-│   ├── 17 Task Routes
-│   └── 5 Tier System
-│
-├── 👥 SubAgents (5 agent chuyên biệt)
-│   ├── Marketing Specialist
-│   ├── HR Specialist
-│   ├── Business Analyst
-│   ├── Office Manager
-│   └── Security Evaluator
-│
-├── 🔧 Workers (10 worker kỹ thuật)
-│   ├── Code Worker
-│   ├── QA Worker
-│   └── ...
-│
-├── 📚 Knowledge Base (36 skills)
-│   ├── Hệ thống (3): delegation-chain, verification, context-engineering
-│   ├── Meta (5): skill-creator, knowledge-crystallizer, multi-dimensional-review...
-│   ├── Marketing (15): product-marketing-context, page-cro, cold-email, pricing-strategy...
-│   ├── Phát triển (7): code-review, systematic-debugging, writing-plans...
-│   ├── Văn phòng (4): hr-operations, office-documents, internal-comms...
-│   └── Phân tích (2): data-analysis, workflow-automation
-│
-├── 🧠 Second-Brain (Bộ nhớ dài hạn)
-│   ├── memory/ — Lịch sử phiên làm việc
-│   ├── patterns/ — Mẫu thành công + thất bại
-│   ├── standards/ — Tiêu chuẩn tài liệu
-│   └── evolution/ — Tri thức tích lũy + lịch sử tiến hóa
-│
-└── ⚡ Global Workflows (7 slash commands)
-    ├── /jarvis — Menu đầy đủ
-    ├── /marketing — Nội dung, email, social, SEO
-    ├── /hr — Tuyển dụng, onboarding, đánh giá
-    ├── /report — Báo cáo KPI, phân tích dữ liệu
-    ├── /docs — Đề xuất, SOP, biên bản
-    ├── /dev — Sửa bug, tính năng, refactor
-    └── /review — Đánh giá phản biện đa chiều
+                         🧠 CEO
+                          │
+                    ⚡ Jarvis Lead Orchestrator
+                          │
+       ┌──────────────────┼──────────────────┐
+       │                  │                  │
+  ┌────┴────┐       ┌────┴────┐       ┌────┴────┐
+  │  🏛 BGĐ  │       │  📣 MKT │       │  💻 IT  │
+  │  100%   │       │  100%   │       │  100%   │
+  └─────────┘       └─────────┘       └─────────┘
+  ┌─────────┐       ┌─────────┐       ┌─────────┐
+  │ 👥 HC-NS │       │ 🤝 KD   │       │ 💬 CSKH │
+  │  80%    │       │  80%    │       │  80%    │
+  └─────────┘       └─────────┘       └─────────┘
+  ┌─────────┐       ┌─────────┐       ┌─────────┐
+  │ 💰 Kế Toán│      │ 📦 Vận Hành│     │ ⚖️ Pháp Chế│
+  │  80%    │       │  30%    │       │  50%    │
+  └─────────┘       └─────────┘       └─────────┘
 ```
+
+| Phòng ban | Agent | Workflow | Skills chính |
+|-----------|-------|----------|-------------|
+| 🏛 **Ban Giám Đốc** | Jarvis + business-analyst | `/jarvis`, `/review` | brainstorming, writing-plans, data-analysis, pptx, multi-dimensional-review |
+| 👥 **Hành Chính - Nhân Sự** | hr-specialist, office-manager | `/hr`, `/docs` | hr-operations, docx, xlsx, task-planning, internal-comms |
+| 💰 **Kế Toán - Tài Chính** | business-analyst | `/finance`, `/report` | xlsx, pdf, data-analysis, startup-financial-modeling |
+| 📣 **Marketing - Truyền Thông** | marketing-specialist | `/marketing` | copywriting, content-strategy, social-content, seo-audit, page-cro |
+| 🤝 **Kinh Doanh - Bán Hàng** | marketing-specialist | `/sales` | cold-email, sales-enablement, pricing-strategy, pptx, docx |
+| 💬 **Chăm Sóc Khách Hàng** | — | `/cskh` | agent-email-cli, churn-prevention, email-marketing, copywriting |
+| 💻 **IT - Công Nghệ** | automation-engineer | `/dev` | code-review, systematic-debugging, frontend-developer, vercel-react-best-practices |
+| 📦 **Vận Hành - Logistics** | automation-engineer | — | workflow-automation, data-analysis |
+| ⚖️ **Pháp Chế - Tuân Thủ** | — | `/legal` | docx, office-documents, pdf |
 
 ---
 
-## 🔥 Quy tắc tối thượng — Delegation Chain
+## 🚀 Bắt Đầu Trong 2 Phút
 
-```
-┌──────────────────┐  hợp_đồng  ┌──────────────────┐  hợp_đồng  ┌──────────────────┐
-│ Jarvis           │────────────▶│ Worker           │────────────▶│ SubAgent         │
-│ (Orchestrator)   │  chứng_nhận │ (Người thực hiện)│  chứng_nhận │ (Người phụ)      │
-│                  │◀────────────│                  │◀────────────│                  │
-└──────────────────┘             └──────────────────┘             └──────────────────┘
-       ▲                                                                │
-       │         Giao việc đi xuống  ───────────────────▶               │
-       │         ◀───────────────────  Trách nhiệm đi lên             │
-       └────────────────────────────────────────────────────────────────┘
-```
-
-**6 bước bắt buộc:** Tạo hợp đồng → Chọn worker → Thực hiện → Chứng nhận → Xác minh → Giải quyết trách nhiệm
-
----
-
-## 🚀 Cài đặt
-
-### Yêu cầu
-
-- **IDE**: [Antigravity](https://antigravity.google) hoặc bất kỳ IDE hỗ trợ `.gemini/` rules
-- **OS**: Windows / macOS / Linux
-- **Git**: Để clone và quản lý phiên bản
-
-### Bước 1: Clone dự án
+### 1. Clone
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/abm-workforce.git
+git clone https://github.com/xaotiensinh-abm/abm-workforce.git
 cd abm-workforce
 ```
 
-### Bước 2: Cấu trúc đã sẵn sàng
+### 2. Mở trong IDE
 
-Hệ thống **không cần cài đặt dependencies** — toàn bộ là markdown files và YAML configs.
+Mở bằng **Antigravity**, **Cursor**, hoặc IDE hỗ trợ `.gemini/` rules.
+
+> Không cần cài dependencies — toàn bộ là markdown + YAML.
+
+### 3. Gõ lệnh đầu tiên
 
 ```
-abm-workforce/
-├── .gemini/          ← Rules toàn cục (tự động apply)
-│   ├── RULES.md      ← Kỷ luật sắt + Quy tắc tối thượng
-│   └── settings.json ← Cấu hình ngôn ngữ
-├── .agents/          ← Slash commands
-│   └── workflows/    ← /jarvis, /marketing, /hr...
-├── _abm/             ← Core system
-│   ├── bmm/          ← Agents + Skills + Workflows
-│   ├── _config/      ← Manifests
-│   └── Context-Layer/← Second-Brain + Knowledge Base
-└── _abm-output/      ← Kết quả runtime (auto-generated)
+/jarvis
 ```
 
-### Bước 3: Tùy chỉnh
-
-1. Mở `_abm/bmm/config.yaml` → sửa `user_name` thành tên của bạn
-2. Mở `_abm/Context-Layer/Second-Brain/patterns/ceo-preferences.yaml` → sửa preferences
-3. (Tùy chọn) Thêm skills mới bằng `/jarvis` → skill-creator
+Jarvis sẽ online và sẵn sàng nhận việc.
 
 ---
 
-## 💡 Cách sử dụng
+## 💡 13 Slash Commands
 
-### Cách 1: Slash Commands (Đơn giản nhất)
+### Điều phối
 
-| Lệnh | Khi nào dùng | Ví dụ |
-|-------|-------------|-------|
-| `/jarvis` | Menu đầy đủ, điều phối tổng | "Tôi cần phân tích đối thủ" |
-| `/marketing` | Viết content, email, social | "Viết email marketing cho sản phẩm X" |
-| `/hr` | Tuyển dụng, JD, onboarding | "Viết JD cho vị trí Marketing Manager" |
-| `/report` | Báo cáo, KPI, phân tích | "Báo cáo doanh thu tháng 3" |
-| `/docs` | Đề xuất, SOP, biên bản | "Viết SOP quy trình tuyển dụng" |
-| `/dev` | Bug, feature, refactor | "Sửa bug đăng nhập" |
-| `/review` | Đánh giá phản biện | "Đánh giá hệ thống CRM" |
+| Lệnh | Phòng ban | Ví dụ |
+|-------|----------|-------|
+| `/jarvis` | Tổng điều phối | "Phân tích đối thủ X" |
+| `/review` | Đánh giá phản biện | "Review hệ thống CRM" |
+| `/save` | Lưu trạng thái | "Lưu tiến độ hôm nay" |
 
-### Cách 2: Nói trực tiếp
+### Phòng ban
 
-Không cần nhớ lệnh — chỉ cần mô tả yêu cầu bằng tiếng Việt:
+| Lệnh | Phòng ban | Ví dụ |
+|-------|----------|-------|
+| `/marketing` | Marketing | "Viết email marketing cho sản phẩm X" |
+| `/sales` | Kinh Doanh | "Tạo proposal cho khách hàng Y" |
+| `/hr` | Nhân Sự | "Viết JD cho vị trí Frontend Developer" |
+| `/finance` | Kế Toán | "Báo cáo doanh thu Q1" |
+| `/legal` | Pháp Chế | "Soạn hợp đồng lao động" |
+| `/cskh` | CSKH | "Email follow-up khách hàng bỏ giỏ hàng" |
+| `/docs` | Văn phòng | "Viết SOP quy trình tuyển dụng" |
+| `/report` | Báo cáo | "Báo cáo KPI tuần" |
+| `/dev` | IT | "Sửa bug đăng nhập" |
+| `/skill-sync` | Hệ thống | "Sync skills mới từ community" |
+
+### Hoặc nói trực tiếp
 
 ```
-"Viết email marketing giới thiệu sản phẩm mới"
-→ Jarvis tự phân loại → marketing → load skills → thực hiện
-
-"Tạo JD cho vị trí Backend Developer"
-→ Jarvis tự phân loại → hr → load skills → thực hiện
+"Viết email cold outreach cho sản phẩm SaaS"
+→ Jarvis tự phân loại → marketing → load 3 skills → thực hiện → trả kết quả
 ```
 
-### Luồng công việc chi tiết
+---
+
+## 📊 66 Skills — 10 Nhóm
+
+### 🔒 Hệ thống & Meta (9)
+
+| Skill | Chức năng |
+|-------|----------|
+| `delegation-chain` | Giao thức cốt lõi: Hợp đồng → Chứng nhận → Xác minh |
+| `verification-before-completion` | LUẬT SẮT: Bằng chứng trước khi khẳng định |
+| `context-engineering` | Lắp ráp ngữ cảnh 5 lớp + kiểm soát token |
+| `skill-creator` | Tạo skills mới — 7 pha |
+| `multi-dimensional-review` | Đánh giá 6 bước + 8 góc phản biện |
+| `knowledge-crystallizer` | Tinh chế tri thức từ lịch sử |
+| `capability-evolver` | Tự tiến hóa hệ thống |
+| `memory-keeper` | Sao lưu ngữ cảnh |
+| `save` | Lưu trạng thái: task/daily/milestone save |
+
+### 📣 Marketing — Content & Sales (16)
+
+`product-marketing-context` · `copywriting` · `content-strategy` · `social-content` · `email-marketing` · `marketing-psychology` · `page-cro` · `seo-audit` · `ab-test-setup` · `cold-email` · `sales-enablement` · `revops` · `pricing-strategy` · `launch-strategy` · `churn-prevention` · `seo-content-planner`
+
+### 🔧 Phát triển (7)
+
+`subagent-driven-development` · `dispatching-parallel-agents` · `writing-plans` · `code-review` · `systematic-debugging` · `finishing-a-development-branch` · `git-worktrees`
+
+### 🌐 Web Development (7)
+
+`ui-ux-pro-max` · `frontend-design` · `frontend-developer` · `vercel-react-best-practices` · `web-design-guidelines` · `vercel-composition-patterns` · `canvas-design`
+
+### 📁 Văn Phòng Số (6)
+
+| Skill | Tạo file | Thư viện |
+|-------|---------|---------|
+| `docx` | Word (.docx) | python-docx |
+| `xlsx` | Excel (.xlsx) | openpyxl |
+| `pdf` | PDF (.pdf) | fpdf2 + PyPDF2 |
+| `pptx` | PowerPoint (.pptx) | python-pptx |
+| `agent-email-cli` | Email tự động | SMTP / Resend API |
+| `task-planning` | Kế hoạch công việc | WBS + T-shirt sizing |
+
+### 👥 Văn Phòng & HR (4)
+
+`hr-operations` · `office-documents` · `internal-comms` · `brainstorming`
+
+### 📈 Phân Tích (7)
+
+`data-analysis` · `workflow-automation` · `competitive-landscape` · `market-sizing-analysis` · `startup-analyst` · `deep-research` · `competitor-intelligence`
+
+### 🧠 Bổ Sung Nâng Cao (6)
+
+`multi-agent-brainstorming` · `kaizen` · `agent-improve` · `content-creator` · `startup-financial-modeling` · `sales-automator`
+
+### 🎨 Multimedia (4)
+
+`imagen` · `veo-video-gen` · `grok-imagen` · `freepik-spaces`
+
+---
+
+## 🔥 Chuỗi Ủy Quyền — Quy Tắc Tối Thượng
 
 ```
 Bạn gõ yêu cầu
        │
        ▼
 ┌─────────────────┐
-│ 1. PHÂN LOẠI    │  Jarvis xác định loại task (marketing, hr, dev...)
+│ 1. PHÂN LOẠI    │  Jarvis xác định loại task
 └───────┬─────────┘
         ▼
 ┌─────────────────┐
-│ 2. CHỌN SKILLS  │  Load tối đa 3 skills phù hợp (tự động)
+│ 2. CHỌN SKILLS  │  Load tối đa 3 skills phù hợp
 └───────┬─────────┘
         ▼
 ┌─────────────────┐
-│ 3. TẠO HỢP ĐỒNG│  Objective + Scope + Criteria + Budget
+│ 3. TẠO HỢP ĐỒNG│  Objective + Scope + Criteria
 └───────┬─────────┘
         ▼
 ┌─────────────────┐
-│ 4. THỰC HIỆN    │  Agent làm việc trong phạm vi hợp đồng
+│ 4. THỰC HIỆN    │  Agent làm việc trong phạm vi
 └───────┬─────────┘
         ▼
 ┌─────────────────┐
-│ 5. XÁC MINH     │  Kiểm tra bằng chứng + tiêu chí + phạm vi
+│ 5. XÁC MINH     │  Kiểm tra bằng chứng
 └───────┬─────────┘
         ▼
 ┌─────────────────┐
-│ 6. TRÌNH CEO    │  Kết quả + bằng chứng → Bạn quyết định
+│ 6. TRÌNH CEO    │  Kết quả → Bạn quyết định
 └─────────────────┘
 ```
 
----
-
-## 📊 36 Skills
-
-### Hệ thống & Meta (8)
-
-| Skill | Mô tả |
-|-------|-------|
-| `delegation-chain` | Giao thức cốt lõi: Hợp đồng → Chứng nhận → Xác minh |
-| `verification-before-completion` | LUẬT SẮT: Bằng chứng trước khi khẳng định |
-| `context-engineering` | Lắp ráp ngữ cảnh 5 lớp + kiểm soát token |
-| `skill-creator` | Tạo skills mới — 7 pha: thu thập → tối ưu → đăng ký |
-| `multi-dimensional-review` | Đánh giá 6 bước + 8 góc phản biện |
-| `knowledge-crystallizer` | Tinh chế tri thức từ lịch sử tasks |
-| `capability-evolver` | Tự tiến hóa hệ thống |
-| `memory-keeper` | Sao lưu ngữ cảnh quan trọng |
-
-### Marketing (15)
-
-| Skill | Mô tả |
-|-------|-------|
-| `product-marketing-context` | ★ Nền tảng — 12 sections, mọi skill đọc trước |
-| `copywriting` | Copy chuyên nghiệp cho mọi kênh |
-| `content-strategy` | Chiến lược nội dung + lịch đăng bài |
-| `cold-email` | B2B outreach + follow-up 5 bước |
-| `page-cro` | Tối ưu chuyển đổi — 7 trụ cột |
-| `pricing-strategy` | Chiến lược giá — Van Westendorp + tâm lý giá |
-| `launch-strategy` | Ra mắt sản phẩm — ORB Framework + 5 phase |
-| `sales-enablement` | Sales deck + battle cards + demo script |
-| `revops` | Lead scoring + pipeline + lifecycle |
-| `ab-test-setup` | Thiết kế A/B test data-driven |
-| `churn-prevention` | Ngăn rời bỏ — cancel flow + dunning |
-| `email-marketing` | Chuỗi email tự động |
-| `social-content` | Hook social media + tái sử dụng nội dung |
-| `marketing-psychology` | 50+ mô hình tâm lý thuyết phục |
-| `seo-audit` | SEO kỹ thuật + on-page |
-
-### Phát triển (7)
-`code-review` · `systematic-debugging` · `writing-plans` · `subagent-driven-development` · `dispatching-parallel-agents` · `finishing-a-development-branch` · `git-worktrees`
-
-### Văn phòng & HR (4)
-`hr-operations` · `office-documents` · `internal-comms` · `brainstorming`
-
-### Phân tích (2)
-`data-analysis` · `workflow-automation`
+**Trách nhiệm luôn đi LÊN**: SubAgent → Worker → Jarvis → CEO
 
 ---
 
-## 🧠 Second-Brain
-
-Bộ nhớ dài hạn giúp Jarvis **học từ kinh nghiệm** và **cải thiện liên tục**.
-
-| Tầng | Mục đích | File |
-|------|---------|------|
-| **Memory** | Lịch sử phiên + context snapshots | `sessions.yaml`, `context-snapshots.yaml` |
-| **Patterns** | Mẫu thành công + thất bại + preferences | `success-patterns.yaml`, `failure-patterns.yaml`, `ceo-preferences.yaml` |
-| **Standards** | Tiêu chuẩn tài liệu | `documentation-standards.yaml` |
-| **Evolution** | Tri thức tích lũy + lịch sử tiến hóa | `crystallized-knowledge.yaml`, `capability-log.yaml` |
-
----
-
-## 📝 Ví dụ sử dụng
-
-### Marketing — Viết email cold outreach
+## 🏗️ Cấu Trúc Thư Mục
 
 ```
-/marketing Viết email cold outreach cho sản phẩm SaaS quản lý nhân sự,
-đối tượng: giám đốc HR các công ty 50-200 nhân viên
+abm-workforce/
+├── .gemini/              ← Rules toàn cục (100% tiếng Việt)
+├── .agents/workflows/    ← 13 slash commands
+├── _abm/
+│   ├── bmm/
+│   │   ├── agents/       ← Jarvis + 5 SubAgents
+│   │   │   └── skills/   ← 66 skills (SKILL.md)
+│   │   └── config.yaml
+│   ├── _config/          ← skill-manifest.csv
+│   ├── SubAgents/        ← 5 agent chuyên biệt
+│   ├── Workers/          ← 10 worker kỹ thuật
+│   ├── Context-Layer/
+│   │   ├── Knowledge-Base/  ← 66 KB entries
+│   │   └── Second-Brain/    ← Bộ nhớ dài hạn
+│   └── Team-Orchestration/  ← 14 workflow pipelines
+├── _abm-output/          ← Kết quả runtime
+└── docs/                 ← Tài liệu mở rộng
 ```
 
-Jarvis sẽ:
-1. Load skills: `cold-email`, `product-marketing-context`, `marketing-psychology`
-2. Kiểm tra `product-marketing-context.md` (nếu chưa có → tạo mới)
-3. Viết email theo 5 nguyên tắc cold email
-4. Tạo follow-up sequence 5 bước
-5. Trả kết quả có benchmarks (open rate, reply rate)
+---
+
+## 🧠 Second-Brain — Bộ Nhớ Dài Hạn
+
+| Tầng | Mục đích |
+|------|---------|
+| **Memory** | Lịch sử phiên + context snapshots |
+| **Patterns** | Mẫu thành công/thất bại + CEO preferences |
+| **Standards** | Tiêu chuẩn tài liệu |
+| **Evolution** | Tri thức tích lũy + lịch sử tiến hóa |
+
+Dùng `/save` để lưu trạng thái công việc vào Second-Brain.
+
+---
+
+## 📝 Ví Dụ Sử Dụng
+
+### Marketing — Cold Email B2B
+
+```
+/marketing Viết email cold outreach cho SaaS quản lý nhân sự,
+đối tượng: giám đốc HR công ty 50-200 nhân viên
+```
+
+### Kế Toán — Báo Cáo Doanh Thu
+
+```
+/finance Tạo báo cáo doanh thu Q1/2026 dạng Excel,
+có biểu đồ xu hướng + so sánh YoY
+```
 
 ### HR — Viết JD
 
 ```
 /hr Viết JD cho vị trí Senior Frontend Developer,
-stack: React, TypeScript, Next.js
+stack: React, TypeScript, Next.js. Remote-first.
 ```
 
-### Đánh giá — Review hệ thống
+### IT — Review Code
 
 ```
-/review Đánh giá phản biện website hiện tại từ góc nhìn CRO
+/dev Review performance cho ProductPage.tsx,
+tối ưu load time và bundle size
+```
+
+### Pháp Chế — Soạn Hợp Đồng
+
+```
+/legal Soạn hợp đồng hợp tác kinh doanh B2B,
+giữa công ty A và công ty B, thời hạn 12 tháng
 ```
 
 ---
 
-## 🤝 Đóng góp
+## 🤝 Đóng Góp
 
 1. Fork dự án
 2. Tạo branch: `git checkout -b feature/ten-tinh-nang`
 3. Commit: `git commit -m "feat: mô tả thay đổi"`
-4. Push: `git push origin feature/ten-tinh-nang`
-5. Tạo Pull Request
+4. Push + tạo Pull Request
 
 ### Thêm skill mới
 
-Dùng `/jarvis` → chọn chế độ `skill-creator` → theo 7 pha:
-1. Thu thập intent
-2. Phỏng vấn chi tiết
-3. Viết SKILL.md
-4. Test cases
-5. Đánh giá
-6. Tối ưu description
-7. Đăng ký vào manifest
+```
+/jarvis → skill-creator → 7 pha: thu thập → phỏng vấn → viết → test → đánh giá → tối ưu → đăng ký
+```
 
 ---
 
@@ -308,17 +306,17 @@ MIT License — xem file [LICENSE](LICENSE)
 
 ---
 
-## 👤 Tác giả
+## 👤 Tác Giả
 
 **DũngTQ** — Kiến trúc sư ABM Workforce
 
 - 📱 Liên hệ: **0976 202 028**
-- 🏗️ Nền tảng gốc: Phát triển sâu từ BMAD-METHOD
 - 🎯 Sứ mệnh: Biến AI thành đội ngũ nhân sự thực sự cho doanh nghiệp Việt Nam
 
 ---
 
 <p align="center">
-  <b>ABM Workforce</b> — AI Business Master<br>
+  <b>ABM Workforce v2.4</b> — Văn Phòng Số Thông Minh<br>
+  <i>66 Skills · 13 Workflows · 9 Phòng Ban · 100% Tiếng Việt</i><br>
   <i>Kỷ luật sắt. Bằng chứng thật. Kết quả đo được.</i>
 </p>
