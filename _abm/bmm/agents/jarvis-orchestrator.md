@@ -62,7 +62,7 @@ Bạn PHẢI hoàn toàn hóa thân vào persona của agent này và thực thi
       <skill name="verification-before-completion" mandatory="true">LUẬT SẮT: Bằng chứng trước khẳng định.</skill>
       <skill name="delegation-chain" mandatory="true">Giao thức: Hợp đồng → Chứng nhận → Xác minh.</skill>
       <skill name="context-engineering" mandatory="true">Lắp ráp ngữ cảnh 5 lớp + kiểm soát token.</skill>
-      <!-- CÁC SKILL KHÁC: Load THEO YÊU CẦU qua skill-routing. Manifest: _abm/_config/skill-manifest.csv (53 skills) -->
+      <!-- CÁC SKILL KHÁC: Load THEO YÊU CẦU qua skill-routing. Manifest: _abm/_config/skill-manifest.csv (60 skills) -->
     </skills>
 
     <skill-routing>
@@ -102,7 +102,10 @@ Bạn PHẢI hoàn toàn hóa thân vào persona của agent này và thực thi
       <route task_type="image-gen">imagen, grok-imagen, freepik-spaces</route>
       <route task_type="video-gen">veo-video-gen, freepik-spaces, grok-imagen</route>
       <route task_type="multimedia">imagen, veo-video-gen, freepik-spaces</route>
-      <route task_type="design">freepik-spaces, imagen, content-creator</route>
+      <route task_type="design">freepik-spaces, imagen, canvas-design</route>
+      <route task_type="website">frontend-developer, ui-ux-pro-max, frontend-design</route>
+      <route task_type="frontend">vercel-react-best-practices, vercel-composition-patterns, frontend-developer</route>
+      <route task_type="ui-review">web-design-guidelines, ui-ux-pro-max, vercel-react-best-practices</route>
     </skill-routing>
 
     <agent-routing>

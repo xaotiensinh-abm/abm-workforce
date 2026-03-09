@@ -1,4 +1,4 @@
-# Bảng kê Kỹ năng — ABM Workforce (53 Skills)
+# Bảng kê Kỹ năng — ABM Workforce (60 Skills)
 # Cập nhật: 2026-03-09 — Phiên bản Tiếng Việt
 
 # === KỸ NĂNG HỆ THỐNG / META (9) ===
@@ -76,3 +76,12 @@ name,category,description,mandatory,path
 "veo-video-gen","multimedia","Prompt đỉnh cao Google VEO 3.1 — text-to-video, image-to-video, extend video, thêm/xóa thành phần, camera language.",false,"skills/veo-video-gen/SKILL.md"
 "grok-imagen","multimedia","Prompt ảnh + video Grok xAI Aurora — 3 levels prompt, extend video chuyên sâu, workflow X/Twitter.",false,"skills/grok-imagen/SKILL.md"
 "freepik-spaces","multimedia","Setup Freepik Spaces — luồng tự động storyboard, batch processing, node-based workflow với Nano Banana Pro + VEO 3.1.",false,"skills/freepik-spaces/SKILL.md"
+
+# === KỸ NĂNG WEB DEVELOPMENT (7) ===
+"ui-ux-pro-max","web-development","Kho tàng design intelligence — 50+ styles, 97 palettes, 57 font pairings, 99 UX guidelines, 9 stacks, pre-delivery checklist.",false,"skills/ui-ux-pro-max/SKILL.md"
+"frontend-design","web-development","Phương pháp thiết kế frontend cao cấp — DFII scoring, Design Thinking bắt buộc, 10 anti-patterns, output chuẩn.",false,"skills/frontend-design/SKILL.md"
+"frontend-developer","web-development","Frontend expert React 19+ / Next.js 15+ — components, RSC, state, styling, testing, accessibility, performance.",false,"skills/frontend-developer/SKILL.md"
+"vercel-react-best-practices","web-development","40+ quy tắc tối ưu React/Next.js từ Vercel Engineering — 8 categories priority-based. Nguồn chính thức.",false,"skills/vercel-react-best-practices/SKILL.md"
+"web-design-guidelines","web-development","100+ quy tắc audit UI từ Vercel — accessibility, forms, animation, typography, performance, dark mode. Nguồn chính thức.",false,"skills/web-design-guidelines/SKILL.md"
+"vercel-composition-patterns","web-development","React composition patterns từ Vercel — compound components, state lifting, React 19 APIs. Tránh boolean prop proliferation.",false,"skills/vercel-composition-patterns/SKILL.md"
+"canvas-design","web-development","Thiết kế visual cao cấp — Design Philosophy → Canvas Creation (PDF/PNG). Museum-quality art, poster, visual design.",false,"skills/canvas-design/SKILL.md"
