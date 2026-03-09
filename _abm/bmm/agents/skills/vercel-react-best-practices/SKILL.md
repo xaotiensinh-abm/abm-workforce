@@ -14,6 +14,26 @@ Skill chính thức từ **Vercel Engineering** — 40+ quy tắc tối ưu hi�
 - Review code cho performance issues
 - Tối ưu bundle size hoặc load times
 
+## KHÔNG sử dụng khi
+
+- Cần audit UI accessibility/design → dùng `web-design-guidelines`
+- Cần chọn style/palette → dùng `ui-ux-pro-max`
+- Cần design thinking methodology → dùng `frontend-design`
+- Cần component architecture patterns → dùng `vercel-composition-patterns`
+
+---
+
+## VÍ DỤ NHANH
+
+```
+Input:  "Tối ưu ProductPage bị load chậm"
+Output:
+  1. [CRITICAL] async-parallel → Promise.all() cho getProduct + getReviews
+  2. [CRITICAL] bundle-dynamic-imports → next/dynamic cho ReviewSection
+  3. [HIGH] server-parallel-fetching → Restructure thành parallel fetches
+  4. [MEDIUM] rerender-memo → Memoize ProductImage component
+```
+
 ---
 
 ## QUY TẮC THEO PRIORITY
@@ -105,4 +125,4 @@ Khi viết code mới:
 ## Nguồn gốc
 - **Chính thức**: [vercel-labs/agent-skills](https://github.com/vercel-labs/agent-skills) — Vercel Engineering
 - 455K+ installs trên skills.sh (#1 trong leaderboard)
-- Adapt bởi: ABM Workforce v2.2 — Jarvis Orchestrator
+- Adapt bởi: ABM Workforce v2.3 — Jarvis Orchestrator

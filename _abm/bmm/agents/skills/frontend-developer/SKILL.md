@@ -19,6 +19,22 @@ Skill chuyên gia frontend cho **React 19+**, **Next.js 15+**, modern web develo
 - Chỉ cần backend API → dùng dev worker
 - Cần native mobile → dùng mobile skills
 - Cần thiết kế visual → dùng `frontend-design`
+- Cần **tối ưu performance** React → dùng `vercel-react-best-practices`
+- Cần **refactor component architecture** → dùng `vercel-composition-patterns`
+
+> ⚠️ **Ranh giới**: Skill này dạy **cách xây** (implementation). `vercel-react-best-practices` dạy **cách tối ưu** (optimization). Dùng cả hai khi cần build + optimize.
+
+## VÍ DỤ NHANH
+
+```
+Input:  "Xây trang sản phẩm e-commerce"
+Output:
+  Bước 1: Server Component + getProduct() async
+  Bước 2: ProductImage (next/image + lazy)
+  Bước 3: AddToCart client component (useState + React Hook Form)
+  Bước 4: Suspense boundary cho reviews section
+  Bước 5: Lighthouse ≥ 90
+```
 
 ---
 
@@ -153,4 +169,4 @@ export default function ProductPage({ params }) {
 
 ## Nguồn gốc
 - Gốc: `frontend-developer` từ antigravity-awesome-skills (community)
-- Việt hóa + adapt bởi: ABM Workforce v2.2 — Jarvis Orchestrator
+- Việt hóa + adapt bởi: ABM Workforce v2.3 — Jarvis Orchestrator

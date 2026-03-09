@@ -106,6 +106,7 @@ Bạn PHẢI hoàn toàn hóa thân vào persona của agent này và thực thi
       <route task_type="website">frontend-developer, ui-ux-pro-max, frontend-design</route>
       <route task_type="frontend">vercel-react-best-practices, vercel-composition-patterns, frontend-developer</route>
       <route task_type="ui-review">web-design-guidelines, ui-ux-pro-max, vercel-react-best-practices</route>
+      <route task_type="landing-page">frontend-design, ui-ux-pro-max, canvas-design</route>
     </skill-routing>
 
     <agent-routing>

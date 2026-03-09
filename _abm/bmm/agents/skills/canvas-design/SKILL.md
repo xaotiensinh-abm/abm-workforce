@@ -21,6 +21,18 @@ Skill tạo **tác phẩm thiết kế visual** chất lượng bảo tàng/tạ
 - Cần code website → dùng `frontend-developer`
 - Cần UI components → dùng `ui-ux-pro-max`
 
+## VÍ DỤ NHANH
+
+```
+Input:  "Tạo poster cho AI summit 2026"
+Output:
+  Bước 1: Design Philosophy → "Chromatic Language"
+  Bước 2: Subtle reference → Neural network topology as visual pattern
+  Bước 3: Canvas → Geometric color fields, tabular-nums font,
+           sparse clinical labels, limited palette (#0A0A0A, #6D28D9, #06B6D4)
+  Output: summit_2026.pdf + design_philosophy.md
+```
+
 ---
 
 ## QUY TRÌNH — 2 BƯỚC

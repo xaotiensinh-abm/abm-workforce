@@ -14,6 +14,26 @@ Skill chính thức từ **Vercel** — composition patterns cho React component
 - Thiết kế flexible component APIs
 - Review component architecture
 
+## KHÔNG sử dụng khi
+
+- Cần tối ưu performance React → dùng `vercel-react-best-practices`
+- Cần audit UI design/accessibility → dùng `web-design-guidelines`
+- Cần code frontend từ đầu → dùng `frontend-developer`
+- Cần chọn style/palette → dùng `ui-ux-pro-max`
+
+## VÍ DỤ NHANH
+
+```
+Input:  "Dialog component có 8 boolean props: isLarge, isFullscreen, hasFooter..."
+Output:
+  [architecture-compound-components] → Refactor thành:
+  <Dialog>
+    <Dialog.Header><Dialog.Close /></Dialog.Header>
+    <Dialog.Body>Content</Dialog.Body>
+    <Dialog.Footer>Actions</Dialog.Footer>
+  </Dialog>
+```
+
 ---
 
 ## QUY TẮC THEO PRIORITY

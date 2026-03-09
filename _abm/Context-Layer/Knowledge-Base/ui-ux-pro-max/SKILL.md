@@ -23,6 +23,18 @@ Skill tra cứu design toàn diện cho web và mobile. Chứa **50+ styles, 97 
 
 ---
 
+## VÍ DỤ NHANH
+
+```
+Input:  "Thiết kế dashboard SaaS"
+Output:
+  Palette: Midnight Pro (#0F172A, #3B82F6, #F1F5F9)
+  Font: Space Grotesk (heading) + Inter (body)
+  Spacing: 4px base unit, scale ×2/×3/×4/×6/×8
+  Shadows: 3 levels (sm, md, lg)
+  → Check pre-delivery checklist trước khi ship
+```
+
 ## QUY TẮC THEO MỨC ĐỘ ƯU TIÊN
 
 | Ưu tiên | Category | Mức ảnh hưởng | Domain |
@@ -87,6 +99,36 @@ Skill tra cứu design toàn diện cho web và mobile. Chứa **50+ styles, 97 
 - `data-table` — Cung cấp table thay thế cho accessible
 
 ---
+
+## 10 PALETTES NỔI BẬT
+
+| # | Tên | Dùng cho | Màu chính |
+|:-:|-----|----------|-----------|
+| 1 | **Midnight Pro** | SaaS Dashboard | `#0F172A` `#1E293B` `#3B82F6` `#60A5FA` `#F1F5F9` |
+| 2 | **Warm Minimal** | Landing Page | `#1C1917` `#78716C` `#F59E0B` `#FFFBEB` `#FAFAF9` |
+| 3 | **Ocean Depth** | Fintech | `#0C4A6E` `#0284C7` `#38BDF8` `#E0F2FE` `#F0F9FF` |
+| 4 | **Forest Green** | Health/Eco | `#14532D` `#16A34A` `#4ADE80` `#DCFCE7` `#F0FDF4` |
+| 5 | **Royal Purple** | Creative/AI | `#3B0764` `#7C3AED` `#A78BFA` `#EDE9FE` `#FAF5FF` |
+| 6 | **Coral Sunset** | E-commerce | `#7F1D1D` `#EF4444` `#FB923C` `#FEF3C7` `#FFFBEB` |
+| 7 | **Slate Modern** | Portfolio | `#020617` `#334155` `#94A3B8` `#E2E8F0` `#F8FAFC` |
+| 8 | **Neon Cyber** | Gaming/Tech | `#0A0A0A` `#6D28D9` `#06B6D4` `#22D3EE` `#F5F3FF` |
+| 9 | **Sand Dune** | Luxury | `#1C1917` `#A8A29E` `#D6D3D1` `#F5F5F4` `#FAFAF9` |
+| 10 | **Electric Blue** | Startup | `#0C0A09` `#2563EB` `#3B82F6` `#DBEAFE` `#EFF6FF` |
+
+## 10 FONT PAIRINGS
+
+| # | Heading | Body | Vibe |
+|:-:|---------|------|------|
+| 1 | **Inter** | Inter | Clean, neutral, startup |
+| 2 | **Space Grotesk** | Inter | Tech, modern, bold |
+| 3 | **Outfit** | DM Sans | Friendly, rounded, SaaS |
+| 4 | **Playfair Display** | Source Sans 3 | Editorial, premium, luxury |
+| 5 | **Satoshi** | General Sans | Minimal, contemporary |
+| 6 | **Cal Sans** | Inter | Product, Vercel-like |
+| 7 | **Plus Jakarta Sans** | Plus Jakarta Sans | Geometric, versatile |
+| 8 | **Fraunces** | Work Sans | Creative, distinctive |
+| 9 | **Sora** | DM Sans | Futuristic, AI vibes |
+| 10 | **Libre Baskerville** | Karla | Classic + modern blend |
 
 ## QUY TRÌNH SỬ DỤNG
 
