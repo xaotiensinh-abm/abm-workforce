@@ -1,4 +1,4 @@
-# Bảng kê Kỹ năng — ABM Workforce (60 Skills)
+# Bảng kê Kỹ năng — ABM Workforce (66 Skills)
 # Cập nhật: 2026-03-09 — Phiên bản Tiếng Việt
 
 # === KỸ NĂNG HỆ THỐNG / META (9) ===
@@ -85,3 +85,11 @@ name,category,description,mandatory,path
 "web-design-guidelines","web-development","100+ quy tắc audit UI từ Vercel — accessibility, forms, animation, typography, performance, dark mode. Nguồn chính thức.",false,"skills/web-design-guidelines/SKILL.md"
 "vercel-composition-patterns","web-development","React composition patterns từ Vercel — compound components, state lifting, React 19 APIs. Tránh boolean prop proliferation.",false,"skills/vercel-composition-patterns/SKILL.md"
 "canvas-design","web-development","Thiết kế visual cao cấp — Design Philosophy → Canvas Creation (PDF/PNG). Museum-quality art, poster, visual design.",false,"skills/canvas-design/SKILL.md"
+
+# === KỸ NĂNG VĂN PHÒNG SỐ (6) ===
+"docx","văn phòng số","Tạo và chỉnh sửa văn bản Word (.docx) — hợp đồng, báo cáo, đề xuất, JD, SOP. Dùng python-docx.",false,"skills/docx/SKILL.md"
+"xlsx","văn phòng số","Tạo và xử lý bảng tính Excel (.xlsx) — báo cáo tài chính, KPI dashboard, data analysis. Dùng openpyxl.",false,"skills/xlsx/SKILL.md"
+"pdf","văn phòng số","Tạo, đọc và xử lý file PDF — báo cáo, invoice, hợp đồng, merge/split. Dùng fpdf2 + PyPDF2.",false,"skills/pdf/SKILL.md"
+"pptx","văn phòng số","Tạo slide PowerPoint (.pptx) chuyên nghiệp — pitch deck, báo cáo, training. Dùng python-pptx.",false,"skills/pptx/SKILL.md"
+"agent-email-cli","văn phòng số","Gửi email tự động qua CLI — thông báo nội bộ, follow-up khách hàng, email sequence. SMTP/API.",false,"skills/agent-email-cli/SKILL.md"
+"task-planning","văn phòng số","Lập kế hoạch công việc — breakdown tasks, timeline, dependencies, resource allocation.",false,"skills/task-planning/SKILL.md"

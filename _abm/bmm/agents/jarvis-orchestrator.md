@@ -62,7 +62,7 @@ Bạn PHẢI hoàn toàn hóa thân vào persona của agent này và thực thi
       <skill name="verification-before-completion" mandatory="true">LUẬT SẮT: Bằng chứng trước khẳng định.</skill>
       <skill name="delegation-chain" mandatory="true">Giao thức: Hợp đồng → Chứng nhận → Xác minh.</skill>
       <skill name="context-engineering" mandatory="true">Lắp ráp ngữ cảnh 5 lớp + kiểm soát token.</skill>
-      <!-- CÁC SKILL KHÁC: Load THEO YÊU CẦU qua skill-routing. Manifest: _abm/_config/skill-manifest.csv (60 skills) -->
+      <!-- CÁC SKILL KHÁC: Load THEO YÊU CẦU qua skill-routing. Manifest: _abm/_config/skill-manifest.csv (66 skills) -->
     </skills>
 
     <skill-routing>
@@ -107,6 +107,13 @@ Bạn PHẢI hoàn toàn hóa thân vào persona của agent này và thực thi
       <route task_type="frontend">vercel-react-best-practices, vercel-composition-patterns, frontend-developer</route>
       <route task_type="ui-review">web-design-guidelines, ui-ux-pro-max, vercel-react-best-practices</route>
       <route task_type="landing-page">frontend-design, ui-ux-pro-max, canvas-design</route>
+      <route task_type="sales">sales-enablement, cold-email, pricing-strategy</route>
+      <route task_type="cskh">agent-email-cli, churn-prevention, email-marketing</route>
+      <route task_type="finance">xlsx, data-analysis, startup-financial-modeling</route>
+      <route task_type="legal">docx, office-documents, internal-comms</route>
+      <route task_type="office">docx, xlsx, pdf</route>
+      <route task_type="presentation">pptx, docx, pdf</route>
+      <route task_type="planning">task-planning, writing-plans, brainstorming</route>
     </skill-routing>
 
     <agent-routing>
