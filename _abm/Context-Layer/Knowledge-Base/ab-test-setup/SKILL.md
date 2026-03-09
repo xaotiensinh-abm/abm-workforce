@@ -1,8 +1,13 @@
----
+﻿---
 name: ab-test-setup
 description: "Thiết kế A/B test — hypothesis, variants, sample size, phân tích kết quả. Sử dụng khi: test landing page, test email, test pricing, cần data-driven decision, tối ưu conversion."
 tags: [marketing, measurement]
 ---
+
+## KHONG su dung khi
+
+- Chi can chay A/B test don gian -> self-serve tool. Phan tich ket qua du lieu -> dung data-analysis.
+
 
 # 🧪 A/B Test Setup — Thí Nghiệm Marketing
 

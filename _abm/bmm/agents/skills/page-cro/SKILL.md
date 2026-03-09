@@ -1,8 +1,13 @@
----
+﻿---
 name: page-cro
 description: "Tối ưu tỷ lệ chuyển đổi (CRO) cho mọi trang marketing. 7 trụ cột phân tích: value proposition, headline, CTA, visual hierarchy, trust signals, objection handling, friction. Sử dụng khi: đánh giá landing page, cải thiện trang bán hàng, tăng conversion rate."
 tags: [marketing, cro]
 ---
+
+## KHONG su dung khi
+
+- Can SEO -> dung seo-audit. Can A/B test -> dung ab-test-setup.
+
 
 # 🎯 Page CRO — Tối Ưu Tỷ Lệ Chuyển Đổi
 

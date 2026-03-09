@@ -1,7 +1,12 @@
----
+﻿---
 name: writing-plans
 description: Use when you have a spec or requirements for a multi-step task, before touching code. Creates comprehensive implementation plans with bite-sized TDD tasks.
 ---
+
+## KHONG su dung khi
+
+- Can brainstorm truoc -> dung brainstorming. Can review plan -> dung multi-dimensional-review.
+
 
 # Writing Plans
 

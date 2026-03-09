@@ -1,7 +1,12 @@
----
+﻿---
 name: verification-before-completion
 description: IRON LAW — Evidence before claims, always. Use BEFORE claiming any work is complete, fixed, or passing. Run verification and confirm output before making success claims.
 ---
+
+## KHONG su dung khi
+
+- Skill bat buoc - luon active. Khong co truong hop khong su dung.
+
 
 # Verification Before Completion
 

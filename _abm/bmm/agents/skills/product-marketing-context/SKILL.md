@@ -1,8 +1,13 @@
----
+﻿---
 name: product-marketing-context
 description: "Nền tảng marketing — tạo tài liệu ngữ cảnh sản phẩm (12 sections). MỌI skill marketing khác đọc file này trước. Sử dụng khi: bắt đầu chiến dịch marketing, cần hiểu sản phẩm/đối tượng/đối thủ, viết content mà chưa có product context."
 tags: [marketing, foundation]
 ---
+
+## KHONG su dung khi
+
+- File context da ton tai va day du -> khong can tao lai. Can viet copy -> dung copywriting.
+
 
 # 📋 Product Marketing Context — Nền Tảng Marketing
 

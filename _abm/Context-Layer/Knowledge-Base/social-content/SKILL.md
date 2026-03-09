@@ -1,7 +1,12 @@
----
+﻿---
 name: social-content
 description: Tạo nội dung social media chuyên nghiệp — hook formulas, content calendar, repurposing system, engagement strategy.
 ---
+
+## KHONG su dung khi
+
+- Can chien luoc tong the -> dung content-strategy. Can viet copy dai -> dung copywriting.
+
 
 # Social Content — Nội dung mạng xã hội
 

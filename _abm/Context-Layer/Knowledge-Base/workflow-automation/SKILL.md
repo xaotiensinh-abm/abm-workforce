@@ -1,7 +1,12 @@
----
+﻿---
 name: workflow-automation
 description: Tự động hóa quy trình công việc — trigger→action mapping, SOP to automation, report scheduling, notification rules.
 ---
+
+## KHONG su dung khi
+
+- Can phan tich data -> dung data-analysis. Can lap ke hoach -> dung task-planning.
+
 
 # Workflow Automation — Tự động hóa quy trình doanh nghiệp
 

@@ -1,7 +1,12 @@
----
+﻿---
 name: data-analysis
 description: Phân tích dữ liệu kinh doanh — KPI dashboard, trend analysis, báo cáo định kỳ, insight extraction. Biến data thành quyết định.
 ---
+
+## KHONG su dung khi
+
+- Can tao bang tinh Excel -> dung xlsx. Can bao cao PDF -> dung pdf.
+
 
 # Data Analysis — Phân tích dữ liệu kinh doanh
 

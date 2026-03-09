@@ -1,7 +1,12 @@
----
+﻿---
 name: finishing-a-development-branch
 description: Use when implementation is complete and all tests pass. Guides completion by presenting merge/PR/discard options and cleaning up.
 ---
+
+## KHONG su dung khi
+
+- Chua co code changes -> khong can. Can review truoc -> dung code-review.
+
 
 # Finishing a Development Branch
 

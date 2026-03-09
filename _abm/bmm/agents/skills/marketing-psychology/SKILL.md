@@ -1,7 +1,12 @@
----
+﻿---
 name: marketing-psychology
 description: 50+ mental models và tâm lý học marketing — từ First Principles đến Flywheel Effect. Áp dụng vào copywriting, pricing, CRO.
 ---
+
+## KHONG su dung khi
+
+- Can viet copy -> dung copywriting. Can A/B test -> dung ab-test-setup.
+
 
 # Marketing Psychology — Tâm lý học marketing & Mental Models
 

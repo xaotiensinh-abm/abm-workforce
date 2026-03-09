@@ -4,6 +4,11 @@ description: "Ascension Protocol — Extract lessons from task logs, conversatio
 tags: [meta, ai, self-improvement, core]
 ---
 
+## KHONG su dung khi
+
+- Can luu nhanh -> dung save. Can review he thong -> dung multi-dimensional-review.
+
+
 # 🧬 Knowledge Crystallizer — Ascension Protocol
 
 > Adapted from CLAWDBOT's Evolver "Ascension Protocol v2.0" for the Jarvis Multi-Agent system.

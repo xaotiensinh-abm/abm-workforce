@@ -99,14 +99,56 @@ email = resend.Emails.send(params)
 
 ---
 
+## 🛡️ SANDBOX MODE (MẶC ĐỊNH = BẬT)
+
+```
+⚠️ SANDBOX MODE MẶC ĐỊNH: BẬT
+  → KHÔNG gửi email thật
+  → CHỈ hiển thị PREVIEW cho CEO xem
+  → CEO gõ "gửi thật" hoặc "send live" → mới gửi
+```
+
+### Luồng Sandbox
+
+```
+1. Agent soạn email (To, Subject, Body)
+2. Hiển thị PREVIEW đầy đủ cho CEO
+3. CEO review nội dung
+4. CEO gõ "ok gửi" → Chuyển sang LIVE MODE → Gửi thật
+   CEO gõ "sửa" → Quay lại bước 1
+   CEO không respond → KHÔNG gửi
+```
+
+### Chuyển sang Live Mode
+
+```python
+SANDBOX_MODE = True  # MẶC ĐỊNH
+
+def send_email(to, subject, body, sandbox=True):
+    if sandbox:
+        print("📧 [SANDBOX] PREVIEW — CHƯA GỬI THẬT")
+        print(f"  To: {to}")
+        print(f"  Subject: {subject}")
+        print(f"  Body: {body[:200]}...")
+        return "⏸️ Chờ CEO duyệt — gõ 'gửi thật' để confirm"
+    else:
+        # Chỉ chạy khi CEO đã duyệt
+        actual_send(to, subject, body)
+        return "✅ Email đã gửi thật"
+```
+
+---
+
 ## QUY TẮC AN TOÀN
 
-1. ⚠️ **KHÔNG gửi email mà chưa được CEO duyệt nội dung**
-2. **Confirm trước khi gửi**: Hiển thị preview → chờ "ok" → mới gửi
-3. **Rate limit**: Tối đa 50 emails/giờ
-4. **BCC bản thân**: Luôn BCC sender để theo dõi
-5. **Unsubscribe link**: Bắt buộc cho email marketing
-6. **Environment variables**: API keys trong `.env`, KHÔNG hardcode
+1. 🛡️ **SANDBOX MẶC ĐỊNH BẬT** — chỉ preview, không gửi thật
+2. ⚠️ **KHÔNG gửi email mà chưa được CEO duyệt nội dung**
+3. **Confirm trước khi gửi**: Hiển thị preview → chờ "ok gửi" → mới gửi thật
+4. **Rate limit**: Tối đa 50 emails/giờ
+5. **BCC bản thân**: Luôn BCC sender để theo dõi
+6. **Unsubscribe link**: Bắt buộc cho email marketing
+7. **Environment variables**: API keys trong `.env`, KHÔNG hardcode
+8. **Audit log**: Ghi lại mọi email đã gửi (to, subject, timestamp)
 
 ---
 

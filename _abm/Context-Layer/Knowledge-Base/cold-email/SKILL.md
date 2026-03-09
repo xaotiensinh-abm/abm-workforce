@@ -1,8 +1,13 @@
----
+﻿---
 name: cold-email
 description: "Viết cold email B2B chuyên nghiệp — outreach, follow-up sequence, personalization. Sử dụng khi: tiếp cận khách hàng mới, B2B outreach, sales email, partnership outreach."
 tags: [marketing, sales]
 ---
+
+## KHONG su dung khi
+
+- Can email noi bo -> dung internal-comms. Can email nurture -> dung email-marketing.
+
 
 # 📧 Cold Email — B2B Outreach
 

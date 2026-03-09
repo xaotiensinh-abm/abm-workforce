@@ -1,7 +1,12 @@
----
+﻿---
 name: git-worktrees
 description: Use when starting multi-task development to create isolated workspaces. Each feature gets its own worktree to prevent context pollution.
 ---
+
+## KHONG su dung khi
+
+- Task nho khong can parallel branch. Can git basics -> khong can skill rieng.
+
 
 # Git Worktrees
 

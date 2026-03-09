@@ -1,8 +1,13 @@
----
+﻿---
 name: churn-prevention
 description: "Ngăn chặn rời bỏ — cancel flow, save offers, payment recovery, dunning. Sử dụng khi: giảm churn rate, thiết kế cancel flow, tạo save offers, retention strategy."
 tags: [marketing, retention]
 ---
+
+## KHONG su dung khi
+
+- Can gui email -> dung agent-email-cli. Can viet copy email -> dung email-marketing.
+
 
 # 🛡️ Churn Prevention — Ngăn Rời Bỏ
 

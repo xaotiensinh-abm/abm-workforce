@@ -1,8 +1,13 @@
----
+﻿---
 name: launch-strategy
 description: "Chiến lược ra mắt sản phẩm — ORB Framework, 5-phase launch, Product Hunt playbook. Sử dụng khi: ra mắt sản phẩm mới, launch feature, announce update, go-to-market."
 tags: [marketing, strategy]
 ---
+
+## KHONG su dung khi
+
+- Can pricing -> dung pricing-strategy. Can sales deck -> dung sales-enablement.
+
 
 # 🚀 Launch Strategy — Ra Mắt Sản Phẩm
 

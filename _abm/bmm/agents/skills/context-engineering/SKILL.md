@@ -1,8 +1,13 @@
----
+﻿---
 name: context-engineering
 description: "5-Layer Context Assembly + Token Budget Enforcer. Controls what goes into every agent's context window. Prevents context bomb. Ensures agents get ONLY what they need."
 tags: [meta, core, context, optimization]
 ---
+
+## KHONG su dung khi
+
+- Can giao viec -> dung delegation-chain. Can luu context -> dung save.
+
 
 # 🧠 Context Engineering — 5-Layer Token-Optimized Assembly
 

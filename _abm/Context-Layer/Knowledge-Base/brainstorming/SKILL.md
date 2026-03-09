@@ -1,7 +1,12 @@
----
+﻿---
 name: brainstorming
 description: Brainstorm có cấu trúc cho business — divergent/convergent thinking, canvas frameworks, idea prioritization.
 ---
+
+## KHONG su dung khi
+
+- Can ke hoach trien khai cu the -> dung task-planning. Can phan tich du lieu -> dung data-analysis.
+
 
 # Brainstorming — Brainstorm kinh doanh có cấu trúc
 

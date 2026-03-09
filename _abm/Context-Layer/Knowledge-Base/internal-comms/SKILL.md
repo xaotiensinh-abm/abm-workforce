@@ -1,7 +1,12 @@
----
+﻿---
 name: internal-comms
 description: Viết thông báo nội bộ chuyên nghiệp — 3P updates, newsletter, FAQs, incident reports, báo cáo lãnh đạo.
 ---
+
+## KHONG su dung khi
+
+- Can gui email ra ngoai -> dung agent-email-cli. Can viet report -> dung office-documents.
+
 
 # Internal Comms — Truyền thông nội bộ doanh nghiệp
 

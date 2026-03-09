@@ -3,6 +3,11 @@ name: memory-keeper
 description: Backup and snapshot all critical agent context — contracts, attestations, task logs, knowledge items — into archive with git sync. Use before maintenance, after critical tasks, or on schedule.
 ---
 
+## KHONG su dung khi
+
+- Can luu task state -> dung save. Can tinh che tri thuc -> dung knowledge-crystallizer.
+
+
 # Memory Keeper — Context Backup & Recovery
 
 > Adapted from CLAWDBOT's [memory-keeper](https://github.com/CrimsonDevil333333/memory-keeper) for the Jarvis Multi-Agent system.

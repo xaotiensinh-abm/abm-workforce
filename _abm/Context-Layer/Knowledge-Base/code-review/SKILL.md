@@ -1,7 +1,12 @@
----
+﻿---
 name: code-review
 description: Two-role code review skill — requesting review (dispatch reviewer subagent) and receiving review (handle feedback correctly). Use after completing implementation or before merging.
 ---
+
+## KHONG su dung khi
+
+- Can go loi -> dung systematic-debugging. Can viet ke hoach code -> dung writing-plans.
+
 
 # Code Review
 

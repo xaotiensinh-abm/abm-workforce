@@ -1,7 +1,12 @@
----
+﻿---
 name: copywriting
 description: Viết copy chuyên nghiệp cho landing page, email, quảng cáo, social media. Clarity over cleverness, benefits over features.
 ---
+
+## KHONG su dung khi
+
+- Can chien luoc noi dung -> dung content-strategy. Can email sequence -> dung email-marketing.
+
 
 # Copywriting — Viết copy doanh nghiệp
 

@@ -1,7 +1,12 @@
----
+﻿---
 name: "save"
 description: "Lưu trạng thái công việc vào Second Brain — snapshot task/ngày làm việc, knowledge gained, plan status, files changed. Hỗ trợ /save, /list-memory, /find-memory."
 ---
+
+## KHONG su dung khi
+
+- Can tinh che tri thuc -> dung knowledge-crystallizer. Can backup git -> dung memory-keeper.
+
 
 # 💾 Save — Lưu Trạng Thái Công Việc
 

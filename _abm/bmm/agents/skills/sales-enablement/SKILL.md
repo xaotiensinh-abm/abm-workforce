@@ -1,8 +1,13 @@
----
+﻿---
 name: sales-enablement
 description: "Tạo tài liệu bán hàng — sales deck, one-pager, xử lý phản đối, demo script. Sử dụng khi: chuẩn bị sales, tạo pitch deck, viết proposal, training sales team."
 tags: [marketing, sales]
 ---
+
+## KHONG su dung khi
+
+- Can tao slide PowerPoint -> dung pptx. Can viet proposal Word -> dung docx.
+
 
 # 🤝 Sales Enablement — Hỗ Trợ Bán Hàng
 

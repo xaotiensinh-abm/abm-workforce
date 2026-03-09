@@ -1,7 +1,12 @@
----
+﻿---
 name: dispatching-parallel-agents
 description: Use when you have multiple independent problems to solve simultaneously. Identify independent domains, create focused agent tasks, dispatch in parallel, review and integrate.
 ---
+
+## KHONG su dung khi
+
+- Task don gian 1 agent la du -> khong can dispatch. Can review code -> dung code-review.
+
 
 # Dispatching Parallel Agents
 

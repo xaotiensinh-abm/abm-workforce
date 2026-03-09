@@ -1,7 +1,12 @@
----
+﻿---
 name: office-documents
 description: Tạo tài liệu office chuyên nghiệp — báo cáo, proposal, deck, bảng tính. Templates chuẩn doanh nghiệp cho mọi loại tài liệu.
 ---
+
+## KHONG su dung khi
+
+- Can file Word -> dung docx. Can file Excel -> dung xlsx. Can slide -> dung pptx.
+
 
 # Office Documents — Tài liệu văn phòng chuyên nghiệp
 

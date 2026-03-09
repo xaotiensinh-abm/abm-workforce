@@ -1,8 +1,13 @@
----
+﻿---
 name: pricing-strategy
 description: "Chiến lược giá — packaging, value metrics, tier structure, Van Westendorp, tâm lý giá. Sử dụng khi: thiết lập giá, thay đổi pricing, tạo pricing page, phân tích đối thủ về giá."
 tags: [marketing, strategy]
 ---
+
+## KHONG su dung khi
+
+- Can phan tich tai chinh -> dung startup-financial-modeling. Can sales deck -> dung sales-enablement.
+
 
 # 💰 Pricing Strategy — Chiến Lược Giá
 

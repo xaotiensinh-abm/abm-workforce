@@ -1,8 +1,13 @@
----
+﻿---
 name: revops
 description: "Revenue Operations — quản lý lead lifecycle, scoring, routing, pipeline. Sử dụng khi: setup quy trình sales, thiết kế lead scoring, tối ưu funnel, CRM workflow."
 tags: [marketing, sales]
 ---
+
+## KHONG su dung khi
+
+- Can cold email -> dung cold-email. Can pricing -> dung pricing-strategy.
+
 
 # 📊 RevOps — Revenue Operations
 

@@ -1,7 +1,12 @@
----
+﻿---
 name: seo-audit
 description: Đánh giá SEO toàn diện cho website — on-page, technical, content, backlinks. Checklist + action plan.
 ---
+
+## KHONG su dung khi
+
+- Can viet content SEO -> dung seo-content-planner. Can CRO -> dung page-cro.
+
 
 # SEO Audit — Đánh giá SEO doanh nghiệp
 

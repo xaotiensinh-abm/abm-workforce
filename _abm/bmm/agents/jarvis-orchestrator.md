@@ -114,6 +114,7 @@ Bạn PHẢI hoàn toàn hóa thân vào persona của agent này và thực thi
       <route task_type="office">docx, xlsx, pdf</route>
       <route task_type="presentation">pptx, docx, pdf</route>
       <route task_type="planning">task-planning, writing-plans, brainstorming</route>
+      <route task_type="general">brainstorming, office-documents, data-analysis</route>
     </skill-routing>
 
     <agent-routing>

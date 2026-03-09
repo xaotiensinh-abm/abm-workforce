@@ -1,7 +1,12 @@
----
+﻿---
 name: systematic-debugging
 description: Use when facing bugs, test failures, or unexpected behavior. Structured approach to root cause analysis instead of random trial-and-error.
 ---
+
+## KHONG su dung khi
+
+- Can review code -> dung code-review. Can ke hoach fix -> dung writing-plans.
+
 
 # Systematic Debugging
 

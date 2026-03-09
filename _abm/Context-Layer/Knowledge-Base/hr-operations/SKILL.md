@@ -1,7 +1,12 @@
----
+﻿---
 name: hr-operations
 description: Quản lý nhân sự toàn diện — tuyển dụng, onboarding, đánh giá hiệu suất, phát triển nhân viên, offboarding. Templates chuẩn doanh nghiệp.
 ---
+
+## KHONG su dung khi
+
+- Can tao file Word -> dung docx. Can phan tich du lieu HR -> dung data-analysis.
+
 
 # HR Operations — Quản lý nhân sự doanh nghiệp
 

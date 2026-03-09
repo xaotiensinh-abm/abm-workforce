@@ -6,6 +6,11 @@ name: delegation-chain
 description: Protocol for managing multi-level delegation chains with contracts and attestations
 ---
 
+## KHONG su dung khi
+
+- Skill bat buoc - luon active. Khong co truong hop khong su dung.
+
+
 ## Delegation Chain Management
 
 This skill defines how the multi-agent system handles task delegation following the

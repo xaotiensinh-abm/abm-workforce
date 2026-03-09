@@ -4,6 +4,11 @@ description: "Creates and iteratively improves skills for the ABM (AI Business M
 tags: [meta, core, ai, self-improvement]
 ---
 
+## KHONG su dung khi
+
+- Can review skill -> dung multi-dimensional-review. Can cai thien agent -> dung agent-improve.
+
+
 # 🏭 Skill Creator v2.0
 
 > Adapted from [Anthropic's skill-creator](https://skills.sh/anthropics/skills/skill-creator) for ABM.

@@ -1,7 +1,12 @@
----
+﻿---
 name: email-marketing
 description: Thiết kế email sequence chuyên nghiệp — welcome, nurture, re-engagement, onboarding. Cấu trúc, timing, subject lines.
 ---
+
+## KHONG su dung khi
+
+- Can cold outreach B2B -> dung cold-email. Can viet copy -> dung copywriting.
+
 
 # Email Marketing — Email Sequence cho doanh nghiệp
 

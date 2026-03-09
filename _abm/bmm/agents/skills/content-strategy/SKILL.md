@@ -1,7 +1,12 @@
----
+﻿---
 name: content-strategy
 description: Xây dựng chiến lược nội dung toàn diện cho doanh nghiệp — tìm Content Pillars, keyword research theo buyer stage, và content calendar.
 ---
+
+## KHONG su dung khi
+
+- Can viet copy cu the -> dung copywriting. Can SEO audit -> dung seo-audit.
+
 
 # Content Strategy — Chiến lược nội dung doanh nghiệp
 

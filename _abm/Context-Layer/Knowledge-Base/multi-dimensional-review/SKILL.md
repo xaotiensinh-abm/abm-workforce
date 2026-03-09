@@ -1,8 +1,13 @@
----
+﻿---
 name: multi-dimensional-review
 description: "Standardized multi-perspective evaluation framework. Generates 10-dimension scores, 5+ adversarial perspectives, evidence-based findings, and prioritized action plan. Use for system audits, project reviews, and quality gates."
 tags: [meta, review, quality, process]
 ---
+
+## KHONG su dung khi
+
+- Review nhanh 1 chieu -> khong can 8 personas. Can fix bug -> dung systematic-debugging.
+
 
 # 🔍 Multi-Dimensional Review — Quy trình đánh giá chuẩn
 

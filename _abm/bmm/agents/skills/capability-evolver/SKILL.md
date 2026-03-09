@@ -1,8 +1,13 @@
----
+﻿---
 name: capability-evolver
 description: "Self-evolution engine — Analyze task logs and history to identify improvements. Fix broken processes, crystallize knowledge, generate new skills automatically. The Ascension Protocol."
 tags: [meta, ai, self-improvement, core]
 ---
+
+## KHONG su dung khi
+
+- Can tao skill moi -> dung skill-creator. Can review he thong -> dung multi-dimensional-review.
+
 
 # 🧬 Capability Evolver — Self-Evolution Engine
 

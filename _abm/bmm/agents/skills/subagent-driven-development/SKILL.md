@@ -1,7 +1,12 @@
----
+﻿---
 name: subagent-driven-development
 description: Execute implementation plans by dispatching fresh subagent per task, with two-stage review (spec compliance then code quality) after each. Use when you have a plan with independent tasks.
 ---
+
+## KHONG su dung khi
+
+- Task nho khong can subagent -> tu lam. Can parallel -> dung dispatching-parallel-agents.
+
 
 # Subagent-Driven Development
 
