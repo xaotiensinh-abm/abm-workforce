@@ -2,10 +2,27 @@
 
 > **Hệ sinh thái AI Agent nâng cao năng suất doanh nghiệp — 9 phòng ban, 66 kỹ năng, 1 bộ não điều phối.**
 
+[![Version](https://img.shields.io/badge/Version-2.5-purple.svg)](CHANGELOG.md)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Skills](https://img.shields.io/badge/Skills-66-blue.svg)](_abm/_config/skill-manifest.csv)
 [![Workflows](https://img.shields.io/badge/Workflows-13-green.svg)](.agents/workflows/)
+[![Routes](https://img.shields.io/badge/Routes-23-orange.svg)](_abm/bmm/agents/jarvis-orchestrator.md)
 [![Language](https://img.shields.io/badge/Language-Vietnamese_100%25-red.svg)](.gemini/RULES.md)
+
+---
+
+## 🆕 What's New — v2.5 (09/03/2026)
+
+| Thay đổi | Chi tiết |
+|---------|----------|
+| 🏢 **Mô hình Doanh Nghiệp Số** | 9 phòng ban mapping đầy đủ: BGĐ, HC-NS, Kế Toán, Marketing, KD, CSKH, IT, Vận Hành, Pháp Chế |
+| 📁 **6 skills Văn Phòng Số** | `docx`, `xlsx`, `pdf`, `pptx`, `agent-email-cli`, `task-planning` |
+| 🛡️ **Email Sandbox Mode** | Mặc định BẬT — chỉ preview, CEO duyệt mới gửi thật |
+| ✅ **66/66 KHÔNG sử dụng khi** | Mọi skill đều có cross-reference rõ ràng để tránh misrouting |
+| 🔀 **23 Routes** | Thêm: sales, cskh, finance, legal, office, presentation, planning, general |
+| 📋 **4 Workflows mới** | `/sales`, `/cskh`, `/finance`, `/legal` |
+| 🌐 **7 Web Development skills** | ui-ux-pro-max, frontend-design, frontend-developer, vercel-react/composition, web-design-guidelines, canvas-design |
+| 🎨 **4 Multimedia skills** | imagen (Gemini 3.1), veo-video-gen (VEO 3.1), grok-imagen (Aurora), freepik-spaces |
 
 ---
 
@@ -153,7 +170,7 @@ Jarvis sẽ online và sẵn sàng nhận việc.
 | `xlsx` | Excel (.xlsx) | openpyxl |
 | `pdf` | PDF (.pdf) | fpdf2 + PyPDF2 |
 | `pptx` | PowerPoint (.pptx) | python-pptx |
-| `agent-email-cli` | Email tự động | SMTP / Resend API |
+| `agent-email-cli` | Email tự động | SMTP / Resend API | 🛡️ Sandbox mặc định |
 | `task-planning` | Kế hoạch công việc | WBS + T-shirt sizing |
 
 ### 👥 Văn Phòng & HR (4)
@@ -316,7 +333,7 @@ MIT License — xem file [LICENSE](LICENSE)
 ---
 
 <p align="center">
-  <b>ABM Workforce v2.4</b> — Văn Phòng Số Thông Minh<br>
-  <i>66 Skills · 13 Workflows · 9 Phòng Ban · 100% Tiếng Việt</i><br>
+  <b>ABM Workforce v2.5</b> — Văn Phòng Số Thông Minh<br>
+  <i>66 Skills · 23 Routes · 13 Workflows · 9 Phòng Ban · 100% Tiếng Việt</i><br>
   <i>Kỷ luật sắt. Bằng chứng thật. Kết quả đo được.</i>
 </p>
