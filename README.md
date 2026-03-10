@@ -1,28 +1,29 @@
 # 🏢 ABM Workforce — Văn Phòng Số Thông Minh
 
-> **Hệ sinh thái AI Agent nâng cao năng suất doanh nghiệp — 9 phòng ban, 66 kỹ năng, 1 bộ não điều phối.**
+> **Hệ sinh thái AI Agent nâng cao năng suất doanh nghiệp — 9 phòng ban, 71 kỹ năng, 1 bộ não điều phối.**
 
-[![Version](https://img.shields.io/badge/Version-2.5-purple.svg)](CHANGELOG.md)
+[![Version](https://img.shields.io/badge/Version-2.6-purple.svg)](CHANGELOG.md)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![Skills](https://img.shields.io/badge/Skills-66-blue.svg)](_abm/_config/skill-manifest.csv)
-[![Workflows](https://img.shields.io/badge/Workflows-13-green.svg)](.agents/workflows/)
-[![Routes](https://img.shields.io/badge/Routes-23-orange.svg)](_abm/bmm/agents/jarvis-orchestrator.md)
+[![Skills](https://img.shields.io/badge/Skills-71-blue.svg)](_abm/_config/skill-manifest.csv)
+[![Workflows](https://img.shields.io/badge/Workflows-14-green.svg)](.agents/workflows/)
+[![Routes](https://img.shields.io/badge/Routes-26-orange.svg)](_abm/bmm/agents/jarvis-orchestrator.md)
 [![Language](https://img.shields.io/badge/Language-Vietnamese_100%25-red.svg)](.gemini/RULES.md)
 
 ---
 
-## 🆕 What's New — v2.5 (09/03/2026)
+## 🆕 What's New — v2.6 (10/03/2026)
 
 | Thay đổi | Chi tiết |
 |---------|----------|
-| 🏢 **Mô hình Doanh Nghiệp Số** | 9 phòng ban mapping đầy đủ: BGĐ, HC-NS, Kế Toán, Marketing, KD, CSKH, IT, Vận Hành, Pháp Chế |
-| 📁 **6 skills Văn Phòng Số** | `docx`, `xlsx`, `pdf`, `pptx`, `agent-email-cli`, `task-planning` |
-| 🛡️ **Email Sandbox Mode** | Mặc định BẬT — chỉ preview, CEO duyệt mới gửi thật |
-| ✅ **66/66 KHÔNG sử dụng khi** | Mọi skill đều có cross-reference rõ ràng để tránh misrouting |
-| 🔀 **23 Routes** | Thêm: sales, cskh, finance, legal, office, presentation, planning, general |
-| 📋 **4 Workflows mới** | `/sales`, `/cskh`, `/finance`, `/legal` |
-| 🌐 **7 Web Development skills** | ui-ux-pro-max, frontend-design, frontend-developer, vercel-react/composition, web-design-guidelines, canvas-design |
-| 🎨 **4 Multimedia skills** | imagen (Gemini 3.1), veo-video-gen (VEO 3.1), grok-imagen (Aurora), freepik-spaces |
+| 🧠 **BMAD Upgrade** | 5 skills chiến lược từ feedback cộng đồng BMAD |
+| 🏗️ **Project Hierarchy** | State Machine + Context Inheritance: Epic → Feature → Story. Chống loạn não |
+| 🏃 **Sprint Planning** | Pipeline PRD → Epic → Story → Sprint. Gate reviews, T-shirt sizing, MoSCoW |
+| 🗄️ **Database Management** | Schema design, migration protocol, SQL/NoSQL patterns |
+| 🧠 **Critical Thinking** | Meta-skill phản biện: Devil's Advocate, 5 Whys, First Principles, Pre-mortem |
+| 🕸️ **Knowledge Graph** | Entities, relationships, cognee integration. Nâng cấp từ flat KB |
+| 🎨 **Creative Strategist** | SubAgent mới: tư duy sáng tạo TRIZ + rejected ideas backlog |
+| 👥 **Council Workflow** | `/council` — hội đồng đánh giá multi-agent + scoring rubric |
+| 📊 **Review Score** | 8.33 → **9.08/10** sau BMAD upgrade |
 
 ---
 
@@ -154,9 +155,9 @@ Jarvis sẽ online và sẵn sàng nhận việc.
 
 `product-marketing-context` · `copywriting` · `content-strategy` · `social-content` · `email-marketing` · `marketing-psychology` · `page-cro` · `seo-audit` · `ab-test-setup` · `cold-email` · `sales-enablement` · `revops` · `pricing-strategy` · `launch-strategy` · `churn-prevention` · `seo-content-planner`
 
-### 🔧 Phát triển (7)
+### 🔧 Phát triển (10)
 
-`subagent-driven-development` · `dispatching-parallel-agents` · `writing-plans` · `code-review` · `systematic-debugging` · `finishing-a-development-branch` · `git-worktrees`
+`subagent-driven-development` · `dispatching-parallel-agents` · `writing-plans` · `code-review` · `systematic-debugging` · `finishing-a-development-branch` · `git-worktrees` · `project-hierarchy` · `sprint-planning` · `database-management`
 
 ### 🌐 Web Development (7)
 
@@ -177,9 +178,9 @@ Jarvis sẽ online và sẵn sàng nhận việc.
 
 `hr-operations` · `office-documents` · `internal-comms` · `brainstorming`
 
-### 📈 Phân Tích (7)
+### 📈 Phân Tích (8)
 
-`data-analysis` · `workflow-automation` · `competitive-landscape` · `market-sizing-analysis` · `startup-analyst` · `deep-research` · `competitor-intelligence`
+`data-analysis` · `workflow-automation` · `competitive-landscape` · `market-sizing-analysis` · `startup-analyst` · `deep-research` · `competitor-intelligence` · `knowledge-graph`
 
 ### 🧠 Bổ Sung Nâng Cao (6)
 
@@ -333,7 +334,7 @@ MIT License — xem file [LICENSE](LICENSE)
 ---
 
 <p align="center">
-  <b>ABM Workforce v2.5</b> — Văn Phòng Số Thông Minh<br>
-  <i>66 Skills · 23 Routes · 13 Workflows · 9 Phòng Ban · 100% Tiếng Việt</i><br>
+  <b>ABM Workforce v2.6</b> — Văn Phòng Số Thông Minh<br>
+  <i>71 Skills · 26 Routes · 14 Workflows · 6 SubAgents · 9 Phòng Ban · 100% Tiếng Việt</i><br>
   <i>Kỷ luật sắt. Bằng chứng thật. Kết quả đo được.</i>
 </p>
