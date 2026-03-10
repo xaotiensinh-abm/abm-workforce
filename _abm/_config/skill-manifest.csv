@@ -1,4 +1,4 @@
-# Bảng kê Kỹ năng — ABM Workforce (71 Skills)
+# Bảng kê Kỹ năng — ABM Workforce (78 Skills)
 # Cập nhật: 2026-03-09 — Phiên bản Tiếng Việt
 
 # === KỸ NĂNG HỆ THỐNG / META (9) ===
@@ -100,3 +100,14 @@ name,category,description,mandatory,path
 "database-management","phát triển","Quản lý database — schema design, migration, query optimization, data integrity. SQL/NoSQL patterns.",false,"skills/database-management/SKILL.md"
 "critical-thinking","hệ thống","Meta-skill tư duy phản biện — Devil's Advocate, 5 Whys, First Principles, Pre-mortem.",false,"skills/critical-thinking/SKILL.md"
 "knowledge-graph","phân tích","Xây dựng Knowledge Graph — entities, relationships, reasoning. Tích hợp cognee. YAML export.",false,"skills/knowledge-graph/SKILL.md"
+
+# === WAVE 1: QUICK WINS (2) ===
+"self-healing","hệ thống","Fallback chain khi skill fail — retry 3 cấp, chuyển skill thay thế, escalate CEO.",false,"skills/self-healing/SKILL.md"
+"github-issues-sprint","phát triển","Tích hợp GitHub Issues vào Sprint Planning — import, convert stories, sync.",false,"skills/github-issues-sprint/SKILL.md"
+
+# === WAVE 2: CORE EVOLUTION (5) ===
+"agentic-memory","hệ thống","Bộ nhớ dài hạn — vector DB indexing, semantic search, context retrieval xuyên conversation.",false,"skills/agentic-memory/SKILL.md"
+"mcp-integration","hệ thống","Tích hợp MCP Servers — Notion, Google Workspace, Slack, Trello, Jira.",false,"skills/mcp-integration/SKILL.md"
+"supply-chain","vận hành","Quản lý chuỗi cung ứng — procurement, inventory, logistics, vendor management.",false,"skills/supply-chain/SKILL.md"
+"contract-review","pháp chế","Rà soát hợp đồng pháp lý — phát hiện rủi ro, điều khoản bất lợi, compliance check.",false,"skills/contract-review/SKILL.md"
+"compliance-checker","pháp chế","Kiểm tra tuân thủ — GDPR, PDPA, Luật ATNM VN, ISO 27001, nội quy công ty.",false,"skills/compliance-checker/SKILL.md"

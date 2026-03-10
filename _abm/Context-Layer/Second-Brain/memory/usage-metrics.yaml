@@ -1,0 +1,47 @@
+# Usage Metrics — ABM Workforce
+# Tu dong track skill usage moi khi duoc goi
+# File: _abm/Context-Layer/Second-Brain/memory/usage-metrics.yaml
+
+period: "2026-03"
+last_updated: ""
+
+skill_usage:
+  # Moi skill duoc track:
+  # - count: so lan su dung
+  # - last_used: lan cuoi su dung
+  # - avg_satisfaction: 1-5 (tu danh gia)
+  # - common_tasks: cac task thuong dung skill nay
+
+  delegation-chain:
+    count: 0
+    last_used: ""
+    category: "he-thong"
+    mandatory: true
+
+  verification-before-completion:
+    count: 0
+    last_used: ""
+    category: "he-thong"
+    mandatory: true
+
+  context-engineering:
+    count: 0
+    last_used: ""
+    category: "he-thong"
+    mandatory: true
+
+# === SUMMARY ===
+summary:
+  total_calls: 0
+  unique_skills_used: 0
+  top_5_skills: []
+  unused_skills: []
+  most_active_category: ""
+  busiest_department: ""
+
+# === MONTHLY TREND ===
+monthly:
+  - month: "2026-03"
+    total_calls: 0
+    new_skills_added: 5
+    review_score: 9.08
