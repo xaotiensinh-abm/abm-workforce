@@ -1,0 +1,65 @@
+# Council Scoring Template
+# Dung khi: /council workflow — Hoi dong danh gia
+# Cach dung: Moi agent dien 1 section, Jarvis consolidate
+
+project: ""
+date: ""
+evaluated_by: "Jarvis Council"
+
+# === TIEU CHI DANH GIA ===
+criteria:
+  architecture:
+    weight: 20
+    score: 0
+    agent: "Architect"
+    notes: ""
+  feasibility:
+    weight: 20
+    score: 0
+    agent: "Pragmatist"
+    notes: ""
+  security:
+    weight: 15
+    score: 0
+    agent: "Hacker"
+    notes: ""
+  business_value:
+    weight: 15
+    score: 0
+    agent: "CEO"
+    notes: ""
+  creativity:
+    weight: 10
+    score: 0
+    agent: "Creative"
+    notes: ""
+  scalability:
+    weight: 10
+    score: 0
+    agent: "Architect"
+    notes: ""
+  user_experience:
+    weight: 10
+    score: 0
+    agent: "Pragmatist"
+    notes: ""
+
+# === GAP ANALYSIS ===
+gaps:
+  missing_skills: []
+  missing_workflows: []
+  missing_agents: []
+  missing_data: []
+
+# === DE XUAT BO SUNG ===
+recommendations:
+  priority_p0: []
+  priority_p1: []
+  priority_p2: []
+
+# === KET QUA ===
+result:
+  weighted_score: 0
+  status: "" # pass / conditional_pass / fail
+  decision: "" # CEO dien
+  next_actions: []

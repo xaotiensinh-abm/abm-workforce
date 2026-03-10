@@ -1,4 +1,4 @@
-# Bảng kê Kỹ năng — ABM Workforce (66 Skills)
+# Bảng kê Kỹ năng — ABM Workforce (71 Skills)
 # Cập nhật: 2026-03-09 — Phiên bản Tiếng Việt
 
 # === KỸ NĂNG HỆ THỐNG / META (9) ===
@@ -93,3 +93,10 @@ name,category,description,mandatory,path
 "pptx","văn phòng số","Tạo slide PowerPoint (.pptx) chuyên nghiệp — pitch deck, báo cáo, training. Dùng python-pptx.",false,"skills/pptx/SKILL.md"
 "agent-email-cli","văn phòng số","Gửi email tự động qua CLI — thông báo nội bộ, follow-up khách hàng, email sequence. SMTP/API.",false,"skills/agent-email-cli/SKILL.md"
 "task-planning","văn phòng số","Lập kế hoạch công việc — breakdown tasks, timeline, dependencies, resource allocation.",false,"skills/task-planning/SKILL.md"
+
+# === KỸ NĂNG BMAD UPGRADE (5) ===
+"project-hierarchy","phát triển","Quản lý context xuyên suốt — State Machine + Feature Hierarchy. Epic → Feature → Story. Zoom in/out protocol.",false,"skills/project-hierarchy/SKILL.md"
+"sprint-planning","phát triển","Pipeline PRD → Epics → User Stories → Sprint Backlog → Sprint Plan. Gate reviews, T-shirt sizing, MoSCoW.",false,"skills/sprint-planning/SKILL.md"
+"database-management","phát triển","Quản lý database — schema design, migration, query optimization, data integrity. SQL/NoSQL patterns.",false,"skills/database-management/SKILL.md"
+"critical-thinking","hệ thống","Meta-skill tư duy phản biện — Devil's Advocate, 5 Whys, First Principles, Pre-mortem.",false,"skills/critical-thinking/SKILL.md"
+"knowledge-graph","phân tích","Xây dựng Knowledge Graph — entities, relationships, reasoning. Tích hợp cognee. YAML export.",false,"skills/knowledge-graph/SKILL.md"
