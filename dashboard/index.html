@@ -3,599 +3,453 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ABM Workforce Dashboard v2.7</title>
+    <title>ABM Workforce — Control Dashboard</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --abm-red: #FF0000;
-            --abm-red-dark: #CC0000;
-            --abm-navy: #020827;
-            --abm-gold: #F9B508;
-            --abm-bg: #0a0e1a;
-            --abm-card: #111827;
-            --abm-card-border: #1f2937;
-            --abm-text: #e5e7eb;
-            --abm-text-dim: #9ca3af;
-            --abm-green: #10b981;
-            --abm-blue: #3b82f6;
-            --abm-purple: #8b5cf6;
-            --abm-orange: #f59e0b;
-            --abm-pink: #ec4899;
-            --radius: 12px;
+            --bg: #0a0e1a; --card: #111827; --card2: #1a2232;
+            --border: #1f2937; --text: #e5e7eb; --dim: #9ca3af;
+            --red: #ef4444; --green: #10b981; --blue: #3b82f6;
+            --purple: #8b5cf6; --gold: #f59e0b; --pink: #ec4899;
+            --cyan: #06b6d4; --orange: #f97316; --teal: #14b8a6;
+            --abm-red: #FF0000; --r: 12px;
         }
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body { font-family:'Montserrat',sans-serif; background:var(--bg); color:var(--text); }
+        .app { max-width:1440px; margin:0 auto; padding:20px; }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        /* NAV */
+        .nav { display:flex; align-items:center; justify-content:space-between; padding:16px 24px; background:linear-gradient(135deg,#020827,#0f172a); border-radius:var(--r); margin-bottom:24px; border:1px solid var(--border); }
+        .nav-brand { display:flex; align-items:center; gap:12px; }
+        .nav-brand h1 { font-size:22px; font-weight:800; background:linear-gradient(135deg,var(--abm-red),var(--gold)); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
+        .nav-badge { background:var(--abm-red); color:#fff; padding:5px 14px; border-radius:20px; font-weight:700; font-size:12px; }
+        .nav-tabs { display:flex; gap:4px; }
+        .nav-tab { padding:8px 16px; border-radius:8px; font-size:12px; font-weight:600; cursor:pointer; border:1px solid transparent; color:var(--dim); transition:all .2s; }
+        .nav-tab:hover { color:var(--text); background:rgba(255,255,255,.05); }
+        .nav-tab.active { background:rgba(255,0,0,.1); border-color:var(--abm-red); color:var(--abm-red); }
 
-        body {
-            font-family: 'Montserrat', sans-serif;
-            background: var(--abm-bg);
-            color: var(--abm-text);
-            min-height: 100vh;
-            overflow-x: hidden;
-        }
+        /* STATS ROW */
+        .stats { display:grid; grid-template-columns:repeat(7,1fr); gap:12px; margin-bottom:24px; }
+        .stat { background:var(--card); border:1px solid var(--border); border-radius:var(--r); padding:16px; text-align:center; position:relative; overflow:hidden; transition:all .3s; }
+        .stat::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:var(--c,var(--abm-red)); }
+        .stat:hover { transform:translateY(-3px); box-shadow:0 8px 20px rgba(0,0,0,.3); }
+        .stat-n { font-size:28px; font-weight:800; color:var(--c,var(--abm-red)); }
+        .stat-l { font-size:10px; color:var(--dim); text-transform:uppercase; letter-spacing:1px; margin-top:2px; }
 
-        .dashboard {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 24px;
-        }
+        /* PANELS GRID */
+        .panels { display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-bottom:24px; }
+        .panel { background:var(--card); border:1px solid var(--border); border-radius:var(--r); overflow:hidden; }
+        .panel-head { padding:16px 20px; border-bottom:1px solid var(--border); font-size:14px; font-weight:700; display:flex; align-items:center; gap:8px; }
+        .panel-body { padding:16px 20px; max-height:400px; overflow-y:auto; }
+        .panel-body::-webkit-scrollbar { width:4px; }
+        .panel-body::-webkit-scrollbar-thumb { background:var(--border); border-radius:2px; }
 
-        /* Header */
-        .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 32px;
-            padding: 24px;
-            background: linear-gradient(135deg, var(--abm-navy), #0f172a);
-            border-radius: var(--radius);
-            border: 1px solid var(--abm-card-border);
-        }
+        /* FULL WIDTH */
+        .full { grid-column:1/-1; }
 
-        .header-left h1 {
-            font-size: 28px;
-            font-weight: 800;
-            background: linear-gradient(135deg, var(--abm-red), var(--abm-gold));
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
+        /* TASK TABLE */
+        .task-filters { display:flex; gap:8px; padding:12px 20px; border-bottom:1px solid var(--border); flex-wrap:wrap; }
+        .filter-btn { padding:5px 12px; border-radius:16px; font-size:11px; font-weight:600; cursor:pointer; border:1px solid var(--border); background:transparent; color:var(--dim); transition:all .2s; }
+        .filter-btn:hover, .filter-btn.active { background:rgba(255,0,0,.1); border-color:var(--abm-red); color:var(--abm-red); }
 
-        .header-left p {
-            color: var(--abm-text-dim);
-            font-size: 14px;
-            margin-top: 4px;
-        }
+        table { width:100%; border-collapse:collapse; font-size:12px; }
+        th { text-align:left; padding:10px 12px; color:var(--dim); font-weight:600; text-transform:uppercase; font-size:10px; letter-spacing:1px; border-bottom:1px solid var(--border); cursor:pointer; }
+        th:hover { color:var(--text); }
+        td { padding:10px 12px; border-bottom:1px solid rgba(255,255,255,.03); }
+        tr:hover td { background:rgba(255,255,255,.02); }
 
-        .version-badge {
-            background: var(--abm-red);
-            color: white;
-            padding: 6px 16px;
-            border-radius: 20px;
-            font-weight: 700;
-            font-size: 14px;
-            animation: pulse 2s infinite;
-        }
+        .badge { display:inline-block; padding:2px 8px; border-radius:10px; font-size:10px; font-weight:600; }
+        .badge-done { background:rgba(16,185,129,.15); color:var(--green); }
+        .badge-progress { background:rgba(59,130,246,.15); color:var(--blue); }
+        .badge-blocked { background:rgba(239,68,68,.15); color:var(--red); }
 
-        @keyframes pulse {
-            0%, 100% { box-shadow: 0 0 0 0 rgba(255,0,0,0.4); }
-            50% { box-shadow: 0 0 0 8px rgba(255,0,0,0); }
-        }
+        .skill-tag { display:inline-block; padding:2px 6px; margin:1px; border-radius:4px; font-size:9px; background:rgba(139,92,246,.1); color:var(--purple); }
 
-        /* Stats Grid */
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(6, 1fr);
-            gap: 16px;
-            margin-bottom: 32px;
-        }
+        .prog-bar { width:80px; height:6px; background:rgba(255,255,255,.08); border-radius:3px; overflow:hidden; display:inline-block; vertical-align:middle; margin-right:4px; }
+        .prog-fill { height:100%; border-radius:3px; }
 
-        .stat-card {
-            background: var(--abm-card);
-            border: 1px solid var(--abm-card-border);
-            border-radius: var(--radius);
-            padding: 20px;
-            text-align: center;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
+        /* CHARTS */
+        .chart-bar { display:flex; align-items:center; gap:10px; margin-bottom:8px; }
+        .chart-label { font-size:11px; width:110px; color:var(--dim); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+        .chart-track { flex:1; height:20px; background:rgba(255,255,255,.05); border-radius:4px; overflow:hidden; position:relative; }
+        .chart-fill { height:100%; border-radius:4px; transition:width 1s ease; display:flex; align-items:center; padding-left:8px; font-size:10px; font-weight:700; }
+        .chart-val { font-size:11px; font-weight:700; width:30px; text-align:right; }
 
-        .stat-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: var(--accent-color, var(--abm-red));
-        }
+        /* TIMELINE */
+        .timeline { position:relative; padding-left:20px; }
+        .timeline::before { content:''; position:absolute; left:6px; top:0; bottom:0; width:2px; background:var(--border); }
+        .tl-item { position:relative; margin-bottom:16px; padding-left:16px; }
+        .tl-item::before { content:''; position:absolute; left:-17px; top:6px; width:10px; height:10px; border-radius:50%; border:2px solid var(--green); background:var(--bg); }
+        .tl-date { font-size:10px; color:var(--dim); margin-bottom:2px; }
+        .tl-title { font-size:12px; font-weight:600; }
+        .tl-detail { font-size:11px; color:var(--dim); margin-top:2px; }
 
-        .stat-card:hover {
-            transform: translateY(-4px);
-            border-color: var(--accent-color, var(--abm-red));
-            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
-        }
+        /* SCORE */
+        .score-row { display:flex; align-items:center; gap:24px; padding:20px; }
+        .score-circle { width:100px; height:100px; border-radius:50%; border:4px solid var(--green); display:flex; flex-direction:column; align-items:center; justify-content:center; flex-shrink:0; background:rgba(16,185,129,.03); }
+        .score-big { font-size:32px; font-weight:800; color:var(--green); line-height:1; }
+        .score-sub { font-size:9px; color:var(--dim); text-transform:uppercase; }
+        .score-bars { flex:1; }
+        .sb-row { display:flex; align-items:center; gap:8px; margin-bottom:5px; }
+        .sb-label { font-size:10px; width:80px; color:var(--dim); }
+        .sb-track { flex:1; height:6px; background:rgba(255,255,255,.06); border-radius:3px; overflow:hidden; }
+        .sb-fill { height:100%; border-radius:3px; }
+        .sb-val { font-size:10px; font-weight:700; width:24px; text-align:right; }
 
-        .stat-number {
-            font-size: 36px;
-            font-weight: 800;
-            color: var(--accent-color, var(--abm-red));
-        }
+        /* HEALTH */
+        .health-row { display:flex; align-items:center; gap:8px; padding:8px 0; }
+        .h-dot { width:8px; height:8px; border-radius:50%; animation:blink 2s infinite; }
+        @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.3} }
+        .h-label { font-size:11px; color:var(--dim); flex:1; }
+        .h-val { font-size:11px; font-weight:600; }
 
-        .stat-label {
-            font-size: 12px;
-            color: var(--abm-text-dim);
-            margin-top: 4px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
+        /* FOOTER */
+        .footer { text-align:center; padding:20px; color:var(--dim); font-size:11px; border-top:1px solid var(--border); margin-top:20px; }
+        .footer strong { color:var(--abm-red); }
 
-        /* Main Grid */
-        .main-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 24px;
-            margin-bottom: 32px;
-        }
-
-        .card {
-            background: var(--abm-card);
-            border: 1px solid var(--abm-card-border);
-            border-radius: var(--radius);
-            padding: 24px;
-        }
-
-        .card-title {
-            font-size: 16px;
-            font-weight: 700;
-            margin-bottom: 16px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        /* Departments */
-        .dept-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 12px;
-        }
-
-        .dept-item {
-            background: rgba(255,255,255,0.03);
-            border: 1px solid var(--abm-card-border);
-            border-radius: 8px;
-            padding: 14px;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .dept-item:hover {
-            background: rgba(255,0,0,0.05);
-            border-color: var(--abm-red);
-        }
-
-        .dept-name {
-            font-weight: 600;
-            font-size: 13px;
-            margin-bottom: 6px;
-        }
-
-        .dept-coverage {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .progress-bar {
-            flex: 1;
-            height: 6px;
-            background: rgba(255,255,255,0.1);
-            border-radius: 3px;
-            overflow: hidden;
-        }
-
-        .progress-fill {
-            height: 100%;
-            border-radius: 3px;
-            transition: width 1s ease;
-        }
-
-        .dept-pct {
-            font-size: 12px;
-            font-weight: 700;
-            min-width: 36px;
-            text-align: right;
-        }
-
-        /* Skill Categories */
-        .cat-list { display: flex; flex-direction: column; gap: 10px; }
-
-        .cat-item {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 10px 14px;
-            border-radius: 8px;
-            background: rgba(255,255,255,0.02);
-            transition: all 0.2s;
-        }
-
-        .cat-item:hover { background: rgba(255,255,255,0.05); }
-
-        .cat-icon {
-            width: 32px;
-            height: 32px;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 16px;
-        }
-
-        .cat-name { flex: 1; font-size: 13px; font-weight: 500; }
-
-        .cat-count {
-            font-size: 14px;
-            font-weight: 700;
-            padding: 2px 10px;
-            border-radius: 12px;
-            background: rgba(255,255,255,0.08);
-        }
-
-        /* Health Status */
-        .health-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 10px;
-        }
-
-        .health-item {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            padding: 12px;
-            border-radius: 8px;
-            background: rgba(255,255,255,0.02);
-        }
-
-        .health-dot {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            animation: blink 2s infinite;
-        }
-
-        @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.4; }
-        }
-
-        .health-label { font-size: 12px; color: var(--abm-text-dim); }
-        .health-value { font-size: 13px; font-weight: 600; margin-left: auto; }
-
-        /* Score Section */
-        .score-section {
-            margin-bottom: 32px;
-        }
-
-        .score-card {
-            background: linear-gradient(135deg, var(--abm-navy), #131c33);
-            border: 1px solid var(--abm-card-border);
-            border-radius: var(--radius);
-            padding: 32px;
-            display: flex;
-            align-items: center;
-            gap: 40px;
-        }
-
-        .score-circle {
-            width: 140px;
-            height: 140px;
-            border-radius: 50%;
-            border: 6px solid var(--abm-green);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-            position: relative;
-            background: rgba(16, 185, 129, 0.05);
-        }
-
-        .score-big {
-            font-size: 42px;
-            font-weight: 800;
-            color: var(--abm-green);
-            line-height: 1;
-        }
-
-        .score-label {
-            font-size: 11px;
-            color: var(--abm-text-dim);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .score-details { flex: 1; }
-
-        .score-bar-row {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 8px;
-        }
-
-        .score-bar-label {
-            font-size: 12px;
-            width: 100px;
-            color: var(--abm-text-dim);
-        }
-
-        .score-bar-track {
-            flex: 1;
-            height: 8px;
-            background: rgba(255,255,255,0.08);
-            border-radius: 4px;
-            overflow: hidden;
-        }
-
-        .score-bar-fill {
-            height: 100%;
-            border-radius: 4px;
-            transition: width 1.5s ease;
-        }
-
-        .score-bar-val {
-            font-size: 12px;
-            font-weight: 700;
-            width: 32px;
-            text-align: right;
-        }
-
-        /* Workflow Tags */
-        .workflow-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-
-        .wf-tag {
-            padding: 8px 14px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: 600;
-            border: 1px solid var(--abm-card-border);
-            background: rgba(255,255,255,0.03);
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-
-        .wf-tag:hover {
-            background: var(--abm-red);
-            border-color: var(--abm-red);
-            color: white;
-        }
-
-        /* Footer */
-        .footer {
-            text-align: center;
-            padding: 24px;
-            color: var(--abm-text-dim);
-            font-size: 12px;
-            border-top: 1px solid var(--abm-card-border);
-        }
-
-        .footer strong { color: var(--abm-red); }
-
-        @media (max-width: 768px) {
-            .stats-grid { grid-template-columns: repeat(3, 1fr); }
-            .main-grid { grid-template-columns: 1fr; }
-            .dept-grid { grid-template-columns: repeat(2, 1fr); }
-            .score-card { flex-direction: column; text-align: center; }
+        @media(max-width:900px) {
+            .stats { grid-template-columns:repeat(3,1fr); }
+            .panels { grid-template-columns:1fr; }
+            .nav { flex-direction:column; gap:12px; }
         }
     </style>
 </head>
 <body>
-    <div class="dashboard">
-        <!-- Header -->
-        <div class="header">
-            <div class="header-left">
-                <h1>🧠 ABM Workforce</h1>
-                <p>Văn Phòng Số Thông Minh — AI Business Master</p>
-            </div>
-            <div class="version-badge">v2.7</div>
+<div class="app">
+    <!-- NAV -->
+    <div class="nav">
+        <div class="nav-brand">
+            <h1>🧠 ABM Workforce</h1>
+            <span class="nav-badge">v2.7</span>
         </div>
-
-        <!-- Stats -->
-        <div class="stats-grid">
-            <div class="stat-card" style="--accent-color: var(--abm-red)">
-                <div class="stat-number">78</div>
-                <div class="stat-label">Skills</div>
-            </div>
-            <div class="stat-card" style="--accent-color: var(--abm-blue)">
-                <div class="stat-number">30</div>
-                <div class="stat-label">Routes</div>
-            </div>
-            <div class="stat-card" style="--accent-color: var(--abm-green)">
-                <div class="stat-number">15</div>
-                <div class="stat-label">Workflows</div>
-            </div>
-            <div class="stat-card" style="--accent-color: var(--abm-purple)">
-                <div class="stat-number">6</div>
-                <div class="stat-label">SubAgents</div>
-            </div>
-            <div class="stat-card" style="--accent-color: var(--abm-orange)">
-                <div class="stat-number">10</div>
-                <div class="stat-label">Workers</div>
-            </div>
-            <div class="stat-card" style="--accent-color: var(--abm-pink)">
-                <div class="stat-number">9</div>
-                <div class="stat-label">Phòng Ban</div>
-            </div>
-        </div>
-
-        <!-- Review Score -->
-        <div class="score-section">
-            <div class="score-card">
-                <div class="score-circle">
-                    <div class="score-big">9.35</div>
-                    <div class="score-label">/ 10</div>
-                </div>
-                <div class="score-details">
-                    <div class="card-title">📊 Điểm Đánh Giá 10 Chiều</div>
-                    <div class="score-bar-row"><span class="score-bar-label">Kiến trúc</span><div class="score-bar-track"><div class="score-bar-fill" style="width:95%;background:var(--abm-green)"></div></div><span class="score-bar-val">9.5</span></div>
-                    <div class="score-bar-row"><span class="score-bar-label">Enforcement</span><div class="score-bar-track"><div class="score-bar-fill" style="width:95%;background:var(--abm-green)"></div></div><span class="score-bar-val">9.5</span></div>
-                    <div class="score-bar-row"><span class="score-bar-label">Coverage</span><div class="score-bar-track"><div class="score-bar-fill" style="width:95%;background:var(--abm-green)"></div></div><span class="score-bar-val">9.5</span></div>
-                    <div class="score-bar-row"><span class="score-bar-label">Routing</span><div class="score-bar-track"><div class="score-bar-fill" style="width:95%;background:var(--abm-green)"></div></div><span class="score-bar-val">9.5</span></div>
-                    <div class="score-bar-row"><span class="score-bar-label">Sync</span><div class="score-bar-track"><div class="score-bar-fill" style="width:100%;background:var(--abm-gold)"></div></div><span class="score-bar-val">10</span></div>
-                    <div class="score-bar-row"><span class="score-bar-label">Docs</span><div class="score-bar-track"><div class="score-bar-fill" style="width:90%;background:var(--abm-blue)"></div></div><span class="score-bar-val">9.0</span></div>
-                    <div class="score-bar-row"><span class="score-bar-label">Scalability</span><div class="score-bar-track"><div class="score-bar-fill" style="width:90%;background:var(--abm-blue)"></div></div><span class="score-bar-val">9.0</span></div>
-                    <div class="score-bar-row"><span class="score-bar-label">Phòng ban</span><div class="score-bar-track"><div class="score-bar-fill" style="width:95%;background:var(--abm-green)"></div></div><span class="score-bar-val">9.5</span></div>
-                    <div class="score-bar-row"><span class="score-bar-label">Tiếng Việt</span><div class="score-bar-track"><div class="score-bar-fill" style="width:95%;background:var(--abm-green)"></div></div><span class="score-bar-val">9.5</span></div>
-                    <div class="score-bar-row"><span class="score-bar-label">Security</span><div class="score-bar-track"><div class="score-bar-fill" style="width:90%;background:var(--abm-blue)"></div></div><span class="score-bar-val">9.0</span></div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Main Grid -->
-        <div class="main-grid">
-            <!-- Departments -->
-            <div class="card">
-                <div class="card-title">🏢 9 Phòng Ban</div>
-                <div class="dept-grid" id="deptGrid"></div>
-            </div>
-
-            <!-- Skill Categories -->
-            <div class="card">
-                <div class="card-title">🧩 Phân Bổ 78 Skills</div>
-                <div class="cat-list" id="catList"></div>
-            </div>
-
-            <!-- Health Status -->
-            <div class="card">
-                <div class="card-title">💚 Health Status</div>
-                <div class="health-grid" id="healthGrid"></div>
-            </div>
-
-            <!-- Workflows -->
-            <div class="card">
-                <div class="card-title">⚡ 15 Slash Commands</div>
-                <div class="workflow-tags" id="wfTags"></div>
-            </div>
-        </div>
-
-        <!-- Footer -->
-        <div class="footer">
-            <strong>ABM Workforce v2.7</strong> — 78 Skills · 30 Routes · 15 Workflows · 6 SubAgents · 9 Phòng Ban · 100% Tiếng Việt<br>
-            Kỷ luật sắt. Bằng chứng thật. Kết quả đo được.
+        <div class="nav-tabs">
+            <div class="nav-tab active" onclick="showView('overview')">Tổng Quan</div>
+            <div class="nav-tab" onclick="showView('tasks')">Lịch Sử Tasks</div>
+            <div class="nav-tab" onclick="showView('analytics')">Phân Tích</div>
         </div>
     </div>
 
-    <script>
-        const departments = [
-            { name: 'Ban Giám Đốc', pct: 100, color: '#ef4444' },
-            { name: 'HC — Nhân Sự', pct: 85, color: '#f59e0b' },
-            { name: 'Kế Toán', pct: 85, color: '#10b981' },
-            { name: 'Marketing', pct: 100, color: '#3b82f6' },
-            { name: 'Kinh Doanh', pct: 85, color: '#8b5cf6' },
-            { name: 'CSKH', pct: 85, color: '#ec4899' },
-            { name: 'IT — Công Nghệ', pct: 100, color: '#06b6d4' },
-            { name: 'Vận Hành', pct: 60, color: '#f97316' },
-            { name: 'Pháp Chế', pct: 75, color: '#14b8a6' },
-        ];
+    <!-- STATS -->
+    <div class="stats">
+        <div class="stat" style="--c:var(--abm-red)"><div class="stat-n" id="sSkills">80</div><div class="stat-l">Skills</div></div>
+        <div class="stat" style="--c:var(--blue)"><div class="stat-n" id="sRoutes">30</div><div class="stat-l">Routes</div></div>
+        <div class="stat" style="--c:var(--green)"><div class="stat-n" id="sWf">15</div><div class="stat-l">Workflows</div></div>
+        <div class="stat" style="--c:var(--purple)"><div class="stat-n" id="sSa">6</div><div class="stat-l">SubAgents</div></div>
+        <div class="stat" style="--c:var(--gold)"><div class="stat-n" id="sTasks">0</div><div class="stat-l">Tasks</div></div>
+        <div class="stat" style="--c:var(--green)"><div class="stat-n" id="sComplete">0%</div><div class="stat-l">Hoàn Thành</div></div>
+        <div class="stat" style="--c:var(--cyan)"><div class="stat-n" id="sScore">9.35</div><div class="stat-l">Điểm</div></div>
+    </div>
 
-        const categories = [
-            { name: 'Marketing & Sales', count: 18, icon: '📣', color: '#ef4444' },
-            { name: 'Phát triển', count: 11, icon: '🔧', color: '#3b82f6' },
-            { name: 'Hệ thống', count: 8, icon: '⚙️', color: '#6b7280' },
-            { name: 'Meta / AI', count: 8, icon: '🧠', color: '#8b5cf6' },
-            { name: 'Phân tích', count: 8, icon: '📈', color: '#10b981' },
-            { name: 'Web Development', count: 7, icon: '🌐', color: '#06b6d4' },
-            { name: 'Văn phòng số', count: 6, icon: '📁', color: '#f59e0b' },
-            { name: 'Multimedia', count: 4, icon: '🎨', color: '#ec4899' },
-            { name: 'HR & Văn phòng', count: 4, icon: '👥', color: '#14b8a6' },
-            { name: 'Pháp chế', count: 2, icon: '⚖️', color: '#a855f7' },
-            { name: 'Vận hành', count: 1, icon: '📦', color: '#f97316' },
-            { name: 'Tự động hóa', count: 1, icon: '🔄', color: '#64748b' },
-        ];
+    <!-- VIEW: OVERVIEW -->
+    <div id="view-overview">
+        <div class="panels">
+            <!-- TIMELINE -->
+            <div class="panel">
+                <div class="panel-head">📅 Timeline Dự Án</div>
+                <div class="panel-body" id="timeline"></div>
+            </div>
 
-        const healthItems = [
-            { label: 'Skills ↔ KB', value: '78/78', ok: true },
-            { label: 'Skills ↔ Manifest', value: '78/78', ok: true },
-            { label: 'Mandatory Skills', value: '3/3', ok: true },
-            { label: 'KHÔNG sử dụng', value: '78/78', ok: true },
-            { label: 'Routes', value: '30 active', ok: true },
-            { label: 'Email Sandbox', value: 'BẬT', ok: true },
-            { label: 'Self-Healing', value: 'Active', ok: true },
-            { label: 'Last Commit', value: 'b7698f62', ok: true },
-        ];
-
-        const workflows = [
-            '/jarvis', '/marketing', '/hr', '/dev', '/sales',
-            '/cskh', '/finance', '/legal', '/docs', '/report',
-            '/review', '/save', '/skill-sync', '/council', '/product-launch'
-        ];
-
-        // Render Departments
-        const deptGrid = document.getElementById('deptGrid');
-        departments.forEach((d, i) => {
-            setTimeout(() => {
-                const el = document.createElement('div');
-                el.className = 'dept-item';
-                el.innerHTML = `
-                    <div class="dept-name">${d.name}</div>
-                    <div class="dept-coverage">
-                        <div class="progress-bar">
-                            <div class="progress-fill" style="width:0%;background:${d.color}" data-width="${d.pct}"></div>
-                        </div>
-                        <span class="dept-pct" style="color:${d.color}">${d.pct}%</span>
+            <!-- SCORE -->
+            <div class="panel">
+                <div class="panel-head">📊 Điểm Đánh Giá 10 Chiều</div>
+                <div class="score-row">
+                    <div class="score-circle">
+                        <div class="score-big">9.35</div>
+                        <div class="score-sub">/ 10</div>
                     </div>
-                `;
-                deptGrid.appendChild(el);
-                setTimeout(() => {
-                    el.querySelector('.progress-fill').style.width = d.pct + '%';
-                }, 100);
-            }, i * 80);
-        });
+                    <div class="score-bars" id="scoreBars"></div>
+                </div>
+            </div>
 
-        // Render Categories
-        const catList = document.getElementById('catList');
-        categories.forEach((c, i) => {
-            setTimeout(() => {
-                const el = document.createElement('div');
-                el.className = 'cat-item';
-                el.innerHTML = `
-                    <div class="cat-icon" style="background:${c.color}22;color:${c.color}">${c.icon}</div>
-                    <span class="cat-name">${c.name}</span>
-                    <span class="cat-count" style="color:${c.color}">${c.count}</span>
-                `;
-                catList.appendChild(el);
-            }, i * 60);
-        });
+            <!-- DEPT -->
+            <div class="panel">
+                <div class="panel-head">🏢 Phòng Ban — Tasks Đã Triển Khai</div>
+                <div class="panel-body" id="deptChart"></div>
+            </div>
 
-        // Render Health
-        const healthGrid = document.getElementById('healthGrid');
-        healthItems.forEach(h => {
-            const el = document.createElement('div');
-            el.className = 'health-item';
-            el.innerHTML = `
-                <div class="health-dot" style="background:${h.ok ? '#10b981' : '#ef4444'}"></div>
-                <span class="health-label">${h.label}</span>
-                <span class="health-value">${h.value}</span>
-            `;
-            healthGrid.appendChild(el);
-        });
+            <!-- HEALTH -->
+            <div class="panel">
+                <div class="panel-head">💚 Health Status</div>
+                <div class="panel-body" id="healthPanel"></div>
+            </div>
+        </div>
+    </div>
 
-        // Render Workflows
-        const wfTags = document.getElementById('wfTags');
-        workflows.forEach(w => {
-            const el = document.createElement('span');
-            el.className = 'wf-tag';
-            el.textContent = w;
-            wfTags.appendChild(el);
-        });
-    </script>
+    <!-- VIEW: TASKS -->
+    <div id="view-tasks" style="display:none">
+        <div class="panels">
+            <div class="panel full">
+                <div class="panel-head">📋 Lịch Sử Tasks — Toàn Bộ Dự Án</div>
+                <div class="task-filters" id="taskFilters"></div>
+                <div class="panel-body" style="max-height:600px">
+                    <table>
+                        <thead><tr>
+                            <th onclick="sortTasks('id')">ID</th>
+                            <th onclick="sortTasks('date')">Ngày</th>
+                            <th onclick="sortTasks('title')">Task</th>
+                            <th onclick="sortTasks('department')">Phòng Ban</th>
+                            <th>Agent / Worker</th>
+                            <th>Skills</th>
+                            <th onclick="sortTasks('completion')">Tiến Độ</th>
+                            <th onclick="sortTasks('status')">Status</th>
+                        </tr></thead>
+                        <tbody id="taskBody"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- VIEW: ANALYTICS -->
+    <div id="view-analytics" style="display:none">
+        <div class="panels">
+            <div class="panel">
+                <div class="panel-head">🧩 Skills Được Sử Dụng Nhiều Nhất</div>
+                <div class="panel-body" id="skillChart"></div>
+            </div>
+            <div class="panel">
+                <div class="panel-head">🤖 Agent / Worker Activity</div>
+                <div class="panel-body" id="agentChart"></div>
+            </div>
+            <div class="panel">
+                <div class="panel-head">🏢 Tasks Theo Phòng Ban</div>
+                <div class="panel-body" id="deptTaskChart"></div>
+            </div>
+            <div class="panel">
+                <div class="panel-head">📈 Tiến Độ Theo Thời Gian</div>
+                <div class="panel-body" id="progressChart"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <strong>ABM Workforce v2.7</strong> — Control Dashboard<br>
+        80 Skills · 30 Routes · 15 Workflows · 6 SubAgents · 9 Phòng Ban · 100% Tiếng Việt
+    </div>
+</div>
+
+<script>
+let TASKS = [];
+let currentFilter = 'all';
+let currentSort = { key: 'id', asc: false };
+
+const DEPT_COLORS = {
+    'Ban Giám Đốc': '#ef4444', 'HC — Nhân Sự': '#f59e0b', 'Kế Toán': '#10b981',
+    'Marketing': '#3b82f6', 'Kinh Doanh': '#8b5cf6', 'CSKH': '#ec4899',
+    'IT — Công Nghệ': '#06b6d4', 'Vận Hành': '#f97316', 'Pháp Chế': '#14b8a6'
+};
+
+const SCORES = [
+    { name:'Kiến trúc', val:9.5 }, { name:'Enforcement', val:9.5 },
+    { name:'Coverage', val:9.5 }, { name:'Routing', val:9.5 },
+    { name:'Sync', val:10 }, { name:'Docs', val:9.0 },
+    { name:'Scalability', val:9.0 }, { name:'Phòng ban', val:9.5 },
+    { name:'Tiếng Việt', val:9.5 }, { name:'Security', val:9.0 }
+];
+
+const HEALTH = [
+    { l:'Skills ↔ KB', v:'80/80', ok:true }, { l:'Skills ↔ Manifest', v:'80/80', ok:true },
+    { l:'Mandatory Skills', v:'3/3', ok:true }, { l:'KHÔNG sử dụng', v:'80/80', ok:true },
+    { l:'Routes', v:'30 active', ok:true }, { l:'Email Sandbox', v:'BẬT', ok:true },
+    { l:'Self-Healing', v:'Active', ok:true }, { l:'Dashboard', v:'LIVE', ok:true },
+    { l:'CI/CD', v:'GitHub Actions', ok:true }, { l:'Last Commit', v:'f12f350f', ok:true }
+];
+
+async function loadTasks() {
+    try {
+        const r = await fetch('task-history.json');
+        TASKS = await r.json();
+    } catch(e) {
+        TASKS = getDefaultTasks();
+    }
+    render();
+}
+
+function getDefaultTasks() {
+    return [
+        {id:"TASK-001",date:"2026-03-08",title:"Publish ABM Workforce lên GitHub",department:"Ban Giám Đốc",agent:"Jarvis",worker:"dev-worker",skills:["git-worktrees"],status:"done",completion:100,result:"Repo published thành công"},
+        {id:"TASK-002",date:"2026-03-09",title:"Mô hình Doanh Nghiệp Số — 9 phòng ban",department:"Ban Giám Đốc",agent:"Jarvis",worker:"business-analyst",skills:["writing-plans","brainstorming"],status:"done",completion:100,result:"9 phòng ban mapped đầy đủ"},
+        {id:"TASK-003",date:"2026-03-09",title:"Review đa chiều v2.4",department:"Ban Giám Đốc",agent:"Jarvis",worker:"jarvis-direct",skills:["multi-dimensional-review","critical-thinking"],status:"done",completion:100,result:"Điểm 8.33/10"},
+        {id:"TASK-004",date:"2026-03-09",title:"Email Sandbox + Fallback Routing",department:"IT — Công Nghệ",agent:"Jarvis",worker:"dev-worker",skills:["agent-email-cli","writing-plans"],status:"done",completion:100,result:"Sandbox BẬT, 23 routes"},
+        {id:"TASK-005",date:"2026-03-09",title:"Health Check + FAQ + CI/CD",department:"IT — Công Nghệ",agent:"Jarvis",worker:"dev-worker",skills:["systematic-debugging"],status:"done",completion:100,result:"16/16 PASS"},
+        {id:"TASK-006",date:"2026-03-09",title:"Brand Guideline abmedu.vn",department:"Marketing",agent:"Jarvis",worker:"marketing-specialist",skills:["product-marketing-context","deep-research"],status:"done",completion:100,result:"6 colors, Montserrat, logo"},
+        {id:"TASK-007",date:"2026-03-10",title:"10 Bài Marketing — 16 Bài Giảng AI",department:"Marketing",agent:"Jarvis",worker:"marketing-specialist",skills:["copywriting","content-strategy","social-content","email-marketing"],status:"done",completion:100,result:"10 bài đa nền tảng"},
+        {id:"TASK-008",date:"2026-03-10",title:"BMAD Upgrade — 5 skills + /council",department:"Ban Giám Đốc",agent:"Jarvis",worker:"dev-worker",skills:["writing-plans","skill-creator"],status:"done",completion:100,result:"v2.6 deployed"},
+        {id:"TASK-009",date:"2026-03-10",title:"Wave 1+2 — Self-healing, MCP, Legal, Ops",department:"Ban Giám Đốc",agent:"Jarvis",worker:"dev-worker",skills:["writing-plans","skill-creator"],status:"done",completion:100,result:"v2.7: 80 skills"},
+        {id:"TASK-010",date:"2026-03-10",title:"Review v2.7 — 9.35/10",department:"Ban Giám Đốc",agent:"Jarvis",worker:"jarvis-direct",skills:["multi-dimensional-review","critical-thinking"],status:"done",completion:100,result:"9.35/10 — 0 red flags"},
+        {id:"TASK-011",date:"2026-03-11",title:"Web Dashboard v2.7",department:"IT — Công Nghệ",agent:"Jarvis",worker:"dev-worker",skills:["frontend-design","ui-ux-pro-max"],status:"done",completion:100,result:"dashboard/index.html live"},
+        {id:"TASK-012",date:"2026-03-11",title:"CHANGELOG + Vận Hành + Quick Start",department:"Ban Giám Đốc",agent:"Jarvis",worker:"dev-worker",skills:["writing-plans","skill-creator"],status:"done",completion:100,result:"80 skills, 3 Vận Hành skills"}
+    ];
+}
+
+function render() {
+    document.getElementById('sTasks').textContent = TASKS.length;
+    const done = TASKS.filter(t=>t.status==='done').length;
+    document.getElementById('sComplete').textContent = Math.round(done/TASKS.length*100)+'%';
+    renderTimeline();
+    renderScores();
+    renderDeptChart();
+    renderHealth();
+    renderTaskTable();
+    renderSkillChart();
+    renderAgentChart();
+    renderDeptTaskChart();
+    renderProgressChart();
+    renderFilters();
+}
+
+function renderTimeline() {
+    const el = document.getElementById('timeline');
+    const sorted = [...TASKS].sort((a,b)=>b.date.localeCompare(a.date));
+    el.innerHTML = '<div class="timeline">' + sorted.map(t=>`
+        <div class="tl-item">
+            <div class="tl-date">${t.date} · ${t.id}</div>
+            <div class="tl-title">${t.title}</div>
+            <div class="tl-detail">${t.department} → ${t.agent} → ${t.worker}</div>
+        </div>
+    `).join('') + '</div>';
+}
+
+function renderScores() {
+    const el = document.getElementById('scoreBars');
+    el.innerHTML = SCORES.map(s=>{
+        const color = s.val >= 9.5 ? 'var(--green)' : s.val >= 9 ? 'var(--blue)' : 'var(--gold)';
+        return `<div class="sb-row"><span class="sb-label">${s.name}</span><div class="sb-track"><div class="sb-fill" style="width:${s.val*10}%;background:${color}"></div></div><span class="sb-val">${s.val}</span></div>`;
+    }).join('');
+}
+
+function renderDeptChart() {
+    const counts = {};
+    TASKS.forEach(t => { counts[t.department] = (counts[t.department]||0) + 1; });
+    const max = Math.max(...Object.values(counts));
+    const el = document.getElementById('deptChart');
+    el.innerHTML = Object.entries(counts).sort((a,b)=>b[1]-a[1]).map(([name,count])=>`
+        <div class="chart-bar">
+            <span class="chart-label">${name}</span>
+            <div class="chart-track"><div class="chart-fill" style="width:${count/max*100}%;background:${DEPT_COLORS[name]||'var(--blue)'}">${count}</div></div>
+        </div>
+    `).join('');
+}
+
+function renderHealth() {
+    const el = document.getElementById('healthPanel');
+    el.innerHTML = HEALTH.map(h=>`
+        <div class="health-row">
+            <div class="h-dot" style="background:${h.ok?'var(--green)':'var(--red)'}"></div>
+            <span class="h-label">${h.l}</span>
+            <span class="h-val">${h.v}</span>
+        </div>
+    `).join('');
+}
+
+function renderFilters() {
+    const depts = [...new Set(TASKS.map(t=>t.department))];
+    const el = document.getElementById('taskFilters');
+    el.innerHTML = `<div class="filter-btn ${currentFilter==='all'?'active':''}" onclick="filterTasks('all')">Tất cả (${TASKS.length})</div>` +
+        depts.map(d=>{
+            const c = TASKS.filter(t=>t.department===d).length;
+            return `<div class="filter-btn ${currentFilter===d?'active':''}" onclick="filterTasks('${d}')">${d} (${c})</div>`;
+        }).join('');
+}
+
+function filterTasks(dept) {
+    currentFilter = dept;
+    renderTaskTable();
+    renderFilters();
+}
+
+function sortTasks(key) {
+    if (currentSort.key === key) currentSort.asc = !currentSort.asc;
+    else { currentSort.key = key; currentSort.asc = true; }
+    renderTaskTable();
+}
+
+function renderTaskTable() {
+    let filtered = currentFilter === 'all' ? [...TASKS] : TASKS.filter(t=>t.department===currentFilter);
+    filtered.sort((a,b) => {
+        let va = a[currentSort.key], vb = b[currentSort.key];
+        if (typeof va === 'number') return currentSort.asc ? va-vb : vb-va;
+        return currentSort.asc ? String(va).localeCompare(String(vb)) : String(vb).localeCompare(String(va));
+    });
+    const el = document.getElementById('taskBody');
+    el.innerHTML = filtered.map(t=>{
+        const sc = t.status==='done'?'badge-done':t.status==='in_progress'?'badge-progress':'badge-blocked';
+        const sl = t.status==='done'?'Hoàn thành':t.status==='in_progress'?'Đang làm':'Bị chặn';
+        const pc = t.completion>=100?'var(--green)':t.completion>=50?'var(--blue)':'var(--gold)';
+        return `<tr>
+            <td><strong>${t.id}</strong></td>
+            <td>${t.date}</td>
+            <td>${t.title}<br><span style="font-size:10px;color:var(--dim)">${t.result||''}</span></td>
+            <td><span style="color:${DEPT_COLORS[t.department]||'var(--text)'}">${t.department}</span></td>
+            <td>${t.agent}<br><span style="font-size:10px;color:var(--dim)">${t.worker}</span></td>
+            <td>${t.skills.map(s=>`<span class="skill-tag">${s}</span>`).join('')}</td>
+            <td><div class="prog-bar"><div class="prog-fill" style="width:${t.completion}%;background:${pc}"></div></div>${t.completion}%</td>
+            <td><span class="badge ${sc}">${sl}</span></td>
+        </tr>`;
+    }).join('');
+}
+
+function renderSkillChart() {
+    const counts = {};
+    TASKS.forEach(t=>t.skills.forEach(s=>{ counts[s]=(counts[s]||0)+1; }));
+    const sorted = Object.entries(counts).sort((a,b)=>b[1]-a[1]).slice(0,12);
+    const max = sorted[0]?sorted[0][1]:1;
+    document.getElementById('skillChart').innerHTML = sorted.map(([name,count])=>`
+        <div class="chart-bar">
+            <span class="chart-label">${name}</span>
+            <div class="chart-track"><div class="chart-fill" style="width:${count/max*100}%;background:var(--purple)">${count}</div></div>
+        </div>
+    `).join('');
+}
+
+function renderAgentChart() {
+    const agents = {}, workers = {};
+    TASKS.forEach(t=>{ agents[t.agent]=(agents[t.agent]||0)+1; workers[t.worker]=(workers[t.worker]||0)+1; });
+    const data = [...Object.entries(agents).map(([n,c])=>({name:n+' (Agent)',count:c,color:'var(--blue)'})), ...Object.entries(workers).map(([n,c])=>({name:n+' (Worker)',count:c,color:'var(--cyan)'}))].sort((a,b)=>b.count-a.count);
+    const max = data[0]?data[0].count:1;
+    document.getElementById('agentChart').innerHTML = data.map(d=>`
+        <div class="chart-bar">
+            <span class="chart-label">${d.name}</span>
+            <div class="chart-track"><div class="chart-fill" style="width:${d.count/max*100}%;background:${d.color}">${d.count}</div></div>
+        </div>
+    `).join('');
+}
+
+function renderDeptTaskChart() {
+    const counts = {};
+    TASKS.forEach(t=>{ counts[t.department]=(counts[t.department]||0)+1; });
+    const sorted = Object.entries(counts).sort((a,b)=>b[1]-a[1]);
+    const max = sorted[0]?sorted[0][1]:1;
+    document.getElementById('deptTaskChart').innerHTML = sorted.map(([name,count])=>`
+        <div class="chart-bar">
+            <span class="chart-label">${name}</span>
+            <div class="chart-track"><div class="chart-fill" style="width:${count/max*100}%;background:${DEPT_COLORS[name]||'var(--blue)'}">${count}</div></div>
+            <span class="chart-val">${count}</span>
+        </div>
+    `).join('');
+}
+
+function renderProgressChart() {
+    const byDate = {};
+    TASKS.forEach(t=>{ if(!byDate[t.date]) byDate[t.date]={total:0,done:0}; byDate[t.date].total++; if(t.status==='done') byDate[t.date].done++; });
+    const dates = Object.keys(byDate).sort();
+    let cumTotal=0, cumDone=0;
+    document.getElementById('progressChart').innerHTML = '<div class="timeline">' + dates.map(d=>{
+        cumTotal += byDate[d].total;
+        cumDone += byDate[d].done;
+        const pct = Math.round(cumDone/cumTotal*100);
+        return `<div class="tl-item"><div class="tl-date">${d}</div><div class="tl-title">${byDate[d].total} tasks · ${pct}% hoàn thành</div><div class="tl-detail">Tổng: ${cumTotal} tasks · ${cumDone} done</div></div>`;
+    }).join('') + '</div>';
+}
+
+function showView(name) {
+    ['overview','tasks','analytics'].forEach(v=>{ document.getElementById('view-'+v).style.display = v===name?'block':'none'; });
+    document.querySelectorAll('.nav-tab').forEach(t=>t.classList.remove('active'));
+    event.target.classList.add('active');
+}
+
+// INIT
+loadTasks();
+</script>
 </body>
 </html>

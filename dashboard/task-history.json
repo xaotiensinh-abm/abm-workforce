@@ -1,0 +1,183 @@
+[
+    {
+        "id": "TASK-001",
+        "date": "2026-03-08",
+        "title": "Publish ABM Workforce lên GitHub",
+        "department": "Ban Giám Đốc",
+        "agent": "Jarvis",
+        "worker": "dev-worker",
+        "skills": [
+            "git-worktrees"
+        ],
+        "status": "done",
+        "completion": 100,
+        "result": "Repo xaotiensinh-abm/abm-workforce published thành công"
+    },
+    {
+        "id": "TASK-002",
+        "date": "2026-03-09",
+        "title": "Mô hình Doanh Nghiệp Số — 9 phòng ban",
+        "department": "Ban Giám Đốc",
+        "agent": "Jarvis",
+        "worker": "business-analyst",
+        "skills": [
+            "writing-plans",
+            "brainstorming"
+        ],
+        "status": "done",
+        "completion": 100,
+        "result": "9 phòng ban mapped đầy đủ, 6 skills Văn Phòng Số"
+    },
+    {
+        "id": "TASK-003",
+        "date": "2026-03-09",
+        "title": "Review đa chiều v2.4 — 10 chiều + 8 personas",
+        "department": "Ban Giám Đốc",
+        "agent": "Jarvis",
+        "worker": "jarvis-direct",
+        "skills": [
+            "multi-dimensional-review",
+            "critical-thinking"
+        ],
+        "status": "done",
+        "completion": 100,
+        "result": "Điểm 8.33/10 — phát hiện 4 issues, fix toàn bộ"
+    },
+    {
+        "id": "TASK-004",
+        "date": "2026-03-09",
+        "title": "Email Sandbox Mode + Fallback Routing",
+        "department": "IT — Công Nghệ",
+        "agent": "Jarvis",
+        "worker": "dev-worker",
+        "skills": [
+            "agent-email-cli",
+            "writing-plans"
+        ],
+        "status": "done",
+        "completion": 100,
+        "result": "Sandbox BẬT mặc định, 23 routes, 66/66 KHÔNG sử dụng"
+    },
+    {
+        "id": "TASK-005",
+        "date": "2026-03-09",
+        "title": "Health Check Script + FAQ + CI/CD",
+        "department": "IT — Công Nghệ",
+        "agent": "Jarvis",
+        "worker": "dev-worker",
+        "skills": [
+            "systematic-debugging",
+            "writing-plans"
+        ],
+        "status": "done",
+        "completion": 100,
+        "result": "health-check.ps1 PASS 16/16, FAQ.md 10 questions, verify.yml"
+    },
+    {
+        "id": "TASK-006",
+        "date": "2026-03-09",
+        "title": "Phân tích Brand Guideline abmedu.vn",
+        "department": "Marketing",
+        "agent": "Jarvis",
+        "worker": "marketing-specialist",
+        "skills": [
+            "product-marketing-context",
+            "deep-research"
+        ],
+        "status": "done",
+        "completion": 100,
+        "result": "brand-guideline-abmedu.yaml: 6 colors, Montserrat, logo, buttons"
+    },
+    {
+        "id": "TASK-007",
+        "date": "2026-03-10",
+        "title": "10 Bài Viết Marketing — 16 Bài Giảng AI 1.200K",
+        "department": "Marketing",
+        "agent": "Jarvis",
+        "worker": "marketing-specialist",
+        "skills": [
+            "copywriting",
+            "content-strategy",
+            "social-content",
+            "email-marketing"
+        ],
+        "status": "done",
+        "completion": 100,
+        "result": "10 bài đa nền tảng: FB, IG, TikTok, LinkedIn, Zalo, Email, X, YT"
+    },
+    {
+        "id": "TASK-008",
+        "date": "2026-03-10",
+        "title": "BMAD Upgrade — 5 skills + creative-strategist + /council",
+        "department": "Ban Giám Đốc",
+        "agent": "Jarvis",
+        "worker": "dev-worker",
+        "skills": [
+            "writing-plans",
+            "skill-creator"
+        ],
+        "status": "done",
+        "completion": 100,
+        "result": "v2.6: project-hierarchy, sprint-planning, database-management, critical-thinking, knowledge-graph"
+    },
+    {
+        "id": "TASK-009",
+        "date": "2026-03-10",
+        "title": "Wave 1+2 — Self-healing, MCP, Vận Hành, Pháp Chế",
+        "department": "Ban Giám Đốc",
+        "agent": "Jarvis",
+        "worker": "dev-worker",
+        "skills": [
+            "writing-plans",
+            "skill-creator"
+        ],
+        "status": "done",
+        "completion": 100,
+        "result": "v2.7: 7 skills mới. 78→80 total. 30 routes."
+    },
+    {
+        "id": "TASK-010",
+        "date": "2026-03-10",
+        "title": "Review v2.7 — Audit phản biện",
+        "department": "Ban Giám Đốc",
+        "agent": "Jarvis",
+        "worker": "jarvis-direct",
+        "skills": [
+            "multi-dimensional-review",
+            "critical-thinking"
+        ],
+        "status": "done",
+        "completion": 100,
+        "result": "9.35/10 — 8 personas: 9/10 consensus. 0 red, 2 yellow."
+    },
+    {
+        "id": "TASK-011",
+        "date": "2026-03-11",
+        "title": "Web Dashboard ABM v2.7",
+        "department": "IT — Công Nghệ",
+        "agent": "Jarvis",
+        "worker": "dev-worker",
+        "skills": [
+            "frontend-design",
+            "ui-ux-pro-max"
+        ],
+        "status": "done",
+        "completion": 100,
+        "result": "dashboard/index.html: dark theme, 9 phòng ban, scoring, health"
+    },
+    {
+        "id": "TASK-012",
+        "date": "2026-03-11",
+        "title": "Fix P1+P2: CHANGELOG + Vận Hành + Quick Start",
+        "department": "Ban Giám Đốc",
+        "agent": "Jarvis",
+        "worker": "dev-worker",
+        "skills": [
+            "writing-plans",
+            "skill-creator"
+        ],
+        "status": "done",
+        "completion": 100,
+        "result": "ABM-CHANGELOG.md, inventory-management, logistics-optimization, QUICK-START.md"
+    }
+]
