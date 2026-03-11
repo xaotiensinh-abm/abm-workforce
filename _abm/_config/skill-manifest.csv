@@ -1,4 +1,4 @@
-# Bảng kê Kỹ năng — ABM Workforce (80 Skills)
+# Bảng kê Kỹ năng — ABM Workforce (91 Skills)
 # Cập nhật: 2026-03-09 — Phiên bản Tiếng Việt
 
 # === KỸ NĂNG HỆ THỐNG / META (9) ===
@@ -115,3 +115,16 @@ name,category,description,mandatory,path
 # === VẬN HÀNH UPGRADE (2) ===
 "inventory-management","vận hành","Quản lý kho hàng — tồn kho, min/max levels, ABC analysis, kiểm kê.",false,"skills/inventory-management/SKILL.md"
 "logistics-optimization","vận hành","Tối ưu logistics — vận chuyển, carrier, delivery tracking, cost analysis.",false,"skills/logistics-optimization/SKILL.md"
+
+# === MARKETING SKILLS UPGRADE — từ repo coreyhaines31/marketingskills (11) ===
+"ad-creative","marketing","Tạo bulk ad copy Google/Meta/LinkedIn/TikTok — iterate từ performance data, platform specs.",false,"skills/ad-creative/SKILL.md"
+"ai-seo","marketing","SEO cho AI Search — AEO, GEO, LLMO. Tối ưu để xuất hiện trong ChatGPT, Gemini, Perplexity.",false,"skills/ai-seo/SKILL.md"
+"analytics-tracking","marketing","Event tracking GA4/GTM — tracking plan, event naming, UTM params, privacy compliance.",false,"skills/analytics-tracking/SKILL.md"
+"email-sequence","marketing","Email sequences tự động — welcome, nurture, re-engagement, onboarding. Trigger-based.",false,"skills/email-sequence/SKILL.md"
+"referral-program","marketing","Referral + affiliate programs — incentive design, viral loops, tracking.",false,"skills/referral-program/SKILL.md"
+"free-tool-strategy","marketing","Engineering-as-Marketing — tạo tools/calculators miễn phí lead gen.",false,"skills/free-tool-strategy/SKILL.md"
+"copy-editing","marketing","Biên tập + polish bài viết — clarity, flow, tone, grammar. Complement copywriting.",false,"skills/copy-editing/SKILL.md"
+"programmatic-seo","marketing","Scaled page generation — hàng ngàn landing pages từ data templates.",false,"skills/programmatic-seo/SKILL.md"
+"signup-flow-cro","marketing","Tối ưu flow đăng ký — reduce friction, increase conversion.",false,"skills/signup-flow-cro/SKILL.md"
+"form-cro","marketing","Tối ưu lead capture forms — field optimization, multi-step, conditional logic.",false,"skills/form-cro/SKILL.md"
+"popup-cro","marketing","Tối ưu popups/modals — exit intent, scroll trigger, anti-annoyance rules.",false,"skills/popup-cro/SKILL.md"

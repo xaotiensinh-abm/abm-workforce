@@ -1,28 +1,27 @@
 # 🏢 ABM Workforce — Văn Phòng Số Thông Minh
 
-> **Hệ sinh thái AI Agent nâng cao năng suất doanh nghiệp — 9 phòng ban, 78 kỹ năng, 1 bộ não điều phối.**
+> **Hệ sinh thái AI Agent nâng cao năng suất doanh nghiệp — 9 phòng ban, 91 kỹ năng, 1 bộ não điều phối.**
 
-[![Version](https://img.shields.io/badge/Version-2.7-purple.svg)](CHANGELOG.md)
+[![Version](https://img.shields.io/badge/Version-2.8-purple.svg)](ABM-CHANGELOG.md)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![Skills](https://img.shields.io/badge/Skills-78-blue.svg)](_abm/_config/skill-manifest.csv)
+[![Skills](https://img.shields.io/badge/Skills-91-blue.svg)](_abm/_config/skill-manifest.csv)
 [![Workflows](https://img.shields.io/badge/Workflows-15-green.svg)](.agents/workflows/)
-[![Routes](https://img.shields.io/badge/Routes-30-orange.svg)](_abm/bmm/agents/jarvis-orchestrator.md)
+[![Routes](https://img.shields.io/badge/Routes-34-orange.svg)](_abm/bmm/agents/jarvis-orchestrator.md)
 [![Language](https://img.shields.io/badge/Language-Vietnamese_100%25-red.svg)](.gemini/RULES.md)
 
 ---
 
-## 🆕 What's New — v2.7 (10/03/2026)
+## 🆕 What's New — v2.8 (11/03/2026)
 
 | Thay đổi | Chi tiết |
 |---------|----------|
-| 🔄 **Self-Healing** | Retry chain 3 cấp + fallback map khi skill fail |
-| 📊 **Usage Metrics** | Track skill usage vào YAML — đo hiệu quả |
-| 🔗 **GitHub → Sprint** | Import GitHub Issues → User Stories → Sprint |
-| 🧠 **Agentic Memory** | Vector DB architecture (Chroma/Pinecone) cho long-term memory |
-| 🔌 **MCP Integration** | Kết nối Notion, Google, Slack, Jira qua MCP protocol |
-| 📦 **Supply Chain** | Procurement, inventory, vendor management cho phòng Vận Hành |
-| ⚖️ **Contract Review** | Rà soát hợp đồng, red flags, compliance cho phòng Pháp Chế |
-| 🛡️ **Compliance Checker** | GDPR, PDPA, Luật ATNM VN, ISO 27001 checklist |
+| 📢 **Marketing Upgrade** | +11 skills từ repo [`coreyhaines31/marketingskills`](https://github.com/coreyhaines31/marketingskills) |
+| 🤖 **AI SEO** | Tối ưu cho ChatGPT, Gemini, Perplexity — AEO, GEO, LLMO |
+| 📊 **Analytics Tracking** | GA4/GTM event tracking, UTM params, privacy compliance |
+| 📢 **Ad Creative** | Bulk ads Google/Meta/LinkedIn/TikTok với platform specs |
+| 🔄 **Programmatic SEO** | Scaled landing pages từ data templates |
+| 🔗 **Growth Engineering** | Referral programs + free tool strategy |
+| ✂️ **CRO Chuyên Sâu** | signup-flow, form, popup optimization |
 
 ---
 
@@ -150,9 +149,9 @@ Jarvis sẽ online và sẵn sàng nhận việc.
 | `memory-keeper` | Sao lưu ngữ cảnh |
 | `save` | Lưu trạng thái: task/daily/milestone save |
 
-### 📣 Marketing — Content & Sales (16)
+### 📣 Marketing & Sales (27)
 
-`product-marketing-context` · `copywriting` · `content-strategy` · `social-content` · `email-marketing` · `marketing-psychology` · `page-cro` · `seo-audit` · `ab-test-setup` · `cold-email` · `sales-enablement` · `revops` · `pricing-strategy` · `launch-strategy` · `churn-prevention` · `seo-content-planner`
+`product-marketing-context` · `copywriting` · `copy-editing` · `content-strategy` · `social-content` · `email-marketing` · `email-sequence` · `marketing-psychology` · `page-cro` · `signup-flow-cro` · `form-cro` · `popup-cro` · `seo-audit` · `ai-seo` · `seo-content-planner` · `programmatic-seo` · `ab-test-setup` · `analytics-tracking` · `ad-creative` · `cold-email` · `sales-enablement` · `revops` · `pricing-strategy` · `launch-strategy` · `churn-prevention` · `referral-program` · `free-tool-strategy`
 
 ### 🔧 Phát triển (12)
 
@@ -333,7 +332,7 @@ MIT License — xem file [LICENSE](LICENSE)
 ---
 
 <p align="center">
-  <b>ABM Workforce v2.7</b> — Văn Phòng Số Thông Minh<br>
-  <i>78 Skills · 30 Routes · 15 Workflows · 6 SubAgents · 9 Phòng Ban · 100% Tiếng Việt</i><br>
+  <b>ABM Workforce v2.8</b> — Văn Phòng Số Thông Minh<br>
+  <i>91 Skills · 34 Routes · 15 Workflows · 6 SubAgents · 9 Phòng Ban · 100% Tiếng Việt</i><br>
   <i>Kỷ luật sắt. Bằng chứng thật. Kết quả đo được.</i>
 </p>
