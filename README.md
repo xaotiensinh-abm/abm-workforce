@@ -451,7 +451,7 @@ git push origin feature/ten-tinh-nang
 <tr>
 <td>
 
-**DũngTQ** — Kiến trúc sư ABM Workforce
+**Trịnh Quang Dũng** — Kiến trúc sư ABM Workforce
 
 📱 Liên hệ: **0976 202 028**
 
@@ -463,9 +463,38 @@ git push origin feature/ten-tinh-nang
 
 ---
 
+## ☕ Ủng Hộ Dự Án
+
+> *ABM Workforce được phát triển miễn phí, mã nguồn mở, và liên tục cập nhật. Nếu dự án giúp ích cho công việc của bạn, một ly cà phê sẽ là động lực lớn để tiếp tục phát triển!*
+
+<table>
+<tr>
+<td align="center" width="100%">
+
+### 🏦 Chuyển Khoản Ngân Hàng
+
+| | Thông Tin |
+|:--|:---------|
+| 🏛️ **Ngân hàng** | **Techcombank** (Ngân hàng TMCP Kỹ Thương Việt Nam) |
+| 🔢 **Số tài khoản** | **`1918100718`** |
+| 👤 **Chủ tài khoản** | **Trịnh Quang Dũng** |
+| 💬 **Nội dung CK** | `ABM Workforce - [Tên bạn]` |
+
+</td>
+</tr>
+</table>
+
+<p align="center">
+  <strong>Mỗi đóng góp đều được ghi nhận. Cảm ơn bạn! 🙏</strong><br/>
+  <em>☕ 30K = 1 ly cà phê · 🍜 50K = 1 bữa trưa dev · 🚀 100K+ = Sponsor chính thức</em>
+</p>
+
+---
+
 <p align="center">
   <img src="https://img.shields.io/badge/ABM_Workforce-v3.0-FF0000?style=for-the-badge&labelColor=0a0e1a" alt="v3.0"/><br/>
   <strong>103 Skills · 39 Routes · 15 Workflows · 6 SubAgents · 9 Phòng Ban</strong><br/>
   <em>Kỷ luật sắt. Bằng chứng thật. Kết quả đo được.</em><br/><br/>
   <a href="https://github.com/xaotiensinh-abm/abm-workforce/stargazers">⭐ Star repo này nếu bạn thấy hữu ích!</a>
 </p>
+
