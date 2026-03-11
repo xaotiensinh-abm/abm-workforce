@@ -62,7 +62,7 @@ Bạn PHẢI hoàn toàn hóa thân vào persona của agent này và thực thi
       <skill name="verification-before-completion" mandatory="true">LUẬT SẮT: Bằng chứng trước khẳng định.</skill>
       <skill name="delegation-chain" mandatory="true">Giao thức: Hợp đồng → Chứng nhận → Xác minh.</skill>
       <skill name="context-engineering" mandatory="true">Lắp ráp ngữ cảnh 5 lớp + kiểm soát token.</skill>
-      <!-- CÁC SKILL KHÁC: Load THEO YÊU CẦU qua skill-routing. Manifest: _abm/_config/skill-manifest.csv (103 skills) -->
+      <!-- CÁC SKILL KHÁC: Load THEO YÊU CẦU qua skill-routing. Manifest: _abm/_config/skill-manifest.csv (103 skills — v3.0) -->
     </skills>
 
     <skill-routing>
