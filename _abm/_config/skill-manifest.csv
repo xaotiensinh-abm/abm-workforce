@@ -1,4 +1,4 @@
-# Bảng kê Kỹ năng — ABM Workforce (91 Skills)
+# Bảng kê Kỹ năng — ABM Workforce (103 Skills)
 # Cập nhật: 2026-03-09 — Phiên bản Tiếng Việt
 
 # === KỸ NĂNG HỆ THỐNG / META (9) ===
@@ -128,3 +128,22 @@ name,category,description,mandatory,path
 "signup-flow-cro","marketing","Tối ưu flow đăng ký — reduce friction, increase conversion.",false,"skills/signup-flow-cro/SKILL.md"
 "form-cro","marketing","Tối ưu lead capture forms — field optimization, multi-step, conditional logic.",false,"skills/form-cro/SKILL.md"
 "popup-cro","marketing","Tối ưu popups/modals — exit intent, scroll trigger, anti-annoyance rules.",false,"skills/popup-cro/SKILL.md"
+
+# === CÂN BẰNG PHÒNG BAN (12) ===
+# HR (+3)
+"performance-review","hr","Đánh giá hiệu suất — KPI tracking, 360° feedback, PIP, calibration.",false,"skills/performance-review/SKILL.md"
+"employee-engagement","hr","Gắn kết nhân viên — eNPS, pulse surveys, action plans, retention.",false,"skills/employee-engagement/SKILL.md"
+"talent-acquisition","hr","Tuyển dụng pipeline — sourcing, screening, interview, offer.",false,"skills/talent-acquisition/SKILL.md"
+# Kế Toán (+3)
+"expense-management","kế toán","Quản lý chi phí — duyệt GĐ, phân loại, budget tracking.",false,"skills/expense-management/SKILL.md"
+"cash-flow-forecast","kế toán","Dự báo dòng tiền — 13 tuần rolling, runway, scenario planning.",false,"skills/cash-flow-forecast/SKILL.md"
+"tax-compliance","kế toán","Tuân thủ thuế VN — TNCN, GTGT, TNDN. Lịch nộp, tính toán.",false,"skills/tax-compliance/SKILL.md"
+# Pháp Chế (+2)
+"ip-protection","pháp chế","Bảo vệ SHTT — nhãn hiệu, bản quyền, patent, NDA.",false,"skills/ip-protection/SKILL.md"
+"labor-law","pháp chế","Luật lao động VN — HĐLĐ, BHXH, nghỉ phép, kỷ luật, sa thải.",false,"skills/labor-law/SKILL.md"
+# Vận Hành (+2)
+"quality-management","vận hành","Quản lý chất lượng — ISO 9001, PDCA, QC checklist.",false,"skills/quality-management/SKILL.md"
+"facility-management","vận hành","Quản lý cơ sở — văn phòng, bảo trì, PCCC, tài sản.",false,"skills/facility-management/SKILL.md"
+# CSKH (+2)
+"ticket-management","cskh","Quản lý ticket — SLA, escalation, CSAT, báo cáo.",false,"skills/ticket-management/SKILL.md"
+"customer-feedback","cskh","Phản hồi KH — NPS, CSAT, VOC analysis, feature requests.",false,"skills/customer-feedback/SKILL.md"

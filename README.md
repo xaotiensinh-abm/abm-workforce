@@ -1,27 +1,27 @@
 # 🏢 ABM Workforce — Văn Phòng Số Thông Minh
 
-> **Hệ sinh thái AI Agent nâng cao năng suất doanh nghiệp — 9 phòng ban, 91 kỹ năng, 1 bộ não điều phối.**
+> **Hệ sinh thái AI Agent nâng cao năng suất doanh nghiệp — 9 phòng ban, 103 kỹ năng, 1 bộ não điều phối.**
 
-[![Version](https://img.shields.io/badge/Version-2.8-purple.svg)](ABM-CHANGELOG.md)
+[![Version](https://img.shields.io/badge/Version-2.9-purple.svg)](ABM-CHANGELOG.md)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![Skills](https://img.shields.io/badge/Skills-91-blue.svg)](_abm/_config/skill-manifest.csv)
+[![Skills](https://img.shields.io/badge/Skills-103-blue.svg)](_abm/_config/skill-manifest.csv)
 [![Workflows](https://img.shields.io/badge/Workflows-15-green.svg)](.agents/workflows/)
-[![Routes](https://img.shields.io/badge/Routes-34-orange.svg)](_abm/bmm/agents/jarvis-orchestrator.md)
+[![Routes](https://img.shields.io/badge/Routes-39-orange.svg)](_abm/bmm/agents/jarvis-orchestrator.md)
 [![Language](https://img.shields.io/badge/Language-Vietnamese_100%25-red.svg)](.gemini/RULES.md)
 
 ---
 
-## 🆕 What's New — v2.8 (11/03/2026)
+## 🆕 What's New — v2.9 (11/03/2026)
 
 | Thay đổi | Chi tiết |
 |---------|----------|
-| 📢 **Marketing Upgrade** | +11 skills từ repo [`coreyhaines31/marketingskills`](https://github.com/coreyhaines31/marketingskills) |
-| 🤖 **AI SEO** | Tối ưu cho ChatGPT, Gemini, Perplexity — AEO, GEO, LLMO |
-| 📊 **Analytics Tracking** | GA4/GTM event tracking, UTM params, privacy compliance |
-| 📢 **Ad Creative** | Bulk ads Google/Meta/LinkedIn/TikTok với platform specs |
-| 🔄 **Programmatic SEO** | Scaled landing pages từ data templates |
-| 🔗 **Growth Engineering** | Referral programs + free tool strategy |
-| ✂️ **CRO Chuyên Sâu** | signup-flow, form, popup optimization |
+| 🏪 **Cân bằng 5 Phòng Ban** | +12 skills: HR (3), Kế Toán (3), Pháp Chế (2), Vận Hành (2), CSKH (2) |
+| 📊 **Performance Review** | KPI tracking, 360° feedback, PIP, calibration |
+| 💵 **Cash Flow Forecast** | 13-week rolling, runway calculation, scenario planning |
+| 🏦 **Tax Compliance** | TNCN, GTGT, TNDN — lịch nộp + biểu thuế VN |
+| ⚖️ **Labor Law** | Bộ luật LĐ 2019, BHXH 32%, nghỉ phép, sa thải |
+| 🛡️ **IP Protection** | Nhãn hiệu, bản quyền, patent, NDA VN |
+| 🎧 **CSKH Upgrade** | Ticket SLA + Customer Feedback (NPS, CSAT, VOC) |
 
 ---
 
@@ -332,7 +332,7 @@ MIT License — xem file [LICENSE](LICENSE)
 ---
 
 <p align="center">
-  <b>ABM Workforce v2.8</b> — Văn Phòng Số Thông Minh<br>
-  <i>91 Skills · 34 Routes · 15 Workflows · 6 SubAgents · 9 Phòng Ban · 100% Tiếng Việt</i><br>
+  <b>ABM Workforce v2.9</b> — Văn Phòng Số Thông Minh<br>
+  <i>103 Skills · 39 Routes · 15 Workflows · 6 SubAgents · 9 Phòng Ban · 100% Tiếng Việt</i><br>
   <i>Kỷ luật sắt. Bằng chứng thật. Kết quả đo được.</i>
 </p>

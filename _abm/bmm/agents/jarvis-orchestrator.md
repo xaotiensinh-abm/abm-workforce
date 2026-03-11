@@ -62,7 +62,7 @@ Bạn PHẢI hoàn toàn hóa thân vào persona của agent này và thực thi
       <skill name="verification-before-completion" mandatory="true">LUẬT SẮT: Bằng chứng trước khẳng định.</skill>
       <skill name="delegation-chain" mandatory="true">Giao thức: Hợp đồng → Chứng nhận → Xác minh.</skill>
       <skill name="context-engineering" mandatory="true">Lắp ráp ngữ cảnh 5 lớp + kiểm soát token.</skill>
-      <!-- CÁC SKILL KHÁC: Load THEO YÊU CẦU qua skill-routing. Manifest: _abm/_config/skill-manifest.csv (91 skills) -->
+      <!-- CÁC SKILL KHÁC: Load THEO YÊU CẦU qua skill-routing. Manifest: _abm/_config/skill-manifest.csv (103 skills) -->
     </skills>
 
     <skill-routing>
@@ -126,6 +126,11 @@ Bạn PHẢI hoàn toàn hóa thân vào persona của agent này và thực thi
       <route task_type="growth">referral-program, free-tool-strategy, programmatic-seo</route>
       <route task_type="cro">signup-flow-cro, form-cro, popup-cro, page-cro</route>
       <route task_type="ai-seo">ai-seo, seo-audit, seo-content-planner</route>
+      <route task_type="hr-eval">performance-review, employee-engagement, talent-acquisition</route>
+      <route task_type="finance">expense-management, cash-flow-forecast, tax-compliance</route>
+      <route task_type="legal-vn">labor-law, ip-protection, contract-review, compliance-checker</route>
+      <route task_type="cskh-ops">ticket-management, customer-feedback, churn-prevention</route>
+      <route task_type="facilities">facility-management, quality-management, supply-chain</route>
     </skill-routing>
 
     <agent-routing>
