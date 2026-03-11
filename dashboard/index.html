@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ABM Workforce — Control Dashboard</title>
+    <title>ABM Workforce v2.9 — Control Dashboard</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -120,7 +120,7 @@
     <div class="nav">
         <div class="nav-brand">
             <h1>🧠 ABM Workforce</h1>
-            <span class="nav-badge">v2.7</span>
+            <span class="nav-badge">v2.9</span>
         </div>
         <div class="nav-tabs">
             <div class="nav-tab active" onclick="showView('overview')">Tổng Quan</div>
@@ -131,13 +131,13 @@
 
     <!-- STATS -->
     <div class="stats">
-        <div class="stat" style="--c:var(--abm-red)"><div class="stat-n" id="sSkills">80</div><div class="stat-l">Skills</div></div>
-        <div class="stat" style="--c:var(--blue)"><div class="stat-n" id="sRoutes">30</div><div class="stat-l">Routes</div></div>
+        <div class="stat" style="--c:var(--abm-red)"><div class="stat-n" id="sSkills">103</div><div class="stat-l">Skills</div></div>
+        <div class="stat" style="--c:var(--blue)"><div class="stat-n" id="sRoutes">39</div><div class="stat-l">Routes</div></div>
         <div class="stat" style="--c:var(--green)"><div class="stat-n" id="sWf">15</div><div class="stat-l">Workflows</div></div>
         <div class="stat" style="--c:var(--purple)"><div class="stat-n" id="sSa">6</div><div class="stat-l">SubAgents</div></div>
         <div class="stat" style="--c:var(--gold)"><div class="stat-n" id="sTasks">0</div><div class="stat-l">Tasks</div></div>
         <div class="stat" style="--c:var(--green)"><div class="stat-n" id="sComplete">0%</div><div class="stat-l">Hoàn Thành</div></div>
-        <div class="stat" style="--c:var(--cyan)"><div class="stat-n" id="sScore">9.35</div><div class="stat-l">Điểm</div></div>
+        <div class="stat" style="--c:var(--cyan)"><div class="stat-n" id="sScore">9.58</div><div class="stat-l">Điểm</div></div>
     </div>
 
     <!-- VIEW: OVERVIEW -->
@@ -154,7 +154,7 @@
                 <div class="panel-head">📊 Điểm Đánh Giá 10 Chiều</div>
                 <div class="score-row">
                     <div class="score-circle">
-                        <div class="score-big">9.35</div>
+                        <div class="score-big">9.58</div>
                         <div class="score-sub">/ 10</div>
                     </div>
                     <div class="score-bars" id="scoreBars"></div>
@@ -223,8 +223,8 @@
     </div>
 
     <div class="footer">
-        <strong>ABM Workforce v2.7</strong> — Control Dashboard<br>
-        80 Skills · 30 Routes · 15 Workflows · 6 SubAgents · 9 Phòng Ban · 100% Tiếng Việt
+        <strong>ABM Workforce v2.9</strong> — Control Dashboard<br>
+        103 Skills · 39 Routes · 15 Workflows · 6 SubAgents · 9 Phòng Ban · 100% Tiếng Việt
     </div>
 </div>
 
@@ -241,18 +241,18 @@ const DEPT_COLORS = {
 
 const SCORES = [
     { name:'Kiến trúc', val:9.5 }, { name:'Enforcement', val:9.5 },
-    { name:'Coverage', val:9.5 }, { name:'Routing', val:9.5 },
-    { name:'Sync', val:10 }, { name:'Docs', val:9.0 },
-    { name:'Scalability', val:9.0 }, { name:'Phòng ban', val:9.5 },
-    { name:'Tiếng Việt', val:9.5 }, { name:'Security', val:9.0 }
+    { name:'Coverage', val:10 }, { name:'Routing', val:9.5 },
+    { name:'Sync', val:10 }, { name:'Docs', val:9.5 },
+    { name:'Scalability', val:9.5 }, { name:'Phòng ban', val:9.5 },
+    { name:'Tiếng Việt', val:10 }, { name:'Security', val:9.0 }
 ];
 
 const HEALTH = [
-    { l:'Skills ↔ KB', v:'80/80', ok:true }, { l:'Skills ↔ Manifest', v:'80/80', ok:true },
-    { l:'Mandatory Skills', v:'3/3', ok:true }, { l:'KHÔNG sử dụng', v:'80/80', ok:true },
-    { l:'Routes', v:'30 active', ok:true }, { l:'Email Sandbox', v:'BẬT', ok:true },
-    { l:'Self-Healing', v:'Active', ok:true }, { l:'Dashboard', v:'LIVE', ok:true },
-    { l:'CI/CD', v:'GitHub Actions', ok:true }, { l:'Last Commit', v:'f12f350f', ok:true }
+    { l:'Skills ↔ KB', v:'103/103', ok:true }, { l:'Skills ↔ Manifest', v:'103/103', ok:true },
+    { l:'Mandatory Skills', v:'3/3', ok:true }, { l:'Phòng Ban', v:'9/9 covered', ok:true },
+    { l:'Routes', v:'39 active', ok:true }, { l:'Email Sandbox', v:'BẬT', ok:true },
+    { l:'Self-Healing', v:'Active', ok:true }, { l:'Dashboard', v:'v2.9 LIVE', ok:true },
+    { l:'CI/CD', v:'GitHub Actions', ok:true }, { l:'Last Commit', v:'334644b4', ok:true }
 ];
 
 async function loadTasks() {

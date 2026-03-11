@@ -179,5 +179,69 @@
         "status": "done",
         "completion": 100,
         "result": "ABM-CHANGELOG.md, inventory-management, logistics-optimization, QUICK-START.md"
+    },
+    {
+        "id": "TASK-013",
+        "date": "2026-03-11",
+        "title": "Marketing Upgrade — 11 skills từ coreyhaines31",
+        "department": "Marketing",
+        "agent": "Jarvis",
+        "worker": "dev-worker",
+        "skills": [
+            "ad-creative",
+            "ai-seo",
+            "analytics-tracking",
+            "email-sequence",
+            "referral-program",
+            "free-tool-strategy",
+            "copy-editing",
+            "programmatic-seo",
+            "signup-flow-cro",
+            "form-cro",
+            "popup-cro"
+        ],
+        "status": "done",
+        "completion": 100,
+        "result": "v2.8: 91 skills, 34 routes. Marketing 16→27 skills dẫn đầu."
+    },
+    {
+        "id": "TASK-014",
+        "date": "2026-03-11",
+        "title": "Review v2.8 — Audit + Phương án bổ sung",
+        "department": "Ban Giám Đốc",
+        "agent": "Jarvis",
+        "worker": "jarvis-direct",
+        "skills": [
+            "multi-dimensional-review",
+            "critical-thinking"
+        ],
+        "status": "done",
+        "completion": 100,
+        "result": "9.58/10 — P0: cân bằng 5 phòng ban yếu (+12 skills)"
+    },
+    {
+        "id": "TASK-015",
+        "date": "2026-03-11",
+        "title": "Cân bằng 5 Phòng Ban — 12 skills mới",
+        "department": "Ban Giám Đốc",
+        "agent": "Jarvis",
+        "worker": "dev-worker",
+        "skills": [
+            "performance-review",
+            "employee-engagement",
+            "talent-acquisition",
+            "expense-management",
+            "cash-flow-forecast",
+            "tax-compliance",
+            "ip-protection",
+            "labor-law",
+            "quality-management",
+            "facility-management",
+            "ticket-management",
+            "customer-feedback"
+        ],
+        "status": "done",
+        "completion": 100,
+        "result": "v2.9: 103 skills, 39 routes. HR 7, KT 7, PC 4, VH 5, CSKH 5."
     }
 ]
