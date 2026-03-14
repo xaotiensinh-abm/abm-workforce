@@ -4,6 +4,28 @@ Tất cả thay đổi ABM Workforce được ghi lại tại đây.
 
 ---
 
+## [v3.5] — 14/03/2026
+
+### Thêm mới
+- **Phòng R&D** — 6 skills: `ai-trend-radar`, `tech-scouting`, `research-to-training`, `knowledge-builder`, `benchmark-lab`, `innovation-report`
+- **Phòng Đào Tạo** — 6 skills: `course-design`, `lms-management`, `student-assessment`, `training-content`, `workshop-facilitation`, `certification-program`
+- **Skill** `prompt-sentinel` — Kiểm tra prompt LLM, 20 failure modes, 3 track song song
+- **SubAgent** `rd-specialist` — Chuyên gia nghiên cứu AI/công nghệ
+- **SubAgent** `training-specialist` — Chuyên gia đào tạo/khóa học
+- **Workflow** `/rd` — Giao việc R&D
+- **Workflow** `/training` — Giao việc đào tạo
+- **Workflow** `/recap` — Khôi phục context phiên trước
+- **Dashboard** auto-sync — Pipeline `sync.ps1` → `task-data.js`, tự cập nhật 30 giây
+
+### Thay đổi
+- Skills 103 → 116
+- Workflows 15 → 18
+- SubAgents 6 → 8
+- Phòng ban 9 → 11 (thêm R&D + Đào Tạo)
+- README viết lại hoàn toàn cho v3.5
+
+---
+
 ## [v2.7] — 10/03/2026
 
 ### Thêm mới

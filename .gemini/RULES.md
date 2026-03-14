@@ -50,6 +50,8 @@ Chọn worker phù hợp theo bảng routing:
 | bug | dev worker | systematic-debugging, code-review |
 | feature | dev worker | writing-plans, code-review |
 | review | jarvis trực tiếp | multi-dimensional-review |
+| training | training-specialist | course-design, training-content, student-assessment |
+| rd | rd-specialist | ai-trend-radar, tech-scouting, research-to-training |
 
 #### Bước 3: WORKER THỰC HIỆN
 Worker thực hiện TRONG PHẠM VI hợp đồng:

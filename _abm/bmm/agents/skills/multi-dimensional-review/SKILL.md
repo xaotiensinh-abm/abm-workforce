@@ -1,4 +1,4 @@
-﻿---
+---
 name: multi-dimensional-review
 description: "Standardized multi-perspective evaluation framework. Generates 10-dimension scores, 5+ adversarial perspectives, evidence-based findings, and prioritized action plan. Use for system audits, project reviews, and quality gates."
 tags: [meta, review, quality, process]
@@ -146,4 +146,5 @@ Mỗi finding PHẢI có format:
 ## Integration
 - **capability-evolver** — Feeds review findings into evolution cycle
 - **knowledge-crystallizer** — Extracts lessons from review findings
+- **prompt-sentinel** — Review chuyên sâu từng prompt riêng lẻ (SOUL.md, workflow step, skill) — dùng khi multi-dimensional-review phát hiện vấn đề ở tầng prompt
 - **HEARTBEAT** — Schedule periodic reviews (monthly or every 20 tasks)

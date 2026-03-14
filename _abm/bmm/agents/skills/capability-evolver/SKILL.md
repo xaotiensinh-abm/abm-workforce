@@ -1,4 +1,4 @@
-﻿---
+---
 name: capability-evolver
 description: "Self-evolution engine — Analyze task logs and history to identify improvements. Fix broken processes, crystallize knowledge, generate new skills automatically. The Ascension Protocol."
 tags: [meta, ai, self-improvement, core]
@@ -134,3 +134,4 @@ Before applying any change:
 - **knowledge-crystallizer** — Handles the CRYSTALLIZE step
 - **memory-keeper** — Runs backup BEFORE any evolution
 - **verification-before-completion** — Validates changes actually improve things
+- **prompt-sentinel** — Khi phát hiện prompt quality issue (low confidence, failures) → chạy prompt-sentinel review trước khi sửa

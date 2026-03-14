@@ -243,5 +243,117 @@
         "status": "done",
         "completion": 100,
         "result": "v2.9: 103 skills, 39 routes. HR 7, KT 7, PC 4, VH 5, CSKH 5."
+    },
+    {
+        "id": "TASK-016",
+        "date": "2026-03-12",
+        "title": "Phòng Đào Tạo — 6 skills + SubAgent + Workflow",
+        "department": "Đào Tạo",
+        "agent": "Jarvis",
+        "worker": "dev-worker",
+        "skills": [
+            "course-design",
+            "lms-management",
+            "student-assessment",
+            "training-content",
+            "workshop-facilitation",
+            "certification-program"
+        ],
+        "status": "done",
+        "completion": 100,
+        "result": "v3.0: 109 skills. training-specialist SubAgent, /training workflow."
+    },
+    {
+        "id": "TASK-017",
+        "date": "2026-03-12",
+        "title": "Audit Phòng Đào Tạo — 9.7/10",
+        "department": "Đào Tạo",
+        "agent": "Jarvis",
+        "worker": "jarvis-direct",
+        "skills": [
+            "multi-dimensional-review",
+            "critical-thinking"
+        ],
+        "status": "done",
+        "completion": 100,
+        "result": "9.2→9.7/10 sau fix P1: Instructor Mgmt, Gamification, Plagiarism Detection."
+    },
+    {
+        "id": "TASK-018",
+        "date": "2026-03-12",
+        "title": "Phòng R&D — 6 skills + RAPID/SQUARE frameworks",
+        "department": "R&D",
+        "agent": "Jarvis",
+        "worker": "dev-worker",
+        "skills": [
+            "ai-trend-radar",
+            "tech-scouting",
+            "research-to-training",
+            "knowledge-builder",
+            "benchmark-lab",
+            "innovation-report"
+        ],
+        "status": "done",
+        "completion": 100,
+        "result": "v3.0: 115 skills. rd-specialist SubAgent, /rd workflow. RAPID + SQUARE."
+    },
+    {
+        "id": "TASK-019",
+        "date": "2026-03-12",
+        "title": "Audit Phòng R&D — 9.4/10 + Fix P1",
+        "department": "R&D",
+        "agent": "Jarvis",
+        "worker": "jarvis-direct",
+        "skills": [
+            "multi-dimensional-review",
+            "critical-thinking"
+        ],
+        "status": "done",
+        "completion": 100,
+        "result": "9.4/10. Fix: budget template, handoff protocol SLA, weekly radar mẫu."
+    },
+    {
+        "id": "TASK-020",
+        "date": "2026-03-12",
+        "title": "Community Skills Integration — 5 ADOPT từ antigravity-awesome",
+        "department": "Đào Tạo",
+        "agent": "Jarvis",
+        "worker": "dev-worker",
+        "skills": [
+            "course-design",
+            "training-content"
+        ],
+        "status": "done",
+        "completion": 100,
+        "result": "Curriculum v2: +30h (PE 6h, RAG 8h, DS 4h, Agents 12h). 112h total."
+    },
+    {
+        "id": "TASK-021",
+        "date": "2026-03-12",
+        "title": "AI Trend Radar — Tuần 11/2026",
+        "department": "R&D",
+        "agent": "Jarvis",
+        "worker": "rd-specialist",
+        "skills": [
+            "ai-trend-radar",
+            "tech-scouting"
+        ],
+        "status": "done",
+        "completion": 100,
+        "result": "HOT: GPT-5.4, Gemini Embedding 2, Luật AI VN. 7 action items."
+    },
+    {
+        "id": "TASK-022",
+        "date": "2026-03-13",
+        "title": "Save/Recap System — Session Persistence",
+        "department": "IT — Công Nghệ",
+        "agent": "Jarvis",
+        "worker": "dev-worker",
+        "skills": [
+            "writing-plans"
+        ],
+        "status": "done",
+        "completion": 100,
+        "result": "/save + /recap workflows. .abm-sessions/ storage. SESSION-001 saved."
     }
 ]

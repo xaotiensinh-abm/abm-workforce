@@ -1,219 +1,129 @@
-﻿---
-name: "save"
-description: "Lưu trạng thái công việc vào Second Brain — snapshot task/ngày làm việc, knowledge gained, plan status, files changed. Hỗ trợ /save, /list-memory, /find-memory."
+---
+name: save
+description: "Lưu trạng thái phiên làm việc vào workspace — session history, context persistence, cross-session continuity"
 ---
 
-## KHONG su dung khi
+# 💾 Session Save — Lưu Phiên Làm Việc
 
-- Can tinh che tri thuc -> dung knowledge-crystallizer. Can backup git -> dung memory-keeper.
+## Mục đích
+Skill này giúp lưu toàn bộ ngữ cảnh phiên làm việc vào workspace, cho phép `/recap` khôi phục context ở phiên sau.
 
+## Storage Location
 
-# 💾 Save — Lưu Trạng Thái Công Việc
+```
+{workspace-root}/
+└── .abm-sessions/           ← Thư mục chính
+    ├── INDEX.md              ← Danh sách tất cả sessions
+    ├── SESSION-001-2026-03-12.md
+    ├── SESSION-002-2026-03-13.md
+    └── ...
+```
 
-Skill lưu trạng thái công việc vào bộ nhớ dài hạn (Second Brain). Khi user nói **"save"** hoặc dùng lệnh **/save**, Jarvis sẽ tự động thu thập và lưu toàn bộ thông tin phiên làm việc.
+**Tại sao `.abm-sessions/` nằm ở workspace root?**
+- Agent mới mở workspace → scan `.abm-sessions/` → biết context ngay
+- Git-trackable (commit cùng code)
+- Không phụ thuộc brain/antigravity directory (portable)
 
-## Khi nào kích hoạt
-
-- User nói "save", "lưu lại", "ghi nhớ"
-- Kết thúc 1 task quan trọng
-- Cuối ngày làm việc
-- Trước khi chuyển sang dự án khác
-- User cần snapshot trạng thái hiện tại
-
-## KHÔNG tự động kích hoạt khi
-
-- Giữa chừng task (chưa có gì đáng lưu)
-- User chỉ hỏi câu hỏi đơn giản
-
----
-
-## QUY TRÌNH SAVE — 5 BƯỚC
-
-### Bước 1: Thu thập thông tin
-
-Jarvis tự động quét và thu thập:
-
-| Nguồn | Thông tin thu thập |
-|-------|-------------------|
-| **Conversation** | Tóm tắt nội dung chính, quyết định quan trọng |
-| **Tasks** | Task nào đã hoàn thành, đang làm, còn lại |
-| **Files** | Danh sách files đã tạo/sửa/xóa |
-| **Plans** | Trạng thái plan hiện tại (% hoàn thành) |
-| **Knowledge** | Kiến thức mới học được, patterns phát hiện |
-| **Decisions** | Quyết định quan trọng của CEO |
-
-### Bước 2: Tạo Memory Entry
-
-Tạo file mới trong `_abm/Context-Layer/Second-Brain/memory/saves/`:
+## Cấu Trúc Session File
 
 ```yaml
-# File: SAVE-{NNN}-{YYYY-MM-DD}.yaml
-save_id: "SAVE-{NNN}"
-date: "{YYYY-MM-DD}"
-time: "{HH:MM}"
-type: "task_save" | "daily_save" | "milestone_save"
-
-# === TÓM TẮT ===
-title: "[Tiêu đề ngắn gọn mô tả phiên làm việc]"
-summary: |
-  [Tóm tắt 3-5 câu về những gì đã làm trong phiên này]
-
-# === CÔNG VIỆC ===
-work:
-  completed:
-    - task: "[Tên task]"
-      result: "[Kết quả]"
-      files: ["file1.md", "file2.yaml"]
+session_structure:
+  header:
+    session_id: "SESSION-{NNN}"
+    title: "Tiêu đề ngắn gọn"
+    date: "YYYY-MM-DD HH:MM"
+    type: "task_save | daily_save | milestone_save"
+    workspace: "{absolute path}"
+  
+  summary: "2-3 câu tóm tắt toàn phiên"
+  
+  completed_tasks:
+    - "Mô tả task + kết quả"
+  
   in_progress:
-    - task: "[Tên task đang làm]"
-      progress: "60%"
-      next_step: "[Bước tiếp theo]"
+    - task: "Mô tả"
+      status: "Trạng thái hiện tại"
+      next_step: "Cần làm gì tiếp"
+  
   blocked:
-    - task: "[Task bị chặn]"
-      reason: "[Lý do]"
-
-# === KIẾN THỨC ===
-knowledge_gained:
-  - "[Điều mới học được 1]"
-  - "[Điều mới học được 2]"
-
-# === QUYẾT ĐỊNH ===
-key_decisions:
-  - decision: "[Quyết định gì]"
-    by: "CEO" | "Jarvis"
-    reason: "[Lý do]"
-
-# === FILES ĐÃ THAY ĐỔI ===
-files_changed:
-  created: ["file1.md"]
-  modified: ["file2.yaml"]
-  deleted: ["file3.md"]
-
-# === PLAN STATUS ===
-plan_status:
-  plan_name: "[Tên plan nếu có]"
-  progress: "70%"
-  remaining: ["item 1", "item 2"]
-
-# === NEXT SESSION ===
-next_session:
-  priority: "[Việc cần làm đầu tiên ngày mai]"
-  context: "[Context quan trọng cần nhớ]"
-  reminders:
-    - "[Nhắc nhở 1]"
-    - "[Nhắc nhở 2]"
-
-# === META ===
-skills_used: ["skill1", "skill2"]
-mood: "productive" | "research" | "creative" | "debugging" | "planning"
-tags: ["tag1", "tag2"]
+    - task: "Mô tả"
+      reason: "Lý do bị chặn"
+      proposed_fix: "Đề xuất giải quyết"
+  
+  files_changed:
+    created: ["path → description"]
+    modified: ["path → changes"]
+    deleted: ["path → reason"]
+  
+  decisions:
+    - "Quyết định → Lý do"
+  
+  knowledge:
+    - "Insight mới phát hiện"
+  
+  next_session:
+    - "Task ưu tiên 1"
+    - "Task ưu tiên 2"
+    - "Task ưu tiên 3"
+  
+  references:
+    - "Links / files quan trọng"
 ```
 
-### Bước 3: Lưu file
+## 3 Loại Save
 
-```
-Đường dẫn: _abm/Context-Layer/Second-Brain/memory/saves/SAVE-{NNN}-{YYYY-MM-DD}.yaml
-```
-
-Quy tắc đánh số:
-- Đếm files trong `saves/` → số tiếp theo
-- Format: `SAVE-001`, `SAVE-002`, ...
-
-### Bước 4: Xác nhận với CEO
-
-Hiển thị tóm tắt:
-
-```
-💾 ĐÃ LƯU — SAVE-{NNN} | {YYYY-MM-DD} {HH:MM}
-
-📌 {title}
-━━━━━━━━━━━━━━━━━━━━━━━
-✅ Hoàn thành: {N} tasks
-🔄 Đang làm: {N} tasks
-📂 Files: +{created} ~{modified} -{deleted}
-🧠 Kiến thức: {N} điểm mới
-📋 Việc ngày mai: {priority}
+### Task Save
+```yaml
+trigger: "Sau khi hoàn thành 1 task/feature cụ thể"
+content: "Chỉ focus vào task vừa hoàn thành"
+detail_level: "medium"
 ```
 
-### Bước 5: Commit (tùy chọn)
-
-Nếu CEO yêu cầu, tự động commit save:
-```
-git add _abm/Context-Layer/Second-Brain/memory/saves/
-git commit -m "save: SAVE-{NNN} — {title}"
-```
-
----
-
-## LỆNH /list-memory — XEM DANH SÁCH
-
-Khi user nói "list memory", "xem lại", "danh sách saves":
-
-```
-📋 DANH SÁCH MEMORY SAVES
-━━━━━━━━━━━━━━━━━━━━━━━
-| # | Ngày | Loại | Tiêu đề | Tasks |
-|---|------|------|---------|-------|
-| SAVE-005 | 09/03 | daily | Multimedia skills v2.2 | 6 ✅ |
-| SAVE-004 | 09/03 | task | Deep research VEO/Grok | 3 ✅ |
-| SAVE-003 | 08/03 | daily | System audit + push | 11 ✅ |
-| ...
+### Daily Save
+```yaml
+trigger: "Cuối ngày làm việc"
+content: "Tổng hợp TẤT CẢ tasks trong ngày"
+detail_level: "high"
+includes:
+  - "Tất cả tasks: done + in-progress + blocked"
+  - "Tổng files changed"
+  - "Tomorrow priorities"
 ```
 
-**Cách thực hiện:**
-1. Đọc tất cả files trong `memory/saves/`
-2. Parse YAML → lấy save_id, date, type, title, completed count
-3. Hiển thị bảng sắp xếp theo ngày (mới nhất trước)
-
----
-
-## LỆNH /find-memory — TÌM KIẾM
-
-Khi user nói "tìm memory về...", "find memory...":
-
-```
-/find-memory [keyword]
+### Milestone Save
+```yaml
+trigger: "Hoàn thành milestone quan trọng (deploy, release, audit xong)"
+content: "Full snapshot trạng thái project"
+detail_level: "highest"
+includes:
+  - "Architecture decisions"
+  - "Technical debt notes"
+  - "Performance metrics"
+  - "Dependencies hiện tại"
 ```
 
-**Cách thực hiện:**
-1. Grep tất cả files trong `memory/saves/` theo keyword
-2. Trả về danh sách matches với context
+## INDEX.md Format
 
----
+```markdown
+# 📋 ABM Session Index
 
-## LỆNH /load-memory — NẠP LẠI CONTEXT
-
-Khi user nói "load save 005", "nạp lại phiên trước":
-
-```
-/load-memory SAVE-{NNN}
+| ID | Ngày | Loại | Tiêu đề | Status |
+|----|------|------|---------|--------|
+| SESSION-001 | 2026-03-08 | daily | Setup ABM Workforce repo | ✅ saved |
+| SESSION-002 | 2026-03-12 | milestone | Training + R&D departments | ✅ saved |
 ```
 
-**Cách thực hiện:**
-1. Đọc file `SAVE-{NNN}-{date}.yaml`
-2. Hiển thị toàn bộ thông tin
-3. Đặc biệt highlight `next_session` — việc cần làm tiếp
+## Quy tắc quan trọng
 
----
+1. **Một file = Một phiên**: Không ghi đè, luôn tạo file mới
+2. **Next session PHẢI có**: Mục "Việc cần làm tiếp" là BẮT BUỘC
+3. **Files changed PHẢI cụ thể**: Đường dẫn + mô tả thay đổi
+4. **Decisions PHẢI có lý do**: Không chỉ ghi "đã quyết định X"
+5. **Maximum 1 save/task**: Tránh save quá nhiều → noise
 
-## PHÂN LOẠI SAVE
+## Output khi được yêu cầu
 
-| Loại | Khi dùng | Ký hiệu |
-|------|---------|---------|
-| **task_save** | Xong 1 task cụ thể | 📌 |
-| **daily_save** | Cuối ngày làm việc | 📅 |
-| **milestone_save** | Đạt cột mốc quan trọng | 🏆 |
-
----
-
-## QUY TẮC
-
-1. **KHÔNG XÓA** saves cũ — chỉ append
-2. **Mỗi save = 1 file** riêng biệt (dễ tìm, dễ quản lý)
-3. **Tags** giúp tìm kiếm nhanh
-4. **next_session** luôn phải có — để ngày mai biết bắt đầu từ đâu
-5. Saves > 30 ngày → xem xét crystallize vào `patterns/` nếu có pattern lặp lại
-
-## Nguồn gốc
-- Xây dựng bởi: ABM Workforce v2.2 — Jarvis Orchestrator
-- Tích hợp: Second Brain memory layer
+1. **Session file** — Markdown đầy đủ theo template
+2. **INDEX update** — Thêm entry mới
+3. **Confirmation** — Bảng tóm tắt cho CEO
+4. **Git commit** — Nếu CEO muốn

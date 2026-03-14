@@ -1,177 +1,228 @@
-﻿---
+---
 name: hr-operations
-description: Quản lý nhân sự toàn diện — tuyển dụng, onboarding, đánh giá hiệu suất, phát triển nhân viên, offboarding. Templates chuẩn doanh nghiệp.
+description: Quản lý nhân sự toàn diện — tuyển dụng, đón chào nhân sự, đánh giá hiệu suất, phát triển nhân viên, nghỉ việc. Templates chuẩn doanh nghiệp Việt Nam.
 ---
 
-## KHONG su dung khi
+## KHÔNG sử dụng khi
 
-- Can tao file Word -> dung docx. Can phan tich du lieu HR -> dung data-analysis.
+- Cần tạo file Word → dùng docx. Cần phân tích dữ liệu HR → dùng data-analysis.
 
 
 # HR Operations — Quản lý nhân sự doanh nghiệp
 
 ## Khi nào sử dụng
-- Soạn Job Description (JD)
+- Soạn Mô tả công việc (JD)
 - Tạo quy trình tuyển dụng
-- Thiết kế onboarding checklist
-- Viết performance review
+- Thiết kế danh mục đón chào nhân sự mới
+- Viết đánh giá hiệu suất
 - Lập kế hoạch đào tạo
 - Xử lý tình huống nhân sự
 
-## 1. Job Description Template
+---
+
+## ⚠️ QUY TẮC NGÔN NGỮ — BẮT BUỘC
+
+> **Mặc định: Tiếng Việt 100%.**
+> Thuật ngữ tiếng Anh CHỈ được giữ khi đó là ngôn ngữ nội bộ doanh nghiệp (có trong tài liệu gốc/SOP của công ty).
+
+**Quy trình kiểm tra trước khi soạn:**
+1. **Bước 0**: Đọc tài liệu nguồn → trích xuất danh sách thuật ngữ Anh nội bộ
+2. **Bước 1**: Soạn template bằng tiếng Việt mặc định
+3. **Bước 2**: Chỉ giữ lại thuật ngữ Anh có trong danh sách nội bộ ở Bước 0
+4. **Bước 3**: Kiểm tra lần cuối — mọi từ Anh còn lại phải Việt hóa hoặc có giải thích
+
+---
+
+## 1. Mô tả công việc (JD)
+
+### Quy trình soạn JD
+
+```
+Bước 0: Đọc tài liệu nguồn (sản phẩm, dịch vụ, văn hóa) → trích danh sách thuật ngữ nội bộ
+Bước 1: Xác định vị trí, phòng ban, cấp bậc, báo cáo cho ai
+Bước 2: Soạn theo template bên dưới
+Bước 3: Kiểm tra quy tắc ngôn ngữ
+Bước 4: Trình CEO duyệt
+```
+
+### Template JD
 
 ```markdown
-# [Job Title] — [Department]
+# [Tên vị trí] — [Phòng ban]
 
-**Location**: [city/remote]
-**Level**: [junior/mid/senior]
-**Report to**: [manager title]
-**Salary Range**: [range]
+**Địa điểm**: [thành phố / làm việc từ xa]
+**Cấp bậc**: [nhân viên / có kinh nghiệm / quản lý]
+**Báo cáo cho**: [chức danh quản lý]
+**Mức lương**: [khoảng lương]
 
 ## Về công ty
-[2-3 câu — mission, culture, stage]
+[2-3 câu — sứ mệnh, văn hóa, giai đoạn phát triển]
 
 ## Vai trò
-[2-3 câu — impact của role này]
+[2-3 câu — tác động của vị trí này đối với doanh nghiệp]
 
 ## Trách nhiệm chính
-- [Responsibility 1 — measurable]
-- [Responsibility 2 — measurable]
-- [Responsibility 3 — measurable]
+- [Trách nhiệm 1 — đo lường được]
+- [Trách nhiệm 2 — đo lường được]
+- [Trách nhiệm 3 — đo lường được]
 
 ## Yêu cầu
-### Must-have
-- [Skill/experience 1]
-- [Skill/experience 2]
+### Bắt buộc
+- [Kỹ năng/kinh nghiệm 1]
+- [Kỹ năng/kinh nghiệm 2]
 
-### Nice-to-have
-- [Bonus skill 1]
+### Ưu tiên
+- [Kỹ năng cộng thêm 1]
 
 ## Quyền lợi
-- [Benefit 1]
-- [Benefit 2]
+| Quyền lợi | Chi tiết |
+|-----------|----------|
+| [Quyền lợi 1] | [Mô tả] |
+| [Quyền lợi 2] | [Mô tả] |
+
+## Chỉ số đo lường hiệu suất
+| Chỉ số | Mục tiêu |
+|--------|----------|
+| [Chỉ số 1] | [Mục tiêu cụ thể] |
+
+## Lộ trình thăng tiến
+[Vị trí hiện tại] → [Vị trí tiếp theo] → [Vị trí mục tiêu]
+
+## Tiêu chí văn hóa
+- [Giá trị cốt lõi 1 + mô tả ngắn]
+- [Giá trị cốt lõi 2 + mô tả ngắn]
 
 ## Quy trình ứng tuyển
-1. Gửi CV → 2. Phone screening → 3. Technical → 4. Culture fit → 5. Offer
+1. Gửi hồ sơ → 2. Phỏng vấn sơ loại → 3. Bài kiểm tra tình huống → 4. Phỏng vấn chuyên sâu → 5. Tương thích văn hóa → 6. Đề nghị tuyển dụng
 ```
 
-## 2. Onboarding Checklist
+---
+
+## 2. Danh mục đón chào nhân sự mới
 
 ```markdown
-# Onboarding — [Name] — [Position]
+# Đón chào nhân sự — [Họ tên] — [Vị trí]
 
-## Trước ngày đầu (Pre-boarding)
-- [ ] Gửi welcome email + tài liệu công ty
-- [ ] Setup email/accounts
-- [ ] Chuẩn bị workstation
-- [ ] Thông báo team về member mới
-- [ ] Assign buddy/mentor
+## Trước ngày đầu
+- [ ] Gửi thư chào mừng + tài liệu công ty
+- [ ] Thiết lập tài khoản email/hệ thống
+- [ ] Chuẩn bị chỗ làm việc
+- [ ] Thông báo đội ngũ về thành viên mới
+- [ ] Phân công người hướng dẫn/đồng hành
 
-## Ngày 1-3 (Orientation)
-- [ ] Welcome meeting với manager
-- [ ] Tour văn phòng / setup remote tools
-- [ ] Giới thiệu team members
-- [ ] Review company handbook
-- [ ] Setup development environment (nếu tech)
-- [ ] First 1:1 — expectations & goals
+## Ngày 1-3 (Định hướng)
+- [ ] Buổi gặp chào mừng với quản lý
+- [ ] Giới thiệu văn phòng / thiết lập công cụ làm việc từ xa
+- [ ] Giới thiệu các thành viên trong đội
+- [ ] Đọc sổ tay nhân viên
+- [ ] Thiết lập môi trường làm việc (nếu kỹ thuật)
+- [ ] Buổi 1:1 đầu tiên — kỳ vọng và mục tiêu
 
-## Tuần 1 (Foundation)
-- [ ] Hoàn thành compliance training
-- [ ] Tham gia team meetings
-- [ ] First small task/project
-- [ ] Review codebase/systems overview
-- [ ] Lunch with cross-functional team
+## Tuần 1 (Xây nền)
+- [ ] Hoàn thành đào tạo nội quy
+- [ ] Tham gia các cuộc họp đội ngũ
+- [ ] Nhiệm vụ nhỏ đầu tiên
+- [ ] Tổng quan hệ thống/quy trình
+- [ ] Ăn trưa với các phòng ban liên quan
 
-## Tháng 1 (Integration)
-- [ ] 30-day check-in với manager
-- [ ] Complete first meaningful deliverable
-- [ ] Feedback from buddy/mentor
-- [ ] Personal development plan draft
+## Tháng 1 (Hòa nhập)
+- [ ] Đánh giá 30 ngày với quản lý
+- [ ] Hoàn thành sản phẩm công việc có ý nghĩa đầu tiên
+- [ ] Phản hồi từ người hướng dẫn
+- [ ] Bản nháp kế hoạch phát triển cá nhân
 ```
 
-## 3. Performance Review Template
+---
+
+## 3. Đánh giá hiệu suất
 
 ```markdown
-# Performance Review — [Name] — [Period]
+# Đánh giá hiệu suất — [Họ tên] — [Kỳ đánh giá]
 
-## Overall Rating: [1-5] / 5
+## Xếp hạng tổng quan: [1-5] / 5
 
-## Goals Achievement
-| Goal | Target | Actual | Rating |
-|------|--------|--------|--------|
+## Mức hoàn thành mục tiêu
+| Mục tiêu | Chỉ tiêu | Thực tế | Xếp hạng |
+|----------|----------|---------|----------|
 
-## Competency Assessment
-| Competency | Rating | Evidence |
-|------------|--------|----------|
-| Technical Skills | ⭐⭐⭐⭐ | [specific example] |
-| Communication | ⭐⭐⭐ | [specific example] |
-| Leadership | ⭐⭐⭐⭐ | [specific example] |
-| Collaboration | ⭐⭐⭐⭐⭐ | [specific example] |
+## Đánh giá năng lực
+| Năng lực | Xếp hạng | Bằng chứng |
+|----------|----------|------------|
+| Chuyên môn | ⭐⭐⭐⭐ | [ví dụ cụ thể] |
+| Giao tiếp | ⭐⭐⭐ | [ví dụ cụ thể] |
+| Lãnh đạo | ⭐⭐⭐⭐ | [ví dụ cụ thể] |
+| Phối hợp nhóm | ⭐⭐⭐⭐⭐ | [ví dụ cụ thể] |
 
-## Strengths (Top 3)
-1. [Strength + evidence]
+## Điểm mạnh nổi bật (3 điểm)
+1. [Điểm mạnh + bằng chứng]
 
-## Development Areas (Top 2)
-1. [Area + improvement plan]
+## Điểm cần phát triển (2 điểm)
+1. [Điểm cần cải thiện + kế hoạch]
 
-## Goals for Next Period
-| Goal | Measurable Target | Support Needed |
-|------|-------------------|----------------|
+## Mục tiêu kỳ tới
+| Mục tiêu | Chỉ tiêu đo lường | Hỗ trợ cần thiết |
+|----------|-------------------|-------------------|
 
-## Manager Comments
-[Overall assessment, career path discussion]
+## Nhận xét của quản lý
+[Đánh giá tổng quan, thảo luận lộ trình sự nghiệp]
 
-## Employee Comments
-[Self-assessment, aspirations]
+## Nhận xét của nhân viên
+[Tự đánh giá, định hướng phát triển]
 ```
 
-## 4. Training & Development Plan
+---
+
+## 4. Kế hoạch đào tạo & Phát triển
 
 ```markdown
-# Development Plan — [Name] — [Year]
+# Kế hoạch phát triển — [Họ tên] — [Năm]
 
-## Career Path
-Current: [role] → Target: [target role] — Timeline: [months]
+## Lộ trình sự nghiệp
+Hiện tại: [vị trí] → Mục tiêu: [vị trí mục tiêu] — Thời gian: [số tháng]
 
-## Skill Gaps
-| Skill | Current Level | Target Level | How to Develop |
-|-------|--------------|-------------|----------------|
+## Khoảng cách năng lực
+| Kỹ năng | Mức hiện tại | Mức mục tiêu | Cách phát triển |
+|---------|-------------|-------------|-----------------|
 
-## Training Schedule
-| Month | Training | Format | Investment |
-|-------|----------|--------|------------|
+## Lịch đào tạo
+| Tháng | Nội dung đào tạo | Hình thức | Đầu tư |
+|-------|------------------|-----------|--------|
 
-## Mentoring
-- Mentor: [name]
-- Frequency: [bi-weekly/monthly]
-- Focus: [area]
+## Người hướng dẫn
+- Người hướng dẫn: [họ tên]
+- Tần suất: [2 tuần/tháng]
+- Trọng tâm: [lĩnh vực]
 ```
 
-## 5. Exit Interview Framework
+---
+
+## 5. Phỏng vấn nghỉ việc
 
 ```markdown
-## Exit Interview — [Name]
+## Phỏng vấn nghỉ việc — [Họ tên]
 
-### Experience
-- What did you enjoy most about working here?
-- What was most challenging?
-- How was your relationship with your manager?
+### Trải nghiệm làm việc
+- Điều bạn ấn tượng nhất khi làm việc tại đây?
+- Điều gì khó khăn nhất?
+- Mối quan hệ với quản lý trực tiếp như thế nào?
 
-### Reason for Leaving
-- Primary reason?
-- Could we have done anything differently?
+### Lý do nghỉ việc
+- Lý do chính?
+- Công ty có thể làm gì khác để giữ bạn?
 
-### Recommendations
-- What would you change about the company?
-- Would you recommend us as an employer?
+### Góp ý cải thiện
+- Bạn muốn thay đổi điều gì ở công ty?
+- Bạn có giới thiệu công ty cho bạn bè làm việc không?
 
-### Knowledge Transfer
-| Knowledge Area | Transfer To | Status |
-|---------------|-------------|--------|
+### Bàn giao công việc
+| Hạng mục công việc | Người nhận bàn giao | Trạng thái |
+|--------------------|---------------------|------------|
 ```
 
-## HR Automation Opportunities
-- **JD generation**: Template + company context → professional JD
-- **Onboarding emails**: Automated sequence triggered on hire date
-- **Review reminders**: Calendar-based reminders for review cycles
-- **Report generation**: Monthly HR metrics dashboard
+---
+
+## Cơ hội tự động hóa HR
+- **Soạn JD**: Template + ngữ cảnh công ty → JD chuyên nghiệp
+- **Thư đón chào**: Chuỗi thư tự động kích hoạt khi tuyển mới
+- **Nhắc đánh giá**: Lịch nhắc tự động theo chu kỳ đánh giá
+- **Báo cáo**: Bảng chỉ số nhân sự hàng tháng

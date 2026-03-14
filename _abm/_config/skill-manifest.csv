@@ -12,6 +12,7 @@ name,category,description,mandatory,path
 "skill-creator","meta","Tạo và cải thiện kỹ năng mới cho hệ thống ABM. 7 pha: thu thập → phỏng vấn → viết → test → đánh giá → tối ưu → đăng ký.",false,"skills/skill-creator/SKILL.md"
 "memory-keeper","meta","Sao lưu ngữ cảnh quan trọng vào kho lưu trữ Git. Bảo vệ tri thức hệ thống.",false,"skills/memory-keeper/SKILL.md"
 "multi-dimensional-review","meta","Đánh giá đa chiều 6 bước: Thu thập → Chấm điểm → Phản biện 8 góc → Phát hiện → Đối chiếu → Hành động.",false,"skills/multi-dimensional-review/SKILL.md"
+"prompt-sentinel","hệ thống","Kiểm tra prompt LLM — 20 failure modes, 3 track song song, phát hiện lỗi tiềm ẩn trong prompts agent system.",false,"skills/prompt-sentinel/SKILL.md"
 
 # === KỸ NĂNG PHÁT TRIỂN (7) ===
 "subagent-driven-development","phát triển","Mỗi task = 1 subagent mới + review 2 giai đoạn. Đảm bảo code sạch.",false,"skills/subagent-driven-development/SKILL.md"
@@ -147,3 +148,19 @@ name,category,description,mandatory,path
 # CSKH (+2)
 "ticket-management","cskh","Quản lý ticket — SLA, escalation, CSAT, báo cáo.",false,"skills/ticket-management/SKILL.md"
 "customer-feedback","cskh","Phản hồi KH — NPS, CSAT, VOC analysis, feature requests.",false,"skills/customer-feedback/SKILL.md"
+
+# === ĐÀO TẠO (6) ===
+"course-design","đào tạo","Thiết kế khóa học AI — learning outcomes, Bloom's taxonomy, backward design, module structure.",false,"skills/course-design/SKILL.md"
+"lms-management","đào tạo","Quản lý LMS — cấu trúc khóa online, drip content, enrollment, completion tracking.",false,"skills/lms-management/SKILL.md"
+"student-assessment","đào tạo","Đánh giá học viên — rubrics, quiz design, project-based assessment, certification criteria.",false,"skills/student-assessment/SKILL.md"
+"training-content","đào tạo","Tài liệu đào tạo AI — slide, handout, lab exercises, video script, practical demos.",false,"skills/training-content/SKILL.md"
+"workshop-facilitation","đào tạo","Tổ chức workshop AI — agenda, hands-on labs, facilitation, Q&A, feedback.",false,"skills/workshop-facilitation/SKILL.md"
+"certification-program","đào tạo","Chương trình chứng chỉ AI — 3 cấp, exam design, certificate template, alumni tracking.",false,"skills/certification-program/SKILL.md"
+
+# === R&D — NGHIÊN CỨU PHÁT TRIỂN (6) ===
+"ai-trend-radar","r&d","Theo dõi xu thế AI thế giới — papers, releases, conferences, industry moves, weekly/monthly radar.",false,"skills/ai-trend-radar/SKILL.md"
+"tech-scouting","r&d","Đánh giá công nghệ AI mới — RAPID framework, feasibility, adoption recommendation.",false,"skills/tech-scouting/SKILL.md"
+"research-to-training","r&d","Chuyển đổi nghiên cứu AI → lộ trình đào tạo — pipeline 5 bước từ paper/tool thành module.",false,"skills/research-to-training/SKILL.md"
+"knowledge-builder","r&d","Xây dựng knowledge base AI cho học viên — glossary, cheat sheets, resources, comparisons.",false,"skills/knowledge-builder/SKILL.md"
+"benchmark-lab","r&d","So sánh và benchmark models/tools AI — SQUARE framework, cost-performance analysis.",false,"skills/benchmark-lab/SKILL.md"
+"innovation-report","r&d","Báo cáo R&D định kỳ — weekly brief, monthly report, quarterly review, KPIs.",false,"skills/innovation-report/SKILL.md"

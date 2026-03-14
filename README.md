@@ -1,21 +1,20 @@
 <p align="center">
-  <img src="https://img.shields.io/badge/🧠_ABM_Workforce-v3.0-FF0000?style=for-the-badge&labelColor=0a0e1a" alt="ABM v3.0"/>
+  <img src="https://img.shields.io/badge/🧠_ABM_Workforce-v3.5-FF0000?style=for-the-badge&labelColor=0a0e1a" alt="ABM v3.5"/>
 </p>
 
 <h1 align="center">🏢 ABM Workforce — AI Business Master</h1>
 
 <p align="center">
-  <strong>Hệ sinh thái Multi-Agent điều phối doanh nghiệp số — 9 phòng ban, 103 kỹ năng, 1 bộ não trung tâm.</strong>
+  <strong>Hệ sinh thái Multi-Agent điều phối doanh nghiệp số — 11 phòng ban, 116 kỹ năng, 1 bộ não trung tâm.</strong>
 </p>
 
 <p align="center">
-  <a href="ABM-CHANGELOG.md"><img src="https://img.shields.io/badge/Version-3.0-FF0000?style=flat-square&logo=rocket&logoColor=white" alt="Version"/></a>
+  <a href="ABM-CHANGELOG.md"><img src="https://img.shields.io/badge/Version-3.5-FF0000?style=flat-square&logo=rocket&logoColor=white" alt="Version"/></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-10b981?style=flat-square" alt="License"/></a>
-  <a href="_abm/_config/skill-manifest.csv"><img src="https://img.shields.io/badge/Skills-103-3b82f6?style=flat-square&logo=brain&logoColor=white" alt="Skills"/></a>
-  <a href="_abm/bmm/agents/jarvis-orchestrator.md"><img src="https://img.shields.io/badge/Routes-39-f59e0b?style=flat-square" alt="Routes"/></a>
-  <a href=".agents/workflows/"><img src="https://img.shields.io/badge/Workflows-15-8b5cf6?style=flat-square" alt="Workflows"/></a>
+  <a href="_abm/_config/skill-manifest.csv"><img src="https://img.shields.io/badge/Skills-116-3b82f6?style=flat-square&logo=brain&logoColor=white" alt="Skills"/></a>
+  <a href=".agents/workflows/"><img src="https://img.shields.io/badge/Workflows-18-8b5cf6?style=flat-square" alt="Workflows"/></a>
   <a href=".gemini/RULES.md"><img src="https://img.shields.io/badge/Tiếng_Việt-100%25-ef4444?style=flat-square" alt="Vietnamese"/></a>
-  <a href="dashboard/index.html"><img src="https://img.shields.io/badge/Dashboard-LIVE-10b981?style=flat-square&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCI+PHBhdGggZD0iTTMgM2gxOHYxOEgzeiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLXdpZHRoPSIyIi8+PC9zdmc+" alt="Dashboard"/></a>
+  <a href="dashboard/index.html"><img src="https://img.shields.io/badge/Dashboard-LIVE-10b981?style=flat-square" alt="Dashboard"/></a>
 </p>
 
 <p align="center">
@@ -24,23 +23,27 @@
 
 ---
 
-## 🎯 Tổng Quan
+## 🎯 ABM Là Gì?
 
-ABM Workforce là hệ thống **Multi-Agent Orchestration** dành cho doanh nghiệp Việt Nam. Thay vì dùng AI rời rạc, ABM tổ chức AI thành **đội ngũ nhân sự số** hoàn chỉnh — mỗi phòng ban có agent, skills, và workflow riêng, tất cả được điều phối bởi **Jarvis Lead Orchestrator**.
+ABM Workforce biến AI thành **đội ngũ nhân sự số hoàn chỉnh** cho doanh nghiệp Việt Nam. Thay vì dùng AI rời rạc, ABM tổ chức AI thành **11 phòng ban** — mỗi phòng ban có agent, skills và workflow riêng — tất cả được điều phối bởi **Jarvis Lead Orchestrator**.
+
+**Chỉ cần nói tiếng Việt tự nhiên** — Jarvis tự phân loại, route đúng phòng ban, chọn skills phù hợp, và trả kết quả kèm bằng chứng.
 
 ```mermaid
 graph LR
     CEO["👤 CEO"] -->|yêu cầu| J["🧠 Jarvis<br/>Lead Orchestrator"]
-    J -->|phân loại| R{"🔀 Skill Router<br/>39 routes"}
-    R -->|marketing| MKT["📣 Marketing<br/>27 skills"]
-    R -->|hr| HR["👥 HR<br/>7 skills"]
-    R -->|finance| FIN["💰 Kế Toán<br/>7 skills"]
-    R -->|dev| IT["💻 IT<br/>19 skills"]
-    R -->|legal| LEG["⚖️ Pháp Chế<br/>4 skills"]
-    R -->|operations| OPS["📦 Vận Hành<br/>5 skills"]
-    R -->|cskh| CS["💬 CSKH<br/>5 skills"]
-    R -->|sales| SALE["🤝 Kinh Doanh<br/>5 skills"]
-    R -->|review| REV["🔍 Review<br/>9 skills"]
+    J -->|phân loại| R{"🔀 Skill Router"}
+    R --> MKT["📣 Marketing<br/>27 skills"]
+    R --> HR["👥 HR<br/>10 skills"]
+    R --> FIN["💰 Kế Toán<br/>7 skills"]
+    R --> IT["💻 IT/Dev<br/>19 skills"]
+    R --> LEG["⚖️ Pháp Chế<br/>6 skills"]
+    R --> OPS["📦 Vận Hành<br/>5 skills"]
+    R --> CS["💬 CSKH<br/>5 skills"]
+    R --> SALE["🤝 Kinh Doanh<br/>5 skills"]
+    R --> RD["🔬 R&D<br/>6 skills"]
+    R --> TRAIN["🎓 Đào Tạo<br/>6 skills"]
+    R --> REV["🔍 Review<br/>10 skills"]
 
     style J fill:#FF0000,stroke:#FF0000,color:#fff
     style R fill:#f59e0b,stroke:#f59e0b,color:#000
@@ -52,6 +55,8 @@ graph LR
     style OPS fill:#f97316,stroke:#f97316,color:#fff
     style CS fill:#ec4899,stroke:#ec4899,color:#fff
     style SALE fill:#a855f7,stroke:#a855f7,color:#fff
+    style RD fill:#0ea5e9,stroke:#0ea5e9,color:#fff
+    style TRAIN fill:#84cc16,stroke:#84cc16,color:#000
     style REV fill:#eab308,stroke:#eab308,color:#000
 ```
 
@@ -64,14 +69,15 @@ graph LR
 git clone https://github.com/xaotiensinh-abm/abm-workforce.git
 cd abm-workforce
 
-# 2. Mở IDE (Antigravity / Cursor / Gemini-compatible)
-# Không cần install — toàn bộ là Markdown + YAML
+# 2. Mở IDE hỗ trợ .gemini/ rules
+#    (Antigravity, Cursor, Gemini CLI, WindSurf...)
+#    Không cần install — toàn bộ là Markdown + YAML
 
 # 3. Gõ lệnh đầu tiên
 /jarvis
 ```
 
-> 🧠 Jarvis sẽ online và sẵn sàng nhận việc. Nói tiếng Việt tự nhiên — Jarvis tự phân loại và route.
+> 🧠 Jarvis sẽ online và sẵn sàng nhận việc. Nói tiếng Việt — Jarvis tự phân loại và route.
 
 ---
 
@@ -84,35 +90,40 @@ graph TB
         DC["Delegation Chain"]
         VBC["Verification Protocol"]
         CE["Context Engineering"]
+        PS["Prompt Sentinel"]
     end
 
-    subgraph AGENTS["🤖 Agent Layer"]
+    subgraph AGENTS["🤖 Agent Layer — 8 SubAgents"]
         SA1["marketing-specialist"]
         SA2["hr-specialist"]
         SA3["business-analyst"]
         SA4["automation-engineer"]
         SA5["office-manager"]
         SA6["creative-strategist"]
+        SA7["rd-specialist"]
+        SA8["training-specialist"]
     end
 
-    subgraph SKILLS["🧩 Skill Engine — 103 Skills"]
+    subgraph SKILLS["🧩 Skill Engine — 116 Skills"]
         S1["Marketing & Sales (27)"]
         S2["Development (19)"]
         S3["Analytics (9)"]
         S4["HR & Office (11)"]
         S5["Finance (7)"]
-        S6["Legal (4)"]
+        S6["Legal (6)"]
         S7["Operations (5)"]
         S8["CSKH (5)"]
-        S9["System/Meta (9)"]
-        S10["Multimedia (4)"]
+        S9["R&D (6)"]
+        S10["Đào Tạo (6)"]
+        S11["System/Meta (11)"]
+        S12["Multimedia (4)"]
     end
 
     subgraph MEMORY["💾 Second Brain"]
-        M1["Knowledge Base<br/>103 entries"]
+        M1["Knowledge Base"]
         M2["Patterns & Standards"]
         M3["Evolution History"]
-        M4["Usage Metrics"]
+        M4["Session Memory"]
     end
 
     CORE --> AGENTS
@@ -147,20 +158,20 @@ flowchart LR
     style F fill:#8b5cf6,stroke:#7c3aed,color:#fff
 ```
 
-| Bước | Bắt buộc | Mô tả |
-|:----:|:--------:|-------|
-| 1 | ✅ | **Hợp đồng** — Objective, scope, criteria, budget, risk level |
-| 2 | ✅ | **Chọn Worker** — Agent routing theo task type |
-| 3 | ✅ | **Thực hiện** — Trong phạm vi `scope_in`, không chạm `scope_out` |
-| 4 | ✅ | **Chứng nhận** — Status, evidence, confidence, files changed |
-| 5 | ✅ | **Xác minh** — Kiểm tra 5 tiêu chí độc lập |
-| 6 | ✅ | **Trình CEO** — CEO quyết định cuối cùng |
+| Bước | Mô tả |
+|:----:|-------|
+| 1 | **Hợp đồng** — Objective, scope_in/scope_out, acceptance criteria, budget, risk level |
+| 2 | **Chọn Worker** — Agent routing tự động theo task type |
+| 3 | **Thực hiện** — Worker làm trong phạm vi `scope_in`, không chạm `scope_out` |
+| 4 | **Chứng nhận** — Status, evidence, confidence score, files changed |
+| 5 | **Xác minh** — Kiểm tra 5 tiêu chí độc lập (criteria, evidence, scope, budget, risk) |
+| 6 | **Trình CEO** — CEO quyết định cuối cùng dựa trên bằng chứng |
 
 > **Trách nhiệm luôn đi LÊN**: SubAgent → Worker → Jarvis → CEO
 
 ---
 
-## 💡 15 Slash Commands
+## 💡 18 Slash Commands
 
 <table>
 <tr>
@@ -173,6 +184,7 @@ flowchart LR
 | `/review` | Đánh giá 10 chiều |
 | `/council` | Hội đồng phản biện |
 | `/save` | Lưu trạng thái |
+| `/recap` | Khôi phục context |
 | `/skill-sync` | Sync skills mới |
 
 </td>
@@ -186,17 +198,19 @@ flowchart LR
 | `/hr` | JD, review, recruit |
 | `/finance` | Báo cáo, thuế, CF |
 | `/legal` | Hợp đồng, SHTT |
+| `/cskh` | Ticket, feedback |
 
 </td>
 <td width="33%">
 
-### ⚙️ Vận Hành
+### ⚙️ Chuyên Môn
 | Lệnh | Mô tả |
 |-------|-------|
 | `/dev` | Code, debug, feature |
 | `/docs` | SOP, memo, proposal |
 | `/report` | KPI, monthly report |
-| `/cskh` | Ticket, feedback |
+| `/rd` | Nghiên cứu AI, R&D |
+| `/training` | Đào tạo, workshop |
 | `/product-launch` | Dev + MKT song song |
 
 </td>
@@ -206,12 +220,12 @@ flowchart LR
 ```
 💬 Hoặc nói trực tiếp bằng tiếng Việt:
    "Viết email cold outreach cho SaaS quản lý nhân sự"
-   → Jarvis tự route → marketing → load 3 skills → thực hiện → trả kết quả
+   → Jarvis tự route → marketing → load skills → thực hiện → trả kết quả
 ```
 
 ---
 
-## 🧩 103 Skills — 11 Categories
+## 🧩 116 Skills — 12 Categories
 
 ```mermaid
 pie title Phân bổ Skills theo Category
@@ -221,10 +235,12 @@ pie title Phân bổ Skills theo Category
     "Analytics" : 9
     "HR & Office" : 11
     "Finance" : 7
-    "Legal" : 4
+    "Legal" : 6
     "Operations" : 5
     "CSKH" : 5
-    "System/Meta" : 9
+    "R&D" : 6
+    "Đào Tạo" : 6
+    "System/Meta" : 11
     "Multimedia" : 4
 ```
 
@@ -261,13 +277,13 @@ pie title Phân bổ Skills theo Category
 <details>
 <summary><strong>💰 Finance — 7 skills</strong></summary>
 
-`data-analysis` · `startup-financial-modeling` · `expense-management` · `cash-flow-forecast` · `tax-compliance` · `xlsx` · `pdf`
+`startup-financial-modeling` · `expense-management` · `cash-flow-forecast` · `tax-compliance` · `data-analysis` · `xlsx` · `pdf`
 </details>
 
 <details>
-<summary><strong>⚖️ Legal — 4 skills</strong></summary>
+<summary><strong>⚖️ Legal — 6 skills</strong></summary>
 
-`contract-review` · `compliance-checker` · `ip-protection` · `labor-law`
+`contract-review` · `compliance-checker` · `ip-protection` · `labor-law` · `docx` · `pdf`
 </details>
 
 <details>
@@ -283,9 +299,21 @@ pie title Phân bổ Skills theo Category
 </details>
 
 <details>
-<summary><strong>🔒 System/Meta — 9 skills</strong></summary>
+<summary><strong>🔬 R&D — 6 skills</strong> ✨ MỚI</summary>
 
-`delegation-chain` · `verification-before-completion` · `context-engineering` · `skill-creator` · `multi-dimensional-review` · `knowledge-crystallizer` · `capability-evolver` · `memory-keeper` · `save`
+`ai-trend-radar` · `tech-scouting` · `research-to-training` · `knowledge-builder` · `benchmark-lab` · `innovation-report`
+</details>
+
+<details>
+<summary><strong>🎓 Đào Tạo — 6 skills</strong> ✨ MỚI</summary>
+
+`course-design` · `lms-management` · `student-assessment` · `training-content` · `workshop-facilitation` · `certification-program`
+</details>
+
+<details>
+<summary><strong>🔒 System/Meta — 11 skills</strong></summary>
+
+`delegation-chain` · `verification-before-completion` · `context-engineering` · `skill-creator` · `multi-dimensional-review` · `knowledge-crystallizer` · `capability-evolver` · `memory-keeper` · `save` · `critical-thinking` · `prompt-sentinel`
 </details>
 
 <details>
@@ -298,10 +326,10 @@ pie title Phân bổ Skills theo Category
 
 ## 📊 Dashboard — Control Center
 
-Dashboard động theo dõi **toàn bộ hoạt động** của hệ thống:
+Dashboard động theo dõi **toàn bộ hoạt động** của hệ thống với auto-sync 30 giây:
 
 | View | Nội dung |
-|------|---------|
+|------|---------| 
 | **🏠 Tổng Quan** | Timeline dự án, Score 10 chiều, Phòng ban coverage, Health status |
 | **📋 Lịch Sử Tasks** | Bảng tasks filterable theo phòng ban, sortable, skill tags |
 | **📈 Phân Tích** | Top skills usage, Agent/Worker activity, Tiến độ theo thời gian |
@@ -338,19 +366,19 @@ graph TB
 ```
 abm-workforce/
 ├── 📋 .gemini/              → Rules toàn cục (100% Tiếng Việt)
-├── ⚡ .agents/workflows/     → 15 slash commands
+├── ⚡ .agents/workflows/     → 18 slash commands
 ├── 🧠 _abm/
-│   ├── bmm/agents/          → Jarvis + 6 SubAgents
-│   │   └── skills/          → 103 skills (SKILL.md mỗi skill)
-│   ├── _config/             → skill-manifest.csv (103 entries)
-│   ├── SubAgents/           → 6 agent chuyên biệt
+│   ├── bmm/agents/          → Jarvis + 8 SubAgents
+│   │   └── skills/          → 116 skills (SKILL.md mỗi skill)
+│   ├── _config/             → skill-manifest.csv (116 entries)
+│   ├── SubAgents/           → 8 agent chuyên biệt
 │   ├── Workers/             → 10 worker kỹ thuật
 │   ├── Context-Layer/
-│   │   ├── Knowledge-Base/  → 103 KB entries (mirror skills)
+│   │   ├── Knowledge-Base/  → KB entries (mirror skills)
 │   │   └── Second-Brain/    → Memory + Patterns + Standards
 │   └── Team-Orchestration/  → 14+ workflow pipelines
-├── 📊 dashboard/            → Web Dashboard (dark theme)
-├── 📖 docs/                 → FAQ + Quick Start + ABM-CHANGELOG
+├── 📊 dashboard/            → Web Dashboard (dark theme + auto-sync)
+├── 📖 docs/                 → FAQ + Quick Start + Changelog
 └── 🔧 scripts/             → health-check.ps1
 ```
 
@@ -376,6 +404,13 @@ gồm scenario best/base/worst
 + tính runway
 ```
 
+**🔬 R&D — Theo Dõi AI Trends**
+```
+/rd Scan xu hướng AI tháng 3/2026,
+focus: agent frameworks,
+output: weekly radar report
+```
+
 </td>
 <td width="50%">
 
@@ -384,6 +419,13 @@ gồm scenario best/base/worst
 /hr Viết JD + screening criteria
 cho Senior Frontend Developer,
 stack: React, TypeScript, Next.js
+```
+
+**🎓 Đào Tạo — Thiết Kế Khóa Học**
+```
+/training Thiết kế khóa AI Fundamentals,
+12 buổi, target: nhân viên non-tech,
+output: syllabus + slide outline
 ```
 
 **⚖️ Pháp Chế — Đăng Ký SHTT**
@@ -399,18 +441,37 @@ lớp Nice 9, 35, 42
 
 ---
 
-## 🏆 Đánh Giá Hệ Thống
+## 📈 Hành Trình Phát Triển
 
-| Chiều | Điểm | | Chiều | Điểm |
-|-------|:----:|-|-------|:----:|
-| Kiến trúc | **9.5** | | Documentation | **9.5** |
-| Enforcement | **9.5** | | Scalability | **9.5** |
-| Coverage | **10** | | Phòng ban | **9.5** |
-| Routing | **9.5** | | Tiếng Việt | **10** |
-| Sync | **10** | | Security | **9.0** |
-| | | | **TỔNG** | **9.58 / 10** |
+| Metric | v1.0 | v2.0 | v3.0 | v3.5 | Growth |
+|--------|:----:|:----:|:----:|:----:|:------:|
+| Skills | 36 | 66 | 103 | **116** | **3.22x** |
+| Workflows | 6 | 13 | 15 | **18** | **3.00x** |
+| SubAgents | 4 | 5 | 6 | **8** | **2.00x** |
+| Phòng ban | 5 | 9 | 9 | **11** | **2.20x** |
+| Dashboard | ❌ | ❌ | ✅ | **✅ Auto-Sync** | 🆕 |
+| Score | — | 8.33 | 9.58 | **9.58/10** | ⭐ |
 
-> Đánh giá bởi **8 personas**: Architect, CEO, Auditor, Pragmatist, New Hire, Hacker, Operator, Competitor.
+---
+
+## 🆕 Có Gì Mới Trong v3.5
+
+### 🔬 Phòng R&D — 6 Skills Mới
+Nghiên cứu xu hướng AI, đánh giá công nghệ, benchmark models, xây knowledge base.
+- `ai-trend-radar` · `tech-scouting` · `benchmark-lab` · `knowledge-builder` · `research-to-training` · `innovation-report`
+
+### 🎓 Phòng Đào Tạo — 6 Skills Mới  
+Thiết kế khóa học, quản lý LMS, đánh giá học viên, tổ chức workshop, chương trình chứng chỉ.
+- `course-design` · `lms-management` · `student-assessment` · `training-content` · `workshop-facilitation` · `certification-program`
+
+### 🛡️ Prompt Sentinel — Skill Bảo Vệ Mới
+Kiểm tra prompt LLM — 20 failure modes, 3 track song song, phát hiện lỗi tiềm ẩn trong prompt agent.
+
+### 📊 Dashboard Auto-Sync
+Dashboard tự cập nhật dữ liệu mỗi 30 giây qua pipeline `sync.ps1` → `task-data.js`.
+
+### 3 Workflows Mới
+`/rd` · `/training` · `/recap` — Hoàn thiện coverage cho R&D, Đào tạo, và khôi phục context.
 
 ---
 
@@ -492,9 +553,8 @@ git push origin feature/ten-tinh-nang
 ---
 
 <p align="center">
-  <img src="https://img.shields.io/badge/ABM_Workforce-v3.0-FF0000?style=for-the-badge&labelColor=0a0e1a" alt="v3.0"/><br/>
-  <strong>103 Skills · 39 Routes · 15 Workflows · 6 SubAgents · 9 Phòng Ban</strong><br/>
+  <img src="https://img.shields.io/badge/ABM_Workforce-v3.5-FF0000?style=for-the-badge&labelColor=0a0e1a" alt="v3.5"/><br/>
+  <strong>116 Skills · 18 Workflows · 8 SubAgents · 11 Phòng Ban</strong><br/>
   <em>Kỷ luật sắt. Bằng chứng thật. Kết quả đo được.</em><br/><br/>
   <a href="https://github.com/xaotiensinh-abm/abm-workforce/stargazers">⭐ Star repo này nếu bạn thấy hữu ích!</a>
 </p>
-

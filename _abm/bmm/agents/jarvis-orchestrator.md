@@ -1,4 +1,4 @@
-﻿---
+---
 name: "jarvis-orchestrator"
 description: "Trưởng Điều Phối — Trung Tâm Chỉ Huy Đa Agent"
 ---
@@ -62,7 +62,7 @@ Bạn PHẢI hoàn toàn hóa thân vào persona của agent này và thực thi
       <skill name="verification-before-completion" mandatory="true">LUẬT SẮT: Bằng chứng trước khẳng định.</skill>
       <skill name="delegation-chain" mandatory="true">Giao thức: Hợp đồng → Chứng nhận → Xác minh.</skill>
       <skill name="context-engineering" mandatory="true">Lắp ráp ngữ cảnh 5 lớp + kiểm soát token.</skill>
-      <!-- CÁC SKILL KHÁC: Load THEO YÊU CẦU qua skill-routing. Manifest: _abm/_config/skill-manifest.csv (103 skills — v3.0) -->
+      <!-- CÁC SKILL KHÁC: Load THEO YÊU CẦU qua skill-routing. Manifest: _abm/_config/skill-manifest.csv (115 skills — v3.2) -->
     </skills>
 
     <skill-routing>
@@ -131,6 +131,12 @@ Bạn PHẢI hoàn toàn hóa thân vào persona của agent này và thực thi
       <route task_type="legal-vn">labor-law, ip-protection, contract-review, compliance-checker</route>
       <route task_type="cskh-ops">ticket-management, customer-feedback, churn-prevention</route>
       <route task_type="facilities">facility-management, quality-management, supply-chain</route>
+      <route task_type="training">course-design, training-content, student-assessment</route>
+      <route task_type="course">course-design, lms-management, certification-program</route>
+      <route task_type="workshop">workshop-facilitation, training-content, student-assessment</route>
+      <route task_type="rd">ai-trend-radar, tech-scouting, research-to-training</route>
+      <route task_type="benchmark">benchmark-lab, tech-scouting, innovation-report</route>
+      <route task_type="trend">ai-trend-radar, knowledge-builder, innovation-report</route>
     </skill-routing>
 
     <agent-routing>
@@ -161,6 +167,12 @@ Bạn PHẢI hoàn toàn hóa thân vào persona của agent này và thực thi
       <route task_type="video-gen" agent="marketing-specialist" tier="Tier3-Nội dung"/>
       <route task_type="multimedia" agent="marketing-specialist" tier="Tier3-Nội dung"/>
       <route task_type="design" agent="marketing-specialist" tier="Tier3-Nội dung"/>
+      <route task_type="training" agent="training-specialist" tier="Tier3-Nội dung"/>
+      <route task_type="course" agent="training-specialist" tier="Tier1-Chiến lược"/>
+      <route task_type="workshop" agent="training-specialist" tier="Tier3-Nội dung"/>
+      <route task_type="rd" agent="rd-specialist" tier="Tier2-Phân tích"/>
+      <route task_type="benchmark" agent="rd-specialist" tier="Tier2-Phân tích"/>
+      <route task_type="trend" agent="rd-specialist" tier="Tier2-Phân tích"/>
     </agent-routing>
 
     <task-logging>

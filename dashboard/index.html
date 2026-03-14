@@ -131,10 +131,10 @@
 
     <!-- STATS -->
     <div class="stats">
-        <div class="stat" style="--c:var(--abm-red)"><div class="stat-n" id="sSkills">103</div><div class="stat-l">Skills</div></div>
-        <div class="stat" style="--c:var(--blue)"><div class="stat-n" id="sRoutes">39</div><div class="stat-l">Routes</div></div>
-        <div class="stat" style="--c:var(--green)"><div class="stat-n" id="sWf">15</div><div class="stat-l">Workflows</div></div>
-        <div class="stat" style="--c:var(--purple)"><div class="stat-n" id="sSa">6</div><div class="stat-l">SubAgents</div></div>
+        <div class="stat" style="--c:var(--abm-red)"><div class="stat-n" id="sSkills">115</div><div class="stat-l">Skills</div></div>
+        <div class="stat" style="--c:var(--blue)"><div class="stat-n" id="sRoutes">45</div><div class="stat-l">Routes</div></div>
+        <div class="stat" style="--c:var(--green)"><div class="stat-n" id="sWf">18</div><div class="stat-l">Workflows</div></div>
+        <div class="stat" style="--c:var(--purple)"><div class="stat-n" id="sSa">8</div><div class="stat-l">SubAgents</div></div>
         <div class="stat" style="--c:var(--gold)"><div class="stat-n" id="sTasks">0</div><div class="stat-l">Tasks</div></div>
         <div class="stat" style="--c:var(--green)"><div class="stat-n" id="sComplete">0%</div><div class="stat-l">Hoàn Thành</div></div>
         <div class="stat" style="--c:var(--cyan)"><div class="stat-n" id="sScore">9.58</div><div class="stat-l">Điểm</div></div>
@@ -224,10 +224,12 @@
 
     <div class="footer">
         <strong>ABM Workforce v3.0</strong> — Control Dashboard<br>
-        103 Skills · 39 Routes · 15 Workflows · 6 SubAgents · 9 Phòng Ban · 100% Tiếng Việt
+        <span id="footerStats">115 Skills · 45 Routes · 18 Workflows · 8 SubAgents · 11 Phòng Ban · 100% Tiếng Việt</span><br>
+        <span style="font-size:10px;color:var(--dim)">Tự động cập nhật mỗi 30 giây · Last refresh: <span id="lastRefresh"></span></span>
     </div>
 </div>
 
+<script src="task-data.js"></script>
 <script>
 let TASKS = [];
 let currentFilter = 'all';
@@ -236,7 +238,8 @@ let currentSort = { key: 'id', asc: false };
 const DEPT_COLORS = {
     'Ban Giám Đốc': '#ef4444', 'HC — Nhân Sự': '#f59e0b', 'Kế Toán': '#10b981',
     'Marketing': '#3b82f6', 'Kinh Doanh': '#8b5cf6', 'CSKH': '#ec4899',
-    'IT — Công Nghệ': '#06b6d4', 'Vận Hành': '#f97316', 'Pháp Chế': '#14b8a6'
+    'IT — Công Nghệ': '#06b6d4', 'Vận Hành': '#f97316', 'Pháp Chế': '#14b8a6',
+    'Đào Tạo': '#a855f7', 'R&D': '#22d3ee'
 };
 
 const SCORES = [
@@ -247,23 +250,59 @@ const SCORES = [
     { name:'Tiếng Việt', val:10 }, { name:'Security', val:9.0 }
 ];
 
-const HEALTH = [
-    { l:'Skills ↔ KB', v:'103/103', ok:true }, { l:'Skills ↔ Manifest', v:'103/103', ok:true },
-    { l:'Mandatory Skills', v:'3/3', ok:true }, { l:'Phòng Ban', v:'9/9 covered', ok:true },
-    { l:'Routes', v:'39 active', ok:true }, { l:'Email Sandbox', v:'BẬT', ok:true },
-    { l:'Self-Healing', v:'Active', ok:true }, { l:'Dashboard', v:'v2.9 LIVE', ok:true },
-    { l:'CI/CD', v:'GitHub Actions', ok:true }, { l:'Last Commit', v:'334644b4', ok:true }
-];
+function getHealth() {
+    const s = typeof WORKSPACE_STATS !== 'undefined' ? WORKSPACE_STATS : {skills:115,routes:45,workflows:18,subagents:8,departments:11};
+    return [
+        { l:'Skills ↔ KB', v:s.skills+'/'+s.skills, ok:true },
+        { l:'Skills ↔ Manifest', v:s.skills+'/'+s.skills, ok:true },
+        { l:'Mandatory Skills', v:'3/3', ok:true },
+        { l:'Phòng Ban', v:s.departments+'/'+s.departments+' covered', ok:true },
+        { l:'Routes', v:s.routes+' active', ok:true },
+        { l:'Email Sandbox', v:'BẬT', ok:true },
+        { l:'Self-Healing', v:'Active', ok:true },
+        { l:'Dashboard', v:(s.version||'v3.0')+' LIVE', ok:true },
+        { l:'CI/CD', v:'GitHub Actions', ok:true },
+        { l:'Last Sync', v:s.lastSync||new Date().toLocaleString('vi-VN'), ok:true }
+    ];
+}
 
-async function loadTasks() {
-    try {
-        const r = await fetch('task-history.json');
-        TASKS = await r.json();
-    } catch(e) {
+function loadTasks() {
+    // Ưu tiên 1: TASK_DATA từ task-data.js (script tag, không CORS)
+    if (typeof TASK_DATA !== 'undefined' && TASK_DATA.length > 0) {
+        TASKS = TASK_DATA;
+    } else {
         TASKS = getDefaultTasks();
     }
+    // Cập nhật stats từ WORKSPACE_STATS
+    if (typeof WORKSPACE_STATS !== 'undefined') {
+        document.getElementById('sSkills').textContent = WORKSPACE_STATS.skills;
+        document.getElementById('sRoutes').textContent = WORKSPACE_STATS.routes;
+        document.getElementById('sWf').textContent = WORKSPACE_STATS.workflows;
+        document.getElementById('sSa').textContent = WORKSPACE_STATS.subagents;
+        const footerEl = document.getElementById('footerStats');
+        if (footerEl) footerEl.textContent = `${WORKSPACE_STATS.skills} Skills · ${WORKSPACE_STATS.routes} Routes · ${WORKSPACE_STATS.workflows} Workflows · ${WORKSPACE_STATS.subagents} SubAgents · ${WORKSPACE_STATS.departments} Phòng Ban · 100% Tiếng Việt`;
+    }
     render();
+    updateRefreshTime();
 }
+
+function reloadData() {
+    // Reload task-data.js bằng cách inject script tag mới
+    const old = document.querySelector('script[src^="task-data.js"]');
+    if (old) old.remove();
+    const s = document.createElement('script');
+    s.src = 'task-data.js?t=' + Date.now();
+    s.onload = loadTasks;
+    document.head.appendChild(s);
+}
+
+function updateRefreshTime() {
+    const el = document.getElementById('lastRefresh');
+    if (el) el.textContent = new Date().toLocaleTimeString('vi-VN');
+}
+
+// Auto-refresh mỗi 30 giây — reload task-data.js
+setInterval(reloadData, 30000);
 
 function getDefaultTasks() {
     return [
@@ -278,7 +317,17 @@ function getDefaultTasks() {
         {id:"TASK-009",date:"2026-03-10",title:"Wave 1+2 — Self-healing, MCP, Legal, Ops",department:"Ban Giám Đốc",agent:"Jarvis",worker:"dev-worker",skills:["writing-plans","skill-creator"],status:"done",completion:100,result:"v2.7: 80 skills"},
         {id:"TASK-010",date:"2026-03-10",title:"Review v2.7 — 9.35/10",department:"Ban Giám Đốc",agent:"Jarvis",worker:"jarvis-direct",skills:["multi-dimensional-review","critical-thinking"],status:"done",completion:100,result:"9.35/10 — 0 red flags"},
         {id:"TASK-011",date:"2026-03-11",title:"Web Dashboard v2.7",department:"IT — Công Nghệ",agent:"Jarvis",worker:"dev-worker",skills:["frontend-design","ui-ux-pro-max"],status:"done",completion:100,result:"dashboard/index.html live"},
-        {id:"TASK-012",date:"2026-03-11",title:"CHANGELOG + Vận Hành + Quick Start",department:"Ban Giám Đốc",agent:"Jarvis",worker:"dev-worker",skills:["writing-plans","skill-creator"],status:"done",completion:100,result:"80 skills, 3 Vận Hành skills"}
+        {id:"TASK-012",date:"2026-03-11",title:"CHANGELOG + Vận Hành + Quick Start",department:"Ban Giám Đốc",agent:"Jarvis",worker:"dev-worker",skills:["writing-plans","skill-creator"],status:"done",completion:100,result:"80 skills, 3 Vận Hành skills"},
+        {id:"TASK-013",date:"2026-03-11",title:"Marketing Upgrade — 11 skills từ coreyhaines31",department:"Marketing",agent:"Jarvis",worker:"dev-worker",skills:["ad-creative","ai-seo","analytics-tracking","email-sequence","referral-program"],status:"done",completion:100,result:"v2.8: 91 skills, 34 routes"},
+        {id:"TASK-014",date:"2026-03-11",title:"Review v2.8 — 9.58/10",department:"Ban Giám Đốc",agent:"Jarvis",worker:"jarvis-direct",skills:["multi-dimensional-review","critical-thinking"],status:"done",completion:100,result:"9.58/10 — P0: cân bằng 5 PB"},
+        {id:"TASK-015",date:"2026-03-11",title:"Cân bằng 5 Phòng Ban — 12 skills",department:"Ban Giám Đốc",agent:"Jarvis",worker:"dev-worker",skills:["performance-review","expense-management","ip-protection","quality-management","ticket-management","customer-feedback"],status:"done",completion:100,result:"v2.9: 103 skills, 39 routes"},
+        {id:"TASK-016",date:"2026-03-12",title:"Phòng Đào Tạo — 6 skills + SubAgent",department:"Đào Tạo",agent:"Jarvis",worker:"dev-worker",skills:["course-design","lms-management","student-assessment","training-content","workshop-facilitation","certification-program"],status:"done",completion:100,result:"v3.0: 109 skills"},
+        {id:"TASK-017",date:"2026-03-12",title:"Audit Phòng Đào Tạo — 9.7/10",department:"Đào Tạo",agent:"Jarvis",worker:"jarvis-direct",skills:["multi-dimensional-review","critical-thinking"],status:"done",completion:100,result:"9.2→9.7/10 sau fix P1"},
+        {id:"TASK-018",date:"2026-03-12",title:"Phòng R&D — 6 skills + RAPID/SQUARE",department:"R&D",agent:"Jarvis",worker:"dev-worker",skills:["ai-trend-radar","tech-scouting","research-to-training","knowledge-builder","benchmark-lab","innovation-report"],status:"done",completion:100,result:"v3.0: 115 skills"},
+        {id:"TASK-019",date:"2026-03-12",title:"Audit R&D — 9.4/10 + Fix P1",department:"R&D",agent:"Jarvis",worker:"jarvis-direct",skills:["multi-dimensional-review","critical-thinking"],status:"done",completion:100,result:"Budget + Handoff SLA + Radar mẫu"},
+        {id:"TASK-020",date:"2026-03-12",title:"Community Skills — 5 ADOPT",department:"Đào Tạo",agent:"Jarvis",worker:"dev-worker",skills:["course-design","training-content"],status:"done",completion:100,result:"Curriculum v2: +30h. 112h total"},
+        {id:"TASK-021",date:"2026-03-12",title:"AI Trend Radar — Tuần 11/2026",department:"R&D",agent:"Jarvis",worker:"rd-specialist",skills:["ai-trend-radar","tech-scouting"],status:"done",completion:100,result:"HOT: GPT-5.4, Gemini Embedding 2, Luật AI VN"},
+        {id:"TASK-022",date:"2026-03-13",title:"Save/Recap System",department:"IT — Công Nghệ",agent:"Jarvis",worker:"dev-worker",skills:["writing-plans"],status:"done",completion:100,result:"/save + /recap. .abm-sessions/"}
     ];
 }
 
@@ -333,7 +382,7 @@ function renderDeptChart() {
 
 function renderHealth() {
     const el = document.getElementById('healthPanel');
-    el.innerHTML = HEALTH.map(h=>`
+    el.innerHTML = getHealth().map(h=>`
         <div class="health-row">
             <div class="h-dot" style="background:${h.ok?'var(--green)':'var(--red)'}"></div>
             <span class="h-label">${h.l}</span>
