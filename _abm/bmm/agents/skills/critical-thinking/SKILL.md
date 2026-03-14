@@ -80,7 +80,44 @@ Kết quả:
 2. **Quyết định > 1 triệu VND** hoặc ảnh hưởng > 1 tuần → chạy ĐỦ 4 frameworks
 3. KHÔNG dùng "chắc là", "có lẽ" → phải có bằng chứng
 
+### 5. Inversion Thinking (Tư Duy Ngược)
+
+```
+Thay vì hỏi "Làm sao để thành công?"
+→ Hỏi: "Làm sao để CHẮC CHẮN thất bại?"
+→ Liệt kê 5 cách thất bại
+→ Đảo ngược → Đó là 5 việc PHẢI tránh
+```
+
+### 6. Second-Order Effects (Hệ Quả Bậc 2)
+
+```
+Quyết định: [X]
+→ Hệ quả bậc 1: [Kết quả trực tiếp]
+→ Hệ quả bậc 2: [Phản ứng từ thị trường/team/client]
+→ Hệ quả bậc 3: [Ảnh hưởng dài hạn 6-12 tháng]
+
+Ví dụ: Tăng giá coaching 250tr → 300tr
+  Bậc 1: Revenue/client tăng 20%
+  Bậc 2: Số clients giảm 15%? ICP thay đổi?
+  Bậc 3: Brand perception "premium hơn" → attract better clients?
+```
+
+## Decision Scoring Matrix
+
+| Criteria | Weight | Option A | Option B |
+|----------|:------:|:--------:|:--------:|
+| Revenue impact | 30% | [1-10] | [1-10] |
+| Risk level | 25% | [1-10] | [1-10] |
+| Time to implement | 20% | [1-10] | [1-10] |
+| Reversibility | 15% | [1-10] | [1-10] |
+| Team buy-in | 10% | [1-10] | [1-10] |
+| **Weighted Score** | **100%** | **[sum]** | **[sum]** |
+
 ---
+
+## Related Skills
+- multi-dimensional-review, brainstorming, verification-before-completion
 
 ## Nguồn gốc
 - BMAD feedback điểm 1: Tư duy phản biện trong planning

@@ -1,71 +1,162 @@
 ---
 name: "performance-review"
-description: "Đánh giá hiệu suất nhân viên — KPI tracking, 360° feedback, PIP, calibration sessions."
+description: "Đánh giá hiệu suất nhân sự — OKR/KPI framework, 360 feedback, PIP process, 1-on-1 template. Dùng khi: đánh giá nhân viên, review quý/năm, PIP, promotion."
+tags: [hr]
 ---
 
 # 📊 Performance Review — Đánh Giá Hiệu Suất
 
-## Sử dụng khi
+## Chu kỳ đánh giá
 
-- Đánh giá KPI hàng quý/năm
-- Thiết kế khung đánh giá 360°
-- Xây dựng Performance Improvement Plan (PIP)
-- Calibration sessions giữa managers
+```
+Hàng tháng:  1-on-1 check-in (30p)
+Hàng quý:    OKR/KPI review + calibration
+Hàng năm:    360 review + compensation review
+Ad-hoc:      PIP khi cần
+```
 
-## KHÔNG sử dụng khi
+## 1. OKR Framework
 
-- Tuyển dụng → dùng `talent-acquisition`
-- Khảo sát engagement → dùng `employee-engagement`
-- Viết JD → dùng `hr-operations`
+### Cấu trúc:
+```
+Objective: [Mục tiêu định tính — tham vọng, đo được]
+├── KR1: [Kết quả then chốt 1 — có số cụ thể]
+├── KR2: [Kết quả then chốt 2]
+└── KR3: [Kết quả then chốt 3]
+```
 
-## KHUNG ĐÁNH GIÁ
+### Ví dụ:
+```
+Objective: Nâng cao chất lượng sản phẩm
+├── KR1: Giảm bug production từ 15 → 5/tháng
+├── KR2: Test coverage tăng từ 40% → 80%
+└── KR3: NPS khách hàng tăng từ 30 → 50
+```
 
-### KPI Framework
+### Scoring OKR:
+| Score | Ý nghĩa | Hành động |
+|:-----:|---------|-----------|
+| 0.0-0.3 | Không đạt | Root cause analysis |
+| 0.4-0.6 | Cần cải thiện | Coaching + support |
+| 0.7-0.9 | Đạt tốt | ✅ Target zone |
+| 1.0 | Vượt xa | OKR quá dễ → set cao hơn |
+
+## 2. KPI Scorecard
+
+### Template đánh giá:
+| Tiêu chí | Weight | Target | Actual | Score |
+|----------|:------:|--------|--------|:-----:|
+| Output/Productivity | 30% | [KPI cụ thể] | | /5 |
+| Quality | 25% | [Metric chất lượng] | | /5 |
+| Teamwork | 20% | [Collaboration metrics] | | /5 |
+| Initiative/Growth | 15% | [Learning + improvement] | | /5 |
+| Leadership (nếu lead) | 10% | [Team outcomes] | | /5 |
+
+### Calibration scale:
+```
+5 = Outstanding — Consistently exceeds, top 5%
+4 = Exceeds — Often exceeds, top 20%
+3 = Meets — Delivers consistently
+2 = Below — Needs improvement, coaching required
+1 = Poor — PIP required
+```
+
+## 3. 360 Feedback
+
+### Người đánh giá:
+- Manager (direct supervisor)
+- Peers (2-3 đồng nghiệp)
+- Direct reports (nếu có)
+- Self-assessment
+- Cross-functional (nếu làm dự án chung)
+
+### Câu hỏi 360:
+```
+1. Điểm mạnh nổi bật nhất của [tên]?
+2. 1 điều [tên] nên làm NHIỀU hơn?
+3. 1 điều [tên] nên làm ÍT hơn?
+4. [Tên] collaborate với team thế nào?
+5. Rate 1-5: Technical skill, Communication, Initiative
+```
+
+## 4. 1-on-1 Template
+
+```markdown
+# 1-on-1: [Manager] × [Employee] — [Date]
+
+## Check-in (5p)
+- Tuần này thế nào?
+- Có gì vướng không?
+
+## OKR Progress (10p)
+- KR1: [tiến độ]
+- KR2: [tiến độ]
+- Cần support gì để đạt target?
+
+## Development (10p)
+- Skill nào muốn phát triển?
+- Có opportunity nào muốn thử?
+
+## Action Items
+- [ ] [Employee]: ...
+- [ ] [Manager]: ...
+
+## Next 1-on-1: [date]
+```
+
+## 5. PIP (Performance Improvement Plan)
+
+### Khi nào cần PIP:
+```
+✅ Dùng PIP khi:
+   - Score ≤ 2/5 liên tục 2 quý
+   - Vấn đề cụ thể, đo được
+   - Đã coaching nhưng không cải thiện
+
+❌ KHÔNG dùng PIP khi:
+   - Muốn sa thải nhanh (PIP là cơ hội cuối)
+   - Manager chưa coaching đủ
+   - Vấn đề do company, không do employee
+```
+
+### PIP Template:
 ```yaml
-kpi_review:
-  employee: ""
-  period: "Q1/2026"
-  objectives:
-    - name: ""
-      weight: 30   # tổng = 100%
-      target: ""
-      actual: ""
-      score: 0      # 1-5
-      evidence: ""
-  overall_score: 0
-  rating: ""  # Xuất sắc / Tốt / Đạt / Cần cải thiện / Không đạt
+pip:
+  employee: "[Tên]"
+  manager: "[Tên]"
+  start_date: "[Date]"
+  duration: "30/60/90 ngày"
+
+  current_issues:
+    - "[Vấn đề 1 — cụ thể, đo được]"
+    - "[Vấn đề 2]"
+
+  improvement_targets:
+    - metric: "[KPI cải thiện]"
+      current: "[Số hiện tại]"
+      target: "[Số mục tiêu]"
+      deadline: "[Date]"
+
+  support_provided:
+    - "[Training, mentoring, tools]"
+
+  check_in_schedule: "Weekly 1-on-1"
+
+  outcomes:
+    success: "Trở lại performance bình thường"
+    failure: "Chuyển đổi vị trí hoặc chấm dứt hợp đồng"
 ```
 
-### Thang Đánh Giá
-| Điểm | Rating | Mô tả |
-|:----:|--------|-------|
-| 5 | Xuất sắc | Vượt xa kỳ vọng, impact rõ ràng |
-| 4 | Tốt | Vượt kỳ vọng ở nhiều mặt |
-| 3 | Đạt | Hoàn thành đúng kỳ vọng |
-| 2 | Cần cải thiện | Chưa đạt một số mục tiêu |
-| 1 | Không đạt | Không hoàn thành, cần PIP |
+## Compensation Review
 
-### 360° Feedback
-```
-Sources:
-├── Self-assessment (nhân viên tự đánh giá)
-├── Manager review (quản lý trực tiếp)
-├── Peer review (2-3 đồng nghiệp)
-├── Direct reports (cấp dưới, nếu có)
-└── Cross-functional (phòng ban khác)
-```
+| Rating | Lương | Bonus | Promotion |
+|:------:|:-----:|:-----:|:---------:|
+| 5 Outstanding | +15-20% | 2-3 tháng | Ưu tiên |
+| 4 Exceeds | +10-15% | 1-2 tháng | Cân nhắc |
+| 3 Meets | +5-8% | 1 tháng | Chưa |
+| 2 Below | 0% | 0 | Không |
+| 1 Poor | PIP | 0 | Không |
 
-### Performance Improvement Plan (PIP)
-- [ ] Xác định gap cụ thể
-- [ ] Mục tiêu cải thiện SMART
-- [ ] Timeline: 30/60/90 ngày
-- [ ] Hỗ trợ: mentor, training
-- [ ] Check-in hàng tuần
-- [ ] Tiêu chí pass/fail rõ ràng
-
-## QUY TẮC
-
-1. Đánh giá dựa trên **bằng chứng**, không cảm tính
-2. Calibration bắt buộc giữa managers (tránh thiên vị)
-3. PIP là cơ hội cải thiện, **không phải hình phạt**
-4. Feedback phải **kịp thời** — không đợi cuối năm
+## Related Skills
+- hr-operations, talent-acquisition, internal-comms
+<!-- Generated by ABM Skill Generator v1.0 | ABM Workforce -->

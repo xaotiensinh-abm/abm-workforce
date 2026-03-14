@@ -1,71 +1,133 @@
 ---
 name: "talent-acquisition"
-description: "Tuyển dụng pipeline — sourcing, screening, interviewing, offer. ATS workflow + employer branding."
+description: "Tuyển dụng chuyên nghiệp — viết JD, screening, interview scorecards, pipeline management. Dùng khi: tuyển nhân sự, viết JD, phỏng vấn, đánh giá ứng viên."
+tags: [hr]
 ---
 
-# 🎯 Talent Acquisition — Tuyển Dụng
+# 🎯 Talent Acquisition — Tuyển Dụng Chuyên Nghiệp
 
-## Sử dụng khi
-
-- Xây dựng pipeline tuyển dụng
-- Sourcing candidates (job boards, LinkedIn, referral)
-- Thiết kế quy trình phỏng vấn
-- Employer branding strategy
-
-## KHÔNG sử dụng khi
-
-- Viết JD → dùng `hr-operations`
-- Đánh giá nhân viên hiện tại → dùng `performance-review`
-- Onboarding → dùng `hr-operations`
-
-## PIPELINE TUYỂN DỤNG
+## Quy trình tuyển dụng 6 bước
 
 ```
-Sourcing → Screening → Interview → Offer → Onboarding
-  100%       40%         15%       8%      5%
+1. Phân tích nhu cầu → 2. Viết JD → 3. Sourcing → 4. Screening → 5. Phỏng vấn → 6. Offer
 ```
 
-### Bước 1: Sourcing
-- [ ] Đăng tin: TopCV, VietnamWorks, LinkedIn, Facebook Jobs
-- [ ] Employee referral (ưu tiên — quality cao nhất)
-- [ ] Headhunting cho vị trí senior
-- [ ] University partnerships cho intern/fresher
+## 1. Phân Tích Nhu Cầu
 
-### Bước 2: Screening
-```yaml
-screening_criteria:
-  must_have: []      # Loại ngay nếu thiếu
-  nice_to_have: []   # Cộng điểm
-  culture_fit: []    # Đánh giá qua behavioral questions
-  red_flags: []      # Auto-reject
+| Câu hỏi | Phải trả lời |
+|---------|-------------|
+| Tại sao cần tuyển? | Tăng trưởng / thay thế / dự án mới |
+| Vị trí report cho ai? | Org chart rõ ràng |
+| Ngân sách lương? | Range min-max (gross) |
+| Timeline? | Khi nào phải onboard |
+| Remote/hybrid/onsite? | Chính sách làm việc |
+
+## 2. Job Description Template
+
+```markdown
+# [Vị trí] — [Phòng ban]
+
+## Về [Tên công ty]
+[2-3 câu: mission, culture, stage]
+
+## Mô tả công việc
+### Bạn sẽ:
+- [Trách nhiệm 1 — cụ thể, đo được]
+- [Trách nhiệm 2]
+- [Trách nhiệm 3-5]
+
+### Bạn có:
+- [Yêu cầu bắt buộc 1]
+- [Yêu cầu bắt buộc 2-3]
+- **Ưu tiên**: [Nice-to-have 1-2]
+
+## Quyền lợi
+- 💰 Lương: [Range] gross + bonus
+- 🏥 Bảo hiểm: [Chi tiết]
+- 📚 Đào tạo: [Chi tiết]
+- 🏖️ Nghỉ phép: [Số ngày]
+- 💻 Thiết bị: [Laptop/tools]
+
+## Cách ứng tuyển
+Gửi CV + [yêu cầu thêm] tới [email/link]
 ```
 
-### Bước 3: Interview Framework
-| Vòng | Người PV | Focus | Thời gian |
-|------|---------|-------|:---------:|
-| 1 | HR | Culture fit, motivation | 30 phút |
-| 2 | Hiring Manager | Technical/professional | 45 phút |
-| 3 | Team Lead | Teamwork, scenarios | 30 phút |
-| 4 | CEO (if senior) | Vision alignment | 20 phút |
+### Nguyên tắc viết JD:
+- **Benefits > Requirements**: Bán vị trí trước, đòi hỏi sau
+- **Cụ thể**: "3 năm kinh nghiệm React" thay vì "nhiều năm kinh nghiệm"
+- **Range lương**: Đăng range = tăng 30% ứng viên qualified
+- **Không jargon**: "Ninja", "Rockstar" → tránh hoàn toàn
 
-### Bước 4: Offer
-- [ ] Benchmark lương thị trường
-- [ ] Package: lương + phụ cấp + benefits
-- [ ] Offer letter template
-- [ ] Deadline accept: 3-5 ngày làm việc
+## 3. Sourcing Channels
 
-## METRICS
+| Kênh | Cost | Quality | Speed |
+|------|:----:|:-------:|:-----:|
+| LinkedIn recruiter | Cao | Cao | TB |
+| Facebook groups | Thấp | TB | Nhanh |
+| Referral (thưởng) | TB | Cao nhất | TB |
+| Job boards (VietnamWorks, TopCV) | TB | TB | Nhanh |
+| University/Bootcamp | Thấp | TB | Chậm |
+| Headhunter | Rất cao | Cao | TB |
 
+## 4. Screening Scorecard
+
+| Tiêu chí | Trọng số | 1-5 |
+|----------|:--------:|:---:|
+| Kinh nghiệm liên quan | 25% | |
+| Kỹ năng kỹ thuật | 25% | |
+| Culture fit | 20% | |
+| Motivation / Passion | 15% | |
+| Communication | 15% | |
+| **Tổng (weighted)** | 100% | |
+
+**Pass**: ≥ 3.5/5 → Phỏng vấn
+**Reject**: < 3.0/5 → Reply lịch sự trong 48h
+
+## 5. Interview Framework
+
+### Structured Interview (STAR method):
 ```
-Time-to-fill: < 30 ngày (target)
-Cost-per-hire: tổng chi phí / số người tuyển
-Quality-of-hire: performance rating sau 6 tháng
-Offer acceptance rate: > 80%
+S — Situation: "Kể về lần anh/chị gặp [tình huống]..."
+T — Task: "Nhiệm vụ cụ thể của anh/chị là gì?"
+A — Action: "Anh/chị đã làm gì?"
+R — Result: "Kết quả thế nào? Đo bằng gì?"
 ```
 
-## QUY TẮC
+### Câu hỏi mẫu theo level:
 
-1. Referral **luôn ưu tiên** — quality + retention cao nhất
-2. Structured interview — cùng câu hỏi cho mọi ứng viên
-3. Decision trong 48h sau vòng cuối — không để ứng viên chờ
-4. Feedback cho 100% ứng viên bị reject
+| Level | Câu hỏi |
+|-------|---------|
+| Junior | "Dự án nào anh/chị tự hào nhất? Vai trò cụ thể?" |
+| Mid | "Kể lần anh/chị phải giải quyết conflict trong team" |
+| Senior | "Anh/chị đã scale team/system thế nào? Quyết định khó nhất?" |
+| Lead | "Khi team member underperform, anh/chị xử lý thế nào?" |
+
+### Red Flags phỏng vấn:
+```
+🚩 Nói "chúng tôi" thay vì "tôi" → không rõ đóng góp cá nhân
+🚩 Không nêu được con số / kết quả cụ thể
+🚩 Nói xấu công ty cũ → culture risk
+🚩 Không hỏi câu nào về công ty → thiếu interest
+```
+
+## 6. Offer & Negotiation
+
+### Checklist offer:
+- [ ] Competitive với market rate (check Glassdoor, JobsDB)
+- [ ] Tổng package (base + bonus + benefits + equity)
+- [ ] Deadline rõ ràng (3-5 ngày)
+- [ ] Counter-offer plan sẵn (max +10-15%)
+
+## Pipeline KPIs
+
+| KPI | Target |
+|-----|--------|
+| Time-to-hire | < 30 ngày |
+| Cost-per-hire | < 5 triệu |
+| Offer acceptance rate | > 80% |
+| Quality-of-hire (90-day review) | > 4/5 |
+| Referral % | > 30% |
+
+## Related Skills
+- hr-operations, performance-review, internal-comms
+<!-- Generated by ABM Skill Generator v1.0 | ABM Workforce -->

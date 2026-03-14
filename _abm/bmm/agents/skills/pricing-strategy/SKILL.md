@@ -1,83 +1,97 @@
-﻿---
-name: pricing-strategy
-description: "Chiến lược giá — packaging, value metrics, tier structure, Van Westendorp, tâm lý giá. Sử dụng khi: thiết lập giá, thay đổi pricing, tạo pricing page, phân tích đối thủ về giá."
-tags: [marketing, strategy]
+---
+name: "pricing-strategy"
+description: "Chiến lược định giá cho sản phẩm/dịch vụ — pricing models, value-based pricing, anchoring, tiered pricing. Dùng khi: định giá sản phẩm mới, restructure pricing, tạo bảng giá, high-ticket pricing."
+tags: [strategy, sales]
 ---
 
-## KHONG su dung khi
+# 💰 Pricing Strategy — Chiến Lược Định Giá
 
-- Can phan tich tai chinh -> dung startup-financial-modeling. Can sales deck -> dung sales-enablement.
+## Sử dụng khi
+- Ra mắt sản phẩm/dịch vụ mới cần giá
+- Restructure pricing hiện tại
+- Định giá gói coaching/consulting high-ticket
+- Tạo pricing page / bảng giá
 
+## KHÔNG sử dụng khi
+- Chỉ cần sales deck → dùng `sales-enablement`
+- Landing page → dùng `website-conversion`
 
-# 💰 Pricing Strategy — Chiến Lược Giá
+---
 
-> Adapted from [coreyhaines31/marketingskills](https://github.com/coreyhaines31/marketingskills)
+## Pricing Models
 
-## 3 Trục Pricing
+| Model | Dùng khi | Ví dụ |
+|-------|---------|-------|
+| **Cost-Plus** | Sản phẩm vật lý, biết rõ cost | Cost 100k → markup 40% → giá 140k |
+| **Value-Based** | Dịch vụ cao cấp, coaching, consulting | Khách tiết kiệm 500tr/năm → giá 250tr hợp lý |
+| **Competitor-Based** | Thị trường có benchmark rõ | Đối thủ 200tr → bạn 250tr (premium) hoặc 180tr (penetration) |
+| **Tiered/Bundled** | SaaS, khóa học, dịch vụ đa cấp | Basic 50tr / Pro 150tr / Platinum 250tr |
+| **Freemium** | App, tool, nền tảng digital | Free plan + paid premium |
 
-### 1. Packaging — Mỗi tier có gì?
-Features, limits, support level. Tier khác nhau thế nào.
-
-### 2. Pricing Metric — Tính phí theo gì?
-Per user, per usage, flat fee. Giá scale theo value như thế nào.
-
-### 3. Price Point — Giá bao nhiêu?
-Số tiền cụ thể. Perceived value vs actual cost.
-
-## Value-Based Pricing
+## Value-Based Pricing — Framework ABM
 
 ```
-Giá trị khách hàng cảm nhận    ← Trần
-          ↕
-      GIÁ CỦA BẠN              ← Đặt ở đây
-          ↕
-Giải pháp thay thế tốt nhất    ← Sàn
-          ↕
-Chi phí phục vụ                 ← Chỉ là baseline
+Bước 1: Xác định VALUE cho khách hàng
+  "Khách tiết kiệm bao nhiêu tiền/thời gian?"
+  "Khách tăng bao nhiêu doanh thu?"
+
+Bước 2: Anchor giá vào VALUE, không vào COST
+  "Nếu ABM giúp tiết kiệm 20h/tuần × 12 tháng = 960 giờ
+  × 200k/giờ CEO = 192 triệu/năm — giá 250tr = ROI dương"
+
+Bước 3: Price = 10-30% perceived value
+  Value = 1 tỷ → giá hợp lý = 100-300tr
 ```
 
-**Insight:** Đặt giá GIỮA giải pháp thay thế và giá trị cảm nhận.
+## Tiered Pricing Template
 
-## Value Metrics phổ biến
+```
+┌─────────────┬──────────────┬──────────────┐
+│   BASIC     │    PRO       │  PLATINUM    │
+│   [giá]     │   [giá]      │   [giá]      │
+├─────────────┼──────────────┼──────────────┤
+│ Feature 1 ✅│ Feature 1 ✅ │ Feature 1 ✅ │
+│ Feature 2 ✅│ Feature 2 ✅ │ Feature 2 ✅ │
+│ Feature 3 ❌│ Feature 3 ✅ │ Feature 3 ✅ │
+│ Feature 4 ❌│ Feature 4 ❌ │ Feature 4 ✅ │
+│ Support: Std│ Support: Pri │ Support: VIP │
+└─────────────┴──────────────┴──────────────┘
+          ↑ highlight "MOST POPULAR" ở giữa
+```
 
-| Metric | Ví dụ |
-|--------|-------|
-| Per user/seat | Slack, Notion |
-| Per volume | Stripe (% giao dịch) |
-| Per feature | Basic → Pro → Enterprise |
-| Flat rate | Basecamp |
+## Pricing Psychology
 
-**Chọn value metric tốt:** Scale cùng giá trị khách nhận, dễ hiểu, dễ dự đoán.
+| Technique | Cách dùng | Ví dụ |
+|-----------|----------|-------|
+| **Anchoring** | Show giá cao trước → giá thấp hơn hợp lý | "Giá trị 500tr. Đầu tư chỉ 250tr" |
+| **Charm pricing** | Số 9 cuối | 249tr thay vì 250tr |
+| **Decoy effect** | Thêm option trung bình kém | Basic 50tr / Pro 200tr / Platinum 250tr → Pro là decoy |
+| **Scarcity** | Giới hạn số lượng/thời gian | "Chỉ 5 slots/quý" |
+| **Unbundling** | Liệt kê value từng item | "12 sessions = 120tr + Bot = 50tr + Support = 50tr = 220tr → chỉ 250tr" |
 
-## Good-Better-Best Framework
+## Pricing Page Checklist
 
-| Tier | Mục đích | Pricing |
-|------|---------|---------|
-| **Good** (Basic) | Entry point, thu hút | Giá thấp, features hạn chế |
-| **Better** (Pro) | Most popular, đề xuất | Value tốt nhất, highlight |
-| **Best** (Enterprise) | Upmarket | Price anchoring cho tier giữa |
+```
+□ Headline: benefit-driven, không chỉ "Bảng giá"
+□ 3 tiers max (Basic / Pro / Premium)
+□ "Most Popular" badge ở tier giữa
+□ Toggle monthly/annual (annual giảm 20%)
+□ Feature comparison table
+□ CTA nổi bật mỗi tier
+□ FAQ section bên dưới
+□ Money-back guarantee
+□ Testimonials gần CTA
+□ Currency/format rõ ràng
+```
 
-## Research: Van Westendorp
+## Pricing Review Cadence
 
-Hỏi 4 câu:
-1. "Giá nào quá rẻ → nghi ngờ chất lượng?"
-2. "Giá nào OK rẻ → thấy deal tốt?"
-3. "Giá nào bắt đầu đắt nhưng chấp nhận?"
-4. "Giá nào quá đắt → không mua?"
-
-→ Giao điểm 4 đường = Price range tối ưu.
-
-## Tâm lý giá
-- **Anchoring**: Hiện giá cao trước → giá thật cảm giác rẻ
-- **Charm pricing**: 99K vs 100K
-- **Tiered anchoring**: Tier đắt nhất = anchor cho tier giữa
-- **Annual discount**: 20% off → incentivize commitment
-
-## Khi nào tăng giá
-- Conversion rate > 60% (quá rẻ)
-- Khách không hỏi về giá
-- Feature/value tăng đáng kể
-- Đối thủ giá cao hơn
+```
+Monthly:  Check conversion rate theo tier
+Quarterly: Competitive analysis + adjust
+Yearly:   Full pricing restructure review
+```
 
 ## Related Skills
-- page-cro, product-marketing-context, launch-strategy
+- high-ticket-sales, sales-enablement, website-conversion, launch-strategy
+<!-- Generated by ABM Skill Generator v1.0 | ABM Workforce -->

@@ -1,166 +1,80 @@
-# Bảng kê Kỹ năng — ABM Workforce (103 Skills)
-# Cập nhật: 2026-03-09 — Phiên bản Tiếng Việt
-
-# === KỸ NĂNG HỆ THỐNG / META (9) ===
-name,category,description,mandatory,path
-"delegation-chain","hệ thống","Giao thức cốt lõi: Hợp đồng → Chứng nhận → Xác minh. Trách nhiệm luôn đi lên.",true,"skills/delegation-chain/SKILL.md"
-"verification-before-completion","hệ thống","LUẬT SẮT: Phải có bằng chứng trước khi chấp nhận kết quả. Không ngoại lệ.",true,"skills/verification-before-completion/SKILL.md"
-"context-engineering","hệ thống","Lắp ráp ngữ cảnh 5 lớp + kiểm soát ngân sách token. Tối ưu context window.",true,"skills/context-engineering/SKILL.md"
-"knowledge-crystallizer","meta","Giao thức Tinh chế Tri thức — phân tích lịch sử, phát hiện patterns, trích xuất bài học.",false,"skills/knowledge-crystallizer/SKILL.md"
-"capability-evolver","meta","Động cơ tự tiến hóa: Tự soi → Chẩn đoán → Tiến hóa → Xác nhận → Lưu trữ.",false,"skills/capability-evolver/SKILL.md"
-"save","hệ thống","Lưu trạng thái công việc vào Second Brain — task save, daily save, milestone save. Hỗ trợ /save, /list-memory, /find-memory.",false,"skills/save/SKILL.md"
-"skill-creator","meta","Tạo và cải thiện kỹ năng mới cho hệ thống ABM. 7 pha: thu thập → phỏng vấn → viết → test → đánh giá → tối ưu → đăng ký.",false,"skills/skill-creator/SKILL.md"
-"memory-keeper","meta","Sao lưu ngữ cảnh quan trọng vào kho lưu trữ Git. Bảo vệ tri thức hệ thống.",false,"skills/memory-keeper/SKILL.md"
-"multi-dimensional-review","meta","Đánh giá đa chiều 6 bước: Thu thập → Chấm điểm → Phản biện 8 góc → Phát hiện → Đối chiếu → Hành động.",false,"skills/multi-dimensional-review/SKILL.md"
-"prompt-sentinel","hệ thống","Kiểm tra prompt LLM — 20 failure modes, 3 track song song, phát hiện lỗi tiềm ẩn trong prompts agent system.",false,"skills/prompt-sentinel/SKILL.md"
-
-# === KỸ NĂNG PHÁT TRIỂN (7) ===
-"subagent-driven-development","phát triển","Mỗi task = 1 subagent mới + review 2 giai đoạn. Đảm bảo code sạch.",false,"skills/subagent-driven-development/SKILL.md"
-"dispatching-parallel-agents","phát triển","Chia công việc song song cho nhiều agent độc lập. Tăng tốc xử lý.",false,"skills/dispatching-parallel-agents/SKILL.md"
-"writing-plans","phát triển","Viết kế hoạch triển khai TDD nhỏ gọn, từng bước một.",false,"skills/writing-plans/SKILL.md"
-"code-review","phát triển","Review code 2 giai đoạn: tổng quan → chi tiết. Phát hiện lỗi sớm.",false,"skills/code-review/SKILL.md"
-"systematic-debugging","phát triển","Gỡ lỗi hệ thống 6 bước: từ triệu chứng đến nguyên nhân gốc.",false,"skills/systematic-debugging/SKILL.md"
-"finishing-a-development-branch","phát triển","Hoàn thành nhánh dev: merge, tạo PR, hoặc loại bỏ.",false,"skills/finishing-a-development-branch/SKILL.md"
-"git-worktrees","phát triển","Không gian làm việc Git riêng biệt cho phát triển song song.",false,"skills/git-worktrees/SKILL.md"
-
-# === KỸ NĂNG MARKETING — Content & Copy (6) ===
-"product-marketing-context","marketing","Nền tảng marketing — tạo tài liệu ngữ cảnh sản phẩm 12 sections. MỌI skill marketing đọc file này TRƯỚC.",false,"skills/product-marketing-context/SKILL.md"
-"content-strategy","marketing","Chiến lược nội dung: trụ cột, nghiên cứu từ khóa, lịch đăng bài.",false,"skills/content-strategy/SKILL.md"
-"copywriting","marketing","Viết copy chuyên nghiệp cho mọi kênh: landing page, email, quảng cáo, social.",false,"skills/copywriting/SKILL.md"
-"social-content","marketing","Công thức hook social media, tái sử dụng nội dung, tăng tương tác.",false,"skills/social-content/SKILL.md"
-"email-marketing","marketing","Chuỗi email tự động: chào mừng, nuôi dưỡng, chuyển đổi, tái kích hoạt.",false,"skills/email-marketing/SKILL.md"
-"marketing-psychology","marketing","50+ mô hình tâm lý thuyết phục: khan hiếm, uy tín, bằng chứng xã hội.",false,"skills/marketing-psychology/SKILL.md"
-
-# === KỸ NĂNG MARKETING — CRO & SEO (3) ===
-"page-cro","marketing","Tối ưu tỷ lệ chuyển đổi CRO — 7 trụ cột: value prop, headline, CTA, visual, trust, objection, friction.",false,"skills/page-cro/SKILL.md"
-"seo-audit","marketing","Kiểm tra SEO kỹ thuật + on-page. Tối ưu website cho tìm kiếm.",false,"skills/seo-audit/SKILL.md"
-"ab-test-setup","marketing","Thiết kế A/B test: hypothesis, variants, sample size, phân tích kết quả data-driven.",false,"skills/ab-test-setup/SKILL.md"
-
-# === KỸ NĂNG MARKETING — Sales & Strategy (5) ===
-"cold-email","marketing","Cold email B2B — outreach, follow-up sequence 5 bước, personalization, benchmarks.",false,"skills/cold-email/SKILL.md"
-"sales-enablement","marketing","Tài liệu bán hàng: sales deck, one-pager, battle cards, demo script.",false,"skills/sales-enablement/SKILL.md"
-"revops","marketing","Revenue Operations — lead scoring, pipeline management, lifecycle, metrics.",false,"skills/revops/SKILL.md"
-"pricing-strategy","marketing","Chiến lược giá: 3 trục, Van Westendorp, value metrics, tier structure, tâm lý giá.",false,"skills/pricing-strategy/SKILL.md"
-"launch-strategy","marketing","Ra mắt sản phẩm: ORB Framework, 5-phase launch, Product Hunt playbook.",false,"skills/launch-strategy/SKILL.md"
-
-# === KỸ NĂNG MARKETING — Retention (1) ===
-"churn-prevention","marketing","Ngăn rời bỏ: cancel flow, save offers theo lý do, dunning, win-back sequence.",false,"skills/churn-prevention/SKILL.md"
-
-# === KỸ NĂNG VĂN PHÒNG & NHÂN SỰ (4) ===
-"internal-comms","văn phòng","Cập nhật 3P, bản tin nội bộ, báo cáo sự cố.",false,"skills/internal-comms/SKILL.md"
-"hr-operations","văn phòng","Tuyển dụng (JD), onboarding, đánh giá hiệu suất, đào tạo, offboarding.",false,"skills/hr-operations/SKILL.md"
-"office-documents","văn phòng","Báo cáo, đề xuất, SOP, biên bản họp, ghi nhớ công việc.",false,"skills/office-documents/SKILL.md"
-"brainstorming","văn phòng","Phát tán/hội tụ ý tưởng, canvas, ma trận ưu tiên.",false,"skills/brainstorming/SKILL.md"
-
-# === KỸ NĂNG PHÂN TÍCH (2) ===
-"data-analysis","phân tích","Bảng KPI, phân tích xu hướng, insight từ dữ liệu kinh doanh.",false,"skills/data-analysis/SKILL.md"
-"workflow-automation","tự động hóa","Chuyển SOP thành tự động hóa: trigger → action. Tính ROI.",false,"skills/workflow-automation/SKILL.md"
-
-# === KỸ NĂNG P0 — BỔ SUNG TỪ ANTIGRAVITY-AWESOME-SKILLS (7) ===
-"competitive-landscape","phân tích","Phân tích bối cảnh cạnh tranh — Porter's Five Forces, đánh giá đối thủ, chiến lược định vị thị trường.",false,"skills/competitive-landscape/SKILL.md"
-"market-sizing-analysis","phân tích","Phân tích quy mô thị trường — tính TAM/SAM/SOM bằng 3 phương pháp: top-down, bottom-up, value theory.",false,"skills/market-sizing-analysis/SKILL.md"
-"startup-analyst","phân tích","Chuyên gia phân tích startup — market sizing, financial modeling, competitive analysis, strategic planning.",false,"skills/startup-analyst/SKILL.md"
-"deep-research","phân tích","Nghiên cứu chuyên sâu đa bước — phân tích thị trường, rà soát đối thủ, tổng quan kỹ thuật, due diligence.",false,"skills/deep-research/SKILL.md"
-"seo-content-planner","marketing","Lập kế hoạch nội dung SEO — topic clusters, content calendar, phân tích khoảng trống nội dung.",false,"skills/seo-content-planner/SKILL.md"
-"sales-automator","marketing","Tự động hóa bán hàng — cold email sequences, follow-up, proposal, case studies, objection handling.",false,"skills/sales-automator/SKILL.md"
-"competitor-intelligence","phân tích","Thu thập thông tin đối thủ — phân tích chiến lược, nội dung, giá cả, quảng cáo qua nhiều kênh.",false,"skills/competitor-intelligence/SKILL.md"
-
-# === KỸ NĂNG P1 — BỔ SUNG TỪ ANTIGRAVITY-AWESOME-SKILLS (5) ===
-"multi-agent-brainstorming","meta","Brainstorming đa agent — review thiết kế có cấu trúc với 5 vai trò agent, 3 giai đoạn.",false,"skills/multi-agent-brainstorming/SKILL.md"
-"kaizen","meta","Cải tiến liên tục Kaizen — 4 trụ cột: cải tiến từng bước, chống lỗi, chuẩn hóa, Just-In-Time.",false,"skills/kaizen/SKILL.md"
-"agent-improve","meta","Cải thiện agent — phân tích hiệu suất, prompt engineering, testing, triển khai có kiểm soát.",false,"skills/agent-improve/SKILL.md"
-"content-creator","marketing","Tạo nội dung SEO-optimized với brand voice nhất quán — blog, social media, content calendar.",false,"skills/content-creator/SKILL.md"
-"startup-financial-modeling","phân tích","Mô hình tài chính startup — doanh thu cohort-based, chi phí, cash flow, scenario analysis 3 kịch bản.",false,"skills/startup-financial-modeling/SKILL.md"
-
-# === KỸ NĂNG MULTIMEDIA — TẠO ẢNH/VIDEO AI (4) ===
-"imagen","multimedia","Kỹ thuật viết prompt tạo ảnh Gemini 3.1 Flash + Nano Banana 2 — character consistency, text rendering, storyboard.",false,"skills/imagen/SKILL.md"
-"veo-video-gen","multimedia","Prompt đỉnh cao Google VEO 3.1 — text-to-video, image-to-video, extend video, thêm/xóa thành phần, camera language.",false,"skills/veo-video-gen/SKILL.md"
-"grok-imagen","multimedia","Prompt ảnh + video Grok xAI Aurora — 3 levels prompt, extend video chuyên sâu, workflow X/Twitter.",false,"skills/grok-imagen/SKILL.md"
-"freepik-spaces","multimedia","Setup Freepik Spaces — luồng tự động storyboard, batch processing, node-based workflow với Nano Banana Pro + VEO 3.1.",false,"skills/freepik-spaces/SKILL.md"
-
-# === KỸ NĂNG WEB DEVELOPMENT (7) ===
-"ui-ux-pro-max","web-development","Kho tàng design intelligence — 50+ styles, 97 palettes, 57 font pairings, 99 UX guidelines, 9 stacks, pre-delivery checklist.",false,"skills/ui-ux-pro-max/SKILL.md"
-"frontend-design","web-development","Phương pháp thiết kế frontend cao cấp — DFII scoring, Design Thinking bắt buộc, 10 anti-patterns, output chuẩn.",false,"skills/frontend-design/SKILL.md"
-"frontend-developer","web-development","Frontend expert React 19+ / Next.js 15+ — components, RSC, state, styling, testing, accessibility, performance.",false,"skills/frontend-developer/SKILL.md"
-"vercel-react-best-practices","web-development","40+ quy tắc tối ưu React/Next.js từ Vercel Engineering — 8 categories priority-based. Nguồn chính thức.",false,"skills/vercel-react-best-practices/SKILL.md"
-"web-design-guidelines","web-development","100+ quy tắc audit UI từ Vercel — accessibility, forms, animation, typography, performance, dark mode. Nguồn chính thức.",false,"skills/web-design-guidelines/SKILL.md"
-"vercel-composition-patterns","web-development","React composition patterns từ Vercel — compound components, state lifting, React 19 APIs. Tránh boolean prop proliferation.",false,"skills/vercel-composition-patterns/SKILL.md"
-"canvas-design","web-development","Thiết kế visual cao cấp — Design Philosophy → Canvas Creation (PDF/PNG). Museum-quality art, poster, visual design.",false,"skills/canvas-design/SKILL.md"
-
-# === KỸ NĂNG VĂN PHÒNG SỐ (6) ===
-"docx","văn phòng số","Tạo và chỉnh sửa văn bản Word (.docx) — hợp đồng, báo cáo, đề xuất, JD, SOP. Dùng python-docx.",false,"skills/docx/SKILL.md"
-"xlsx","văn phòng số","Tạo và xử lý bảng tính Excel (.xlsx) — báo cáo tài chính, KPI dashboard, data analysis. Dùng openpyxl.",false,"skills/xlsx/SKILL.md"
-"pdf","văn phòng số","Tạo, đọc và xử lý file PDF — báo cáo, invoice, hợp đồng, merge/split. Dùng fpdf2 + PyPDF2.",false,"skills/pdf/SKILL.md"
-"pptx","văn phòng số","Tạo slide PowerPoint (.pptx) chuyên nghiệp — pitch deck, báo cáo, training. Dùng python-pptx.",false,"skills/pptx/SKILL.md"
-"agent-email-cli","văn phòng số","Gửi email tự động qua CLI — thông báo nội bộ, follow-up khách hàng, email sequence. SMTP/API.",false,"skills/agent-email-cli/SKILL.md"
-"task-planning","văn phòng số","Lập kế hoạch công việc — breakdown tasks, timeline, dependencies, resource allocation.",false,"skills/task-planning/SKILL.md"
-
-# === KỸ NĂNG BMAD UPGRADE (5) ===
-"project-hierarchy","phát triển","Quản lý context xuyên suốt — State Machine + Feature Hierarchy. Epic → Feature → Story. Zoom in/out protocol.",false,"skills/project-hierarchy/SKILL.md"
-"sprint-planning","phát triển","Pipeline PRD → Epics → User Stories → Sprint Backlog → Sprint Plan. Gate reviews, T-shirt sizing, MoSCoW.",false,"skills/sprint-planning/SKILL.md"
-"database-management","phát triển","Quản lý database — schema design, migration, query optimization, data integrity. SQL/NoSQL patterns.",false,"skills/database-management/SKILL.md"
-"critical-thinking","hệ thống","Meta-skill tư duy phản biện — Devil's Advocate, 5 Whys, First Principles, Pre-mortem.",false,"skills/critical-thinking/SKILL.md"
-"knowledge-graph","phân tích","Xây dựng Knowledge Graph — entities, relationships, reasoning. Tích hợp cognee. YAML export.",false,"skills/knowledge-graph/SKILL.md"
-
-# === WAVE 1: QUICK WINS (2) ===
-"self-healing","hệ thống","Fallback chain khi skill fail — retry 3 cấp, chuyển skill thay thế, escalate CEO.",false,"skills/self-healing/SKILL.md"
-"github-issues-sprint","phát triển","Tích hợp GitHub Issues vào Sprint Planning — import, convert stories, sync.",false,"skills/github-issues-sprint/SKILL.md"
-
-# === WAVE 2: CORE EVOLUTION (5) ===
-"agentic-memory","hệ thống","Bộ nhớ dài hạn — vector DB indexing, semantic search, context retrieval xuyên conversation.",false,"skills/agentic-memory/SKILL.md"
-"mcp-integration","hệ thống","Tích hợp MCP Servers — Notion, Google Workspace, Slack, Trello, Jira.",false,"skills/mcp-integration/SKILL.md"
-"supply-chain","vận hành","Quản lý chuỗi cung ứng — procurement, inventory, logistics, vendor management.",false,"skills/supply-chain/SKILL.md"
-"contract-review","pháp chế","Rà soát hợp đồng pháp lý — phát hiện rủi ro, điều khoản bất lợi, compliance check.",false,"skills/contract-review/SKILL.md"
-"compliance-checker","pháp chế","Kiểm tra tuân thủ — GDPR, PDPA, Luật ATNM VN, ISO 27001, nội quy công ty.",false,"skills/compliance-checker/SKILL.md"
-
-# === VẬN HÀNH UPGRADE (2) ===
-"inventory-management","vận hành","Quản lý kho hàng — tồn kho, min/max levels, ABC analysis, kiểm kê.",false,"skills/inventory-management/SKILL.md"
-"logistics-optimization","vận hành","Tối ưu logistics — vận chuyển, carrier, delivery tracking, cost analysis.",false,"skills/logistics-optimization/SKILL.md"
-
-# === MARKETING SKILLS UPGRADE — từ repo coreyhaines31/marketingskills (11) ===
-"ad-creative","marketing","Tạo bulk ad copy Google/Meta/LinkedIn/TikTok — iterate từ performance data, platform specs.",false,"skills/ad-creative/SKILL.md"
-"ai-seo","marketing","SEO cho AI Search — AEO, GEO, LLMO. Tối ưu để xuất hiện trong ChatGPT, Gemini, Perplexity.",false,"skills/ai-seo/SKILL.md"
-"analytics-tracking","marketing","Event tracking GA4/GTM — tracking plan, event naming, UTM params, privacy compliance.",false,"skills/analytics-tracking/SKILL.md"
-"email-sequence","marketing","Email sequences tự động — welcome, nurture, re-engagement, onboarding. Trigger-based.",false,"skills/email-sequence/SKILL.md"
-"referral-program","marketing","Referral + affiliate programs — incentive design, viral loops, tracking.",false,"skills/referral-program/SKILL.md"
-"free-tool-strategy","marketing","Engineering-as-Marketing — tạo tools/calculators miễn phí lead gen.",false,"skills/free-tool-strategy/SKILL.md"
-"copy-editing","marketing","Biên tập + polish bài viết — clarity, flow, tone, grammar. Complement copywriting.",false,"skills/copy-editing/SKILL.md"
-"programmatic-seo","marketing","Scaled page generation — hàng ngàn landing pages từ data templates.",false,"skills/programmatic-seo/SKILL.md"
-"signup-flow-cro","marketing","Tối ưu flow đăng ký — reduce friction, increase conversion.",false,"skills/signup-flow-cro/SKILL.md"
-"form-cro","marketing","Tối ưu lead capture forms — field optimization, multi-step, conditional logic.",false,"skills/form-cro/SKILL.md"
-"popup-cro","marketing","Tối ưu popups/modals — exit intent, scroll trigger, anti-annoyance rules.",false,"skills/popup-cro/SKILL.md"
-
-# === CÂN BẰNG PHÒNG BAN (12) ===
-# HR (+3)
-"performance-review","hr","Đánh giá hiệu suất — KPI tracking, 360° feedback, PIP, calibration.",false,"skills/performance-review/SKILL.md"
-"employee-engagement","hr","Gắn kết nhân viên — eNPS, pulse surveys, action plans, retention.",false,"skills/employee-engagement/SKILL.md"
-"talent-acquisition","hr","Tuyển dụng pipeline — sourcing, screening, interview, offer.",false,"skills/talent-acquisition/SKILL.md"
-# Kế Toán (+3)
-"expense-management","kế toán","Quản lý chi phí — duyệt GĐ, phân loại, budget tracking.",false,"skills/expense-management/SKILL.md"
-"cash-flow-forecast","kế toán","Dự báo dòng tiền — 13 tuần rolling, runway, scenario planning.",false,"skills/cash-flow-forecast/SKILL.md"
-"tax-compliance","kế toán","Tuân thủ thuế VN — TNCN, GTGT, TNDN. Lịch nộp, tính toán.",false,"skills/tax-compliance/SKILL.md"
-# Pháp Chế (+2)
-"ip-protection","pháp chế","Bảo vệ SHTT — nhãn hiệu, bản quyền, patent, NDA.",false,"skills/ip-protection/SKILL.md"
-"labor-law","pháp chế","Luật lao động VN — HĐLĐ, BHXH, nghỉ phép, kỷ luật, sa thải.",false,"skills/labor-law/SKILL.md"
-# Vận Hành (+2)
-"quality-management","vận hành","Quản lý chất lượng — ISO 9001, PDCA, QC checklist.",false,"skills/quality-management/SKILL.md"
-"facility-management","vận hành","Quản lý cơ sở — văn phòng, bảo trì, PCCC, tài sản.",false,"skills/facility-management/SKILL.md"
-# CSKH (+2)
-"ticket-management","cskh","Quản lý ticket — SLA, escalation, CSAT, báo cáo.",false,"skills/ticket-management/SKILL.md"
-"customer-feedback","cskh","Phản hồi KH — NPS, CSAT, VOC analysis, feature requests.",false,"skills/customer-feedback/SKILL.md"
-
-# === ĐÀO TẠO (6) ===
-"course-design","đào tạo","Thiết kế khóa học AI — learning outcomes, Bloom's taxonomy, backward design, module structure.",false,"skills/course-design/SKILL.md"
-"lms-management","đào tạo","Quản lý LMS — cấu trúc khóa online, drip content, enrollment, completion tracking.",false,"skills/lms-management/SKILL.md"
-"student-assessment","đào tạo","Đánh giá học viên — rubrics, quiz design, project-based assessment, certification criteria.",false,"skills/student-assessment/SKILL.md"
-"training-content","đào tạo","Tài liệu đào tạo AI — slide, handout, lab exercises, video script, practical demos.",false,"skills/training-content/SKILL.md"
-"workshop-facilitation","đào tạo","Tổ chức workshop AI — agenda, hands-on labs, facilitation, Q&A, feedback.",false,"skills/workshop-facilitation/SKILL.md"
-"certification-program","đào tạo","Chương trình chứng chỉ AI — 3 cấp, exam design, certificate template, alumni tracking.",false,"skills/certification-program/SKILL.md"
-
-# === R&D — NGHIÊN CỨU PHÁT TRIỂN (6) ===
-"ai-trend-radar","r&d","Theo dõi xu thế AI thế giới — papers, releases, conferences, industry moves, weekly/monthly radar.",false,"skills/ai-trend-radar/SKILL.md"
-"tech-scouting","r&d","Đánh giá công nghệ AI mới — RAPID framework, feasibility, adoption recommendation.",false,"skills/tech-scouting/SKILL.md"
-"research-to-training","r&d","Chuyển đổi nghiên cứu AI → lộ trình đào tạo — pipeline 5 bước từ paper/tool thành module.",false,"skills/research-to-training/SKILL.md"
-"knowledge-builder","r&d","Xây dựng knowledge base AI cho học viên — glossary, cheat sheets, resources, comparisons.",false,"skills/knowledge-builder/SKILL.md"
-"benchmark-lab","r&d","So sánh và benchmark models/tools AI — SQUARE framework, cost-performance analysis.",false,"skills/benchmark-lab/SKILL.md"
-"innovation-report","r&d","Báo cáo R&D định kỳ — weekly brief, monthly report, quarterly review, KPIs.",false,"skills/innovation-report/SKILL.md"
+﻿name,tags,tier,lines,has_checklist
+agent-email-cli,,2,157,yes
+agentic-memory,,1,113,no
+agent-improve,,1,118,no
+ai-trend-radar,,2,169,yes
+benchmark-lab,,2,182,yes
+brainstorming,,1,112,no
+canvas-design,,2,137,yes
+capability-evolver,meta, ai, self-improvement, core,2,137,yes
+certification-program,,3,270,yes
+client-success,sales, coaching, operations,2,136,yes
+code-review,,1,107,no
+cold-email,marketing, sales,2,153,yes
+competitive-landscape,,1,95,no
+competitor-intelligence,,1,112,no
+content-creator,,2,124,yes
+content-strategy,,1,101,no
+context-engineering,meta, core, context, optimization,2,174,yes
+contract-review,,2,126,yes
+copywriting,,1,119,no
+course-design,,3,331,yes
+critical-thinking,,2,124,no
+cro-master,marketing, cro,2,145,yes
+data-analysis,,1,113,no
+database-management,,2,167,yes
+delegation-chain,,1,116,no
+email-marketing,marketing, sales,1,114,no
+frontend-design,,2,180,yes
+frontend-developer,,2,172,yes
+growth-engine,marketing, strategy, growth,1,107,no
+high-ticket-sales,sales, coaching, strategy,2,178,yes
+hr-operations,,2,228,yes
+imagen,,3,478,yes
+innovation-report,,2,145,yes
+internal-comms,,2,120,yes
+kaizen,,1,97,no
+knowledge-builder,,2,149,yes
+knowledge-crystallizer,meta, ai, self-improvement, core,2,154,yes
+landing-page-builder,web, marketing, design,2,132,no
+launch-strategy,marketing, strategy,2,129,yes
+lms-management,,2,215,yes
+market-sizing-analysis,,1,95,no
+multi-dimensional-review,meta, review, quality, process,2,150,yes
+pdf,,1,111,no
+performance-review,hr,2,162,yes
+pricing-strategy,strategy, sales,1,97,no
+product-marketing-context,marketing, foundation,1,93,no
+prompt-sentinel,há»‡ thá»‘ng, review, quality, prompt,3,273,yes
+proposal-generator,sales, coaching,1,97,no
+research-to-training,,3,263,yes
+responsive-web-design,web, design, frontend,1,105,no
+roi-calculator,sales, strategy,1,103,no
+sales-automator,,1,105,no
+sales-enablement,marketing, sales,2,167,yes
+save,,2,129,yes
+security-review,,1,67,no
+seo-audit,,1,96,no
+seo-content-planner,,1,105,no
+seo-fundamentals,marketing, web, seo,1,113,no
+skill-generator,,3,428,yes
+social-content,,1,98,no
+sprint-planning,,1,108,no
+startup-financial-modeling,,2,164,yes
+student-assessment,,2,220,yes
+subagent-driven-development,,2,141,yes
+supply-chain-ops,operations,2,132,yes
+systematic-debugging,,1,118,no
+talent-acquisition,hr,2,133,yes
+task-planning,,2,136,yes
+tech-scouting,,2,140,yes
+training-content,,3,302,yes
+ui-ux-pro-max,,2,202,yes
+veo-video-gen,,2,236,yes
+verification-before-completion,,1,95,no
+web-accessibility,web, design, compliance,1,116,no
+web-design-guidelines,,2,182,yes
+website-conversion,marketing, website, design,2,142,yes
+workflow-automation,,2,136,yes
+workshop-facilitation,,2,141,yes
+writing-plans,,1,105,no

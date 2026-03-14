@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "skills": {
+    "docx-official": {
+      "source": "sickn33/antigravity-awesome-skills",
+      "sourceType": "github",
+      "computedHash": "fcce6d127076cda2e4233cd0d2b4fc8cba8fcc0c24dd124a3a6e220d14e7e797"
+    },
+    "pptx-official": {
+      "source": "sickn33/antigravity-awesome-skills",
+      "sourceType": "github",
+      "computedHash": "8a55cd42ebfd45dd47a9fdf24ab850facdf60181a4226011e23cad12a59fa90e"
+    },
+    "xlsx-official": {
+      "source": "sickn33/antigravity-awesome-skills",
+      "sourceType": "github",
+      "computedHash": "598f679836f915771ab93a8533299640f116aef9c3965e7e951b98dba5c9154d"
+    }
+  }
+}

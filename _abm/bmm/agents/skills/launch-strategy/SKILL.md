@@ -1,69 +1,129 @@
-﻿---
-name: launch-strategy
-description: "Chiến lược ra mắt sản phẩm — ORB Framework, 5-phase launch, Product Hunt playbook. Sử dụng khi: ra mắt sản phẩm mới, launch feature, announce update, go-to-market."
+---
+name: "launch-strategy"
+description: "Chiến lược ra mắt sản phẩm/dịch vụ toàn diện — GTM plan, timeline, checklist, launch metrics. Dùng khi: product launch, service launch, feature release, campaign launch."
 tags: [marketing, strategy]
 ---
 
-## KHONG su dung khi
+# 🚀 Launch Strategy — Chiến Lược Ra Mắt Sản Phẩm
 
-- Can pricing -> dung pricing-strategy. Can sales deck -> dung sales-enablement.
+## Sử dụng khi
+- Ra mắt sản phẩm/dịch vụ mới
+- Feature release lớn
+- Mở rộng thị trường
+- Rebranding / repositioning
 
+## KHÔNG sử dụng khi
+- Content hàng ngày → dùng `content-strategy`
+- Sales deck → dùng `sales-enablement`
 
-# 🚀 Launch Strategy — Ra Mắt Sản Phẩm
+## GTM (Go-To-Market) Framework
 
-> Adapted from [coreyhaines31/marketingskills](https://github.com/coreyhaines31/marketingskills)
+### Phase 1: Pre-Launch (T-8 → T-4 tuần)
+```
+✅ Market Research
+   - Xác định ICP (Ideal Customer Profile)
+   - Phân tích đối thủ: ai đang làm gì?
+   - Sizing: TAM / SAM / SOM
+   - Pricing strategy (cost-plus vs value-based)
 
-## Triết lý
-Công ty giỏi không launch 1 lần — họ launch LIÊN TỤC. Mọi feature, cải tiến, update = cơ hội thu hút.
+✅ Positioning & Messaging
+   - 1-liner: "[Sản phẩm] giúp [ai] [làm gì] bằng [cách nào]"
+   - 3 key messages (benefit-driven, not feature-driven)
+   - USP: tại sao chọn bạn thay vì đối thủ?
 
-## ORB Framework
+✅ Content Preparation
+   - Landing page copy + design
+   - Sales deck (10-15 slides)
+   - One-pager / Fact sheet
+   - Demo video (2-3 phút)
+   - Email sequences (3 sequences: teaser, launch, follow-up)
+   - Social posts (5-7 bài scheduled)
+   - Press release (nếu cần)
+```
 
-### 🏠 Owned (Kênh sở hữu)
-- Email list, blog, product changelog
-- Social accounts, community
-- **Ưu tiên #1** — build audience dài hạn
+### Phase 2: Soft Launch (T-4 → T-1 tuần)
+```
+✅ Beta Testing
+   - 10-20 beta users → feedback
+   - Fix critical bugs
+   - Collect testimonials + case studies
 
-### 🏪 Rented (Kênh thuê)
-- Product Hunt, social media ads
-- Influencer partnerships
-- **Hiệu quả ngắn hạn** — dẫn về Owned
+✅ Channel Setup
+   - Landing page live + tracking (GA4, Pixel)
+   - Email list warmed up
+   - Social channels scheduled
+   - PR outreach (nếu có)
+   - Partnership/affiliate setup
 
-### 🤝 Borrowed (Kênh mượn)
-- Guest posts, podcast appearances
-- Joint ventures, co-marketing
-- **Mở rộng reach** qua đối tác
+✅ Internal Alignment
+   - Sales team briefed + battle cards
+   - Support team trained + FAQ
+   - Success metrics defined
+```
 
-## 5 Phase Launch
+### Phase 3: Launch Day (T-0)
+```
+✅ LAUNCH CHECKLIST
+   □ Landing page live + CTA working
+   □ Payment/signup flow tested
+   □ Email blast sent (segment theo priority)
+   □ Social posts published
+   □ PR/media outreach sent
+   □ Paid ads activated (nếu có)
+   □ Team on standby for support
+   □ Analytics dashboard monitoring
+```
 
-| Phase | Mục đích | Audience |
-|-------|---------|----------|
-| 1. **Internal** | Team test + fix | Nội bộ |
-| 2. **Alpha** | Early feedback + validate | 10-50 users chọn lọc |
-| 3. **Beta** | Refine + build social proof | 50-500 users apply |
-| 4. **Early Access** | Tạo khan hiếm + momentum | Waitlist + invite |
-| 5. **Full Launch** | Max reach + conversion | Public |
+### Phase 4: Post-Launch (T+1 → T+4 tuần)
+```
+✅ Monitor & Iterate
+   - Daily: signups, revenue, support tickets
+   - Weekly: funnel analysis, cohort review
+   - Fix bottlenecks trong funnel
+   - A/B test landing page + email subject lines
 
-## Launch Day Checklist
+✅ Amplify
+   - Case studies từ early adopters
+   - User testimonials → social proof
+   - Retargeting ads cho visitors chưa convert
+   - Referral program setup
+```
 
-### Trước launch
-- [ ] Product marketing context hoàn chỉnh
-- [ ] Landing page optimized (dùng page-cro skill)
-- [ ] Email sequence chuẩn bị
-- [ ] Social content 3-5 posts scheduled
-- [ ] Press/influencer outreach started
+## Launch Metrics Dashboard
 
-### Ngày launch
-- [ ] Product Hunt submission (nếu phù hợp)
-- [ ] Email blast to list
-- [ ] Social posts go live
-- [ ] Team response plan (comments, questions)
-- [ ] Real-time monitoring
+| Metric | Target | Đo bằng |
+|--------|--------|---------|
+| Landing page visits | >1,000/tuần | GA4 |
+| Conversion rate | >3% | GA4 Goals |
+| Signups / Sales | Target theo pricing | CRM |
+| CAC (Customer Acquisition Cost) | < LTV/3 | Ad spend / customers |
+| NPS (sau 30 ngày) | >50 | Survey |
+| Churn (sau 30 ngày) | <10% | Payment system |
 
-### Sau launch
-- [ ] Respond mọi comment/feedback
-- [ ] Share milestones (100 users, press mentions)
-- [ ] Collect testimonials early
-- [ ] Plan next launch (feature, update)
+## Launch Timeline Template
+
+```
+T-8w: Market research + positioning
+T-6w: Content creation bắt đầu
+T-4w: Beta launch (10-20 users)
+T-3w: Landing page + email sequences ready
+T-2w: Internal training + sales enablement
+T-1w: Final testing + soft launch invite-only
+T-0:  🚀 LAUNCH DAY
+T+1w: Monitor + fix + optimize
+T+2w: First case study + testimonials
+T+4w: Post-mortem + scale plan
+```
+
+## Common Pitfalls
+```
+❌ Launch mà không có beta testing → bugs kill trust
+❌ Không có landing page riêng → traffic phân tán
+❌ Không track metrics → không biết gì hoạt động
+❌ Launch xong bỏ → cần nurture 4-8 tuần sau launch
+❌ Quá nhiều features → launch MVP, iterate sau
+```
 
 ## Related Skills
-- product-marketing-context, page-cro, email-marketing, social-content, pricing-strategy
+- sales-enablement, content-strategy, pricing-strategy, copywriting
+<!-- Generated by ABM Skill Generator v1.0 | ABM Workforce -->

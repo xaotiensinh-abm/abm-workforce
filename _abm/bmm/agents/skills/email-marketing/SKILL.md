@@ -1,98 +1,114 @@
-﻿---
-name: email-marketing
-description: Thiết kế email sequence chuyên nghiệp — welcome, nurture, re-engagement, onboarding. Cấu trúc, timing, subject lines.
+---
+name: "email-marketing"
+description: "Email marketing toàn diện — sequences, newsletters, automation, segmentation, deliverability. Dùng khi: tạo email sequence, nurture leads, email bán hàng, newsletter, onboarding emails."
+tags: [marketing, sales]
 ---
 
-## KHONG su dung khi
+# 📧 Email Marketing — Chiến Lược Email Toàn Diện
 
-- Can cold outreach B2B -> dung cold-email. Can viet copy -> dung copywriting.
+## Sử dụng khi
+- Tạo email sequence (welcome, nurture, sales)
+- Newsletter định kỳ
+- Email tự động hóa (automation)
+- Onboarding khách hàng mới
 
+## KHÔNG dùng khi
+- Cold email B2B → dùng `cold-email`
+- Internal communications → dùng `internal-comms`
 
-# Email Marketing — Email Sequence cho doanh nghiệp
+---
 
-> Adapted from [coreyhaines31/marketingskills](https://github.com/coreyhaines31/marketingskills)
+## Email Types & Sequences
 
-## Nguyên tắc cốt lõi
-
-1. **One Email, One Job** — Mỗi email chỉ 1 mục đích
-2. **Value Before Ask** — Cho giá trị trước khi xin
-3. **Relevance Over Volume** — Đúng người đúng thời điểm
-4. **Clear Path Forward** — CTA rõ ràng
-
-## Sequence Types
-
-### 1. Welcome Sequence (Post-Signup)
+### 1. Welcome Sequence (3-5 emails)
 ```
-Day 0: Welcome + deliver promise (lead magnet)
-Day 1: Story — why we built this
-Day 3: Quick win — one actionable tip
-Day 5: Social proof — case study
-Day 7: Soft CTA — explore product/service
-```
-
-### 2. Lead Nurture (Pre-Sale)
-```
-Email 1: Educational content (problem awareness)
-Email 2: Framework/method (solution awareness)
-Email 3: Case study (proof)
-Email 4: Comparison (vs alternatives)
-Email 5: Offer + urgency
-Email 6: Final reminder + FAQ
+Email 1 (Ngay): "Chào mừng + Quà tặng"
+  → Deliver lead magnet, set expectations
+Email 2 (Ngày 2): "Câu chuyện của chúng tôi"
+  → Brand story, tạo kết nối cảm xúc
+Email 3 (Ngày 4): "Giá trị #1"
+  → Chia sẻ tip/insight hữu ích nhất
+Email 4 (Ngày 6): "Case Study"
+  → Social proof, trước/sau
+Email 5 (Ngày 7): "CTA chính"
+  → Mời book call / mua hàng
 ```
 
-### 3. Re-Engagement Sequence
+### 2. Nurture Sequence (Weekly)
 ```
-Email 1: "Bạn có còn quan tâm đến [topic]?"
-Email 2: "Đây là gì bạn đã bỏ lỡ" + best content
-Email 3: "Chia tay hay ở lại?" (sunset email)
-```
-
-### 4. Onboarding (Product Users)
-```
-Day 0: Welcome + first step guide
-Day 1: Core feature tutorial
-Day 3: Pro tip for power users
-Day 7: Check-in — how's it going?
-Day 14: Success story + advanced features
-Day 30: Review request
+Tuần 1: Educational content (giáo dục)
+Tuần 2: Case study / testimonial
+Tuần 3: Tip/hack thực chiến
+Tuần 4: Soft sell + CTA
+→ Lặp lại chu kỳ, thay content
 ```
 
-## Subject Line Strategies
-
-| Pattern | Example |
-|---------|---------|
-| Question | "Bạn đã thử cách này chưa?" |
-| Number | "5 sai lầm khiến mất 50% khách hàng" |
-| Curiosity | "Đừng mở email này (trừ khi...)" |
-| Personal | "[Tên], đây là cho bạn" |
-| Urgency | "Còn 24h — ưu đãi kết thúc" |
-| How-to | "Cách tăng doanh thu 30% trong Q1" |
-
-## Email Copy Structure
-
-```markdown
-[Subject line]: Hook (6-10 từ)
-[Preview text]: Extend the hook
-
-[Opening]: 1-2 câu — hook vào pain/desire
-[Body]: 3-5 paragraphs — value/story/proof
-[CTA]: 1 clear action
-[PS]: Optional — reinforce CTA or add bonus
+### 3. Sales Sequence (5-7 emails)
+```
+Email 1: Problem awareness — "Bạn có gặp vấn đề này?"
+Email 2: Agitate pain — "Nếu không giải quyết, điều gì xảy ra?"
+Email 3: Solution intro — "Đây là cách [Sản phẩm] giúp bạn"
+Email 4: Social proof — "CEO X đã tiết kiệm 20h/tuần"
+Email 5: FAQs — Xử lý phản đối qua email
+Email 6: Urgency — "Chỉ còn 3 ngày / 5 slots"
+Email 7: Last chance — "Đây là email cuối cùng"
 ```
 
-## Output Format
+## Email Copywriting Formula — PAS
 
-```markdown
-# Email Sequence: [Name]
-**Type**: [welcome | nurture | re-engage | onboarding]
-**Emails**: [count]
-**Duration**: [days]
-
-## Email [N]: [Purpose]
-- **Subject**: [subject line]
-- **Preview**: [preview text]
-- **Send**: Day [N], [time]
-- **Goal**: [what we want them to do]
-- **Body**: [full email content]
-- **CTA**: [button/link text]
 ```
+P — Problem: "Bạn đang dành 60% thời gian cho tasks lặp lại?"
+A — Agitate: "Tưởng tượng 1 năm nữa vẫn thế..."
+S — Solution: "ABM Workforce giúp bạn tự động hóa trong 30 ngày"
+
+Subject line: [Kết quả] + [Tò mò]
+Preview text: [Bổ sung cho subject, không lặp]
+Body: Max 300 từ, 1 CTA duy nhất
+```
+
+## Subject Line Formulas
+
+| Formula | Ví dụ | Open Rate |
+|---------|-------|:---------:|
+| How to [Result] | "Cách tiết kiệm 20h/tuần bằng AI" | Cao |
+| [Number] + [Benefit] | "5 lỗi CEO hay mắc khi dùng AI" | Cao |
+| Question | "Bạn đã thử AI chưa?" | TB-Cao |
+| Curiosity gap | "Điều CEO 250tr không ai nói cho bạn" | Cao |
+| Urgency | "Còn 48h — slot coaching cuối cùng" | Rất cao |
+
+## Segmentation
+
+| Segment | Criteria | Content |
+|---------|----------|---------|
+| Cold leads | Chưa tương tác | Educational, giá trị miễn phí |
+| Warm leads | Đã mở email, click | Case studies, soft sell |
+| Hot leads | Đã book call / reply | Sales sequence, urgency |
+| Customers | Đã mua | Onboarding, upsell, referral |
+| Churned | Đã bỏ | Win-back sequence |
+
+## KPIs
+
+| Metric | Benchmark | Target ABM |
+|--------|:---------:|:----------:|
+| Open rate | 20-25% | ≥30% |
+| Click rate | 2-5% | ≥5% |
+| Reply rate | 1-3% | ≥3% |
+| Unsubscribe | < 0.5% | < 0.3% |
+| Conversion | 1-3% | ≥2% |
+
+## Deliverability Checklist
+
+```
+□ SPF, DKIM, DMARC configured
+□ Warm up domain (2-4 tuần trước mass send)
+□ Clean list quarterly (remove bounced/inactive)
+□ Text-to-image ratio >60% text
+□ Unsubscribe link rõ ràng
+□ Avoid spam words (miễn phí, giảm giá, click here)
+□ Test subject lines A/B
+□ Send time optimize (VN: 8-9h sáng, 7-8h tối)
+```
+
+## Related Skills
+- cold-email, copywriting, content-strategy, sales-enablement
+<!-- Generated by ABM Skill Generator v1.0 | ABM Workforce -->
