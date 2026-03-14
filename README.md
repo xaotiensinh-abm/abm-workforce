@@ -5,7 +5,7 @@
 <h1 align="center">🏢 ABM Workforce — AI Business Master</h1>
 
 <p align="center">
-  <strong>Hệ sinh thái Multi-Agent điều phối doanh nghiệp số — 11 phòng ban, 116 kỹ năng, 1 bộ não trung tâm.</strong>
+  <strong>Hệ sinh thái AI đa tác tử (Multi-Agent) điều phối doanh nghiệp số — 11 phòng ban, 116 kỹ năng, 1 bộ não trung tâm.</strong>
 </p>
 
 <p align="center">
@@ -25,9 +25,13 @@
 
 ## 🎯 ABM Là Gì?
 
-ABM Workforce biến AI thành **đội ngũ nhân sự số hoàn chỉnh** cho doanh nghiệp Việt Nam. Thay vì dùng AI rời rạc, ABM tổ chức AI thành **11 phòng ban** — mỗi phòng ban có agent, skills và workflow riêng — tất cả được điều phối bởi **Jarvis Lead Orchestrator**.
+ABM Workforce biến AI thành **đội ngũ nhân sự số hoàn chỉnh** cho doanh nghiệp Việt Nam. Thay vì dùng AI rời rạc, ABM tổ chức AI thành **11 phòng ban** — mỗi phòng ban có tác tử riêng (agent — trợ lý AI chuyên biệt), kỹ năng riêng (skills — bộ hướng dẫn chuyên sâu), và quy trình riêng (workflow — luồng xử lý công việc) — tất cả được điều phối bởi **Jarvis** (bộ não trung tâm điều phối toàn hệ thống).
 
-**Chỉ cần nói tiếng Việt tự nhiên** — Jarvis tự phân loại, route đúng phòng ban, chọn skills phù hợp, và trả kết quả kèm bằng chứng.
+### 💬 Vibe Working — Làm Việc Bằng Cảm Xúc Với AI
+
+**Chỉ cần nói tiếng Việt tự nhiên** — không cần học lệnh, không cần biết code. Bạn nói chuyện với AI như nói chuyện với đồng nghiệp, AI tự hiểu và làm việc cho bạn.
+
+> **Vibe Working** = Bạn mô tả ý tưởng → AI tự phân loại → chọn phòng ban phù hợp → chọn kỹ năng cần thiết → thực hiện → trả kết quả kèm bằng chứng.
 
 ```mermaid
 graph LR
@@ -85,45 +89,45 @@ cd abm-workforce
 
 ```mermaid
 graph TB
-    subgraph CORE["🧠 Core Engine"]
-        J["Jarvis Orchestrator"]
-        DC["Delegation Chain"]
-        VBC["Verification Protocol"]
-        CE["Context Engineering"]
-        PS["Prompt Sentinel"]
+    subgraph CORE["🧠 Lõi Hệ Thống"]
+        J["Jarvis — Bộ não điều phối"]
+        DC["Chuỗi Ủy Quyền"]
+        VBC["Giao Thức Xác Minh"]
+        CE["Kỹ Thuật Ngữ Cảnh"]
+        PS["Lính Gác Prompt"]
     end
 
-    subgraph AGENTS["🤖 Agent Layer — 8 SubAgents"]
-        SA1["marketing-specialist"]
-        SA2["hr-specialist"]
-        SA3["business-analyst"]
-        SA4["automation-engineer"]
-        SA5["office-manager"]
-        SA6["creative-strategist"]
-        SA7["rd-specialist"]
-        SA8["training-specialist"]
+    subgraph AGENTS["🤖 Tầng Tác Tử — 8 Trợ Lý AI"]
+        SA1["Chuyên gia Marketing"]
+        SA2["Chuyên gia Nhân Sự"]
+        SA3["Chuyên gia Phân Tích"]
+        SA4["Kỹ sư Tự Động Hóa"]
+        SA5["Quản lý Văn Phòng"]
+        SA6["Chiến lược Sáng Tạo"]
+        SA7["Chuyên gia R&D"]
+        SA8["Chuyên gia Đào Tạo"]
     end
 
-    subgraph SKILLS["🧩 Skill Engine — 116 Skills"]
-        S1["Marketing & Sales (27)"]
-        S2["Development (19)"]
-        S3["Analytics (9)"]
-        S4["HR & Office (11)"]
-        S5["Finance (7)"]
-        S6["Legal (6)"]
-        S7["Operations (5)"]
-        S8["CSKH (5)"]
-        S9["R&D (6)"]
+    subgraph SKILLS["🧩 Kho Kỹ Năng — 116 Bộ Hướng Dẫn"]
+        S1["Marketing và Bán Hàng (27)"]
+        S2["Phát Triển Phần Mềm (19)"]
+        S3["Phân Tích Dữ Liệu (9)"]
+        S4["Nhân Sự và Văn Phòng (11)"]
+        S5["Kế Toán Tài Chính (7)"]
+        S6["Pháp Chế (6)"]
+        S7["Vận Hành (5)"]
+        S8["Chăm Sóc Khách Hàng (5)"]
+        S9["Nghiên Cứu Phát Triển (6)"]
         S10["Đào Tạo (6)"]
-        S11["System/Meta (11)"]
-        S12["Multimedia (4)"]
+        S11["Hệ Thống Lõi (11)"]
+        S12["Đa Phương Tiện (4)"]
     end
 
-    subgraph MEMORY["💾 Second Brain"]
-        M1["Knowledge Base"]
-        M2["Patterns & Standards"]
-        M3["Evolution History"]
-        M4["Session Memory"]
+    subgraph MEMORY["💾 Bộ Nhớ Thứ Hai"]
+        M1["Kho Tri Thức"]
+        M2["Mẫu và Chuẩn Mực"]
+        M3["Lịch Sử Tiến Hóa"]
+        M4["Bộ Nhớ Phiên Làm Việc"]
     end
 
     CORE --> AGENTS
@@ -138,13 +142,15 @@ graph TB
 
 ---
 
-## 🔐 Delegation Chain — Quy Tắc Tối Thượng
+## 🔐 Chuỗi Ủy Quyền — Quy Tắc Tối Thượng
 
-Mọi task đều đi qua **6 bước bắt buộc** — bỏ bước nào = vi phạm:
+*Chuỗi Ủy Quyền (Delegation Chain) là quy trình bắt buộc mỗi khi AI nhận việc — đảm bảo mọi công việc đều có hợp đồng, bằng chứng, và kiểm tra trước khi trả kết quả.*
+
+Mọi công việc đều đi qua **6 bước bắt buộc** — bỏ bước nào = vi phạm:
 
 ```mermaid
 flowchart LR
-    A["📝 Tạo<br/>Hợp Đồng"] --> B["🎯 Chọn<br/>Worker"]
+    A["📝 Tạo<br/>Hợp Đồng"] --> B["🎯 Chọn<br/>Người Thực Hiện"]
     B --> C["⚙️ Thực<br/>Hiện"]
     C --> D["📋 Chứng<br/>Nhận"]
     D --> E["✅ Xác<br/>Minh"]
@@ -160,14 +166,14 @@ flowchart LR
 
 | Bước | Mô tả |
 |:----:|-------|
-| 1 | **Hợp đồng** — Objective, scope_in/scope_out, acceptance criteria, budget, risk level |
-| 2 | **Chọn Worker** — Agent routing tự động theo task type |
-| 3 | **Thực hiện** — Worker làm trong phạm vi `scope_in`, không chạm `scope_out` |
-| 4 | **Chứng nhận** — Status, evidence, confidence score, files changed |
-| 5 | **Xác minh** — Kiểm tra 5 tiêu chí độc lập (criteria, evidence, scope, budget, risk) |
+| 1 | **Hợp đồng** — Mục tiêu rõ ràng, phạm vi được phép / phạm vi cấm, tiêu chí chấp nhận, ngân sách, mức rủi ro |
+| 2 | **Chọn người thực hiện** — Tự động phân tuyến đúng tác tử theo loại công việc |
+| 3 | **Thực hiện** — Người thực hiện làm trong phạm vi được phép, không chạm phạm vi cấm |
+| 4 | **Chứng nhận** — Trạng thái hoàn thành, bằng chứng, điểm tin cậy, danh sách file đã thay đổi |
+| 5 | **Xác minh** — Kiểm tra 5 tiêu chí độc lập: tiêu chí chấp nhận, bằng chứng, phạm vi, ngân sách, rủi ro |
 | 6 | **Trình CEO** — CEO quyết định cuối cùng dựa trên bằng chứng |
 
-> **Trách nhiệm luôn đi LÊN**: SubAgent → Worker → Jarvis → CEO
+> **Trách nhiệm luôn đi LÊN**: Tác tử phụ → Người thực hiện → Jarvis → CEO
 
 ---
 
@@ -184,8 +190,8 @@ flowchart LR
 | `/review` | Đánh giá 10 chiều |
 | `/council` | Hội đồng phản biện |
 | `/save` | Lưu trạng thái |
-| `/recap` | Khôi phục context |
-| `/skill-sync` | Sync skills mới |
+| `/recap` | Khôi phục ngữ cảnh |
+| `/skill-sync` | Đồng bộ kỹ năng mới |
 
 </td>
 <td width="33%">
@@ -193,12 +199,12 @@ flowchart LR
 ### 🏢 Phòng Ban
 | Lệnh | Mô tả |
 |-------|-------|
-| `/marketing` | Content, ads, SEO |
-| `/sales` | Proposal, cold email |
-| `/hr` | JD, review, recruit |
-| `/finance` | Báo cáo, thuế, CF |
-| `/legal` | Hợp đồng, SHTT |
-| `/cskh` | Ticket, feedback |
+| `/marketing` | Nội dung, quảng cáo, SEO |
+| `/sales` | Đề xuất, email mở đầu |
+| `/hr` | Mô tả công việc, đánh giá, tuyển dụng |
+| `/finance` | Báo cáo, thuế, dòng tiền |
+| `/legal` | Hợp đồng, sở hữu trí tuệ |
+| `/cskh` | Phiếu hỗ trợ, phản hồi |
 
 </td>
 <td width="33%">
@@ -206,21 +212,21 @@ flowchart LR
 ### ⚙️ Chuyên Môn
 | Lệnh | Mô tả |
 |-------|-------|
-| `/dev` | Code, debug, feature |
-| `/docs` | SOP, memo, proposal |
-| `/report` | KPI, monthly report |
-| `/rd` | Nghiên cứu AI, R&D |
-| `/training` | Đào tạo, workshop |
-| `/product-launch` | Dev + MKT song song |
+| `/dev` | Viết mã, gỡ lỗi, tính năng mới |
+| `/docs` | Quy trình, biên bản, đề xuất |
+| `/report` | Chỉ số KPI, báo cáo tháng |
+| `/rd` | Nghiên cứu AI, công nghệ mới |
+| `/training` | Đào tạo, hội thảo thực hành |
+| `/product-launch` | Phát triển + Marketing song song |
 
 </td>
 </tr>
 </table>
 
 ```
-💬 Hoặc nói trực tiếp bằng tiếng Việt:
-   "Viết email cold outreach cho SaaS quản lý nhân sự"
-   → Jarvis tự route → marketing → load skills → thực hiện → trả kết quả
+💬 Không cần nhớ lệnh — nói chuyện tự nhiên:
+   "Viết cho anh email giới thiệu sản phẩm phần mềm quản lý nhân sự"
+   → Jarvis tự phân loại → chọn phòng Marketing → nạp kỹ năng phù hợp → thực hiện → trả kết quả
 ```
 
 ---
@@ -324,30 +330,32 @@ pie title Phân bổ Skills theo Category
 
 ---
 
-## 📊 Dashboard — Control Center
+## 📊 Bảng Điều Khiển — Trung Tâm Giám Sát
 
-Dashboard động theo dõi **toàn bộ hoạt động** của hệ thống với auto-sync 30 giây:
+Bảng điều khiển động theo dõi **toàn bộ hoạt động** của hệ thống, tự cập nhật mỗi 30 giây:
 
-| View | Nội dung |
-|------|---------| 
-| **🏠 Tổng Quan** | Timeline dự án, Score 10 chiều, Phòng ban coverage, Health status |
-| **📋 Lịch Sử Tasks** | Bảng tasks filterable theo phòng ban, sortable, skill tags |
-| **📈 Phân Tích** | Top skills usage, Agent/Worker activity, Tiến độ theo thời gian |
+| Chế độ xem | Nội dung |
+|------|---------|
+| **🏠 Tổng Quan** | Dòng thời gian dự án, Điểm đánh giá 10 chiều, Mức phủ phòng ban, Trạng thái sức khỏe hệ thống |
+| **📋 Lịch Sử Công Việc** | Bảng công việc có thể lọc theo phòng ban, sắp xếp, gắn nhãn kỹ năng |
+| **📈 Phân Tích** | Kỹ năng được dùng nhiều nhất, Hoạt động của tác tử, Tiến độ theo thời gian |
 
-> 📂 Mở `dashboard/index.html` để xem Control Dashboard.
+> 📂 Mở `dashboard/index.html` để xem Bảng Điều Khiển.
 
 ---
 
-## 🧠 Second Brain — Bộ Nhớ 4 Tầng
+## 🧠 Bộ Nhớ Thứ Hai — 4 Tầng Tri Thức
+
+*Bộ Nhớ Thứ Hai (Second Brain) giúp hệ thống ghi nhớ mọi thứ qua các phiên làm việc — AI không quên những gì đã học.*
 
 ```mermaid
 graph TB
-    subgraph SB["💾 Second Brain"]
+    subgraph SB["💾 Bộ Nhớ Thứ Hai"]
         direction TB
-        L1["🗂️ Memory<br/>Context snapshots + Session history"]
-        L2["🔄 Patterns<br/>Mẫu thành công/thất bại + CEO preferences"]
-        L3["📏 Standards<br/>Brand guidelines + Document templates"]
-        L4["🧬 Evolution<br/>Tri thức tích lũy + Lịch sử tiến hóa"]
+        L1["🗂️ Bộ Nhớ Ngắn Hạn<br/>Ảnh chụp ngữ cảnh + Lịch sử phiên làm việc"]
+        L2["🔄 Kho Mẫu<br/>Mẫu thành công/thất bại + Sở thích của CEO"]
+        L3["📏 Bộ Chuẩn Mực<br/>Hướng dẫn thương hiệu + Mẫu tài liệu"]
+        L4["🧬 Lịch Sử Tiến Hóa<br/>Tri thức tích lũy + Lịch sử phát triển"]
     end
 
     L1 --> L2 --> L3 --> L4
@@ -384,31 +392,36 @@ abm-workforce/
 
 ---
 
-## 📝 Ví Dụ Sử Dụng
+## 💬 Vibe Working Thực Tế — Nói Chuyện Tự Nhiên Với AI
+
+> **Vibe Working** = Làm việc với AI bằng ngôn ngữ tự nhiên, như nói chuyện với đồng nghiệp. Không cần nhớ lệnh, không cần code — chỉ cần mô tả điều bạn muốn.
 
 <table>
 <tr>
 <td width="50%">
 
-**📣 Marketing — Quảng Cáo AI**
+**📣 Marketing — Viết Quảng Cáo**
 ```
-/marketing Tạo 10 ad variants cho Meta Ads,
-sản phẩm: Khóa học AI 1.200K,
-target: Sinh viên CNTT 20-28 tuổi
-```
-
-**💰 Kế Toán — Dòng Tiền**
-```
-/finance Dự báo cash flow 13 tuần,
-gồm scenario best/base/worst
-+ tính runway
+Viết cho anh 10 mẫu quảng cáo Facebook
+cho khóa học AI giá 1.200K,
+nhắm đến sinh viên CNTT từ 20-28 tuổi,
+giọng văn trẻ trung, có hook mạnh
 ```
 
-**🔬 R&D — Theo Dõi AI Trends**
+**💰 Kế Toán — Dự Báo Dòng Tiền**
 ```
-/rd Scan xu hướng AI tháng 3/2026,
-focus: agent frameworks,
-output: weekly radar report
+Dự báo dòng tiền 13 tuần tới,
+tính 3 kịch bản: lạc quan, bình thường, xấu nhất.
+Cho anh biết công ty còn sống được bao lâu
+với số tiền hiện tại
+```
+
+**🔬 R&D — Nghiên Cứu Xu Hướng AI**
+```
+Scan hết xu hướng AI nổi bật tháng này,
+tập trung vào mảng AI agent và tự động hóa.
+Làm thành báo cáo tuần gọn gàng,
+anh gửi cho team đọc được luôn
 ```
 
 </td>
@@ -416,62 +429,67 @@ output: weekly radar report
 
 **👥 HR — Tuyển Dụng**
 ```
-/hr Viết JD + screening criteria
-cho Senior Frontend Developer,
-stack: React, TypeScript, Next.js
+Viết mô tả công việc và tiêu chí sàng lọc
+cho vị trí Lập trình viên Frontend cấp cao,
+công nghệ: React, TypeScript, Next.js.
+Viết bằng tiếng Việt, chuyên nghiệp
 ```
 
 **🎓 Đào Tạo — Thiết Kế Khóa Học**
 ```
-/training Thiết kế khóa AI Fundamentals,
-12 buổi, target: nhân viên non-tech,
-output: syllabus + slide outline
+Thiết kế khóa học AI cơ bản
+cho nhân viên không biết code, 12 buổi.
+Làm đề cương chi tiết và dàn ý slide,
+anh cần bắt đầu dạy tuần sau
 ```
 
-**⚖️ Pháp Chế — Đăng Ký SHTT**
+**⚖️ Pháp Chế — Đăng Ký Sở Hữu Trí Tuệ**
 ```
-/legal Chuẩn bị hồ sơ đăng ký
+Chuẩn bị hồ sơ đăng ký
 nhãn hiệu "ABM Workforce" tại Cục SHTT,
-lớp Nice 9, 35, 42
+lớp 9 (phần mềm), 35 (quản lý), 42 (công nghệ).
+Liệt kê giấy tờ cần nộp và phí
 ```
 
 </td>
 </tr>
 </table>
 
+> 💡 **Mẹo Vibe Working**: Nói càng cụ thể, kết quả càng chính xác. Thêm bối cảnh (ai đọc?, dùng để làm gì?, khi nào cần?) để AI hiểu đúng ý bạn.
+
 ---
 
 ## 📈 Hành Trình Phát Triển
 
-| Metric | v1.0 | v2.0 | v3.0 | v3.5 | Growth |
+| Chỉ số | v1.0 | v2.0 | v3.0 | v3.5 | Tăng trưởng |
 |--------|:----:|:----:|:----:|:----:|:------:|
-| Skills | 36 | 66 | 103 | **116** | **3.22x** |
-| Workflows | 6 | 13 | 15 | **18** | **3.00x** |
-| SubAgents | 4 | 5 | 6 | **8** | **2.00x** |
+| Kỹ năng | 36 | 66 | 103 | **116** | **3.22x** |
+| Quy trình | 6 | 13 | 15 | **18** | **3.00x** |
+| Trợ lý AI | 4 | 5 | 6 | **8** | **2.00x** |
 | Phòng ban | 5 | 9 | 9 | **11** | **2.20x** |
-| Dashboard | ❌ | ❌ | ✅ | **✅ Auto-Sync** | 🆕 |
-| Score | — | 8.33 | 9.58 | **9.58/10** | ⭐ |
+| Bảng điều khiển | ❌ | ❌ | ✅ | **✅ Tự cập nhật** | 🆕 |
+| Điểm đánh giá | — | 8.33 | 9.58 | **9.58/10** | ⭐ |
 
 ---
 
 ## 🆕 Có Gì Mới Trong v3.5
 
-### 🔬 Phòng R&D — 6 Skills Mới
-Nghiên cứu xu hướng AI, đánh giá công nghệ, benchmark models, xây knowledge base.
-- `ai-trend-radar` · `tech-scouting` · `benchmark-lab` · `knowledge-builder` · `research-to-training` · `innovation-report`
+### 🔬 Phòng Nghiên Cứu Phát Triển (R&D) — 6 Kỹ Năng Mới
+Theo dõi xu hướng AI thế giới, đánh giá công nghệ mới, so sánh các mô hình AI, xây kho tri thức.
+- `ai-trend-radar` (radar xu hướng AI) · `tech-scouting` (dò tìm công nghệ) · `benchmark-lab` (phòng thí nghiệm so sánh) · `knowledge-builder` (xây kho tri thức) · `research-to-training` (chuyển nghiên cứu thành đào tạo) · `innovation-report` (báo cáo đổi mới)
 
-### 🎓 Phòng Đào Tạo — 6 Skills Mới  
-Thiết kế khóa học, quản lý LMS, đánh giá học viên, tổ chức workshop, chương trình chứng chỉ.
-- `course-design` · `lms-management` · `student-assessment` · `training-content` · `workshop-facilitation` · `certification-program`
+### 🎓 Phòng Đào Tạo — 6 Kỹ Năng Mới
+Thiết kế khóa học, quản lý hệ thống học trực tuyến, đánh giá học viên, tổ chức hội thảo thực hành, chương trình chứng chỉ.
+- `course-design` (thiết kế khóa học) · `lms-management` (quản lý hệ thống học) · `student-assessment` (đánh giá học viên) · `training-content` (nội dung đào tạo) · `workshop-facilitation` (tổ chức hội thảo) · `certification-program` (chương trình chứng chỉ)
 
-### 🛡️ Prompt Sentinel — Skill Bảo Vệ Mới
-Kiểm tra prompt LLM — 20 failure modes, 3 track song song, phát hiện lỗi tiềm ẩn trong prompt agent.
+### 🛡️ Lính Gác Prompt — Kỹ Năng Bảo Vệ Mới
+Kiểm tra câu lệnh gửi cho AI — phát hiện 20 kiểu lỗi thường gặp, chạy 3 luồng kiểm tra song song, tìm lỗi tiềm ẩn trong hệ thống tác tử.
 
-### 📊 Dashboard Auto-Sync
-Dashboard tự cập nhật dữ liệu mỗi 30 giây qua pipeline `sync.ps1` → `task-data.js`.
+### 📊 Bảng Điều Khiển Tự Cập Nhật
+Bảng điều khiển tự cập nhật dữ liệu mỗi 30 giây qua đường ống `sync.ps1` → `task-data.js`.
 
-### 3 Workflows Mới
-`/rd` · `/training` · `/recap` — Hoàn thiện coverage cho R&D, Đào tạo, và khôi phục context.
+### 3 Quy Trình Mới
+`/rd` (nghiên cứu) · `/training` (đào tạo) · `/recap` (khôi phục ngữ cảnh) — hoàn thiện mức phủ cho phòng Nghiên Cứu, Đào Tạo, và phục hồi trạng thái làm việc.
 
 ---
 
