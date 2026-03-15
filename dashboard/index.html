@@ -138,6 +138,31 @@
         .date-picker { background:var(--card); border:1px solid var(--border); color:var(--text); padding:6px 12px; border-radius:8px; font-family:inherit; font-size:12px; font-weight:600; cursor:pointer; }
         .date-picker::-webkit-calendar-picker-indicator { filter:invert(1); }
 
+        /* TASK DETAIL MODAL */
+        .modal-overlay { display:none; position:fixed; inset:0; background:rgba(0,0,0,.6); z-index:100; backdrop-filter:blur(4px); }
+        .modal-overlay.show { display:block; }
+        .modal-panel { position:fixed; top:0; right:-520px; bottom:0; width:500px; max-width:90vw; background:var(--bg2); border-left:1px solid var(--border); z-index:101; overflow-y:auto; transition:right .3s ease; box-shadow:-8px 0 32px rgba(0,0,0,.4); }
+        .modal-panel.show { right:0; }
+        .modal-panel::-webkit-scrollbar { width:4px; }
+        .modal-panel::-webkit-scrollbar-thumb { background:var(--border); border-radius:2px; }
+        .modal-close { position:absolute; top:16px; right:16px; background:rgba(255,255,255,.06); border:1px solid var(--border); color:var(--dim); width:32px; height:32px; border-radius:8px; cursor:pointer; font-size:14px; display:flex; align-items:center; justify-content:center; transition:all .2s; }
+        .modal-close:hover { background:rgba(255,45,85,.15); color:var(--abm); }
+        .modal-header { padding:24px 24px 16px; border-bottom:1px solid var(--border); }
+        .modal-id { font-size:10px; font-weight:700; color:var(--abm); text-transform:uppercase; letter-spacing:1px; }
+        .modal-title { font-size:16px; font-weight:800; margin-top:4px; line-height:1.3; }
+        .modal-meta { display:flex; gap:12px; flex-wrap:wrap; margin-top:8px; }
+        .modal-meta-item { font-size:10px; color:var(--dim); display:flex; align-items:center; gap:4px; }
+        .modal-body { padding:20px 24px; }
+        .modal-section { margin-bottom:18px; }
+        .modal-section-title { font-size:10px; font-weight:700; color:var(--dim2); text-transform:uppercase; letter-spacing:1.5px; margin-bottom:8px; display:flex; align-items:center; gap:6px; }
+        .modal-desc { font-size:12px; line-height:1.7; color:var(--dim); }
+        .modal-result { font-size:12px; line-height:1.5; color:var(--green); background:rgba(16,185,129,.06); padding:10px 14px; border-radius:8px; border-left:3px solid var(--green); }
+        .modal-file { font-size:11px; padding:4px 10px; margin:2px 0; background:rgba(255,255,255,.03); border-radius:6px; color:var(--cyan); font-family:'Consolas','Courier New',monospace; display:block; }
+        .modal-decision { font-size:11px; padding:6px 12px; margin:3px 0; background:rgba(139,92,246,.06); border-radius:6px; color:var(--text); border-left:3px solid var(--purple); }
+        .modal-evidence { font-size:11px; line-height:1.6; color:var(--dim); background:rgba(255,255,255,.03); padding:10px 14px; border-radius:8px; }
+        .modal-skills { display:flex; flex-wrap:wrap; gap:4px; }
+        .modal-skill { display:inline-block; padding:3px 10px; border-radius:6px; font-size:10px; font-weight:600; background:rgba(139,92,246,.1); color:var(--purple); }
+
         /* MOBILE */
         .mobile-toggle { display:none; position:fixed; top:12px; left:12px; z-index:60; background:var(--card); border:1px solid var(--border); padding:6px 8px; border-radius:6px; cursor:pointer; color:var(--text); font-size:16px; }
         .sidebar-overlay { display:none; position:fixed; inset:0; background:rgba(0,0,0,.5); z-index:45; }
@@ -163,6 +188,13 @@
 <body>
 <button class="mobile-toggle" onclick="toggleSidebar()">☰</button>
 <div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleSidebar()"></div>
+
+<!-- TASK DETAIL MODAL -->
+<div class="modal-overlay" id="modalOverlay" onclick="closeTaskDetail()"></div>
+<div class="modal-panel" id="modalPanel">
+    <button class="modal-close" onclick="closeTaskDetail()">✕</button>
+    <div id="modalContent"></div>
+</div>
 
 <div class="layout">
     <!-- SIDEBAR — 11 Phòng Ban -->
@@ -449,7 +481,7 @@ function taskRow(t) {
     const sc = t.status==='done'?'badge-done':t.status==='in_progress'?'badge-progress':'badge-blocked';
     const sl = t.status==='done'?'Hoàn thành':t.status==='in_progress'?'Đang làm':'Bị chặn';
     const pc = t.completion>=100?'var(--green)':t.completion>=50?'var(--blue)':'var(--gold)';
-    return `<tr>
+    return `<tr style="cursor:pointer" onclick="showTaskDetail('${t.id}')">
         <td><strong>${t.id}</strong></td><td>${t.date}</td>
         <td>${t.title}<br><span style="font-size:9px;color:var(--dim)">${t.result||''}</span></td>
         <td>${t.agent}<br><span style="font-size:9px;color:var(--dim)">${t.worker}</span></td>
@@ -457,6 +489,82 @@ function taskRow(t) {
         <td><div class="prog-bar"><div class="prog-fill" style="width:${t.completion}%;background:${pc}"></div></div>${t.completion}%</td>
         <td><span class="badge ${sc}">${sl}</span></td></tr>`;
 }
+
+// ===== TASK DETAIL MODAL =====
+function showTaskDetail(taskId) {
+    const t = TASKS.find(x => x.id === taskId);
+    if (!t) return;
+    const dept = DEPTS.find(d => d.match.includes(t.department));
+    const deptColor = dept ? dept.color : 'var(--blue)';
+    const sc = t.status==='done'?'badge-done':t.status==='in_progress'?'badge-progress':'badge-blocked';
+    const sl = t.status==='done'?'Hoàn thành':t.status==='in_progress'?'Đang làm':'Bị chặn';
+
+    document.getElementById('modalContent').innerHTML = `
+        <div class="modal-header">
+            <div class="modal-id">${t.id} · <span class="badge ${sc}">${sl}</span></div>
+            <div class="modal-title">${t.title}</div>
+            <div class="modal-meta">
+                <span class="modal-meta-item">📅 ${t.date}</span>
+                <span class="modal-meta-item" style="color:${deptColor}">🏢 ${t.department}</span>
+                <span class="modal-meta-item">🤖 ${t.agent}</span>
+                <span class="modal-meta-item">👷 ${t.worker}</span>
+                ${t.duration ? '<span class="modal-meta-item">⏱️ '+t.duration+' phút</span>' : ''}
+                ${t.session_id ? '<span class="modal-meta-item">📋 '+t.session_id+'</span>' : ''}
+            </div>
+        </div>
+        <div class="modal-body">
+            ${t.description ? `<div class="modal-section">
+                <div class="modal-section-title">📝 Mô tả chi tiết</div>
+                <div class="modal-desc">${t.description}</div>
+            </div>` : ''}
+
+            <div class="modal-section">
+                <div class="modal-section-title">✅ Kết quả</div>
+                <div class="modal-result">${t.result || 'Chưa có kết quả'}</div>
+            </div>
+
+            ${t.files_changed && t.files_changed.length ? `<div class="modal-section">
+                <div class="modal-section-title">📁 Files thay đổi (${t.files_changed.length})</div>
+                ${t.files_changed.map(f => '<span class="modal-file">'+f+'</span>').join('')}
+            </div>` : ''}
+
+            ${t.decisions && t.decisions.length ? `<div class="modal-section">
+                <div class="modal-section-title">💡 Quyết định quan trọng (${t.decisions.length})</div>
+                ${t.decisions.map(d => '<div class="modal-decision">'+d+'</div>').join('')}
+            </div>` : ''}
+
+            ${t.evidence ? `<div class="modal-section">
+                <div class="modal-section-title">🔍 Bằng chứng xác minh</div>
+                <div class="modal-evidence">${t.evidence}</div>
+            </div>` : ''}
+
+            <div class="modal-section">
+                <div class="modal-section-title">🧩 Skills sử dụng (${t.skills.length})</div>
+                <div class="modal-skills">${t.skills.map(s => '<span class="modal-skill">'+s+'</span>').join('')}</div>
+            </div>
+
+            <div class="modal-section">
+                <div class="modal-section-title">📊 Tiến độ</div>
+                <div style="display:flex;align-items:center;gap:10px">
+                    <div style="flex:1;height:8px;background:rgba(255,255,255,.06);border-radius:4px;overflow:hidden">
+                        <div style="height:100%;width:${t.completion}%;background:${t.completion>=100?'var(--green)':'var(--blue)'};border-radius:4px;transition:width .5s"></div>
+                    </div>
+                    <span style="font-size:14px;font-weight:800;color:${t.completion>=100?'var(--green)':'var(--blue)'}">${t.completion}%</span>
+                </div>
+            </div>
+        </div>
+    `;
+    document.getElementById('modalOverlay').classList.add('show');
+    document.getElementById('modalPanel').classList.add('show');
+}
+
+function closeTaskDetail() {
+    document.getElementById('modalOverlay').classList.remove('show');
+    document.getElementById('modalPanel').classList.remove('show');
+}
+
+// ESC key to close
+document.addEventListener('keydown', e => { if(e.key==='Escape') closeTaskDetail(); });
 
 // ===== DAILY REPORT =====
 function renderDaily(dateStr) {

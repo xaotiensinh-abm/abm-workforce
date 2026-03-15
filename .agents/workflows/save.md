@@ -1,12 +1,9 @@
----
-description: Lưu trạng thái công việc vào memory — save task, daily save, milestone save
----
 // turbo-all
 
-# 💾 Workflow /save — Lưu Trạng Thái Công Việc
+# 💾 Workflow /save — Lưu Trạng Thái Công Việc v4.0
 
 ## Mục đích
-Lưu TOÀN BỘ ngữ cảnh phiên làm việc vào workspace, giúp phiên sau dùng `/recap` để khôi phục context và tiếp tục dự án.
+Lưu TOÀN BỘ ngữ cảnh phiên làm việc vào workspace + TỰ ĐỘNG sync dashboard.
 
 ## Bước 1: Thu thập thông tin phiên hiện tại
 Tự động quét conversation hiện tại và thu thập:
@@ -109,31 +106,67 @@ Copy file session vào: `_abm/Context-Layer/Second-Brain/memory/saves/`
 cp "{workspace-root}/.abm-sessions/SESSION-{NNN}-{date}.md" "_abm/Context-Layer/Second-Brain/memory/saves/"
 ```
 
-## Bước 8: Hiển thị xác nhận
-```
-💾 ĐÃ LƯU — SESSION-{NNN} | {date} {time}
-📌 {title}
-✅ Hoàn thành: {N} | 🔄 Đang làm: {N} | ❌ Blocked: {N}
-📋 Phiên sau: {priority task #1}
-📂 File: .abm-sessions/SESSION-{NNN}-{date}.md
-💡 Dùng /recap để khôi phục context phiên sau!
+## Bước 8: Cập nhật task-history.json (MỚI v4.0)
+**QUAN TRỌNG: Bước này đảm bảo dashboard hiển thị dữ liệu thật.**
+
+1. Đọc file `{workspace-root}/dashboard/task-history.json` hiện tại
+2. Xác định task MỚI chưa có trong file (so sánh theo `id`)
+3. Với mỗi task mới, tạo entry với ĐẦY ĐỦ detail fields:
+
+```json
+{
+    "id": "TASK-{NNN}",
+    "date": "{YYYY-MM-DD}",
+    "title": "{tiêu đề task}",
+    "department": "{phòng ban: Ban Giám Đốc|Marketing|Kinh Doanh|HC — Nhân Sự|Đào Tạo|IT — Công Nghệ|R&D|CSKH|Kế Toán|Pháp Chế|Vận Hành}",
+    "agent": "{agent đã thực hiện}",
+    "worker": "{worker đã thực hiện}",
+    "skills": ["skill-1", "skill-2"],
+    "status": "{done|in_progress|blocked}",
+    "completion": 100,
+    "result": "{kết quả 1 dòng}",
+    "description": "{mô tả chi tiết 2-3 câu về việc đã làm}",
+    "files_changed": ["{file1}", "{file2}"],
+    "decisions": ["{quyết định 1}", "{quyết định 2}"],
+    "evidence": "{bằng chứng xác minh}",
+    "session_id": "SESSION-{NNN}",
+    "duration_minutes": {số phút ước tính}
+}
 ```
 
+4. Append tasks mới vào array, ghi lại `task-history.json` (UTF-8, formatted)
+5. Nếu task ĐÃ CÓ nhưng status thay đổi → UPDATE status + completion
+
 ## Bước 9: Sync Dashboard (TỰ ĐỘNG)
-Chạy sync script để cập nhật dashboard:
+Chạy sync script để re-generate `task-data.js` từ `task-history.json`:
 ```bash
 powershell -ExecutionPolicy Bypass -File "{workspace-root}/dashboard/sync.ps1"
 ```
 Script sẽ:
-- Quét workspace: đếm skills, routes, workflows, subagents
-- Đọc `task-history.json`
-- Tạo lại `dashboard/task-data.js`
+- Đọc `task-history.json` (với detail fields)
+- Quét workspace: đếm skills, routes, workflows, subagents, workers
+- Tạo lại `dashboard/task-data.js` v4.0 (bao gồm detail)
 - Dashboard tự cập nhật khi refresh (F5)
 
-## Bước 10: Commit (tùy chọn)
+**Xác minh sau sync:**
+- Kiểm tra `task-data.js` có đủ tasks mới
+- Kiểm tra WORKSPACE_STATS cập nhật đúng
+
+## Bước 10: Hiển thị xác nhận
+```
+💾 ĐÃ LƯU — SESSION-{NNN} | {date} {time}
+📌 {title}
+✅ Hoàn thành: {N} | 🔄 Đang làm: {N} | ❌ Blocked: {N}
+📊 Dashboard: {N} tasks synced (with detail)
+📋 Phiên sau: {priority task #1}
+📂 Session: .abm-sessions/SESSION-{NNN}-{date}.md
+📂 Tasks: dashboard/task-history.json ({total} tasks)
+💡 Dùng /recap để khôi phục context phiên sau!
+```
+
+## Bước 11: Commit (tùy chọn)
 Nếu CEO muốn commit:
 ```bash
 git add .abm-sessions/ dashboard/
 git commit -m "save: SESSION-{NNN} — {title}"
 ```
-
