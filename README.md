@@ -215,7 +215,7 @@ graph TB
 | `/finance` | 💵 Kế toán, tài chính | Bảng lương, phân tích chi phí |
 | `/legal` | ⚖️ Pháp chế, hợp đồng | Soạn hợp đồng coaching |
 | `/rd` | 🔬 Nghiên cứu, benchmark | Trend AI 2026, benchmark đối thủ |
-| `/save` | 💾 Lưu trạng thái | Backup phiên quan trọng |
+| `/save` | 💾 **BẮT BUỘC** — Lưu + sync dashboard | **Luôn gõ sau mỗi task!** |
 | `/recap` | 🔄 Khôi phục phiên trước | Tiếp tục việc dang dở |
 | `/product-launch` | 🎯 Ra mắt sản phẩm | Launch khóa học mới |
 | `/council` | 🏛️ Hội đồng đánh giá | 8 personas phản biện |
@@ -347,12 +347,141 @@ pie title 79 Skills Phân Bổ Theo Tier
 
 ---
 
+## 💾 /save — QUAN TRỌNG: Lưu Phiên & Đồng Bộ Dashboard
+
+> ⚠️ **LUÔN gõ `/save` sau mỗi task hoặc cuối ngày làm việc!**
+> Không `/save` = mất context + dashboard không cập nhật.
+
+### Tại sao phải /save?
+
+ABM Workforce hoạt động qua **nhiều phiên** (conversations). AI không tự nhớ phiên trước. `/save` lưu toàn bộ ngữ cảnh để phiên sau dùng `/recap` khôi phục và tiếp tục.
+
+### /save làm gì?
+
+```mermaid
+graph LR
+    A["💾 Bạn gõ /save"] --> B["📝 Tạo SESSION file"]
+    B --> C["📋 Ghi task-history.json"]
+    C --> D["🔄 Chạy sync.ps1"]
+    D --> E["📊 Tạo task-data.js"]
+    E --> F["🖥️ Dashboard cập nhật"]
+
+    B --> G["📂 .abm-sessions/"]
+    C --> H["📂 dashboard/"]
+
+    style A fill:#f59e0b,color:#fff,stroke:#d97706
+    style F fill:#22c55e,color:#fff,stroke:#16a34a
+```
+
+### Pipeline chi tiết — 11 bước tự động
+
+| Bước | Hành động | Kết quả |
+|:----:|-----------|--------|
+| 1 | Thu thập context phiên | Tasks, files, decisions, knowledge |
+| 2 | Phân loại save | `task_save` / `daily_save` / `milestone_save` |
+| 3-5 | Tạo SESSION file | `.abm-sessions/SESSION-{NNN}-{date}.md` |
+| 6 | Cập nhật INDEX | `.abm-sessions/INDEX.md` |
+| 7 | Backup Second-Brain | `_abm/Context-Layer/Second-Brain/memory/saves/` |
+| 8 | **Ghi task-history.json** | Mỗi task: description, files, decisions, evidence |
+| 9 | **Sync dashboard** | `sync.ps1` → `task-data.js` → dashboard live |
+| 10 | Hiển thị xác nhận | Tóm tắt + next steps |
+| 11 | Commit (tùy chọn) | `git add .abm-sessions/ dashboard/` |
+
+### Khi nào /save?
+
+```
+🟢 Sau mỗi task lớn    →  /save      (lưu ngay, an toàn)
+🟡 Cuối ngày làm việc  →  /save      (tổng kết ngày)
+🔴 Đạt milestone       →  /save      (backup quan trọng)
+🔄 Phiên sau           →  /recap     (khôi phục context)
+```
+
+> 💡 **Mỗi `/save` tự động update dashboard** — CEO mở `dashboard/index.html` là thấy toàn bộ công việc mới nhất.
+
+---
+
+## 📊 Dashboard v4.0 — Trung Tâm Điều Khiển
+
+### Mở dashboard
+
+```
+📂 Mở file: dashboard/index.html
+🌐 Hoặc double-click file trong Explorer
+```
+
+### 11 Phòng Ban — Mỗi phòng có View riêng
+
+```mermaid
+graph TB
+    subgraph SIDEBAR["📋 Sidebar Navigation"]
+        OV["📊 Tổng Quan"]
+        D1["👔 Ban Giám Đốc"]
+        D2["📢 Marketing"]
+        D3["💰 Kinh Doanh"]
+        D4["👥 HC—Nhân Sự"]
+        D5["🎓 Đào Tạo"]
+        D6["🌐 IT—Công Nghệ"]
+        D7["🔬 R&D"]
+        D8["🤝 CSKH"]
+        D9["💵 Kế Toán"]
+        D10["⚖️ Pháp Chế"]
+        D11["⚙️ Vận Hành"]
+    end
+    subgraph VIEW["🖥️ Department View"]
+        S["📈 Stats"]
+        T["📋 Task Table"]
+        SK["🧩 Top Skills"]
+        TL["📅 Timeline"]
+    end
+
+    D1 --> VIEW
+    D5 --> VIEW
+    D7 --> VIEW
+
+    style SIDEBAR fill:#0f1320,color:#e8eaf0,stroke:#1e2740
+    style VIEW fill:#141925,color:#e8eaf0,stroke:#1e2740
+```
+
+### Click Task → Chi Tiết Thật
+
+Bấm vào bất kỳ task nào trên dashboard → **slide panel hiện 7 mục thông tin thật**:
+
+| # | Mục | Dữ liệu |
+|:-:|-----|--------|
+| 1 | 📝 Mô tả chi tiết | Bối cảnh + việc đã làm cụ thể |
+| 2 | ✅ Kết quả | Thành quả đạt được |
+| 3 | 📁 Files thay đổi | Danh sách file tác động |
+| 4 | 💡 Quyết định | Logic + lựa chọn của AI |
+| 5 | 🔍 Bằng chứng | Log, output, kết quả xác minh |
+| 6 | 🧩 Skills sử dụng | Kỹ năng AI huy động |
+| 7 | 📊 Tiến độ | Progress bar |
+
+> 🔥 **Dashboard = CEO nhìn toàn cảnh. Click = xem chi tiết.** Không cần đọc log AI — tất cả tổng hợp sẵn.
+
+### Dashboard Features
+
+| Feature | Mô tả |
+|---------|-------|
+| **Tổng Quan** | Stats (skills, tasks, workflows), 11 department cards, timeline, health status |
+| **Department View** | Filter task theo phòng, top skills chart, timeline riêng |
+| **Daily Report** | Báo cáo ngày, so sánh với hôm trước |
+| **Analytics** | Phân tích skills, agents, task distribution |
+| **Task Detail** | Click → slide panel 7 sections chi tiết thật |
+| **Dark Theme** | Giao diện premium, responsive |
+
+---
+
 ## 📁 Cấu Trúc
 
 ```
 abm-workforce/
 ├── 🔧 setup.ps1 / setup.sh / setup.bat     ← Cài đặt 1 phút
 ├── 📖 README.md                              ← File này
+├── 📊 dashboard/                             ← Dashboard v4.0
+│   ├── index.html                            ← Mở để xem dashboard
+│   ├── task-data.js                          ← Data tasks (auto-generated)
+│   ├── task-history.json                     ← Lịch sử task chi tiết
+│   └── sync.ps1                              ← Script đồng bộ
 ├── _abm/
 │   ├── bmm/agents/skills/   (79 skills)     ← AI skills
 │   ├── SubAgents/           (5 specialists)  ← Chuyên gia AI  
@@ -361,6 +490,9 @@ abm-workforce/
 │   ├── Team-Orchestration/  (3 pipelines)    ← Quy trình tự động
 │   └── _config/                              ← Manifests
 ├── .agents/workflows/       (20 commands)    ← Slash commands
+├── .abm-sessions/                            ← Session saves (/save)
+│   ├── INDEX.md                              ← Danh mục sessions
+│   └── SESSION-{NNN}-{date}.md               ← Chi tiết mỗi phiên
 └── _abm-output/                              ← Kết quả
 ```
 
@@ -388,6 +520,12 @@ graph TB
 ---
 
 ## 📝 Changelog
+
+### v4.1 (2026-03-15) — Dashboard + /save Pipeline
+- ✅ Dashboard v4.0: 11 phòng ban, task detail modal, analytics
+- ✅ `/save` pipeline: SESSION → task-history.json → sync → dashboard
+- ✅ Click task → slide panel 7 sections (description, files, decisions, evidence)
+- ✅ 28 tasks tracked, enriched data từ công việc thực tế
 
 ### v4.0 (2026-03-14) — Hybrid 3-Tier + Auto Setup
 - ✅ Auto-setup: 1 phút cài đặt, cross-platform
