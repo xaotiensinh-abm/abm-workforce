@@ -8,11 +8,12 @@
 
 <br>
 
-[![Version](https://img.shields.io/badge/version-4.0-blue.svg?style=flat-square)](https://github.com/xaotiensinh-abm/abm-workforce)
-[![Skills](https://img.shields.io/badge/79_AI_Skills-ready-brightgreen.svg?style=flat-square)](#-79-skills--5-chuyên-gia-ai--sẵn-sàng-nhận-lệnh)
+[![Version](https://img.shields.io/badge/version-4.3-blue.svg?style=flat-square)](https://github.com/xaotiensinh-abm/abm-workforce)
+[![Skills](https://img.shields.io/badge/111_AI_Skills-ready-brightgreen.svg?style=flat-square)](#-111-skills--6-chuyên-gia-ai)
 [![Setup](https://img.shields.io/badge/setup-1_phút-orange.svg?style=flat-square)](#-cài-đặt-trong-60-giây)
-[![Score](https://img.shields.io/badge/audit-9.0%2F10-success.svg?style=flat-square)](#-audit-score-9010)
+[![Score](https://img.shields.io/badge/audit-9.2%2F10-success.svg?style=flat-square)](#-audit--hiệu-suất)
 [![Vietnamese](https://img.shields.io/badge/🇻🇳-100%25_Tiếng_Việt-red.svg?style=flat-square)](#)
+[![Token](https://img.shields.io/badge/token_optimized-▼45%25-blueviolet.svg?style=flat-square)](#-context--token-optimization)
 
 <br>
 
@@ -31,14 +32,12 @@
 > *"Nhân viên marketing nghỉ, content kênh Facebook chết 2 tuần..."*
 > 
 > *"Muốn dùng AI nhưng không biết bắt đầu từ đâu, prompt kiểu gì..."*
-> 
-> *"ChatGPT trả lời chung chung, không hiểu business của mình..."*
 
 ### ABM Workforce giải quyết TẤT CẢ — trong **1 phút cài đặt**.
 
 Bạn nói: *"Viết proposal coaching AI cho chuỗi nhà hàng, giá 250 triệu"*
 
-Jarvis tự động: **phân tích → chọn chuyên gia → giao việc → kiểm tra → trả proposal 6 phần hoàn chỉnh** — sẵn gửi khách.
+Jarvis tự động: **phân tích → chọn chuyên gia → giao việc → kiểm tra → trả proposal hoàn chỉnh** — sẵn gửi khách.
 
 <div align="center">
 
@@ -54,17 +53,18 @@ Jarvis tự động: **phân tích → chọn chuyên gia → giao việc → ki
 
 | | ChatGPT / Gemini | **ABM Workforce** |
 |---|:---:|:---:|
-| **Số AI** | 1 AI "biết tuốt" | **5 chuyên gia + 5 worker** chuyên trách |
+| **Số AI** | 1 AI "biết tuốt" | **6 chuyên gia + 5 worker** chuyên trách |
+| **Skills** | Generic | **111 skills** tối ưu cho SME Việt Nam |
 | **Ngôn ngữ** | Trộn Anh-Việt | **100% Tiếng Việt** chuẩn business |
-| **Trí nhớ** | Quên sau mỗi chat | **Second Brain 12 files** — nhớ vĩnh viễn |
+| **Trí nhớ** | Quên sau mỗi chat | **Second Brain + NotebookLM** — nhớ vĩnh viễn |
 | **Kiểm chứng** | Không ai kiểm tra | **Hợp đồng + Chứng nhận + Bằng chứng** |
 | **Phân công** | Bạn tự làm hết | **Jarvis tự routing** đúng chuyên gia |
-| **Slash commands** | ❌ | **20 lệnh tắt** — `/marketing`, `/sales`... |
-| **Skill chuyên sâu** | Generic | **79 skills** tối ưu cho SME Việt Nam |
-| **Giá** | $20/tháng, tự prompt | **Miễn phí** + có đội ngũ sẵn |
+| **Commands** | ❌ | **21 lệnh tắt** — `/marketing`, `/sales`, `/affiliate`... |
+| **Token** | Không tối ưu | **Giảm 45%** context consumption |
+| **Giá** | $20/tháng | **Miễn phí** + có đội ngũ sẵn |
 
 > 💡 **ChatGPT là 1 nhân viên biết tuốt nhưng không chuyên gì.**
-> **ABM là đội ngũ 10 chuyên gia**, mỗi người giỏi 1 lĩnh vực — và có quản lý (Jarvis) điều phối.
+> **ABM là đội ngũ 11 chuyên gia**, mỗi người giỏi 1 lĩnh vực — và có quản lý (Jarvis) điều phối.
 
 ---
 
@@ -85,31 +85,22 @@ Jarvis tự động: **phân tích → chọn chuyên gia → giao việc → ki
    ✅ Bài 3: Pain point — "Nhân viên nghỉ, ai viết content?"
    ✅ Bài 4: How-to — "3 bước biến AI thành trợ lý kinh doanh"
    ✅ Bài 5: CTA urgency — "Chỉ còn 5 suất coaching 1:1 trong Q2"
-   + Hashtags + CTA + Emoji optimized
 
 📋 Chứng nhận: status=xong | confidence=0.95 | 5 bài sẵn đăng
 ```
-
-<div align="center">
-
-### 5 bài content Facebook trong 2 phút. Không cần thuê copywriter.
-
-**[🚀 Thử Ngay →](#-cài-đặt-trong-60-giây)**
-
-</div>
 
 ---
 
 ## ⚡ Cài Đặt Trong 60 Giây
 
-### Windows (PowerShell) — Khuyến nghị
+### Windows (PowerShell)
 ```powershell
 git clone https://github.com/xaotiensinh-abm/abm-workforce.git
 cd abm-workforce
 .\setup.ps1
 ```
 
-### Windows (Không biết code? Double-click!)
+### Windows (Double-click!)
 ```
 1. Download repo → Giải nén
 2. Double-click → setup.bat
@@ -123,99 +114,101 @@ cd abm-workforce
 chmod +x setup.sh && ./setup.sh
 ```
 
-### Setup tự động làm gì?
-
 ```mermaid
 graph LR
     A["📦 Clone Repo"] --> B["▶️ setup.ps1"]
-    B --> C["🔗 Kích hoạt<br/>79 Skills"]
-    B --> D["📋 Cài đặt<br/>20 Workflows"]
-    B --> E["📜 Áp dụng<br/>Rules tiếng Việt"]
+    B --> C["🔗 111 Skills"]
+    B --> D["📋 21 Workflows"]
+    B --> E["📜 Rules TV"]
     C --> F["✅ SẴN SÀNG"]
     D --> F
     E --> F
-    F --> G["🚀 Gõ /jarvis"]
+    F --> G["🚀 /jarvis"]
 
     style F fill:#22c55e,color:#fff,stroke:#16a34a
     style G fill:#3b82f6,color:#fff,stroke:#2563eb
 ```
 
-```
-Kết quả sau setup:
-  ✅ Global skills: 79 — sẵn sàng
-  ✅ Global workflows: 20 — sẵn sàng  
-  ✅ Global rules: tiếng Việt 100%
-  🎉 ABM Workforce installed successfully!
-```
-
-<div align="center">
-
-### Quản lý
-```
-.\setup.ps1              # Cài đặt
-.\setup.ps1 -Force       # Cài lại
-.\setup.ps1 -Verify      # Kiểm tra
-.\setup.ps1 -Uninstall   # Gỡ bỏ
-```
-
-</div>
-
 ---
 
-## 🤖 79 Skills + 5 Chuyên Gia AI — Sẵn Sàng Nhận Lệnh
+## 🤖 111 Skills + 6 Chuyên Gia AI
 
-### Delegation Chain — Đội Ngũ AI Của Bạn
+### Kiến Trúc Delegation Chain
 
 ```mermaid
 graph TB
-    CEO["👔 BẠN<br/>Ra lệnh tiếng Việt"]
-    J["🧠 Jarvis<br/>Lead Orchestrator<br/>Phân tích + Điều phối"]
-    M["📢 Marketing<br/>Content, SEO, Email"]
-    S["💰 Sales<br/>Proposal, Pricing"]
-    H["👥 HR<br/>Tuyển dụng, Đào tạo"]
-    T["🎓 Training<br/>Khóa học, Workshop"]
-    W["🌐 Web<br/>Website, Landing Page"]
+    CEO["👔 CEO<br>Ra lệnh tiếng Việt"]
+    J["🧠 Jarvis<br>Lead Orchestrator<br>~2,200 tokens (slim)"]
+
+    subgraph SPECIALISTS["6 Chuyên Gia"]
+        M["📢 Marketing<br>content, SEO, email"]
+        S["💰 Sales<br>proposal, pricing"]
+        H["👥 HR<br>tuyển dụng, đào tạo"]
+        T["🎓 Training<br>khóa học, workshop"]
+        W["🌐 Web<br>website, landing"]
+        AF["🔗 Affiliate<br>32 skills, 8 stages"]
+    end
+
+    subgraph SKILLS["111 Skills (load max 3/task)"]
+        S1["78 ABM Core"]
+        S2["32 Affiliate"]
+        S3["1 UUPM v2.0"]
+    end
 
     CEO ==>|"Yêu cầu"| J
-    J -->|"Hợp đồng"| M
-    J -->|"Hợp đồng"| S
-    J -->|"Hợp đồng"| H
-    J -->|"Hợp đồng"| T
-    J -->|"Hợp đồng"| W
-    M -.->|"Chứng nhận + Bằng chứng"| J
-    S -.->|"Chứng nhận + Bằng chứng"| J
-    H -.->|"Chứng nhận + Bằng chứng"| J
-    T -.->|"Chứng nhận + Bằng chứng"| J
-    W -.->|"Chứng nhận + Bằng chứng"| J
-    J ==>|"📋 Báo cáo hoàn chỉnh"| CEO
+    J -->|"Hợp đồng"| SPECIALISTS
+    SPECIALISTS -.->|"Chứng nhận<br>+ Bằng chứng"| J
+    J ==>|"📋 Báo cáo"| CEO
+    SPECIALISTS --> SKILLS
 
     style CEO fill:#f97316,color:#fff,stroke:#ea580c
     style J fill:#3b82f6,color:#fff,stroke:#2563eb
-    style M fill:#8b5cf6,color:#fff
-    style S fill:#10b981,color:#fff
-    style H fill:#ec4899,color:#fff
-    style T fill:#f59e0b,color:#fff
-    style W fill:#06b6d4,color:#fff
+    style SPECIALISTS fill:#1e1e2e,color:#e8eaf0,stroke:#3b82f6
+    style SKILLS fill:#1e1e2e,color:#e8eaf0,stroke:#22c55e
 ```
 
-### 20 Slash Commands — Gõ 1 Lệnh, Nhận Kết Quả
+### Lazy-Load Architecture (v4.3)
 
-| Lệnh | Việc gì? | Ví dụ thực tế |
-|-------|---------|---------------|
-| `/jarvis` | 🧠 Tổng đài — Jarvis tự phán đoán | `/jarvis` rồi mô tả yêu cầu |
-| `/marketing` | 📢 Content, SEO, social, email | Viết 5 bài FB cho CEO SME |
-| `/sales` | 💰 Proposal, cold email, pricing | Proposal tư vấn AI cho chuỗi FnB |
-| `/hr` | 👥 JD, tuyển dụng, onboarding | JD tuyển HLV AI, lương 15-25tr |
-| `/training` | 🎓 Khóa học, giáo trình, workshop | Thiết kế khóa "AI cho HR" 4 buổi |
-| `/dev` | 💻 Website, bug fix, landing page | Sửa landing page, thêm form |
-| `/report` | 📊 Báo cáo, KPI, phân tích | Báo cáo tháng 3, 45 HV mới |
-| `/docs` | 📄 SOP, proposal, memo | SOP onboarding khách coaching |
-| `/review` | 🔍 Đánh giá phản biện đa chiều | Review chiến lược marketing Q1 |
+```mermaid
+graph LR
+    subgraph ALWAYS["🟢 LUÔN Load (~2,900 tokens)"]
+        R["RULES.md<br>694 tokens"]
+        JO["Jarvis Slim<br>2,177 tokens"]
+    end
+
+    subgraph ONDEMAND["🟡 Load Khi Cần"]
+        DP["Delegation Protocol<br>928 tokens"]
+        SA["SubAgent<br>~600 tokens"]
+        SK["3 Skills<br>~3,800 tokens"]
+    end
+
+    ALWAYS -->|"Task cần delegate"| ONDEMAND
+
+    style ALWAYS fill:#dcfce7,stroke:#16a34a
+    style ONDEMAND fill:#fef3c7,stroke:#d97706
+```
+
+> 💡 **v4.3 giảm 45% token**: Jarvis orchestrator tách thành slim (luôn load) + delegation protocol (chỉ load khi ủy quyền). RULES.md giảm 75%.
+
+### 21 Slash Commands
+
+| Lệnh | Việc gì? | Ví dụ |
+|-------|---------|-------|
+| `/jarvis` | 🧠 Tổng đài — Jarvis tự phán đoán | Mô tả yêu cầu bất kỳ |
+| `/marketing` | 📢 Content, SEO, social, email | 5 bài FB cho CEO SME |
+| `/sales` | 💰 Proposal, cold email, pricing | Proposal tư vấn AI cho FnB |
+| `/hr` | 👥 JD, tuyển dụng, onboarding | JD tuyển HLV AI |
+| `/training` | 🎓 Khóa học, giáo trình, workshop | Khóa "AI cho HR" 4 buổi |
+| `/dev` | 💻 Website, bug fix, landing page | Sửa landing, thêm form |
+| `/affiliate` | 🔗 Affiliate funnel, commission | Tìm chương trình, viết review |
+| `/report` | 📊 Báo cáo, KPI, phân tích | Báo cáo tháng 3 |
+| `/docs` | 📄 SOP, proposal, memo | SOP onboarding khách |
+| `/review` | 🔍 Đánh giá phản biện đa chiều | Review chiến lược Q1 |
 | `/cskh` | 🤝 Chăm sóc khách hàng | Follow-up, churn prevention |
-| `/finance` | 💵 Kế toán, tài chính | Bảng lương, phân tích chi phí |
+| `/finance` | 💵 Kế toán, tài chính | Bảng lương, chi phí |
 | `/legal` | ⚖️ Pháp chế, hợp đồng | Soạn hợp đồng coaching |
-| `/rd` | 🔬 Nghiên cứu, benchmark | Trend AI 2026, benchmark đối thủ |
-| `/save` | 💾 **BẮT BUỘC** — Lưu + sync dashboard | **Luôn gõ sau mỗi task!** |
+| `/rd` | 🔬 Nghiên cứu, benchmark | Trend AI 2026 |
+| `/save` | 💾 Lưu phiên + sync dashboard | **Luôn gõ sau mỗi task!** |
 | `/recap` | 🔄 Khôi phục phiên trước | Tiếp tục việc dang dở |
 | `/product-launch` | 🎯 Ra mắt sản phẩm | Launch khóa học mới |
 | `/council` | 🏛️ Hội đồng đánh giá | 8 personas phản biện |
@@ -228,28 +221,28 @@ graph TB
 ```
 ✅ "Jarvis viết email follow-up cho 200 học viên chưa gia hạn"
 ✅ "Jarvis tạo kịch bản chatbot tư vấn khóa học cho Zalo OA"
-✅ "Jarvis phân tích đối thủ ABC Education về giá và chương trình"
+✅ "Jarvis tìm chương trình affiliate AI tools, commission recurring"
 ✅ "Jarvis thiết kế agenda workshop AI cho doanh nghiệp, 4 tiếng"
 ```
 
-> 🔥 **Không cần nhớ lệnh. Không cần prompt engineering. Nói tiếng Việt bình thường là được.**
+> 🔥 **Không cần nhớ lệnh. Không cần prompt engineering. Nói tiếng Việt bình thường.**
 
 ---
 
-## 🏗️ Hệ Thống Được Xây Dựng Bài Bản
+## 🏗️ Kiến Trúc Hệ Thống
 
-### Hybrid 3-Tier — 79 Skills Không Phải Con Số Ngẫu Nhiên
+### Hybrid 3-Tier — 111 Skills Được Tổ Chức Bài Bản
 
 ```mermaid
 graph LR
     subgraph T1["🟢 Tier 1 — Nhẹ (29 skills)"]
-        A1["SKILL.md<br/>≤ 120 dòng<br/>Load nhanh"]
+        A1["SKILL.md<br>≤ 120 dòng<br>Load nhanh"]
     end
     subgraph T2["🔵 Tier 2 — Chuẩn (40 skills)"]
-        A2["SKILL.md + CHECKLIST.md<br/>Quality gate"]
+        A2["SKILL.md + CHECKLIST.md<br>Quality gate"]
     end
-    subgraph T3["🟡 Tier 3 — Pro (10 skills)"]
-        A3["SKILL.md + CHECKLIST<br/>+ EXAMPLES + scripts/"]
+    subgraph T3["🟡 Tier 3 — Pro (42 skills)"]
+        A3["SKILL.md + CHECKLIST<br>+ EXAMPLES + scripts/"]
     end
 
     style T1 fill:#dcfce7,stroke:#16a34a
@@ -257,40 +250,107 @@ graph LR
     style T3 fill:#fef3c7,stroke:#d97706
 ```
 
-### Hợp Đồng → Chứng Nhận — Tại Sao Output ABM Luôn Chất Lượng
+### Hợp Đồng → Chứng Nhận — Tại Sao Output Luôn Chất Lượng
 
 ```mermaid
 graph LR
-    subgraph HĐ["📝 MỌI việc có Hợp Đồng"]
+    subgraph HD["📝 MỌI việc có Hợp Đồng"]
         O["🎯 Mục tiêu rõ"]
-        SI["✅ Được phép làm gì"]
-        SO["🚫 Cấm làm gì"]
-        AC["📋 Tiêu chí pass/fail"]
-        BG["💰 Giới hạn budget"]
+        SI["✅ Scope in"]
+        SO["🚫 Scope out"]
+        AC["📋 Pass/fail"]
+        BG["💰 Budget"]
     end
     subgraph CN["📜 MỌI kết quả có Chứng Nhận"]
-        ST["✅ Trạng thái"]
-        EV["📸 Bằng chứng"]
-        CF["📊 Độ tin cậy 0→1"]
+        ST["✅ Status"]
+        EV["📸 Evidence"]
+        CF["📊 Confidence"]
     end
 
-    HĐ ==>|"Worker thực hiện<br/>trong phạm vi"| CN
+    HD ==>|"Worker thực hiện<br>trong phạm vi"| CN
 
-    style HĐ fill:#dbeafe,stroke:#2563eb
+    style HD fill:#dbeafe,stroke:#2563eb
     style CN fill:#dcfce7,stroke:#16a34a
 ```
 
-> 💡 **Giống như giao KPI cho nhân viên**: rõ mục tiêu, rõ phạm vi, rõ deadline — và nhân viên phải báo cáo kèm bằng chứng. Không "chắc là xong" mà không chứng minh.
-
 ### Second Brain — AI Hiểu Doanh Nghiệp Của Bạn
 
-| Knowledge File | Dữ liệu |
-|---------------|---------|
-| `vn-digital-marketing.md` | 85.6M users, $3.1B ads, FB 87.3M |
-| `coaching-industry.md` | $6.25B global market, pricing benchmarks |
-| `seo-knowledge.md` | Core Web Vitals, E-E-A-T, VN SEO |
-| `competitive-analysis.md` | Đối thủ, USPs, định vị thị trường |
-| + 8 files nữa... | Patterns, playbook, tech stack, lessons |
+| Layer | Dữ liệu | Công nghệ |
+|-------|---------|-----------|
+| 12 Knowledge Files | VN market, coaching, SEO, đối thủ | Markdown files |
+| NotebookLM | Semantic skill routing, long-term memory | Google NotebookLM API |
+| Session Saves | Lịch sử task, context phiên | `/save` + `/recap` |
+| Task History | Tracking toàn bộ task + evidence | `task-history.json` |
+
+---
+
+## 🔗 Phòng Affiliate — 32 Skills × 8 Stages
+
+```mermaid
+graph LR
+    S1["🔍 S1<br>Research"] --> S2["✍️ S2<br>Content"]
+    S2 --> S3["📝 S3<br>Blog"]
+    S3 --> S4["🎯 S4<br>Landing"]
+    S4 --> S5["📤 S5<br>Distribute"]
+    S5 --> S6["📊 S6<br>Analytics"]
+    S6 --> S7["⚡ S7<br>Automate"]
+    S7 --> S8["🗺️ S8<br>Meta"]
+    S8 -.->|"Improve"| S1
+
+    style S1 fill:#3b82f6,color:#fff
+    style S2 fill:#8b5cf6,color:#fff
+    style S3 fill:#ec4899,color:#fff
+    style S4 fill:#f97316,color:#fff
+    style S5 fill:#eab308,color:#fff
+    style S6 fill:#22c55e,color:#fff
+    style S7 fill:#06b6d4,color:#fff
+    style S8 fill:#6366f1,color:#fff
+```
+
+| Stage | Skills | Ví dụ |
+|-------|:------:|-------|
+| **S1 Research** | 4 | Tìm chương trình, phân tích niche |
+| **S2 Content** | 4 | Viết content viral, TikTok script |
+| **S3 Blog** | 4 | Bài review SEO, so sánh X vs Y |
+| **S4 Landing** | 4 | Landing page, squeeze page |
+| **S5 Distribute** | 4 | Email sequence, deploy, schedule |
+| **S6 Analytics** | 4 | UTM tracking, A/B test, report |
+| **S7 Automate** | 4 | Scale, repurpose, portfolio |
+| **S8 Meta** | 4 | Funnel planner, compliance |
+
+> Hướng dẫn sử dụng chi tiết: `_abm-output/affiliate/HUONG-DAN-AFFILIATE.md`
+
+---
+
+## ⚡ Context & Token Optimization
+
+### v4.3 — Giảm 45% Token Consumption
+
+```mermaid
+graph LR
+    subgraph BEFORE["❌ Trước v4.3"]
+        B1["13,078 tokens/call"]
+    end
+    subgraph AFTER["✅ Sau v4.3"]
+        A1["7,150 tokens/call"]
+    end
+
+    BEFORE -->|"-45%"| AFTER
+
+    style BEFORE fill:#ef4444,color:#fff
+    style AFTER fill:#22c55e,color:#fff
+```
+
+| Component | Trước | Sau | Giảm |
+|-----------|:-----:|:---:|:----:|
+| RULES.md | 2,780 | **694** | -75% |
+| Jarvis Orchestrator | 5,819 | **2,177** | -63% |
+| Delegation Protocol | (gộp) | 928 (lazy) | On-demand |
+
+**Cách thức:**
+1. **Tách Jarvis** → slim (luôn load) + delegation protocol (lazy-load khi cần ủy quyền)
+2. **Slim RULES.md** — bỏ ASCII diagram, gộp routing, tóm tắt format
+3. **Lazy-load Skills** — routing table trong Jarvis, chỉ load SKILL.md khi chọn xong
 
 ---
 
@@ -302,198 +362,109 @@ graph LR
 | 2 | "Viết bài Facebook" | "5 bài FB cho CEO SME 35-50 tuổi, tone chuyên gia" |
 | 3 | "Viết proposal" | "Proposal tư vấn AI cho chuỗi 10 phòng khám, 500tr/năm" |
 | 4 | "Phân tích đối thủ" | "Bảng so sánh: Giá / Chương trình / Điểm mạnh / yếu" |
-| 5 | "Viết content" | "Tone chia sẻ giá trị, không bán hàng trắng trợn" |
-| 6 | "Viết vài bài" | "5 bài, 300-500 từ, kèm hashtag và CTA" |
-| 7 | "Tạo kế hoạch" | "Marketing 30 ngày, budget 20tr, focus FB + Zalo" |
-| 8 | "Viết mẫu email" | "3 mẫu: chào mừng, nhắc học, upsell — kèm subject A/B" |
-| 9 | "Sửa lại" | "Thêm ROI dự kiến, bỏ đoạn giới thiệu dài" |
-| 10 | "Viết theo kiểu..." | "Theo format trong `_abm-output/proposal-mau.md`" |
+| 5 | "Tạo kế hoạch" | "Marketing 30 ngày, budget 20tr, focus FB + Zalo" |
 
 ---
 
-## 🔧 Scripts Tự Động — Chạy 1 Lệnh, Nhận Kết Quả
+## 💾 /save — Lưu Phiên & Đồng Bộ Dashboard
 
-| Script | Chức năng | Lệnh |
-|--------|----------|------|
-| SEO Audit | Scan robots.txt, HTTPS, speed, meta | `.\run-seo-audit.ps1 -Url "https://abc.vn"` |
-| Benchmark | Test tốc độ N lần | `.\run-benchmark.ps1 -Url "https://abc.vn"` |
-| Security | Scan secrets, PII, scope | `.\security-check.ps1` |
-| Code Review | Auto checklist | `.\review-checklist.ps1 -File "app.js"` |
-| Quiz Generator | Tạo đề thi | `.\generate-quiz.ps1 -Module "AI"` |
-
----
-
-## 📊 Audit Score: 9.0/10
-
-```mermaid
-pie title 79 Skills Phân Bổ Theo Tier
-    "Tier 1 — Nhẹ, load nhanh (29)" : 29
-    "Tier 2 — Chuẩn + Quality Gate (40)" : 40
-    "Tier 3 — Pro + Scripts (10)" : 10
-```
-
-| Chiều đánh giá | Điểm | Bằng chứng |
-|----------------|:----:|-----------|
-| Kiến trúc | **9** | Hybrid 3-Tier + manifest-sync |
-| Kiểm soát chất lượng | **9** | 47 CHECKLIST + attestation |
-| Độ phủ skill | **9** | 79 skills: web, business, security |
-| Chất lượng skill | **9** | 7 scripts, avg 150+ dòng |
-| Đội ngũ AI | **9** | 5 SubAgents + 5 Workers |
-| Workflows | **9** | 20 workflows + 3 pipelines |
-| Quản lý context | **9** | 116→79, tối ưu 32% |
-| Knowledge Base | **9** | 12 files deep research |
-| Truy vết | **9** | CHANGELOG + manifests |
-| Bảo mật | **9** | prompt-sentinel + PII scan |
-
----
-
-## 💾 /save — QUAN TRỌNG: Lưu Phiên & Đồng Bộ Dashboard
-
-> ⚠️ **LUÔN gõ `/save` sau mỗi task hoặc cuối ngày làm việc!**
-> Không `/save` = mất context + dashboard không cập nhật.
-
-### Tại sao phải /save?
-
-ABM Workforce hoạt động qua **nhiều phiên** (conversations). AI không tự nhớ phiên trước. `/save` lưu toàn bộ ngữ cảnh để phiên sau dùng `/recap` khôi phục và tiếp tục.
-
-### /save làm gì?
+> ⚠️ **LUÔN gõ `/save` sau mỗi task hoặc cuối ngày!**
 
 ```mermaid
 graph LR
-    A["💾 Bạn gõ /save"] --> B["📝 Tạo SESSION file"]
-    B --> C["📋 Ghi task-history.json"]
-    C --> D["🔄 Chạy sync.ps1"]
-    D --> E["📊 Tạo task-data.js"]
-    E --> F["🖥️ Dashboard cập nhật"]
-
-    B --> G["📂 .abm-sessions/"]
-    C --> H["📂 dashboard/"]
+    A["💾 /save"] --> B["📝 SESSION file"]
+    B --> C["📋 task-history.json"]
+    C --> D["🔄 sync.ps1"]
+    D --> E["📊 Dashboard live"]
 
     style A fill:#f59e0b,color:#fff,stroke:#d97706
-    style F fill:#22c55e,color:#fff,stroke:#16a34a
+    style E fill:#22c55e,color:#fff,stroke:#16a34a
 ```
-
-### Pipeline chi tiết — 11 bước tự động
-
-| Bước | Hành động | Kết quả |
-|:----:|-----------|--------|
-| 1 | Thu thập context phiên | Tasks, files, decisions, knowledge |
-| 2 | Phân loại save | `task_save` / `daily_save` / `milestone_save` |
-| 3-5 | Tạo SESSION file | `.abm-sessions/SESSION-{NNN}-{date}.md` |
-| 6 | Cập nhật INDEX | `.abm-sessions/INDEX.md` |
-| 7 | Backup Second-Brain | `_abm/Context-Layer/Second-Brain/memory/saves/` |
-| 8 | **Ghi task-history.json** | Mỗi task: description, files, decisions, evidence |
-| 9 | **Sync dashboard** | `sync.ps1` → `task-data.js` → dashboard live |
-| 10 | Hiển thị xác nhận | Tóm tắt + next steps |
-| 11 | Commit (tùy chọn) | `git add .abm-sessions/ dashboard/` |
-
-### Khi nào /save?
-
-```
-🟢 Sau mỗi task lớn    →  /save      (lưu ngay, an toàn)
-🟡 Cuối ngày làm việc  →  /save      (tổng kết ngày)
-🔴 Đạt milestone       →  /save      (backup quan trọng)
-🔄 Phiên sau           →  /recap     (khôi phục context)
-```
-
-> 💡 **Mỗi `/save` tự động update dashboard** — CEO mở `dashboard/index.html` là thấy toàn bộ công việc mới nhất.
 
 ---
 
 ## 📊 Dashboard v4.0 — Trung Tâm Điều Khiển
 
-### Mở dashboard
-
 ```
-📂 Mở file: dashboard/index.html
-🌐 Hoặc double-click file trong Explorer
+📂 Mở: dashboard/index.html
 ```
 
-### 11 Phòng Ban — Mỗi phòng có View riêng
+### 12 Phòng Ban — Mỗi phòng có View riêng
 
 ```mermaid
 graph TB
-    subgraph SIDEBAR["📋 Sidebar Navigation"]
-        OV["📊 Tổng Quan"]
+    subgraph SIDEBAR["📋 12 Phòng Ban"]
         D1["👔 Ban Giám Đốc"]
         D2["📢 Marketing"]
         D3["💰 Kinh Doanh"]
-        D4["👥 HC—Nhân Sự"]
+        D4["👥 HC-Nhân Sự"]
         D5["🎓 Đào Tạo"]
-        D6["🌐 IT—Công Nghệ"]
+        D6["🌐 IT-Công Nghệ"]
         D7["🔬 R&D"]
         D8["🤝 CSKH"]
         D9["💵 Kế Toán"]
         D10["⚖️ Pháp Chế"]
         D11["⚙️ Vận Hành"]
+        D12["🔗 Affiliate"]
     end
     subgraph VIEW["🖥️ Department View"]
-        S["📈 Stats"]
-        T["📋 Task Table"]
-        SK["🧩 Top Skills"]
-        TL["📅 Timeline"]
+        S["📈 Stats + 📋 Tasks"]
+        SK["🧩 Top Skills + 📅 Timeline"]
     end
 
-    D1 --> VIEW
-    D5 --> VIEW
-    D7 --> VIEW
+    D2 --> VIEW
+    D12 --> VIEW
 
     style SIDEBAR fill:#0f1320,color:#e8eaf0,stroke:#1e2740
     style VIEW fill:#141925,color:#e8eaf0,stroke:#1e2740
 ```
 
-### Click Task → Chi Tiết Thật
+---
 
-Bấm vào bất kỳ task nào trên dashboard → **slide panel hiện 7 mục thông tin thật**:
+## 📊 Audit & Hiệu Suất
 
-| # | Mục | Dữ liệu |
-|:-:|-----|--------|
-| 1 | 📝 Mô tả chi tiết | Bối cảnh + việc đã làm cụ thể |
-| 2 | ✅ Kết quả | Thành quả đạt được |
-| 3 | 📁 Files thay đổi | Danh sách file tác động |
-| 4 | 💡 Quyết định | Logic + lựa chọn của AI |
-| 5 | 🔍 Bằng chứng | Log, output, kết quả xác minh |
-| 6 | 🧩 Skills sử dụng | Kỹ năng AI huy động |
-| 7 | 📊 Tiến độ | Progress bar |
-
-> 🔥 **Dashboard = CEO nhìn toàn cảnh. Click = xem chi tiết.** Không cần đọc log AI — tất cả tổng hợp sẵn.
-
-### Dashboard Features
-
-| Feature | Mô tả |
-|---------|-------|
-| **Tổng Quan** | Stats (skills, tasks, workflows), 11 department cards, timeline, health status |
-| **Department View** | Filter task theo phòng, top skills chart, timeline riêng |
-| **Daily Report** | Báo cáo ngày, so sánh với hôm trước |
-| **Analytics** | Phân tích skills, agents, task distribution |
-| **Task Detail** | Click → slide panel 7 sections chi tiết thật |
-| **Dark Theme** | Giao diện premium, responsive |
+| Chiều đánh giá | Điểm | Bằng chứng |
+|----------------|:----:|-----------:|
+| Kiến trúc | **9.5** | Hybrid 3-Tier + lazy-load + token optimization |
+| Skill coverage | **9** | 111 skills: 78 core + 32 affiliate + UUPM |
+| Đội ngũ AI | **9** | 6 SubAgents + 5 Workers + Jarvis |
+| Quản lý context | **9.5** | Token giảm 45%, lazy-load delegation |
+| Knowledge Base | **9** | 12 files + NotebookLM semantic routing |
+| Truy vết | **9** | CHANGELOG + manifests + task-history |
+| Bảo mật | **9** | prompt-sentinel + PII scan + compliance |
+| **Trung bình** | **9.2** | |
 
 ---
 
-## 📁 Cấu Trúc
+## 📁 Cấu Trúc Dự Án
 
 ```
 abm-workforce/
 ├── 🔧 setup.ps1 / setup.sh / setup.bat     ← Cài đặt 1 phút
 ├── 📖 README.md                              ← File này
 ├── 📊 dashboard/                             ← Dashboard v4.0
-│   ├── index.html                            ← Mở để xem dashboard
-│   ├── task-data.js                          ← Data tasks (auto-generated)
-│   ├── task-history.json                     ← Lịch sử task chi tiết
+│   ├── index.html                            ← Mở để xem
+│   ├── task-data.js                          ← Data (auto-generated)
 │   └── sync.ps1                              ← Script đồng bộ
+├── 🧠 tools/                                 ← Công cụ mở rộng
+│   ├── notebooklm-brain/                     ← NotebookLM Second Brain
+│   └── notebooklm/                           ← Setup & login scripts
 ├── _abm/
-│   ├── bmm/agents/skills/   (79 skills)     ← AI skills
-│   ├── SubAgents/           (5 specialists)  ← Chuyên gia AI  
-│   ├── Workers/             (5 executors)    ← Worker thực thi
-│   ├── Context-Layer/Second-Brain/ (12 files)← Trí nhớ AI
-│   ├── Team-Orchestration/  (3 pipelines)    ← Quy trình tự động
+│   ├── bmm/agents/                           ← Jarvis + config
+│   │   ├── jarvis-orchestrator.md            ← Slim (2,177 tokens)
+│   │   ├── jarvis-delegation-protocol.md     ← Lazy-load (928 tokens)
+│   │   └── skills/              (78 skills)  ← AI skills
+│   ├── SubAgents/               (6 specs)    ← Chuyên gia AI
+│   ├── Workers/                 (5 exec)     ← Worker thực thi
+│   ├── Context-Layer/Second-Brain/           ← Trí nhớ AI
 │   └── _config/                              ← Manifests
-├── .agents/workflows/       (20 commands)    ← Slash commands
-├── .abm-sessions/                            ← Session saves (/save)
-│   ├── INDEX.md                              ← Danh mục sessions
-│   └── SESSION-{NNN}-{date}.md               ← Chi tiết mỗi phiên
-└── _abm-output/                              ← Kết quả
+├── .agent/skills/                            ← Extended skills
+│   ├── affiliate-skills/        (32 skills)  ← Affiliate Marketing
+│   └── ui-ux-pro-max/                        ← UUPM v2.0
+├── .agents/workflows/           (21 cmds)    ← Slash commands
+├── .abm-sessions/                            ← Session saves
+└── _abm-output/                              ← Kết quả runtime
+    └── affiliate/                            ← Output affiliate
 ```
 
 ---
@@ -503,9 +474,9 @@ abm-workforce/
 ```mermaid
 graph TB
     R1["🇻🇳 100% Tiếng Việt"]
-    R2["📋 Bằng chứng trước khi tuyên bố"]
-    R3["📝 Hợp đồng trước khi giao việc"]
-    R4["🧠 Max 3 skills mỗi lần"]
+    R2["📋 Bằng chứng trước tuyên bố"]
+    R3["📝 Hợp đồng trước giao việc"]
+    R4["🧠 Max 3 skills / task"]
     R5["📁 Output chuẩn hóa"]
 
     R1 --- R2 --- R3 --- R4 --- R5
@@ -521,20 +492,28 @@ graph TB
 
 ## 📝 Changelog
 
+### v4.3 (2026-03-18) — Token Optimization + Affiliate Specialist v2
+- ✅ 🚀 **Token giảm 45%**: Jarvis slim (2,177 tokens) + RULES.md slim (694 tokens)
+- ✅ 📦 `jarvis-delegation-protocol.md` — lazy-load khi cần ủy quyền
+- ✅ 🔗 Affiliate Specialist v2 — audit 3 rounds: 6.15 → 8.4 → **9.2/10 (Grade S)**
+  - 4-section ABM chuẩn (Goal/Instructions/Examples/Constraints)
+  - VN market context: Shopee, TikTok Shop, Lazada, AccessTrade
+  - CHECKLIST.md + scope control + error recovery
+- ✅ 📘 Hướng dẫn sử dụng Affiliate tiếng Việt (`HUONG-DAN-AFFILIATE.md`)
+
+### v4.2 (2026-03-16) — NotebookLM Second Brain + UUPM v2.0 + Affiliate
+- ✅ 🧠 NotebookLM Second Brain: semantic skill routing + long-term memory
+- ✅ 🎨 UI UX Pro Max v2.0: 161 industry rules, design system generation
+- ✅ 🔗 Phòng Affiliate: 32 skills, 8 stages full funnel, SubAgent + `/affiliate`
+- ✅ CLI: `python brain.py skill|memory|ask` — hỏi đáp qua NotebookLM
+
 ### v4.1 (2026-03-15) — Dashboard + /save Pipeline
-- ✅ Dashboard v4.0: 11 phòng ban, task detail modal, analytics
+- ✅ Dashboard v4.0: 12 phòng ban, task detail modal, analytics
 - ✅ `/save` pipeline: SESSION → task-history.json → sync → dashboard
-- ✅ Click task → slide panel 7 sections (description, files, decisions, evidence)
-- ✅ 28 tasks tracked, enriched data từ công việc thực tế
 
 ### v4.0 (2026-03-14) — Hybrid 3-Tier + Auto Setup
-- ✅ Auto-setup: 1 phút cài đặt, cross-platform
-- ✅ 79 skills (29 + 40 + 10 theo 3 tier)
-- ✅ 5 SubAgents + 5 Workers + Jarvis Orchestrator
-- ✅ 12 Second-Brain files (deep research VN market)
-- ✅ 47 quality gates + 7 executable scripts
-- ✅ 20 workflows + 3 pipelines
-- ✅ Audit score: **6.8 → 9.0/10**
+- ✅ 79 skills, 5 SubAgents, 5 Workers, 47 quality gates
+- ✅ Audit score: 6.8 → **9.0/10**
 
 ---
 

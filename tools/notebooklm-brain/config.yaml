@@ -1,0 +1,19 @@
+paths:
+  project_root: G:/AGY
+  skills_dir: G:/AGY/_abm/bmm/agents/skills
+  session_saves_dir: G:/AGY/_abm/Context-Layer/Second-Brain/memory/saves
+  task_log: G:/AGY/_abm-output/task-log.yaml
+  patterns_dir: G:/AGY/_abm/Context-Layer/Second-Brain/patterns
+  lessons_learned: G:/AGY/_abm/Context-Layer/Second-Brain/lessons-learned.md
+  collected_dir: _collected
+notebooks:
+  knowledge:
+    name: ABM Knowledge Brain
+    id: 78a2fcb9-6e13-4cfc-a1e8-0be23a55d5c6
+    description: Bộ não tri thức — chứa 79 skills của ABM Workforce
+  memory:
+    name: ABM Session Memory
+    id: ab680368-3945-4edb-9c19-c1ce7a82a168
+    description: Bộ nhớ dài hạn — session logs, task history, patterns
+limits:
+  max_sources: 50

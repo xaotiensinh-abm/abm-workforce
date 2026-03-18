@@ -1,0 +1,86 @@
+﻿# ABM Skill Index — Lightweight Routing
+# Thay vì load full SKILL.md, đọc file này để chọn skill
+
+- _archive
+- agent-email-cli
+- agentic-memory
+- agent-improve
+- ai-trend-radar
+- benchmark-lab
+- brainstorming
+- canvas-design
+- capability-evolver
+- certification-program
+- client-success
+- code-review
+- cold-email
+- competitive-landscape
+- competitor-intelligence
+- content-creator
+- content-strategy
+- context-engineering
+- contract-review
+- copywriting
+- course-design
+- critical-thinking
+- cro-master
+- data-analysis
+- database-management
+- delegation-chain
+- email-marketing
+- frontend-design
+- frontend-developer
+- growth-engine
+- high-ticket-sales
+- hr-operations
+- imagen
+- innovation-report
+- internal-comms
+- kaizen
+- knowledge-builder
+- knowledge-crystallizer
+- landing-page-builder
+- launch-strategy
+- lms-management
+- market-sizing-analysis
+- multi-dimensional-review
+- pdf
+- performance-review
+- pricing-strategy
+- product-marketing-context
+- prompt-sentinel
+- proposal-generator
+- research-to-training
+- responsive-web-design
+- roi-calculator
+- sales-automator
+- sales-enablement
+- save
+- security-review
+- seo-audit
+- seo-content-planner
+- seo-fundamentals
+- skill-generator
+- social-content
+- sprint-planning
+- startup-financial-modeling
+- student-assessment
+- subagent-driven-development
+- supply-chain-ops
+- systematic-debugging
+- talent-acquisition
+- task-planning
+- tech-scouting
+- training-content
+- veo-video-gen
+- verification-before-completion
+- web-accessibility
+- web-design-guidelines
+- website-conversion
+- workflow-automation
+- workshop-facilitation
+- writing-plans
+
+# Total: 79 skills
+# Load SKILL.md chi tiết: _abm/bmm/agents/skills/{name}/SKILL.md
+

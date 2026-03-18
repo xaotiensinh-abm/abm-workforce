@@ -1,4 +1,4 @@
-﻿name,tags,tier,lines,has_checklist
+name,tags,tier,lines,has_checklist
 agent-email-cli,,2,157,yes
 agentic-memory,,1,113,no
 agent-improve,,1,118,no
@@ -69,7 +69,6 @@ talent-acquisition,hr,2,133,yes
 task-planning,,2,136,yes
 tech-scouting,,2,140,yes
 training-content,,3,302,yes
-ui-ux-pro-max,,2,202,yes
 veo-video-gen,,2,236,yes
 verification-before-completion,,1,95,no
 web-accessibility,web, design, compliance,1,116,no
