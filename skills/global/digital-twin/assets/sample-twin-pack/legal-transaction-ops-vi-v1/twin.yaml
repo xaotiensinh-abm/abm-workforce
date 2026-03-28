@@ -1,0 +1,154 @@
+version: 1
+profile:
+  label: Legal Transaction Ops Twin
+  primary_language: vi
+  source_count: 6
+  source_mix:
+    upload: 4
+    pasted_text: 1
+    url: 1
+  confidence: usable
+  status: stable
+scope:
+  team_or_business_area: Pháp lý và vận hành giao dịch bất động sản
+  boundary: cover hồ sơ, thanh toán, ký kết, phụ lục, tiến độ pháp lý, bàn giao nội
+    bộ giữa sale, admin, legal, finance
+  primary_users:
+  - transaction admin
+  - legal executive
+  - finance ops
+  - sales coordinator
+  time_horizon: daily, weekly and milestone-based
+operating_model:
+  mission: Chuẩn hóa hồ sơ giao dịch và giảm chậm trễ do thiếu giấy tờ, thiếu duyệt
+    hoặc handoff mờ.
+  operating_principles:
+  - mỗi hồ sơ phải có checklist và trạng thái
+  - mọi lệch timeline phải escalate sớm
+  - không hẹn ngày ký khi chứng từ chưa đủ
+  service_boundaries:
+  - cover legal-transaction operations
+  - không thay tư vấn pháp lý chuyên sâu ngoài phạm vi hồ sơ chuẩn
+  standard_of_execution: Hồ sơ, timeline và approval phải nhìn được end-to-end và
+    có owner rõ cho từng nút chờ.
+role_system:
+  core_roles:
+  - Transaction Admin
+  - Legal Executive
+  - Finance Ops
+  - Sales Coordinator
+  responsibilities:
+  - gom hồ sơ
+  - kiểm tra tính đầy đủ
+  - điều phối ký kết và thanh toán
+  - báo trạng thái cho sales
+  handoff_patterns:
+  - sales sang admin sau cọc
+  - admin sang legal khi thiếu hồ sơ
+  - legal sang finance khi đủ điều kiện thanh toán
+  escalation_paths:
+  - khách chậm hồ sơ
+  - thiếu chứng từ pháp lý
+  - sai lệch tiến độ ký hoặc thanh toán
+process_system:
+  core_processes:
+  - hồ sơ sau cọc
+  - kiểm tra chứng từ
+  - điều phối ký kết
+  - theo dõi thanh toán
+  - handoff hậu ký
+  trigger_map:
+  - cọc thành công
+  - đến mốc ký
+  - đến mốc thanh toán
+  - yêu cầu phụ lục
+  input_output_pairs:
+  - booking -> bộ hồ sơ mở
+  - hồ sơ -> trạng thái đủ hoặc thiếu
+  - mốc thanh toán -> nhắc thu và đối chiếu
+  sla_expectations:
+  - hồ sơ thiếu phải notify sớm
+  - mốc ký phải được xác nhận trước hạn
+decision_system:
+  decision_types:
+  - hồ sơ đủ/thiếu
+  - điều kiện ký
+  - ngoại lệ timeline
+  - phụ lục thay đổi
+  decision_rules:
+  - không chốt lịch ký nếu hồ sơ thiếu chứng từ cốt lõi
+  - ngoại lệ timeline cần legal hoặc quản lý duyệt
+  - thay đổi phụ lục phải log và confirm các bên liên quan
+  approval_layers:
+  - transaction lead
+  - legal manager
+  - finance approver
+  exception_rules:
+  - không bỏ qua checklist hồ sơ chỉ vì deadline gần
+  - mọi mốc quá hạn phải có cập nhật owner
+knowledge_system:
+  canonical_artifacts:
+  - checklist hồ sơ
+  - timeline thanh toán
+  - mẫu phụ lục
+  - báo cáo hồ sơ tồn
+  reporting_cadence:
+  - daily pending file review
+  - weekly legal-aging review
+  metric_stack:
+  - hồ sơ đủ hạn
+  - aging hồ sơ
+  - quá hạn thanh toán
+  - số case ngoại lệ
+  glossary_terms:
+  - hồ sơ đủ
+  - phụ lục
+  - mốc ký
+  - aging
+tooling_system:
+  systems:
+  - drive docs
+  - sheet tracking
+  - chat
+  system_roles:
+  - lưu hồ sơ
+  - theo dõi timeline
+  - đối chiếu thanh toán
+  data_dependencies:
+  - chứng từ khách
+  - template hợp đồng
+  - payment timeline
+  failure_points:
+  - lịch ký hứa sớm
+  - hồ sơ thiếu không escalate
+  - nhiều bản checklist
+artifact_adaptation:
+  sop: Làm rõ checklist hồ sơ, mốc ký, mốc thanh toán, approval và escalation.
+  playbook: Tập trung case hồ sơ thiếu, mốc chậm và phụ lục ngoại lệ.
+  onboarding_guide: Ưu tiên checklist, timeline, approval layer và cách log aging.
+  memo: Nêu case chậm, nguyên nhân, owner, hạn xử lý và rủi ro.
+  report_template: Khóa metric aging, hồ sơ thiếu, mốc ký, quá hạn thanh toán.
+  meeting_brief: Nêu hồ sơ tồn, ca chậm, phụ lục cần duyệt và owner follow-up.
+  checklist: Ngắn, theo hồ sơ, ký, thanh toán, bàn giao.
+  faq: Bám case hồ sơ thiếu và timeline ký.
+  dashboard_note: Giải thích biến động aging và ngoại lệ pháp lý.
+  escalation_note: Nêu hồ sơ, rủi ro, mốc chậm và quyết định cần duyệt.
+anti_patterns:
+- hẹn lịch ký khi chứng từ thiếu
+- nhiều bản checklist song song
+convergence:
+  invariants:
+  - mỗi hồ sơ phải có status rõ
+  - mốc chậm phải escalate
+  tendencies:
+  - review aging hàng tuần
+  accidents:
+  - tên dự án cụ thể
+quality_notes:
+  strengths:
+  - mạnh về legal transaction flow
+  limitations:
+  - không thay tư vấn luật chuyên biệt
+  mixed_source_warning: ''
+  coverage_gaps:
+  - thiếu rule tranh chấp phức tạp

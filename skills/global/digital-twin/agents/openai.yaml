@@ -1,0 +1,4 @@
+interface:
+  display_name: "Digital Twin"
+  short_description: "Dựng song sinh số doanh nghiệp từ SOP, policy, report và tài liệu vận hành"
+  description: "Dùng với upload, pasted text hoặc public URL để build enterprise twin pack, map quy trình và vai trò, tạo process catalog, decision rules, role handbook, report cadence, onboarding guide, playbook, checklist và audit độ phủ hoặc drift giữa tài liệu vận hành. Có sample packs theo khách hàng Việt Nam cho bất động sản, phòng khám nha khoa và SMEs, sub-packs theo phân khúc như dự án sơ cấp, resale, legal ops, single clinic, multi-chair, implant-ortho, agency, phân phối, sản xuất nhẹ, cùng khả năng cross-pack orchestration để ghép nhiều pack cho các case liên phòng ban hoặc nhiều motion."

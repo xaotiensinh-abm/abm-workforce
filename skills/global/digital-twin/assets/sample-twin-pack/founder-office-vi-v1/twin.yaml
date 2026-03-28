@@ -1,0 +1,69 @@
+version: 1
+profile:
+  label: "Founder Office Twin"
+  primary_language: "vi"
+  source_count: 6
+  source_mix:
+    upload: 4
+    pasted_text: 1
+    url: 1
+  confidence: usable
+  status: stable
+scope:
+  team_or_business_area: "Founder Office"
+  boundary: "cover weekly operating review, decision memo và follow-up management"
+  primary_users: ["manager", "ops lead", "new hire"]
+  time_horizon: "weekly and monthly"
+operating_model:
+  mission: "Chuẩn hóa cách team vận hành để giảm drift và tăng khả năng nhân bản."
+  operating_principles: ["owner rõ", "exception phải có path", "review theo cadence"]
+  service_boundaries: ["chỉ cover phạm vi founder office", "không mặc định áp cho toàn công ty"]
+  standard_of_execution: "Tài liệu phải dùng được ngay và có checkpoint rõ."
+role_system:
+  core_roles: ['Chief of Staff', 'Founder', 'Functional Lead']
+  responsibilities: ["nhận input", "xử lý theo quy trình", "báo cáo hoặc escalate khi lệch chuẩn"]
+  handoff_patterns: ["agent sang manager khi vượt ngưỡng", "owner sang reviewer theo cadence"]
+  escalation_paths: ["escalate khi vượt sla", "escalate khi exception không có precedent"]
+process_system:
+  core_processes: ['weekly operating review', 'decision memo routing', 'follow-up tracking']
+  trigger_map: ["request mới", "review định kỳ", "metric vượt ngưỡng"]
+  input_output_pairs: ["request -> outcome", "report data -> action plan"]
+  sla_expectations: ["phản hồi trong cửa sổ đã định", "review theo lịch cố định"]
+decision_system:
+  decision_types: ["operational", "exception", "approval"]
+  decision_rules: ['decision escalation', 'priority trade-off', 'resource approval']
+  approval_layers: ["owner", "manager", "leadership nếu vượt ngưỡng"]
+  exception_rules: ["ghi lại rationale khi bypass", "nêu rõ owner follow-up"]
+knowledge_system:
+  canonical_artifacts: ["sop", "report", "memo", "checklist"]
+  reporting_cadence: ["daily", "weekly", "monthly"]
+  metric_stack: ["sla", "quality", "throughput"]
+  glossary_terms: ["owner", "escalation", "exception"]
+tooling_system:
+  systems: ["ticketing hoặc crm", "sheet hoặc dashboard", "docs"]
+  system_roles: ["ghi nhận trạng thái", "tổng hợp report", "lưu SOP"]
+  data_dependencies: ["ticket or deal data", "review notes"]
+  failure_points: ["handoff thiếu owner", "exception không được log"]
+artifact_adaptation:
+  sop: "Làm rõ trigger, owner, step, exception và escalation."
+  playbook: "Tập trung vào decision rule và checkpoints."
+  onboarding_guide: "Ưu tiên role context, tuần đầu và tài liệu phải đọc."
+  memo: "Nêu decision, rationale, owner và follow-up."
+  report_template: "Khóa metric, cadence, action expectation."
+  meeting_brief: "Nêu objective, decisions needed và owner."
+  checklist: "Ngắn, hành động được, tránh câu chung chung."
+  faq: "Ngắn và nhất quán với policy."
+  dashboard_note: "Giải thích metric và ngưỡng hành động."
+  escalation_note: "Nêu lý do escalate, risk và người quyết."
+anti_patterns:
+  - "gọi chung chung mà không chỉ rõ owner"
+  - "nêu policy nhưng không có exception path"
+convergence:
+  invariants: ["owner rõ", "review theo cadence", "exception cần path riêng"]
+  tendencies: ["ưa dùng checklist", "thích memo ngắn thay vì deck dài"]
+  accidents: ["cụm từ mang tính chiến dịch hoặc quý cụ thể"]
+quality_notes:
+  strengths: ["phản ánh được role và process cốt lõi", "đủ để tạo artefact vận hành"]
+  limitations: ["chưa cover toàn bộ edge cases", "một số SLA mới ở mức ngụ ý"]
+  mixed_source_warning: ""
+  coverage_gaps: ["thiếu policy cho case cực đoan", "thiếu chi tiết về tool automation"]

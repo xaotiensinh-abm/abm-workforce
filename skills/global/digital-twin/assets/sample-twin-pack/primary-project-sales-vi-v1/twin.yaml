@@ -1,0 +1,161 @@
+version: 1
+profile:
+  label: Primary Project Sales Twin
+  primary_language: vi
+  source_count: 7
+  source_mix:
+    upload: 4
+    pasted_text: 2
+    url: 1
+  confidence: usable
+  status: stable
+scope:
+  team_or_business_area: Đội bán dự án sơ cấp
+  boundary: cover inventory, lead routing, site visit, booking, giữ chỗ, ưu đãi, đặt
+    cọc và handoff hồ sơ sau booking
+  primary_users:
+  - sales consultant
+  - sales team lead
+  - admin sale
+  - inventory coordinator
+  - legal support
+  time_horizon: daily, weekly and launch-cycle
+operating_model:
+  mission: Chuẩn hóa nhịp launch và biến lead thành booking hợp lệ với tồn kho, ưu
+    đãi và ngoại lệ được kiểm soát.
+  operating_principles:
+  - mọi booking phải gắn inventory cụ thể
+  - ưu đãi không được hứa ngoài policy
+  - ngoại lệ launch phải có người duyệt rõ
+  service_boundaries:
+  - cover sales launch và booking nội bộ
+  - không mặc định cover mortgage processing chi tiết
+  standard_of_execution: Mỗi booking phải truy vết được owner, căn, ưu đãi áp dụng,
+    điều kiện cọc và deadline follow-up.
+role_system:
+  core_roles:
+  - Sales Consultant
+  - Sales Team Lead
+  - Inventory Coordinator
+  - Admin Sale
+  - Legal Support
+  responsibilities:
+  - qualify lead và tư vấn dự án
+  - phân bổ inventory và hỗ trợ giữ chỗ
+  - khóa booking và hồ sơ booking
+  - kiểm tra điều kiện legal cơ bản
+  handoff_patterns:
+  - sales sang inventory khi cần giữ căn
+  - sales sang admin sau booking
+  - admin sang legal khi hồ sơ cần xác minh thêm
+  escalation_paths:
+  - booking ngoại lệ ưu đãi
+  - trùng căn hoặc xung đột inventory
+  - khách đổi chính sách thanh toán sát hạn
+process_system:
+  core_processes:
+  - lead routing
+  - site visit và tư vấn
+  - booking và giữ chỗ
+  - đặt cọc và hồ sơ booking
+  - post-booking follow-up
+  trigger_map:
+  - lead mới từ campaign
+  - slot site visit phát sinh
+  - yêu cầu booking
+  - đề nghị ngoại lệ
+  input_output_pairs:
+  - lead -> owner và stage
+  - inventory request -> xác nhận căn khả dụng
+  - booking request -> booking form và điều kiện giữ chỗ
+  sla_expectations:
+  - lead hot phải phản hồi trong ngày
+  - request giữ căn phải xác minh nhanh trong cửa sổ launch
+  - booking thiếu hồ sơ phải follow-up trong chu kỳ ngắn
+decision_system:
+  decision_types:
+  - inventory assignment
+  - booking approval
+  - ưu đãi ngoại lệ
+  - payment exception
+  decision_rules:
+  - không xác nhận booking nếu inventory chưa khóa
+  - ưu đãi ngoài policy cần team lead hoặc sales manager duyệt
+  - đổi căn phải kiểm lại giá và điều kiện booking
+  approval_layers:
+  - sales owner
+  - team lead
+  - sales manager
+  exception_rules:
+  - mọi ngoại lệ ưu đãi phải log lý do
+  - không hứa giữ căn khi chưa có xác nhận inventory
+knowledge_system:
+  canonical_artifacts:
+  - giỏ hàng
+  - policy booking
+  - launch brief
+  - báo cáo booking
+  reporting_cadence:
+  - daily launch huddle
+  - weekly booking review
+  metric_stack:
+  - lead response
+  - site visit show-up
+  - booking rate
+  - booking to deposit
+  glossary_terms:
+  - giỏ hàng
+  - giữ chỗ
+  - booking
+  - ưu đãi launch
+tooling_system:
+  systems:
+  - crm hoặc sheet lead
+  - file inventory
+  - chat nội bộ
+  - docs
+  system_roles:
+  - ghi lead
+  - theo dõi giỏ hàng
+  - log booking và ngoại lệ
+  data_dependencies:
+  - lead source
+  - inventory status
+  - booking form
+  failure_points:
+  - double-booking
+  - ưu đãi hứa miệng
+  - handoff thiếu điều kiện booking
+artifact_adaptation:
+  sop: Làm rõ luồng lead, inventory, booking, owner và escalation khi launch.
+  playbook: Tập trung kịch bản launch, policy booking và xử lý ưu đãi ngoại lệ.
+  onboarding_guide: Ưu tiên inventory, booking, launch cadence và ngoại lệ thường
+    gặp.
+  memo: Nêu quyết định về giỏ hàng, ưu đãi, launch rule và owner follow-up.
+  report_template: Khóa metric lead, site visit, booking, deposit và tồn booking.
+  meeting_brief: Nêu inventory nóng, booking chờ duyệt, ưu đãi ngoại lệ, owner và
+    deadline.
+  checklist: Ngắn, theo mốc lead, visit, booking, deposit.
+  faq: Bám policy booking và ưu đãi.
+  dashboard_note: Giải thích biến động booking theo inventory và campaign.
+  escalation_note: Nêu căn, khách, ngoại lệ, rủi ro và người duyệt.
+anti_patterns:
+- giữ căn không log
+- hứa ưu đãi ngoài policy
+convergence:
+  invariants:
+  - inventory phải được xác nhận trước booking
+  - ngoại lệ booking cần người duyệt rõ
+  tendencies:
+  - họp launch ngắn nhưng dày metric
+  - ưu tiên follow-up trong ngày
+  accidents:
+  - tên dự án và campaign
+quality_notes:
+  strengths:
+  - phản ánh tốt nhịp launch và booking
+  limitations:
+  - chưa đi sâu mortgage hoặc bàn giao hậu mãi
+  mixed_source_warning: ''
+  coverage_gaps:
+  - thiếu rule xử lý huỷ booking phức tạp

@@ -1,0 +1,161 @@
+version: 1
+profile:
+  label: Light Manufacturing Twin
+  primary_language: vi
+  source_count: 7
+  source_mix:
+    upload: 5
+    pasted_text: 1
+    url: 1
+  confidence: usable
+  status: stable
+scope:
+  team_or_business_area: Xưởng sản xuất nhẹ
+  boundary: cover kế hoạch sản xuất, vật tư, lệnh sản xuất, QC, lỗi, giao hàng và
+    báo cáo năng suất
+  primary_users:
+  - production planner
+  - line lead
+  - procurement
+  - qc
+  - warehouse
+  time_horizon: daily and weekly
+operating_model:
+  mission: Chuẩn hóa luồng từ kế hoạch đến giao hàng, giảm thiếu vật tư, lỗi lặp và
+    chậm giao.
+  operating_principles:
+  - lệnh sản xuất phải dựa trên vật tư và năng lực thực
+  - lỗi phải có root cause và action owner
+  - giao hàng phải bám plan cập nhật
+  service_boundaries:
+  - cover light manufacturing ops
+  - không mặc định cover engineering change phức tạp
+  standard_of_execution: Plan, vật tư, sản xuất, QC và giao hàng phải nhìn cùng một
+    nhịp và có owner rõ cho ngoại lệ.
+role_system:
+  core_roles:
+  - Production Planner
+  - Line Lead
+  - Procurement
+  - QC
+  - Warehouse
+  responsibilities:
+  - lập kế hoạch
+  - cấp phát vật tư
+  - vận hành line
+  - kiểm soát lỗi
+  - giao hàng
+  handoff_patterns:
+  - planner sang line lead
+  - line lead sang qc
+  - qc sang warehouse khi đạt
+  - warehouse sang delivery
+  escalation_paths:
+  - thiếu vật tư
+  - lỗi lặp
+  - trễ kế hoạch
+  - rework nhiều
+process_system:
+  core_processes:
+  - production planning
+  - material allocation
+  - line execution
+  - quality check
+  - shipment release
+  trigger_map:
+  - new order
+  - material shortage
+  - quality failure
+  - ship date approaching
+  input_output_pairs:
+  - sales plan -> production plan
+  - production order -> output and defect log
+  - passed qc -> shipment release
+  sla_expectations:
+  - thiếu vật tư phải báo sớm
+  - lỗi lặp phải có action trước chu kỳ review kế tiếp
+decision_system:
+  decision_types:
+  - production priority
+  - material substitution
+  - rework or scrap
+  - ship partial decision
+  decision_rules:
+  - không phát lệnh khi vật tư cốt lõi chưa rõ
+  - substitute vật tư cần duyệt
+  - lỗi lặp phải có owner khắc phục và ngày review lại
+  approval_layers:
+  - production manager
+  - qa lead
+  - ops head
+  exception_rules:
+  - ship partial phải confirm tác động khách hàng
+  - rework lớn phải log chi phí và thời gian
+knowledge_system:
+  canonical_artifacts:
+  - production plan
+  - material issue note
+  - qc log
+  - defect review
+  - shipment plan
+  reporting_cadence:
+  - daily production huddle
+  - weekly defect review
+  metric_stack:
+  - plan adherence
+  - output
+  - defect rate
+  - rework rate
+  - on-time shipment
+  glossary_terms:
+  - plan adherence
+  - rework
+  - scrap
+tooling_system:
+  systems:
+  - production sheet
+  - inventory tracker
+  - qc log
+  system_roles:
+  - lập plan
+  - ghi output
+  - ghi defect
+  data_dependencies:
+  - sales plan
+  - bom hoặc định mức
+  - material stock
+  failure_points:
+  - plan không bám vật tư
+  - lỗi lặp không owner
+  - ship trễ nhưng không escalate
+artifact_adaptation:
+  sop: Làm rõ planning, vật tư, chạy line, QC, rework và shipment.
+  playbook: Tập trung thiếu vật tư, defect repeat, partial shipment.
+  onboarding_guide: Ưu tiên plan, vật tư, QC, defect review và shipment release.
+  memo: Nêu bottleneck line, thiếu vật tư, defect nổi bật, owner và action.
+  report_template: Khóa metric adherence, output, defect, rework, on-time shipment.
+  meeting_brief: Nêu plan hôm nay, thiếu vật tư, line chậm, defect lớn, shipment risk.
+  checklist: Ngắn, theo plan, vật tư, run, QC, ship.
+  faq: Bám thiếu vật tư, lỗi, rework, partial ship.
+  dashboard_note: Giải thích biến động output, defect, shipment.
+  escalation_note: Nêu line, lỗi, thiếu vật tư, impact giao hàng và quyết định cần
+    duyệt.
+anti_patterns:
+- phát lệnh khi vật tư chưa rõ
+- lỗi lặp nhưng không owner
+convergence:
+  invariants:
+  - plan phải bám vật tư và năng lực
+  - lỗi lặp phải có action owner
+  tendencies:
+  - daily huddle ngắn với bottleneck rõ
+  accidents:
+  - mã line hoặc mã hàng cụ thể
+quality_notes:
+  strengths:
+  - mạnh cho xưởng sản xuất nhẹ
+  limitations:
+  - không cover engineering change sâu
+  mixed_source_warning: ''
+  coverage_gaps:
+  - thiếu maintenance planning

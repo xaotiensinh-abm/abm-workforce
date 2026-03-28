@@ -1,0 +1,152 @@
+version: 1
+profile:
+  label: Implant Ortho Heavy Clinic Twin
+  primary_language: vi
+  source_count: 7
+  source_mix:
+    upload: 5
+    pasted_text: 1
+    url: 1
+  confidence: usable
+  status: stable
+scope:
+  team_or_business_area: Phòng khám nha khoa implant hoặc ortho-heavy
+  boundary: cover consultation, treatment plan dài hạn, consent, thu tiền theo chặng,
+    clinical follow-up và recall
+  primary_users:
+  - treatment coordinator
+  - dentist
+  - assistant
+  - front desk
+  time_horizon: weekly and milestone-based
+operating_model:
+  mission: Chuẩn hóa journey điều trị dài hơi để không rơi lịch, rơi thu tiền và rơi
+    compliance tái khám.
+  operating_principles:
+  - mọi plan dài phải có milestone rõ
+  - consent và kỳ vọng phải chốt trước điều trị
+  - thu tiền và follow-up phải bám milestone
+  service_boundaries:
+  - cover implant hoặc ortho motion
+  - không mặc định cover mọi chuyên khoa ngắn hạn
+  standard_of_execution: Plan điều trị, consent, tài chính và recall phải bám cùng
+    một timeline nhất quán.
+role_system:
+  core_roles:
+  - Treatment Coordinator
+  - Dentist
+  - Assistant
+  - Front Desk
+  responsibilities:
+  - chốt plan và milestone
+  - giải thích consent và tài chính
+  - điều phối follow-up
+  - nhắc recall dài hạn
+  handoff_patterns:
+  - dentist sang coordinator sau tư vấn
+  - coordinator sang front desk để thu xếp lịch và tài chính
+  escalation_paths:
+  - khách chậm quyết định
+  - khách vỡ plan tài chính
+  - khách bỏ lỡ recall quan trọng
+process_system:
+  core_processes:
+  - consultation and diagnostics
+  - plan acceptance
+  - milestone scheduling
+  - payment tracking
+  - recall and compliance
+  trigger_map:
+  - plan được đề xuất
+  - bệnh nhân đồng ý sơ bộ
+  - đến mốc điều trị
+  - quá hạn recall
+  input_output_pairs:
+  - diagnostics -> treatment plan
+  - accepted plan -> milestone schedule
+  - milestone completion -> next recall and payment state
+  sla_expectations:
+  - follow-up plan nóng phải diễn ra sớm
+  - recall quan trọng không để trôi
+decision_system:
+  decision_types:
+  - plan acceptance
+  - discount or payment exception
+  - clinical urgency
+  - recall priority
+  decision_rules:
+  - không chốt giảm giá hoặc tài chính ngoài policy nếu chưa duyệt
+  - ca bỏ recall phải được phân tầng rủi ro
+  - mọi thay đổi plan phải cập nhật consent và timeline
+  approval_layers:
+  - lead dentist
+  - clinic owner với ngoại lệ tài chính
+  exception_rules:
+  - ca lỡ hẹn giai đoạn quan trọng phải escalate
+  - promise outcome phải bám consent và clinical note
+knowledge_system:
+  canonical_artifacts:
+  - treatment plan
+  - consent form
+  - payment schedule
+  - recall list
+  reporting_cadence:
+  - weekly treatment review
+  - recall review by risk tier
+  metric_stack:
+  - plan acceptance
+  - milestone completion
+  - recall adherence
+  - collection against plan
+  glossary_terms:
+  - milestone
+  - consent
+  - recall adherence
+tooling_system:
+  systems:
+  - diagnostic records
+  - payment tracker
+  - recall tracker
+  system_roles:
+  - lưu plan
+  - theo milestone
+  - log collection và recall
+  data_dependencies:
+  - diagnostics
+  - consent
+  - payment schedule
+  failure_points:
+  - plan chốt nhưng không follow-up
+  - khách lệch milestone mà không ai ownership
+artifact_adaptation:
+  sop: Làm rõ từ diagnostics đến recall, bám milestone và consent.
+  playbook: Tập trung treatment coordinator motion, compliance và payment follow-up.
+  onboarding_guide: Ưu tiên consent, plan milestone, recall risk và tài chính theo
+    chặng.
+  memo: Nêu plan nóng, ca trễ milestone, recall risk, owner và next step.
+  report_template: Khóa metric acceptance, milestone completion, recall adherence,
+    collection.
+  meeting_brief: Nêu ca dài hạn rủi ro, ca cần recall gấp, cash collection và bottleneck.
+  checklist: Ngắn, theo diagnostics, consent, milestone, recall.
+  faq: Bám treatment plan, recall, payment schedule.
+  dashboard_note: Giải thích adherence, collection và milestone risk.
+  escalation_note: Nêu ca, risk tier, mốc trễ, bước cần bác sĩ hoặc owner quyết.
+anti_patterns:
+- hứa outcome vượt consent
+- để recall quan trọng trôi
+convergence:
+  invariants:
+  - plan dài phải có milestone rõ
+  - consent và tài chính phải bám plan
+  tendencies:
+  - review theo risk tier
+  accidents:
+  - tên kỹ thuật điều trị cụ thể
+quality_notes:
+  strengths:
+  - mạnh cho implant hoặc ortho-heavy
+  limitations:
+  - không tối ưu cho clinic toàn ca ngắn
+  mixed_source_warning: ''
+  coverage_gaps:
+  - thiếu rule về lab coordination phức tạp

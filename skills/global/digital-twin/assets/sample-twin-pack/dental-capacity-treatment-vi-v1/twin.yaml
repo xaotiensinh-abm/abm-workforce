@@ -1,0 +1,172 @@
+version: 1
+profile:
+  label: Dental Capacity Treatment Twin
+  primary_language: vi
+  source_count: 8
+  source_mix:
+    upload: 5
+    pasted_text: 2
+    url: 1
+  confidence: usable
+  status: stable
+scope:
+  team_or_business_area: Phòng khám nhiều ghế với tỷ trọng implant/ortho cao
+  boundary: cover capacity planning, chair utilization, long treatment plan cadence,
+    consent, recall và stage finance
+  primary_users:
+  - clinic manager
+  - scheduler
+  - treatment coordinator
+  - dentist
+  time_horizon: daily and weekly
+operating_model:
+  mission: Giữ công suất ghế và chất lượng treatment plan dài hạn cùng lúc, không
+    để capacity phá treatment hoặc ngược lại.
+  operating_principles:
+  - mọi ca dài phải nhìn được chair fit và stage commitment
+  - recall là một phần của capacity planning
+  - điều phối phải thấy cùng một truth về kế hoạch điều trị
+  service_boundaries:
+  - cover chair-flow và treatment cadence
+  - không mặc định cover mở cơ sở mới
+  standard_of_execution: Lịch ngày và kế hoạch điều trị dài hạn phải được nối bằng
+    cùng owner, milestone và recovery rule.
+role_system:
+  core_roles:
+  - Clinic Manager
+  - Scheduler
+  - Treatment Coordinator
+  - Dentist
+  - Assistant
+  responsibilities:
+  - điều phối chair
+  - giữ treatment milestones
+  - theo consent và finance stage
+  - recovery no-show
+  handoff_patterns:
+  - treatment coordinator -> scheduler cho stage booking
+  - scheduler -> chair team cho day-of-flow
+  - chair team -> treatment coordinator khi plan thay đổi
+  escalation_paths:
+  - ca dài đè capacity
+  - patient delay nhiều stage
+  - doctor change ảnh hưởng plan
+process_system:
+  core_processes:
+  - capacity planning
+  - long-case scheduling
+  - day-of-flow management
+  - recall recovery
+  trigger_map:
+  - new long treatment plan
+  - chair bottleneck
+  - patient no-show
+  - stage delayed
+  input_output_pairs:
+  - treatment plan -> staged schedule
+  - chair conflict -> re-sequenced plan
+  - missed milestone -> recall action
+  sla_expectations:
+  - ca dài phải lock trước trong cửa sổ nội bộ
+  - missed milestone phải có recall owner nhanh
+decision_system:
+  decision_types:
+  - long-case slot allocation
+  - stage reschedule
+  - doctor change
+  - financial-stage hold
+  decision_rules:
+  - không nhận thêm ca dài nếu chưa có chair capacity rõ
+  - đổi lịch stage phải cập nhật recall ngay
+  - doctor change phải reset expectation và consent nếu cần
+  approval_layers:
+  - clinic manager
+  - lead dentist
+  exception_rules:
+  - ưu tiên emergency nhưng phải bảo toàn recovery plan cho ca dài
+  - hủy stage nhiều lần phải có owner follow-up cấp cao hơn
+knowledge_system:
+  canonical_artifacts:
+  - capacity board
+  - treatment plan
+  - consent
+  - recall tracker
+  - stage payment tracker
+  reporting_cadence:
+  - daily capacity huddle
+  - weekly treatment review
+  metric_stack:
+  - chair utilization
+  - delay minutes
+  - treatment acceptance
+  - stage completion
+  - recall adherence
+  glossary_terms:
+  - long case
+  - stage completion
+  - recall adherence
+tooling_system:
+  systems:
+  - scheduling system
+  - capacity board
+  - treatment tracker
+  - chat group
+  system_roles:
+  - log ghế
+  - log stage plan
+  - log recall
+  data_dependencies:
+  - chair availability
+  - doctor schedule
+  - treatment milestones
+  - payment stage
+  failure_points:
+  - stage plan không quay lại scheduler
+  - ghế bị over-committed
+  - recall không owner
+artifact_adaptation:
+  sop: Làm rõ nối giữa capacity và treatment milestones.
+  playbook: Tập trung no-show recovery cho ca dài và chair conflict.
+  onboarding_guide: Ưu tiên chair board, treatment tracker, recall và exception path.
+  memo: Nêu capacity bottleneck, stage delay và action owner.
+  report_template: Khóa metric ghế, delay, stage completion, recall.
+  meeting_brief: Nêu ghế nóng, ca dài rủi ro, no-show, recovery plan.
+  checklist: Theo mốc pre-op, day-of, post-op, recall.
+  faq: Bám delay, đổi lịch, consent, recall, stage payment.
+  dashboard_note: Giải thích trade-off giữa capacity và treatment cadence.
+  escalation_note: Nêu case, stage, ghế, bác sĩ, recovery plan.
+anti_patterns:
+- xếp ca dài như ca thường
+- recall không quay về capacity owner
+convergence:
+  invariants:
+  - capacity và treatment plan phải nhìn cùng một lịch thực
+  - missed milestone phải có recall owner
+  tendencies:
+  - daily huddle ngắn nhưng nhiều reschedule
+  accidents:
+  - tên bác sĩ cụ thể
+quality_notes:
+  strengths:
+  - mạnh ở collision giữa capacity và treatment plan
+  limitations:
+  - không cover multi-branch sâu
+  mixed_source_warning: ''
+  coverage_gaps:
+  - thiếu rule cho lab dependency
+orchestration_system:
+  source_packs:
+  - multi-chair-clinic-vi-v1
+  - implant-ortho-heavy-vi-v1
+  composition_goal: Nối capacity clinic với treatment plan dài hạn của implant/ortho.
+  integration_points:
+  - long-case booking -> chair reservation
+  - delay/no-show -> recall recovery
+  - consent/payment stage -> schedule lock
+  shared_metrics:
+  - chair utilization
+  - delay minutes
+  - stage completion
+  - recall adherence
+  boundary_notes:
+  - Không copy protocol chuyên môn cụ thể từ sample pack.

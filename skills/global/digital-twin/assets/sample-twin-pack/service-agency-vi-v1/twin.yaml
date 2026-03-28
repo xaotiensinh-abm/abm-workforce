@@ -1,0 +1,156 @@
+version: 1
+profile:
+  label: Service Agency Ops Twin
+  primary_language: vi
+  source_count: 7
+  source_mix:
+    upload: 4
+    pasted_text: 2
+    url: 1
+  confidence: usable
+  status: stable
+scope:
+  team_or_business_area: Agency hoặc doanh nghiệp dịch vụ
+  boundary: cover sales-to-delivery handoff, scope control, client communication,
+    utilization, quality review và renewal risk
+  primary_users:
+  - account lead
+  - project manager
+  - delivery lead
+  - founder
+  time_horizon: weekly and monthly
+operating_model:
+  mission: Giảm lệch giữa sale và delivery, kiểm soát scope creep và giữ client health
+    nhìn được.
+  operating_principles:
+  - không nhận scope mơ hồ
+  - mọi thay đổi ngoài scope phải được log
+  - review client health phải đi kèm owner và action
+  service_boundaries:
+  - cover service delivery ops
+  - không mặc định cover product engineering ops
+  standard_of_execution: Account, scope, timeline, owner và risk phải được nhìn cùng
+    nhau chứ không nằm rải ở chat.
+role_system:
+  core_roles:
+  - Account Lead
+  - Project Manager
+  - Delivery Lead
+  - Founder
+  responsibilities:
+  - giữ client health
+  - điều phối delivery
+  - kiểm soát scope và timeline
+  - duyệt case ngoại lệ
+  handoff_patterns:
+  - sales sang account sau close
+  - account sang delivery sau kick-off
+  - delivery escalates lại account khi risk client cao
+  escalation_paths:
+  - scope creep
+  - deadline risk
+  - client dissatisfaction
+  - utilization quá tải
+process_system:
+  core_processes:
+  - client onboarding
+  - scope and timeline setup
+  - weekly delivery review
+  - change request handling
+  - renewal or churn risk review
+  trigger_map:
+  - deal closed
+  - new task ngoài scope
+  - red flag client
+  - renewal approaching
+  input_output_pairs:
+  - signed proposal -> kickoff pack
+  - change request -> approval decision
+  - weekly status -> client health action
+  sla_expectations:
+  - client update phải đều
+  - red flag client không để quá một chu kỳ review
+decision_system:
+  decision_types:
+  - scope acceptance
+  - change request approval
+  - resource allocation
+  - discount or save action
+  decision_rules:
+  - không nhận task ngoài scope mà không đổi plan hoặc fee
+  - client red flag phải có owner và action trước kỳ review kế tiếp
+  approval_layers:
+  - account lead
+  - delivery head
+  - founder cho case giá hoặc nguồn lực lớn
+  exception_rules:
+  - không dùng chat riêng làm nơi chốt thay đổi phạm vi
+  - mọi save action phải log hypothesis
+knowledge_system:
+  canonical_artifacts:
+  - proposal
+  - kickoff brief
+  - weekly client report
+  - change log
+  reporting_cadence:
+  - weekly client health review
+  - weekly utilization review
+  - monthly renewal risk review
+  metric_stack:
+  - utilization
+  - on-time delivery
+  - scope creep count
+  - client health
+  - renewal likelihood
+  glossary_terms:
+  - scope creep
+  - client health
+  - save action
+tooling_system:
+  systems:
+  - project board
+  - timesheet
+  - docs
+  - chat
+  system_roles:
+  - quản lý task
+  - log time
+  - ghi change request
+  data_dependencies:
+  - signed scope
+  - resource plan
+  - client comms log
+  failure_points:
+  - scope mơ hồ
+  - delivery update muộn
+  - red flag client không ai owner
+artifact_adaptation:
+  sop: Làm rõ onboarding, handoff, scope change, review và renewal risk.
+  playbook: Tập trung red flag client, scope creep và resource balancing.
+  onboarding_guide: Ưu tiên kickoff, client comms, change log, utilization.
+  memo: Nêu client risk, scope risk, owner và quyết định cần duyệt.
+  report_template: Khóa metric utilization, on-time, client health, scope creep.
+  meeting_brief: Nêu client đỏ, deadline risk, resource bottleneck, next action.
+  checklist: Ngắn, theo kickoff, weekly update, change request, renewal.
+  faq: Bám scope, timeline, review, escalation.
+  dashboard_note: Giải thích utilization, scope creep, renewal risk.
+  escalation_note: Nêu client, risk, nguyên nhân, phương án và người cần quyết.
+anti_patterns:
+- chốt thay đổi qua chat không log
+- giao project mà kickoff pack thiếu
+convergence:
+  invariants:
+  - mọi thay đổi ngoài scope phải được log
+  - red flag client phải có owner
+  tendencies:
+  - review health hàng tuần
+  accidents:
+  - tên client cụ thể
+quality_notes:
+  strengths:
+  - hợp agency và dịch vụ theo account
+  limitations:
+  - không tối ưu cho SaaS support ticketing
+  mixed_source_warning: ''
+  coverage_gaps:
+  - thiếu rule revenue recognition chi tiết

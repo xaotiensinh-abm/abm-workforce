@@ -1,0 +1,151 @@
+# 🚀 Antigravity Vibe Coding Suite v3.0 (Ultimate Edition)
+
+**Hệ thống Workflow TOÀN DIỆN cho Vibe Coders** - Chỉ cần có ý tưởng, AI lo trọn gói.
+
+> 💡 **Triết lý:** Bạn sáng tạo và ra quyết định. AI xử lý TẤT CẢ kỹ thuật - kể cả những thứ bạn không biết là cần.
+
+---
+
+## 📋 Danh sách lệnh (14 Workflows)
+
+### 🌟 Khởi động & Ngữ cảnh
+| Lệnh | Mô tả | Điểm mù được xử lý |
+|------|-------|-------------------|
+| `/init` | Tạo dự án mới hoàn chỉnh | Env vars, Git, Code quality tools |
+| `/recap` | Tóm tắt context khi quay lại | Context recovery |
+| `/save-brain` | Lưu kiến thức cuối buổi | API Docs, Changelog, Business rules |
+
+### 🎯 Phát triển tính năng
+| Lệnh | Mô tả | Điểm mù được xử lý |
+|------|-------|-------------------|
+| `/plan` | Thiết kế tính năng toàn diện | Auth, DB, Charts, PDF, Maps, Scheduled Tasks |
+| `/visualize` | Thiết kế UI/UX đẹp | Loading/Error states, Accessibility, Dark mode |
+| `/code` | Viết code chất lượng | Security, Validation, Error handling |
+
+### ⚙️ Vận hành
+| Lệnh | Mô tả | Điểm mù được xử lý |
+|------|-------|-------------------|
+| `/run` | Khởi động app | Environment detection, Port conflicts |
+| `/test` | Kiểm tra logic | Auto-generate tests nếu thiếu |
+| `/deploy` | Đưa lên production | SEO, Analytics, Legal, Backup, Monitoring |
+
+### 🔧 Bảo trì
+| Lệnh | Mô tả | Điểm mù được xử lý |
+|------|-------|-------------------|
+| `/debug` | Sửa lỗi | Hướng dẫn mô tả lỗi cho non-tech |
+| `/refactor` | Dọn dẹp code | Safe execution, Before/After comparison |
+| `/audit` | Kiểm tra sức khỏe | Security, Performance, Dependencies |
+| `/rollback` | Quay về phiên bản cũ | Emergency recovery |
+
+### 🌐 Hạ tầng
+| Lệnh | Mô tả | Điểm mù được xử lý |
+|------|-------|-------------------|
+| `/cloudflare-tunnel` | Expose app ra internet | Tunnel management |
+
+---
+
+## 🔥 ĐIỂM MÙ VIBE CODER ĐÃ ĐƯỢC XỬ LÝ TOÀN DIỆN
+
+### 📐 Khi lên kế hoạch (`/plan`)
+| Điểm mù | AI tự hỏi |
+|---------|-----------|
+| Database Design | "Có dữ liệu sẵn không? Quản lý những gì?" |
+| Auth/Login | "Cần đăng nhập không? OAuth? Roles?" |
+| File Upload | "Có upload hình không? Size limit?" |
+| Email/Notifications | "Cần gửi thông báo không?" |
+| Payment | "Có nhận thanh toán không?" |
+| Search | "Có tìm kiếm không? Fuzzy?" |
+| Scheduled Tasks | "Có cần tự động chạy hàng ngày?" |
+| Charts/Graphs | "Có cần biểu đồ không?" |
+| PDF/Print | "Có cần in hóa đơn không?" |
+| Maps | "Có cần bản đồ không?" |
+| Real-time | "Có cần live updates không?" |
+
+### 🎨 Khi thiết kế UI (`/visualize`)
+| Điểm mù | AI tự xử lý |
+|---------|-------------|
+| Loading States | Skeleton, Spinner, Progress bar |
+| Error States | Toast, Modal, Inline error |
+| Empty States | Illustration + Call-to-action |
+| Accessibility | Color contrast, ARIA, Keyboard nav |
+| Mobile | Responsive, Touch-friendly |
+| Dark Mode | Dual theme design |
+
+### 🚀 Khi deploy (`/deploy`)
+| Điểm mù | AI tự xử lý |
+|---------|-------------|
+| SEO | Meta tags, Sitemap, robots.txt |
+| Analytics | Google Analytics / Plausible |
+| Legal | Privacy Policy, Terms, Cookie consent |
+| Backup | Database backup strategy |
+| Monitoring | Uptime + Error tracking |
+| SSL | Auto HTTPS |
+| Maintenance | Maintenance mode page |
+
+### 📚 Khi lưu trữ (`/save-brain`)
+| Điểm mù | AI tự tạo |
+|---------|-----------|
+| API Documentation | Auto-generate từ routes |
+| Changelog | Version history |
+| Business Rules | Quy tắc nghiệp vụ |
+
+---
+
+## 🎮 Luồng làm việc khuyến nghị
+
+### 📦 Dự án mới
+```
+/init → /plan → /visualize → /code → /run → /test → /deploy → /save-brain
+```
+
+### 🌅 Bắt đầu ngày mới
+```
+/recap → /code → /run → /test → /save-brain
+```
+
+### 🐛 Khi gặp lỗi
+```
+/debug → /test → (nếu loạn) /rollback
+```
+
+### 🚀 Trước release
+```
+/audit → /test → /deploy → /save-brain
+```
+
+---
+
+## 📊 Thống kê hệ thống v3.0
+
+| Workflow | Size | Chất lượng |
+|----------|------|------------|
+| `/plan` | **5.4KB** | ⭐⭐⭐⭐⭐ Ultimate |
+| `/deploy` | **5.3KB** | ⭐⭐⭐⭐⭐ Ultimate |
+| `/init` | 4.9KB | ⭐⭐⭐⭐⭐ Complete |
+| `/visualize` | 4.8KB | ⭐⭐⭐⭐⭐ Complete |
+| `/debug` | 4.7KB | ⭐⭐⭐⭐⭐ Complete |
+| `/cloudflare-tunnel` | 4.3KB | ⭐⭐⭐⭐ Good |
+| `/save-brain` | **4.2KB** | ⭐⭐⭐⭐⭐ Ultimate |
+| `/audit` | 4.2KB | ⭐⭐⭐⭐⭐ Complete |
+| `/refactor` | 4.2KB | ⭐⭐⭐⭐⭐ Complete |
+| `/code` | 3.6KB | ⭐⭐⭐⭐⭐ Complete |
+| `/run` | 2.6KB | ⭐⭐⭐⭐ Good |
+| `/test` | 2.4KB | ⭐⭐⭐⭐ Good |
+| `/recap` | 2.4KB | ⭐⭐⭐⭐ Good |
+| `/rollback` | 2.2KB | ⭐⭐⭐⭐ Good |
+
+**Tổng:** 14 workflows | **~60KB** instructions | **50+ điểm mù** được xử lý
+
+---
+
+## 💡 Tips cho Vibe Coder
+
+1. **Cứ nói tự nhiên** - AI sẽ hỏi lại nếu thiếu
+2. **Không sợ làm sai** - Có `/rollback`
+3. **Cuối ngày `/save-brain`** - Mai không mất context
+4. **Định kỳ `/audit`** - Phòng bệnh hơn chữa bệnh
+5. **Trước release `/deploy`** - SEO, Analytics, Legal đầy đủ
+
+---
+
+*Antigravity Vibe Coding Suite v3.0 - Your dreams, our engineering.*

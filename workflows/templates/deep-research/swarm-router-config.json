@@ -1,0 +1,73 @@
+{
+    "swarm_config": {
+        "name": "Deep-Research-Team",
+        "version": "1.0.0",
+        "director": "OpenDeepResearch-Worker"
+    },
+    "routing": {
+        "sequential": [
+            {
+                "phase": 1,
+                "worker": "QueryClarifier-Worker",
+                "input": "original_query",
+                "output": "clarified_query.md"
+            },
+            {
+                "phase": 2,
+                "worker": "Planning-Worker",
+                "input": "clarified_query.md",
+                "output": "research_plan.md"
+            }
+        ],
+        "parallel": [
+            {
+                "phase": 3,
+                "workers": [
+                    {
+                        "name": "SearchSpecialist-Worker",
+                        "input": "research_plan.md",
+                        "output": "search_results.md",
+                        "focus": "web_search"
+                    },
+                    {
+                        "name": "TechnicalResearcher-Worker",
+                        "input": "research_plan.md",
+                        "output": "technical_findings.md",
+                        "focus": "technical_deep_dive"
+                    }
+                ],
+                "join_strategy": "wait_all"
+            }
+        ],
+        "sequential_post": [
+            {
+                "phase": 4,
+                "worker": "FactChecker-Worker",
+                "input": [
+                    "search_results.md",
+                    "technical_findings.md"
+                ],
+                "output": "verified_facts.md"
+            },
+            {
+                "phase": 5,
+                "worker": "ReportGenerator-Worker",
+                "input": [
+                    "clarified_query.md",
+                    "research_plan.md",
+                    "verified_facts.md"
+                ],
+                "output": "final_report.md"
+            }
+        ]
+    },
+    "memory_bus": {
+        "enabled": true,
+        "shared_context": [
+            "session_id",
+            "query",
+            "findings",
+            "citations"
+        ]
+    }
+}

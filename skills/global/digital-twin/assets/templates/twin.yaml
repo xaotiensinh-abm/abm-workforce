@@ -1,0 +1,86 @@
+version: 1
+
+profile:
+  label: ""
+  primary_language: "vi"
+  source_count: 0
+  source_mix:
+    upload: 0
+    pasted_text: 0
+    url: 0
+  confidence: low
+  status: provisional
+
+scope:
+  team_or_business_area: ""
+  boundary: ""
+  primary_users: []
+  time_horizon: ""
+
+operating_model:
+  mission: ""
+  operating_principles: []
+  service_boundaries: []
+  standard_of_execution: ""
+
+role_system:
+  core_roles: []
+  responsibilities: []
+  handoff_patterns: []
+  escalation_paths: []
+
+process_system:
+  core_processes: []
+  trigger_map: []
+  input_output_pairs: []
+  sla_expectations: []
+
+decision_system:
+  decision_types: []
+  decision_rules: []
+  approval_layers: []
+  exception_rules: []
+
+knowledge_system:
+  canonical_artifacts: []
+  reporting_cadence: []
+  metric_stack: []
+  glossary_terms: []
+
+tooling_system:
+  systems: []
+  system_roles: []
+  data_dependencies: []
+  failure_points: []
+
+artifact_adaptation:
+  sop: ""
+  playbook: ""
+  onboarding_guide: ""
+  memo: ""
+  report_template: ""
+  meeting_brief: ""
+  checklist: ""
+  faq: ""
+  dashboard_note: ""
+  escalation_note: ""
+
+anti_patterns: []
+
+convergence:
+  invariants: []
+  tendencies: []
+  accidents: []
+
+quality_notes:
+  strengths: []
+  limitations: []
+  mixed_source_warning: ""
+  coverage_gaps: []
+
+orchestration_system:
+  source_packs: []
+  composition_goal: ""
+  integration_points: []
+  shared_metrics: []
+  boundary_notes: []

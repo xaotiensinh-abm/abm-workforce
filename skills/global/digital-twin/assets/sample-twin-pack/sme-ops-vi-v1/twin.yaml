@@ -1,0 +1,69 @@
+version: 1
+profile:
+  label: "SME Ops Twin"
+  primary_language: "vi"
+  source_count: 10
+  source_mix:
+    upload: 6
+    pasted_text: 3
+    url: 1
+  confidence: usable
+  status: stable
+scope:
+  team_or_business_area: "Vận hành SMEs liên phòng ban"
+  boundary: "cover cơ chế điều hành chung cho sales, delivery, finance ops, admin và founder review trong doanh nghiệp vừa và nhỏ"
+  primary_users: ["founder", "operations manager", "functional lead", "hr hoặc admin"]
+  time_horizon: "weekly and monthly"
+operating_model:
+  mission: "Giảm phụ thuộc vào người cũ bằng cách đóng gói cách ra quyết định, giao việc, review và báo cáo."
+  operating_principles: ["owner rõ", "việc có deadline và định nghĩa xong", "quyết định phải truy vết được", "họp phải dẫn đến action"]
+  service_boundaries: ["cover governance và vận hành liên phòng ban", "không thay thế hoàn toàn chuyên môn riêng từng bộ phận"]
+  standard_of_execution: "Mỗi quy trình phải chỉ ra ai làm, quyết định ở đâu, báo cáo theo nhịp nào và escalates khi nào."
+role_system:
+  core_roles: ["Founder", "Operations Manager", "Functional Lead", "Admin hoặc HR", "Finance Ops"]
+  responsibilities: ["đặt ưu tiên và quyết định", "điều phối liên phòng ban", "vận hành chức năng", "đảm bảo tài liệu và onboarding", "kiểm soát duyệt chi và đối soát"]
+  handoff_patterns: ["lead chức năng sang ops manager khi có xung đột liên phòng ban", "ops manager sang founder khi quyết định vượt ngưỡng", "admin hoặc hr tiếp nhận để chuẩn hóa thành tài liệu"]
+  escalation_paths: ["escalate khi trễ deadline liên phòng ban", "escalate khi thiếu owner hoặc xung đột ưu tiên", "escalate khi duyệt chi vượt ngưỡng"]
+process_system:
+  core_processes: ["weekly planning và review", "approval và duyệt chi", "handoff công việc liên phòng ban", "onboarding nhân sự mới", "báo cáo vận hành tuần"]
+  trigger_map: ["việc mới phát sinh", "đến kỳ review tuần", "phát sinh chi phí hoặc ngoại lệ", "nhân sự mới vào hoặc đổi vai"]
+  input_output_pairs: ["task request -> owner và deadline", "approval request -> quyết định và rationale", "weekly metrics -> action plan", "new hire -> onboarding checklist"]
+  sla_expectations: ["việc phải có owner trong chu kỳ ngắn", "approval có cửa sổ phản hồi rõ", "weekly review phải chốt action và người chịu trách nhiệm"]
+decision_system:
+  decision_types: ["ưu tiên công việc", "duyệt chi", "xử lý ngoại lệ", "đổi scope", "phân bổ nguồn lực"]
+  decision_rules: ["việc liên phòng ban phải có single owner", "chi phí vượt ngưỡng cần founder hoặc người được ủy quyền duyệt", "mọi thay đổi scope hoặc timeline phải được log trong review", "việc không có metric hoặc outcome rõ không được ưu tiên cao"]
+  approval_layers: ["functional lead", "operations manager", "founder theo ngưỡng hoặc mức rủi ro"]
+  exception_rules: ["mọi bypass quy trình phải có rationale", "không kéo founder vào việc lẽ ra xử lý ở cấp lead nếu chưa đủ ngưỡng", "mọi quyết định khẩn phải được backfill vào memo hoặc review note"]
+knowledge_system:
+  canonical_artifacts: ["weekly report", "memo quyết định", "onboarding guide", "checklist", "meeting brief", "policy duyệt chi"]
+  reporting_cadence: ["weekly ops review", "monthly management review"]
+  metric_stack: ["task completion", "bottleneck count", "approval turnaround", "cash discipline", "new hire readiness"]
+  glossary_terms: ["owner", "deadline", "ngưỡng duyệt", "exception", "review note"]
+tooling_system:
+  systems: ["sheet hoặc task tracker", "chat nội bộ", "docs", "folder vận hành", "tool tài chính đơn giản"]
+  system_roles: ["theo dõi việc", "lưu memo và SOP", "chốt báo cáo tuần", "kiểm soát approval"]
+  data_dependencies: ["task list", "chi phí hoặc chứng từ", "weekly metrics", "danh sách onboarding"]
+  failure_points: ["founder thành bottleneck", "việc giao không có owner", "review tuần chỉ báo cáo mà không ra action", "quyết định miệng không được ghi lại"]
+artifact_adaptation:
+  sop: "Làm rõ trigger, owner, handoff, deadline, approval và escalation giữa các bộ phận."
+  playbook: "Tập trung vào cách phối hợp, review, approval và xử lý bottleneck."
+  onboarding_guide: "Ưu tiên hiểu operating model, nhịp review, công cụ, các policy lõi và role expectation."
+  memo: "Nêu bối cảnh, quyết định, ngưỡng ảnh hưởng, owner, timeline và review point."
+  report_template: "Khóa các metric vận hành tuần, bottleneck, quyết định chờ duyệt và action theo owner."
+  meeting_brief: "Nêu objective, metrics cần đọc, decisions needed, risks, owner và follow-up."
+  checklist: "Ngắn, theo từng role hoặc từng chu kỳ họp, tránh checklist hình thức."
+  faq: "Bám theo policy duyệt chi, vận hành nội bộ, onboarding và cách escalation."
+  dashboard_note: "Giải thích điểm nghẽn, tốc độ xử lý, approval turnaround và action expectation."
+  escalation_note: "Nêu vấn đề, mức ảnh hưởng, lựa chọn xử lý, owner đề xuất và ngưỡng quyết định."
+anti_patterns:
+  - "quyết định miệng nhưng không có memo hoặc owner"
+  - "họp giao ban nhiều nhưng không chốt action và deadline"
+convergence:
+  invariants: ["mọi việc phải có owner", "review phải ra action", "approval phải có ngưỡng và rationale"]
+  tendencies: ["ưa dùng memo ngắn thay vì deck dài", "thích checklist vận hành theo role"]
+  accidents: ["cụm từ theo quý hoặc chiến dịch ngắn hạn"]
+quality_notes:
+  strengths: ["phản ánh rõ lớp governance của SMEs", "đủ để tạo onboarding, report template và decision rules"]
+  limitations: ["chưa thay thế quy trình chuyên sâu của từng phòng ban", "một số metric còn phụ thuộc dữ liệu hiện có"]
+  mixed_source_warning: ""
+  coverage_gaps: ["thiếu rule cho procurement hoặc vendor management sâu", "thiếu automation giữa tracker, docs và tài chính"]

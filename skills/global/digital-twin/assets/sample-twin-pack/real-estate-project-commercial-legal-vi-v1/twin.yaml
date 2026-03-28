@@ -1,0 +1,169 @@
+version: 1
+profile:
+  label: Real Estate Project Commercial Legal Twin
+  primary_language: vi
+  source_count: 9
+  source_mix:
+    upload: 5
+    pasted_text: 3
+    url: 1
+  confidence: usable
+  status: stable
+scope:
+  team_or_business_area: Sales dự án sơ cấp + legal transaction ops
+  boundary: cover lead-to-booking-to-legal-handoff-to-signing cho dự án sơ cấp
+  primary_users:
+  - sales consultant
+  - sales lead
+  - admin sale
+  - legal ops
+  time_horizon: daily, weekly and launch-cycle
+operating_model:
+  mission: Nối chặt motion bán hàng và motion giao dịch để booking hợp lệ chuyển thành
+    hồ sơ ký kết có owner và timeline rõ.
+  operating_principles:
+  - không tách booking khỏi hồ sơ
+  - ngoại lệ thương mại và ngoại lệ pháp lý phải cùng nhìn một case
+  - owner sales và legal phải cùng chia sẻ trạng thái
+  service_boundaries:
+  - cover commercial-to-transaction handoff
+  - không mặc định cover mortgage processing sâu
+  standard_of_execution: Mọi booking nóng phải nhìn được trạng thái inventory, cọc,
+    hồ sơ và legal readiness trong cùng một flow.
+role_system:
+  core_roles:
+  - Sales Consultant
+  - Sales Team Lead
+  - Admin Sale
+  - Legal Ops
+  responsibilities:
+  - sales qualify và booking
+  - admin check hồ sơ
+  - legal kiểm điều kiện ký và tiến độ
+  handoff_patterns:
+  - sales -> admin sale sau booking
+  - admin sale -> legal ops khi đủ bộ hồ sơ
+  - legal ops -> sales khi cần khách bổ sung
+  escalation_paths:
+  - ngoại lệ giá hoặc cọc
+  - hồ sơ thiếu quá hạn
+  - delay ký do pháp lý hoặc khách hàng
+process_system:
+  core_processes:
+  - lead-to-booking
+  - deposit confirmation
+  - pre-legal handoff
+  - signing readiness
+  trigger_map:
+  - booking confirmed
+  - deposit received
+  - hồ sơ thiếu
+  - signing schedule changed
+  input_output_pairs:
+  - booking form -> pre-legal checklist
+  - deposit proof -> legal kickoff
+  - legal gap note -> sales follow-up task
+  sla_expectations:
+  - booking nóng phải handoff hồ sơ trong chu kỳ ngắn
+  - hồ sơ thiếu phải có owner và deadline follow-up
+decision_system:
+  decision_types:
+  - booking exception
+  - deposit exception
+  - legal readiness
+  - signing reschedule
+  decision_rules:
+  - không chuyển legal khi hồ sơ tối thiểu chưa rõ trạng thái
+  - mọi ngoại lệ cọc hoặc đổi căn phải log trên cùng case
+  - trạng thái legal readiness phải quay lại sales owner
+  approval_layers:
+  - sales lead
+  - sales manager
+  - legal lead
+  exception_rules:
+  - gia hạn cọc phải có lý do và approver
+  - thiếu hồ sơ critical phải stop timeline ký
+knowledge_system:
+  canonical_artifacts:
+  - launch brief
+  - booking policy
+  - pre-legal checklist
+  - timeline thanh toán
+  - signing tracker
+  reporting_cadence:
+  - daily launch huddle
+  - weekly booking-legal sync
+  metric_stack:
+  - booking rate
+  - booking to deposit
+  - deposit to legal-ready
+  - signed-doc cycle time
+  glossary_terms:
+  - legal ready
+  - pre-legal checklist
+  - signing slot
+tooling_system:
+  systems:
+  - crm hoặc sheet lead
+  - inventory tracker
+  - document checklist
+  - chat group
+  system_roles:
+  - log booking
+  - log legal gap
+  - track signing status
+  data_dependencies:
+  - inventory status
+  - deposit proof
+  - document completeness
+  failure_points:
+  - booking không gắn hồ sơ
+  - legal gap không quay lại sales owner
+  - signing delay không notify lại khách
+artifact_adaptation:
+  sop: Làm rõ handoff sales -> admin -> legal với điều kiện vào/ra.
+  playbook: Tập trung booking-to-legal readiness và exception path.
+  onboarding_guide: Ưu tiên booking flow, hồ sơ tối thiểu, legal handoff và signing
+    readiness.
+  memo: Nêu booking nóng, hồ sơ kẹt, người duyệt và deadline.
+  report_template: Khóa metric booking, deposit, legal-ready, ký kết.
+  meeting_brief: Nêu booking chờ cọc, hồ sơ thiếu, legal blocker, signing slot.
+  checklist: Theo mốc booking, cọc, hồ sơ, ký.
+  faq: Bám booking policy, legal checklist, cọc và đổi căn.
+  dashboard_note: Giải thích bottleneck giữa sales và legal.
+  escalation_note: Nêu case, rủi ro, blocker, owner, approver.
+anti_patterns:
+- booking tách rời hồ sơ
+- legal gap không có owner sales
+convergence:
+  invariants:
+  - booking phải đi cùng legal readiness tối thiểu
+  - ngoại lệ cọc hoặc đổi căn phải có approver rõ
+  tendencies:
+  - daily sync ngắn nhưng dày case nóng
+  accidents:
+  - tên dự án cụ thể
+quality_notes:
+  strengths:
+  - mạnh ở sales-to-legal orchestration
+  limitations:
+  - không đi sâu financing
+  mixed_source_warning: ''
+  coverage_gaps:
+  - thiếu rule hậu mãi sau ký
+orchestration_system:
+  source_packs:
+  - primary-project-sales-vi-v1
+  - legal-transaction-ops-vi-v1
+  composition_goal: Nối liền motion bán hàng và giao dịch pháp lý cho dự án sơ cấp.
+  integration_points:
+  - booking -> pre-legal checklist
+  - deposit -> legal kickoff
+  - legal gap -> sales follow-up
+  - signing delay -> customer expectation reset
+  shared_metrics:
+  - booking to deposit
+  - deposit to legal-ready
+  - signed-doc cycle time
+  boundary_notes:
+  - Không copy facts dự án cụ thể từ sample pack.

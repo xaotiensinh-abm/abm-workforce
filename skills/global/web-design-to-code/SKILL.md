@@ -1,0 +1,113 @@
+---
+name: "Goal"
+description: "Pipeline end-to-end biến bất kỳ website mẫu nào thành code chạy được — từ phân tích (10-agent scan) → design plan (tokens + components + DB schema + animations) → implementation (HTML/CSS/JS với desig"
+---
+
+﻿---
+name: web-design-to-code
+description: Pipeline: analyze reference website > design UI > generate production code. End-to-end.
+---
+
+# Goal
+
+> **Use this skill when:** converting design mockups or specs to production code
+
+Pipeline end-to-end biến bất kỳ website mẫu nào thành code chạy được — từ phân tích (10-agent scan) → design plan (tokens + components + DB schema + animations) → implementation (HTML/CSS/JS với design system hoàn chỉnh) — trong 1 phiên làm việc.
+
+# Instructions
+
+## Phase 1: Analyze (website-analysis-orchestrator)
+
+1. Nhận URL website mẫu từ user
+2. Load skill `website-analysis-orchestrator` (D:\AntigravityWorkspace\Skill\website-analysis-orchestrator\SKILL.md)
+3. Execute 10-agent pipeline:
+   - @Website_Scout → screenshots + sitemap
+   - 5 agents parallel: Component_Analyst, UX_Pattern_Mapper, Color_Typography_Extractor, Animation_Inspector, Tech_Stack_Detector
+   - @Competitor_Benchmarker + @Database_Architect
+   - @Design_Strategist → recommendations
+   - @Plan_Compiler → comprehensive design plan
+4. **Output Contract** (feed sang Phase 2):
+   - `design_tokens`: colors, typography, spacing, shadows
+   - `component_inventory`: buttons, cards, modals, forms
+   - `animation_specs`: hovers, scrolls, transitions
+   - `database_schema`: SQL-ready tables + relationships
+   - `tech_stack_report`: framework + hosting recommendations
+
+## Phase 2: Design (ui-ux-pro-max + web-design-rules)
+
+5. Load workflow `ui-ux-pro-max` + `web-design-rules`
+6. Transform analysis output → implementation-ready design:
+   - Design tokens → CSS custom properties (`--color-primary`, `--font-heading`)
+   - Components → HTML/CSS component library
+   - Animations → CSS keyframes + transitions
+   - Apply Web Design Supreme Rules v2.0 (Glassmorphism, dynamic animations)
+7. Generate mockups (dùng `generate_image` tool) nếu user muốn preview
+8. ✅ CHECKPOINT: Hỏi user confirm design trước khi build
+
+## Phase 3: Build (code generation)
+
+9. Tạo project structure:
+   ```
+   project/
+   ├── index.html          (semantic HTML5, SEO meta tags)
+   ├── css/
+   │   ├── tokens.css      (design tokens from analysis)
+   │   ├── components.css  (component styles)
+   │   └── animations.css  (animation specs)
+   ├── js/
+   │   └── main.js         (interactions + micro-animations)
+   └── assets/             (generated images)
+   ```
+10. Code HTML: Semantic structure, proper heading hierarchy, unique IDs
+11. Code CSS: Design tokens → components → layouts → animations
+12. Code JS: Micro-interactions, scroll reveals, hover effects
+13. Nếu cần database: Generate SQL schema + API endpoints
+
+## Phase 4: Verify & Polish
+
+14. Run dev server locally (`npx serve .` hoặc Live Server)
+15. Browser test: verify visual match với original website
+16. Check responsive: mobile, tablet, desktop
+17. Apply final polish: performance optimization, SEO tags
+18. Deliver complete project folder
+
+# Examples
+
+## Ví dụ 1: Clone Stripe.com landing page
+
+**Input:** "Phân tích stripe.com và build cho tôi bản clone"
+**Phase 1:** 10 agents → design_tokens (blue/purple palette, Inter font) + 45 components + 12 animations + PostgreSQL schema
+**Phase 2:** CSS tokens + component library + Glassmorphism header + scroll reveals
+**Phase 3:** index.html (2 pages) + 3 CSS files + main.js (parallax + hover effects)
+**Phase 4:** Dev server → visual comparison → deliver
+**Output:** Working clone với 90% visual fidelity
+
+## Ví dụ 2: Chỉ analyze, không build
+
+**Input:** "Phân tích animations của linear.app"
+**Router:** Chỉ Phase 1 → focus @Animation_Inspector
+**Output:** animation_specs.md: 12 hover effects + 8 scroll animations + CSS code ready
+
+## Ví dụ 3: Full-stack với database
+
+**Input:** "Clone Notion.so với database support"
+**Phase 1:** 10 agents → complex component tree + PostgreSQL schema (users, pages, blocks, permissions)
+**Phase 2:** Design system + component library (sidebar, page editor, modal)
+**Phase 3:** Full HTML/CSS/JS + SQL schema + API endpoint stubs
+**Output:** Frontend clone + database schema ready for backend integration
+
+# Constraints
+
+- 🚫 KHÔNG ĐƯỢC skip Phase 1 analysis — code quality phụ thuộc vào data quality
+- 🚫 KHÔNG ĐƯỢC build mà chưa confirm design với user (Phase 2 checkpoint)
+- 🚫 KHÔNG ĐƯỢC dùng placeholder images — dùng `generate_image` tạo assets thực
+- 🚫 KHÔNG ĐƯỢC tạo UI đơn giản/basic — phải apply Web Design Supreme Rules v2.0
+- ✅ LUÔN LUÔN apply design tokens từ analysis (không hardcode colors)
+- ✅ LUÔN LUÔN include micro-animations (hover, scroll reveal, transitions)
+- ✅ LUÔN LUÔN responsive (mobile-first approach)
+- ✅ LUÔN LUÔN include SEO meta tags và semantic HTML
+- ✅ LUÔN LUÔN test trong browser trước khi deliver
+
+---
+
+📦 Generated by Skill Generator v4.0

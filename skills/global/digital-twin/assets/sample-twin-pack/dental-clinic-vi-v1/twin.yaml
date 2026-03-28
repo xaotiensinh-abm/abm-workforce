@@ -1,0 +1,69 @@
+version: 1
+profile:
+  label: "Dental Clinic Ops Twin"
+  primary_language: "vi"
+  source_count: 9
+  source_mix:
+    upload: 6
+    pasted_text: 2
+    url: 1
+  confidence: usable
+  status: stable
+scope:
+  team_or_business_area: "Vận hành phòng khám nha khoa"
+  boundary: "cover patient journey từ đặt lịch, khám, tư vấn điều trị, điều phối ghế, thanh toán, sau điều trị và tái khám"
+  primary_users: ["clinic manager", "lễ tân", "điều phối lịch", "tư vấn điều trị", "bác sĩ"]
+  time_horizon: "daily, weekly and monthly"
+operating_model:
+  mission: "Chuẩn hóa patient journey để tăng show rate, treatment acceptance và trải nghiệm đồng nhất."
+  operating_principles: ["lịch hẹn phải được xác nhận rõ", "chair time là tài nguyên cần điều phối", "mọi thay đổi điều trị phải có consent và follow-up"]
+  service_boundaries: ["cover vận hành cơ sở và chăm sóc bệnh nhân", "không mặc định cover quản trị chuỗi đa cơ sở ở cấp tập đoàn"]
+  standard_of_execution: "Bệnh nhân luôn có owner ở từng stage, lịch hẹn được xác nhận, kế hoạch điều trị được theo dõi và tái khám không bị rơi."
+role_system:
+  core_roles: ["Lễ Tân", "Điều Phối Lịch", "Bác Sĩ", "Phụ Tá", "Tư Vấn Điều Trị", "Quản Lý Cơ Sở"]
+  responsibilities: ["tiếp nhận và xác nhận lịch", "điều phối ghế và bác sĩ", "khám và điều trị", "chuẩn bị ghế và hỗ trợ điều trị", "chốt kế hoạch điều trị", "giải quyết ngoại lệ vận hành"]
+  handoff_patterns: ["lễ tân sang bác sĩ khi bệnh nhân đến", "bác sĩ sang tư vấn khi có kế hoạch điều trị", "tư vấn sang lễ tân hoặc điều phối để chốt lịch và thanh toán", "sau điều trị sang CSKH hoặc lễ tân để recall"]
+  escalation_paths: ["escalate khi lịch gấp hoặc cấp cứu", "escalate khi bác sĩ đổi lịch hoặc quá tải ghế", "escalate khi bệnh nhân khiếu nại hoặc có rủi ro sau điều trị"]
+process_system:
+  core_processes: ["đặt lịch và xác nhận lịch", "tiếp nhận và khám", "tư vấn kế hoạch điều trị", "điều trị và thanh toán", "follow-up sau điều trị và recall tái khám"]
+  trigger_map: ["lead hoặc bệnh nhân cũ đặt lịch", "lịch đến hạn xác nhận", "phát sinh điều trị mới", "đến lịch tái khám hoặc nhắc hẹn"]
+  input_output_pairs: ["booking request -> lịch hẹn đã xác nhận", "khám ban đầu -> kế hoạch điều trị", "điều trị xong -> hướng dẫn sau điều trị", "danh sách recall -> lịch tái khám mới"]
+  sla_expectations: ["lịch ngày hôm sau phải được xác nhận trước cutoff", "thay đổi bác sĩ hoặc ghế phải được thông báo sớm", "follow-up sau điều trị phải đi trong cửa sổ đã định"]
+decision_system:
+  decision_types: ["lịch hẹn", "xếp ghế", "ưu tiên cấp cứu", "thay đổi bác sĩ", "ưu đãi hoặc xử lý dịch vụ"]
+  decision_rules: ["lịch chỉ coi là confirmed khi bệnh nhân xác nhận", "ca cấp cứu hoặc đau cấp tính được ưu tiên ghế", "đổi bác sĩ cần xét mức độ phù hợp chuyên môn và lịch", "điều trị lớn cần có consent và kế hoạch follow-up rõ"]
+  approval_layers: ["lễ tân hoặc điều phối trong ngưỡng chuẩn", "clinic manager khi vượt capacity hoặc thay đổi lịch phức tạp", "bác sĩ phụ trách khi liên quan chuyên môn hoặc plan điều trị"]
+  exception_rules: ["no-show phải được ghi nhận và đưa vào flow nhắc lại", "mọi thay đổi plan cần cập nhật lại mốc và người phụ trách", "xử lý khiếu nại dịch vụ cần có note và owner follow-up"]
+knowledge_system:
+  canonical_artifacts: ["quy trình đặt lịch", "hướng dẫn sau điều trị", "script nhắc hẹn", "báo cáo no-show", "bảng recall"]
+  reporting_cadence: ["daily schedule review", "weekly service review", "monthly treatment conversion review"]
+  metric_stack: ["booking", "show rate", "treatment acceptance", "chair utilization", "recall rate"]
+  glossary_terms: ["confirmed", "no-show", "chair time", "tái khám", "recall"]
+tooling_system:
+  systems: ["phần mềm phòng khám hoặc sheet lịch", "crm hoặc danh sách khách", "chat nội bộ", "docs"]
+  system_roles: ["quản lý lịch hẹn", "theo dõi plan điều trị", "lưu hướng dẫn và policy", "giao việc follow-up"]
+  data_dependencies: ["danh sách lịch hẹn", "hồ sơ bệnh nhân", "plan điều trị", "lịch bác sĩ"]
+  failure_points: ["lịch chưa xác nhận nhưng không được nhắc", "ghế hoặc bác sĩ quá tải", "bệnh nhân sau điều trị không có owner theo dõi", "plan điều trị bị trôi sau lần khám đầu"]
+artifact_adaptation:
+  sop: "Làm rõ patient journey, owner từng stage, capacity rule, exception và service recovery."
+  playbook: "Tập trung vào xử lý no-show, đổi lịch, điều phối ghế, tư vấn điều trị và recall."
+  onboarding_guide: "Ưu tiên patient journey, giao tiếp nội bộ, lịch bác sĩ, consent và hướng dẫn sau điều trị."
+  memo: "Nêu thay đổi về lịch, capacity, chất lượng dịch vụ, owner và hành động follow-up."
+  report_template: "Khóa metric về booking, show rate, treatment acceptance, chair utilization và recall."
+  meeting_brief: "Nêu lịch hẹn đông, bác sĩ quá tải, no-show, ca cần follow-up và bottleneck tuần."
+  checklist: "Ngắn, bám theo đặt lịch, tiếp nhận, điều trị, thanh toán và sau điều trị."
+  faq: "Bám script dịch vụ, policy lịch hẹn, no-show và hướng dẫn tái khám."
+  dashboard_note: "Giải thích biến động booking, show rate, chair utilization và recall."
+  escalation_note: "Nêu bệnh nhân, lịch hẹn, rủi ro chuyên môn hoặc trải nghiệm và owner xử lý."
+anti_patterns:
+  - "xác nhận lịch mơ hồ không có owner"
+  - "xử lý no-show mà không đưa bệnh nhân vào flow recall"
+convergence:
+  invariants: ["lịch hẹn phải được xác nhận rõ", "mọi stage phải có owner", "sau điều trị phải có follow-up hoặc recall"]
+  tendencies: ["ưu tiên họp ngắn đầu ngày", "ưa dùng script nhắc hẹn và checklist ghế"]
+  accidents: ["ưu đãi hoặc chiến dịch theo tháng"]
+quality_notes:
+  strengths: ["phản ánh được patient journey và capacity logic", "đủ để tạo SOP, role handbook và metric cadence"]
+  limitations: ["chưa cover chuyên môn lâm sàng sâu", "chưa mô tả đầy đủ vận hành chuỗi nhiều cơ sở"]
+  mixed_source_warning: ""
+  coverage_gaps: ["thiếu xử lý hoàn tiền hoặc tranh chấp dịch vụ phức tạp", "thiếu automation rule giữa lịch hẹn và recall"]

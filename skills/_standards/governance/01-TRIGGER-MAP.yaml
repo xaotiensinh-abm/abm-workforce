@@ -1,0 +1,345 @@
+# ═══════════════════════════════════════════════════════════════
+# ABM-Workforce Trigger Map v1.0
+# Cross-Skill Routing & Conflict Resolution
+# ═══════════════════════════════════════════════════════════════
+# 
+# PURPOSE: Khi user request match nhiều skills, trigger map xác định
+# skill NÀO được gọi dựa trên priority + context signals.
+#
+# RULES:
+# 1. Higher priority = được chọn trước
+# 2. Khi 2 skills cùng priority → dùng context_signals để phân biệt
+# 3. Orchestrator skills (W8/W9) chạy SAU domain skills
+# 4. "exclusive: true" = chỉ 1 skill được chọn
+# 5. "composable: true" = có thể chạy song song với skill khác
+# ═══════════════════════════════════════════════════════════════
+
+version: 1.0
+last_updated: 2026-03-28
+
+# ═══════ DEVELOPMENT DOMAIN (W1: CodeAgent) ═══════
+development:
+
+  # --- Framework-Specific (Priority 1 — most specific wins) ---
+  react:
+    triggers: ["react", "jsx", "component", "hooks", "useState", "useEffect"]
+    primary: react-expert
+    composable_with: [react-performance, state-management-expert]
+    exclusive: false
+    context_signals:
+      performance_issue: react-performance
+      state_complexity: state-management-expert
+      
+  nextjs:
+    triggers: ["next.js", "nextjs", "app router", "server components", "RSC", "getServerSideProps"]
+    primary: nextjs-expert
+    exclusive: true
+    notes: "Next.js issues always route here first, even if React-related"
+    
+  typescript:
+    triggers: ["typescript", "type error", "TS2", "interface", "generic", "type inference"]
+    primary: typescript-expert
+    composable_with: [react-expert, nodejs-expert]
+    exclusive: false
+    
+  nodejs:
+    triggers: ["node.js", "nodejs", "express", "event loop", "stream", "buffer", "child_process"]
+    primary: nodejs-expert
+    exclusive: true
+    
+  # --- Database (Priority 1) ---
+  database:
+    triggers: ["database", "query", "index", "migration", "schema"]
+    primary: database-expert
+    context_signals:
+      postgresql: postgres-expert
+      mongodb: mongodb-expert
+      prisma_orm: prisma-expert
+      firebase: firebase
+    routing_rule: "If specific DB mentioned → route to specialist. Otherwise → database-expert"
+    
+  postgres:
+    triggers: ["postgresql", "postgres", "pg_", "pgbouncer", "JSONB", "plpgsql"]
+    primary: postgres-expert
+    exclusive: true
+    
+  mongodb:
+    triggers: ["mongodb", "mongoose", "aggregation pipeline", "sharding", "replica set"]
+    primary: mongodb-expert
+    exclusive: true
+    
+  prisma:
+    triggers: ["prisma", "schema.prisma", "prisma migrate", "prisma client"]
+    primary: prisma-expert
+    exclusive: true
+
+  # --- Testing & Quality (Priority 2) ---
+  testing:
+    triggers: ["test", "testing", "jest", "vitest", "coverage"]
+    primary: test-driven-development
+    context_signals:
+      e2e_browser: playwright-expert
+      bug_finding: find-bugs
+      debugging: systematic-debugging
+    exclusive: false
+    
+  debugging:
+    triggers: ["bug", "error", "debug", "crash", "fix", "broken"]
+    primary: systematic-debugging
+    composable_with: [find-bugs, oracle]
+    context_signals:
+      complex_architectural: oracle
+      security_related: jarvis-security-agent
+    exclusive: false
+
+  # --- API & Architecture (Priority 2) ---
+  api:
+    triggers: ["API", "REST", "endpoint", "route", "HTTP", "status code"]
+    primary: rest-api-expert
+    context_signals:
+      security: api-security-best-practices
+      auth: auth-expert
+    exclusive: false
+
+  code_review:
+    triggers: ["review", "PR review", "code review", "pull request"]
+    primary: code-review
+    composable_with: [jarvis-critic-agent]
+    exclusive: false
+
+# ═══════ CONTENT DOMAIN (W2: ContentAgent) ═══════
+content:
+
+  # --- Vietnamese Content (Priority 1 — language-specific) ---
+  vietnamese_writing:
+    triggers: ["viết bài", "viết truyện", "content tiếng Việt", "tạo slide", "soạn tài liệu"]
+    primary: viet-pro
+    exclusive: true
+    notes: "ALL Vietnamese content creation routes here. No exceptions."
+    
+  # --- Enterprise Content (Priority 1) ---
+  enterprise_content:
+    triggers: ["voice-over", "e-learning", "script", "enterprise content", "audit content"]
+    primary: content-forge
+    context_signals:
+      voiceover_only: enterprise-voiceover-script
+    exclusive: true
+    
+  # --- Marketing/SEO (Priority 2) ---
+  seo:
+    triggers: ["SEO", "search engine", "ranking", "organic traffic", "keyword"]
+    context_signals:
+      audit: seo-audit
+      writing: seo-content-writer
+    routing_rule: "Audit existing → seo-audit. Write new → seo-content-writer"
+    exclusive: true
+    
+  copywriting:
+    triggers: ["landing page", "email copy", "conversion", "CTA", "sales copy"]
+    primary: copywriting
+    exclusive: true
+    
+  dong_y:
+    triggers: ["đông y", "thảo dược", "bác sĩ gia đình", "y học cổ truyền"]
+    primary: dongy-content-pipeline
+    exclusive: true
+
+# ═══════ BUSINESS DOMAIN (W3: BusinessAgent) ═══════
+business:
+
+  # --- Planning (Priority 1) ---
+  business_planning:
+    triggers: ["business plan", "kế hoạch kinh doanh", "startup", "BMC", "value proposition"]
+    primary: jarvis-business-agent
+    composable_with: [market-sizing-analysis, competitive-landscape]
+    exclusive: false
+    
+  market_analysis:
+    triggers: ["market size", "TAM", "SAM", "SOM", "thị trường"]
+    primary: market-sizing-analysis
+    exclusive: true
+    
+  competitor:
+    triggers: ["đối thủ", "competitor", "competitive", "Porter", "SWOT"]
+    primary: competitive-landscape
+    exclusive: true
+    
+  pricing:
+    triggers: ["pricing", "giá", "monetization", "freemium", "subscription"]
+    primary: pricing-strategy
+    exclusive: true
+    
+  # --- Operations (Priority 2) ---
+  business_analytics:
+    triggers: ["KPI", "dashboard", "báo cáo", "analytics", "metrics"]
+    primary: business-analyst
+    context_signals:
+      kpi_design: kpi-dashboard-design
+      analytics_tracking: analytics-tracking
+    exclusive: false
+    
+  digital_twin:
+    triggers: ["digital twin", "SOP", "quy trình", "policy", "playbook", "onboarding"]
+    primary: digital-twin
+    exclusive: true
+    notes: "Enterprise operating system modeling"
+    
+  hr:
+    triggers: ["tuyển dụng", "HR", "nhân sự", "onboarding", "PTO", "performance review"]
+    primary: hr-pro
+    exclusive: true
+
+  sales:
+    triggers: ["sales", "leads", "prospect", "cold email", "outreach", "pipeline"]
+    primary: sales-automator
+    exclusive: true
+
+# ═══════ DESIGN DOMAIN (W4: DesignAgent) ═══════
+design:
+
+  # --- AI Image (Priority 1) ---
+  ai_image:
+    triggers: ["image prompt", "Gemini image", "ảnh AI", "Nano Banana", "tạo ảnh"]
+    primary: nano-banana-pro-master
+    context_signals:
+      freepik: freepik-spaces-creator
+    exclusive: true
+    
+  # --- AI Video (Priority 1) ---  
+  ai_video:
+    triggers: ["video AI", "Seedance", "VEO", "storyboard"]
+    primary: ai-media-studio
+    context_signals:
+      seedance: seedance-20
+    exclusive: true
+    
+  # --- UI/UX (Priority 1) ---
+  ui_ux:
+    triggers: ["UI", "UX", "giao diện", "thiết kế web", "mockup", "wireframe"]
+    primary: jarvis-design-agent
+    context_signals:
+      website_analysis: website-analysis-orchestrator
+      scroll_experience: scroll-experience
+      accessibility: accessibility-expert
+    exclusive: false
+    
+  manga:
+    triggers: ["manga", "manhua", "webtoon", "storyboard panel", "comic"]
+    primary: manga-storyboard-designer
+    exclusive: true
+
+# ═══════ SECURITY DOMAIN (W6: SecurityAgent) ═══════
+security:
+
+  auth:
+    triggers: ["auth", "authentication", "JWT", "OAuth", "session", "login", "RBAC"]
+    primary: auth-expert
+    composable_with: [jarvis-security-agent]
+    exclusive: false
+    
+  api_security:
+    triggers: ["API security", "OWASP", "injection", "XSS", "CSRF", "rate limit"]
+    primary: api-security-best-practices
+    composable_with: [jarvis-security-agent]
+    exclusive: false
+    
+  vulnerability:
+    triggers: ["vulnerability", "CVE", "security scan", "penetration", "supply chain"]
+    primary: vulnerability-scanner
+    composable_with: [security-auditor]
+    exclusive: false
+    
+  security_audit:
+    triggers: ["security audit", "compliance", "DevSecOps", "audit"]
+    primary: security-auditor
+    exclusive: true
+
+# ═══════ OPS DOMAIN (W7: OpsAgent) ═══════
+ops:
+
+  docker:
+    triggers: ["docker", "container", "Dockerfile", "docker-compose", "image"]
+    primary: docker-expert
+    exclusive: true
+    
+  kubernetes:
+    triggers: ["kubernetes", "k8s", "pod", "deployment", "helm", "kubectl"]
+    primary: kubernetes-architect
+    exclusive: true
+    
+  terraform:
+    triggers: ["terraform", "IaC", "infrastructure as code", "OpenTofu", "module"]
+    primary: terraform-specialist
+    exclusive: true
+    
+  cicd:
+    triggers: ["CI/CD", "pipeline", "GitHub Actions", "deploy", "deployment"]
+    primary: jarvis-ops-agent
+    context_signals:
+      github_actions: github-actions-expert
+      deployment_design: deployment-pipeline-design
+      vercel: vercel-deployment
+    exclusive: false
+    
+  incident:
+    triggers: ["incident", "outage", "downtime", "SRE", "on-call", "postmortem"]
+    primary: incident-responder
+    exclusive: true
+    
+  monitoring:
+    triggers: ["monitoring", "observability", "logging", "tracing", "alert", "SLI", "SLO"]
+    primary: observability-engineer
+    exclusive: true
+
+# ═══════ UTILITY / META SKILLS ═══════
+utility:
+
+  # --- Quality & Review (W8: CriticAgent) ---
+  quality:
+    triggers: ["review", "quality", "audit output", "check"]
+    primary: jarvis-critic-agent
+    composable_with: [abm-multi-persona-review, evidence-driven-verification]
+    exclusive: false
+    notes: "Always runs AFTER domain skill, never instead of"
+    
+  verification:
+    triggers: ["verify", "done", "complete", "ship", "finish"]
+    primary: verification-before-completion
+    composable_with: [evidence-driven-verification]
+    exclusive: false
+    notes: "Gate function — always runs before marking work complete"
+    
+  # --- Planning & Process ---
+  brainstorming:
+    triggers: ["brainstorm", "ideation", "explore", "ý tưởng"]
+    primary: brainstorming
+    composable_with: [multi-agent-brainstorming]
+    exclusive: false
+    
+  skill_creation:
+    triggers: ["create skill", "tạo skill", "new skill", "skill generator"]
+    primary: skill-creator-ultra
+    exclusive: true
+    
+  research:
+    triggers: ["research", "nghiên cứu", "investigate", "deep dive"]
+    primary: research-expert
+    exclusive: true
+
+# ═══════ CONFLICT RESOLUTION RULES ═══════
+conflict_resolution:
+  rules:
+    - "RULE 1: Most specific trigger wins (nextjs > react > typescript)"
+    - "RULE 2: Domain specialist > generalist (postgres-expert > database-expert)"
+    - "RULE 3: Orchestrator/worker skills compose, rarely exclusive"
+    - "RULE 4: W8 (Critic) always runs AFTER, never INSTEAD OF domain skill"
+    - "RULE 5: Vietnamese text → viet-pro (absolute priority)"
+    - "RULE 6: Security concerns → always add jarvis-security-agent as composable"
+    
+  priority_order:
+    - "Language-specific (viet-pro)"
+    - "Framework-specific (nextjs, react, prisma...)"
+    - "Domain specialist (postgres, mongodb...)"
+    - "Domain generalist (database-expert, business-analyst...)"
+    - "Worker/Orchestrator (jarvis-code-agent, jarvis-business-agent...)"
+    - "Meta/Quality (critic, verifier, optimizer)"

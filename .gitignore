@@ -1,34 +1,51 @@
-﻿# ABM Workforce .gitignore
+# Dependencies
+node_modules/
+.venv/
+__pycache__/
 
-# Output (runtime generated)
-_abm-output/
+# Environment & Secrets
+.env
+.env.*
+!.env.example
+*.key
+*.pem
 
 # OS files
-Thumbs.db
 .DS_Store
+Thumbs.db
 desktop.ini
 
 # IDE
-.vscode/
 .idea/
 *.swp
+*.swo
+
+# Build
+dist/
+build/
+*.tgz
+
+# Personal data (NEVER commit)
+brain/
+knowledge/
+conversations/
+browser_recordings/
+html_artifacts/
+code_tracker/
+tmp/
+scratch/
+playground/
+context_state/
+annotations/
+mcp_config.json
+user_settings.pb
+installation_id
+*.sqlite
+*.db
 
 # Logs
 *.log
+npm-debug.log*
 
-# Dependencies
-node_modules/
-
-# Temporary
-/tmp/
-*.tmp
-
-# Gemini brain
-.gemini/antigravity/brain/
-
-# Build artifacts
-dist/
-build/
-
-# GitHub workflow (needs workflow scope token)
-.github/workflows/
+# Lock files (optional)
+package-lock.json

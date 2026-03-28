@@ -1,0 +1,22 @@
+{
+  "name": "digital-twin",
+  "version": "2.1.0",
+  "description": "Enterprise Operating System Engine — dựng và vận hành digital-twin doanh nghiệp từ SOP, policy, quy trình và tài liệu bản xứ.",
+  "author": "ABM-Workforce",
+  "tier": "S",
+  "layers": {
+    "L0": "SKILL.md",
+    "L1": "metadata.json",
+    "L2": "SKILL.md (Core Instructions)",
+    "L3": "references/",
+    "L4": "examples/",
+    "L5": "scripts/",
+    "L6": "assets/",
+    "L7": "output-contracts/",
+    "L8": "governance/"
+  },
+  "tags": ["enterprise", "ops", "digital-twin", "automation", "documentation"],
+  "dependencies": ["jarvis-code-agent"],
+  "last_audit": "2026-03-28",
+  "health_score": "9/9"
+}

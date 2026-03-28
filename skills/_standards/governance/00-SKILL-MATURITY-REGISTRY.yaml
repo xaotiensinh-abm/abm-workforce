@@ -1,0 +1,354 @@
+# ABM-Workforce Skill Maturity Registry
+# 9-Layer Skill Engineering Compliance Tracking
+# Generated: 2026-03-28 | Version: 1.0
+
+# ═══════════════════════════════════════════════
+# TIER DEFINITIONS
+# ═══════════════════════════════════════════════
+# Tier S: 7-9 Layers → "Mature Ecosystem"
+# Tier A: 4-6 Layers → "Structured"
+# Tier B: 2-3 Layers → "Basic"  
+# Tier C: 0-1 Layers → "Orphan/Stub"
+
+# Layer Legend:
+# L0: Use Case & Trigger Map
+# L1: Metadata (frontmatter)
+# L2: Core SKILL.md
+# L3: References (references/ or resources/)
+# L4: Examples (examples/ or inline ≥3)
+# L5: Scripts & Tools (scripts/)
+# L6: Assets & Templates (assets/templates/)
+# L7: Output Contract & QC (rubric, self-check)
+# L8: Governance (version, changelog, owner)
+
+meta:
+  total_skills: 143
+  tier_s: 6
+  tier_a: 15
+  tier_b: 105
+  tier_c: 17
+  last_audit: 2026-03-28
+  next_audit: 2026-06-28
+
+# ═══════════════════════════════════════════════
+# TIER S — MATURE ECOSYSTEM (7-9/9 Layers)
+# ═══════════════════════════════════════════════
+
+tier_s:
+  - name: skill-generator
+    location: global/skill-generator
+    layers: [L0, L1, L2, L3, L4, L5, L6, L7, L8]
+    missing: []
+    score: 9/9
+    worker: W1
+    category: utility
+    complexity: 21+
+    notes: "Meta-Engine. 8-phase pipeline, 9 scripts, eval viewer, skill_v2.md contract, matutity/changelog governance."
+    upgrade_action: "COMPLETED"
+    
+  - name: digital-twin
+    location: global/digital-twin
+    layers: [L0, L1, L2, L3, L4, L5, L6, L7, L8]
+    missing: []
+    score: 9/9
+    worker: W3
+    category: business
+    complexity: 21+
+    notes: "Golden Standard. 62 references, 3 examples (H/E/A), validate_twin script, twin.md contract, matutity/changelog governance."
+    upgrade_action: "COMPLETED"
+
+  - name: viet-pro
+    location: global/viet-pro
+    layers: [L0, L1, L2, L3, L4, L5, L6, L7, L8]
+    missing: []
+    score: 9/9
+    worker: W2
+    category: content
+    complexity: 21+
+    notes: "Universal Studio. 25 modules, 21 references, 3 examples, audit script, article.md contract, governance layer."
+    upgrade_action: "COMPLETED"
+
+# ═══════════════════════════════════════════════
+# TIER A — STRUCTURED (4-6/9 Layers)
+# ═══════════════════════════════════════════════
+
+tier_a:
+  - name: that-quiz-pipeline
+    location: global/that-quiz-pipeline
+    layers: [L0, L1, L2, L4, L6]
+    missing: [L3, L5, L7, L8]
+    score: 5/9
+    worker: W2
+    category: content
+    upgrade_priority: medium
+
+  - name: dongy-content-pipeline
+    location: global/dongy-content-pipeline
+    layers: [L0, L1, L2, L3, L4]
+    missing: [L5, L6, L7, L8]
+    score: 5/9
+    worker: W2
+    category: content
+    upgrade_priority: medium
+
+  - name: jarvis-code-agent
+    location: agent/jarvis-code-agent
+    layers: [L0, L1, L2, L3]
+    missing: [L4, L5, L6, L7, L8]
+    score: 4/9
+    worker: W1
+    category: development
+    upgrade_priority: high
+    notes: "Has examples/, resources/, workflows/, but missing output contract"
+
+  - name: jarvis-workers
+    location: agent/jarvis-workers
+    layers: [L0, L1, L2, L3]
+    missing: [L4, L5, L6, L7, L8]
+    score: 4/9
+    worker: "*"
+    category: utility
+    upgrade_priority: high
+
+  - name: jarvis-business-agent
+    location: agent/jarvis-business-agent
+    layers: [L0, L1, L2, L3]
+    missing: [L4, L5, L6, L7, L8]
+    score: 4/9
+    worker: W3
+    category: business
+    upgrade_priority: high
+
+  - name: jarvis-content-agent
+    location: agent/jarvis-content-agent
+    layers: [L0, L1, L2, L3]
+    missing: [L4, L5, L6, L7, L8]
+    score: 4/9
+    worker: W2
+    category: content
+    upgrade_priority: high
+
+  - name: jarvis-design-agent
+    location: agent/jarvis-design-agent
+    layers: [L0, L1, L2, L3]
+    missing: [L4, L5, L6, L7, L8]
+    score: 4/9
+    worker: W4
+    category: design
+    upgrade_priority: high
+
+  - name: jarvis-critic-agent
+    location: agent/jarvis-critic-agent
+    layers: [L0, L1, L2, L3]
+    missing: [L4, L5, L6, L7, L8]
+    score: 4/9
+    worker: W8
+    category: utility
+    upgrade_priority: high
+
+  - name: abm-multi-persona-review
+    location: global/abm-multi-persona-review
+    layers: [L0, L1, L2, L4]
+    missing: [L3, L5, L6, L7, L8]
+    score: 4/9
+    worker: W8
+    category: utility
+    upgrade_priority: medium
+
+  - name: abm-contract-driven-development
+    location: global/abm-contract-driven-development
+    layers: [L0, L1, L2, L4]
+    missing: [L3, L5, L6, L7, L8]
+    score: 4/9
+    worker: W1
+    category: utility
+    upgrade_priority: medium
+
+  - name: website-analysis-orchestrator
+    location: global/website-analysis-orchestrator
+    layers: [L0, L1, L2, L4]
+    missing: [L3, L5, L6, L7, L8]
+    score: 4/9
+    worker: W4
+    category: design
+    upgrade_priority: medium
+
+  - name: faceless-content-machine
+    location: global/faceless-content-machine
+    layers: [L0, L1, L2, L4]
+    missing: [L3, L5, L6, L7, L8]
+    score: 4/9
+    worker: W2
+    category: content
+    upgrade_priority: low
+
+  - name: nano-banana-pro-master
+    location: agent/Master-Guide-to-Nano-Banana-Pro-Prompts-main
+    layers: [L0, L1, L2, L3, L4]
+    missing: [L5, L6, L7, L8]
+    score: 5/9
+    worker: W4
+    category: design
+    upgrade_priority: low
+
+  - name: docx-document-builder
+    location: agent/docx-document-builder
+    layers: [L0, L1, L2, L4]
+    missing: [L3, L5, L6, L7, L8]
+    score: 4/9
+    worker: W1
+    category: utility
+    upgrade_priority: medium
+
+  - name: mep-engineering-suite
+    location: global/mep-engineering-suite
+    layers: [L0, L1, L2, L3]
+    missing: [L4, L5, L6, L7, L8]
+    score: 4/9
+    worker: W3
+    category: business
+    upgrade_priority: low
+
+  - name: brainstorming
+    location: global/brainstorming
+    layers: [L0, L1, L2, L4]
+    missing: [L3, L5, L6, L7, L8]
+    score: 4/9
+    worker: W3
+    category: utility
+    upgrade_priority: medium
+
+  - name: enterprise-voiceover-script
+    location: global/enterprise-voiceover-script
+    layers: [L0, L1, L2, L4]
+    missing: [L3, L5, L6, L7, L8]
+    score: 4/9
+    worker: W2
+    category: content
+    upgrade_priority: low
+
+  - name: seedance-20
+    location: global/seedance-2
+    layers: [L0, L1, L2, L4]
+    missing: [L3, L5, L6, L7, L8]
+    score: 4/9
+    worker: W4
+    category: design
+    upgrade_priority: low
+
+# ═══════════════════════════════════════════════
+# TIER B — BASIC (2-3/9 Layers) — Top 30 samples
+# ═══════════════════════════════════════════════
+# Note: 105 skills in this tier. Showing representative samples.
+
+tier_b:
+  # --- Development Skills ---
+  - { name: react-expert, location: agent, layers: [L1,L2,L4], worker: W1, category: development }
+  - { name: nextjs-expert, location: agent, layers: [L1,L2,L4], worker: W1, category: development }
+  - { name: typescript-expert, location: agent, layers: [L1,L2,L4], worker: W1, category: development }
+  - { name: nodejs-expert, location: agent, layers: [L1,L2,L4], worker: W1, category: development }
+  - { name: prisma-expert, location: agent, layers: [L1,L2,L4], worker: W1, category: development }
+  - { name: postgres-expert, location: agent, layers: [L1,L2], worker: W1, category: development }
+  - { name: mongodb-expert, location: agent, layers: [L1,L2], worker: W1, category: development }
+  - { name: database-expert, location: agent, layers: [L1,L2], worker: W1, category: development }
+  - { name: rest-api-expert, location: agent, layers: [L1,L2], worker: W1, category: development }
+  - { name: firebase, location: agent, layers: [L1,L2], worker: W1, category: development }
+  - { name: playwright-expert, location: agent, layers: [L1,L2], worker: W1, category: development }
+  - { name: test-driven-development, location: global, layers: [L1,L2,L4], worker: W1, category: development }
+  - { name: systematic-debugging, location: global, layers: [L1,L2,L4], worker: W1, category: development }
+  - { name: find-bugs, location: global, layers: [L1,L2], worker: W1, category: development }
+  
+  # --- Content/Business Skills ---
+  - { name: copywriting, location: global, layers: [L1,L2,L4], worker: W2, category: content }
+  - { name: seo-content-writer, location: global, layers: [L1,L2], worker: W2, category: content }
+  - { name: seo-audit, location: global, layers: [L1,L2], worker: W2, category: content }
+  - { name: business-analyst, location: global, layers: [L1,L2], worker: W3, category: business }
+  - { name: competitive-landscape, location: global, layers: [L1,L2], worker: W3, category: business }
+  - { name: market-sizing-analysis, location: global, layers: [L1,L2], worker: W3, category: business }
+  - { name: pricing-strategy, location: global, layers: [L1,L2], worker: W3, category: business }
+  
+  # --- Utility/Process Skills ---
+  - { name: verification-before-completion, location: global, layers: [L1,L2,L4], worker: W8, category: utility }
+  - { name: evidence-driven-verification, location: global, layers: [L1,L2,L4], worker: W8, category: utility }
+  - { name: executing-plans, location: global, layers: [L1,L2], worker: W1, category: utility }
+  - { name: subagent-driven-development, location: global, layers: [L1,L2], worker: W1, category: utility }
+  - { name: dispatching-parallel-agents, location: global, layers: [L1,L2], worker: W1, category: utility }
+  - { name: git-workflow-optimization, location: global, layers: [L1,L2], worker: W7, category: ops }
+  - { name: context-optimizer, location: agent, layers: [L1,L2], worker: W1, category: utility }
+  - { name: code-review, location: agent, layers: [L1,L2], worker: W8, category: development }
+  - { name: oracle, location: agent, layers: [L1,L2], worker: W8, category: utility }
+
+  # --- Security/Ops Skills ---
+  - { name: api-security-best-practices, location: global, layers: [L1,L2], worker: W6, category: security }
+  - { name: auth-expert, location: global, layers: [L1,L2], worker: W6, category: security }
+  - { name: vulnerability-scanner, location: global, layers: [L1,L2], worker: W6, category: security }
+  - { name: docker-expert, location: global, layers: [L1,L2], worker: W7, category: ops }
+  - { name: kubernetes-architect, location: global, layers: [L1,L2], worker: W7, category: ops }
+  - { name: terraform-specialist, location: global, layers: [L1,L2], worker: W7, category: ops }
+
+# ═══════════════════════════════════════════════
+# TIER C — ORPHAN/STUB (0-1 Layers)
+# ═══════════════════════════════════════════════
+
+tier_c:
+  - { name: novel-writer, location: "agent (file only)", layers: [], action: "archive or merge into viet-pro" }
+  - { name: viet-pro-stub, location: "agent/viet-pro (file only)", layers: [], action: "remove — pointer to global/viet-pro" }
+  - { name: ai_video_multimodal_skill, location: "agent (loose .md)", layers: [L1], action: "archive or merge" }
+  - { name: gemini_3_master_skill, location: "agent (loose .md)", layers: [L1], action: "merge into nano-banana-pro-master" }
+  - { name: seaart_master_skill, location: "agent (loose .md)", layers: [L1], action: "archive" }
+  - { name: douyin_downloader_skill, location: "agent (loose .md)", layers: [L1], action: "archive" }
+  - { name: ui_ux_pro_max_skill, location: "agent (loose .md)", layers: [L1], action: "merge into ui-ux-pro-max global skill" }
+  - { name: content-forge, location: "global (empty?)", layers: [L1], action: "evaluate — merge or archive" }
+  - { name: business-command-center, location: "global", layers: [L1], action: "evaluate — merge into business-analyst" }
+  - { name: devops-expert, location: "global", layers: [L1], action: "evaluate — merge into docker-expert + ops skills" }
+
+# ═══════════════════════════════════════════════
+# UPGRADE PRIORITY QUEUE
+# ═══════════════════════════════════════════════
+
+upgrade_queue:
+  p0_immediate:
+    - "Jarvis Workers (W1-W10): Add examples/, output contracts"
+    - "Top 10 development skills: Add references/, anti-examples"
+    - "All skills: Adopt extended metadata schema"
+    
+  p1_next_sprint:
+    - "Top 20 skills: Add references/ layer (tách tri thức nền)"
+    - "Build trigger-map.yaml cho cross-skill routing"
+    - "Archive Tier-C orphans"
+    
+  p2_enrichment:
+    - "Add validation scripts (L5) cho top 10 skills"
+    - "Add output templates (L6) cho mỗi domain"
+    - "Example Enhancement: 3-category pattern"
+    
+  p3_excellence:
+    - "Governance dashboard"
+    - "Quarterly audit process"
+    - "Skill lifecycle management"
+
+# ═══════════════════════════════════════════════
+# CONVENTIONS
+# ═══════════════════════════════════════════════
+
+conventions:
+  directory_naming:
+    layer_3: "references/"     # Chuẩn hoá: KHÔNG dùng resources/ hoặc modules/
+    layer_4: "examples/"       # Ví dụ I/O
+    layer_5: "scripts/"        # Scripts & Tools
+    layer_6: "assets/templates/" # Assets & Templates
+    
+  file_naming:
+    skill_definition: "SKILL.md"
+    changelog: "CHANGELOG.md"
+    readme: "README.md"
+    output_contract: "OUTPUT-CONTRACT.md"  # hoặc inline trong SKILL.md
+    
+  metadata_required:
+    - name
+    - description
+    - metadata.version
+    - metadata.worker-id
+    - metadata.maturity
+    - metadata.category
+    - metadata.tags

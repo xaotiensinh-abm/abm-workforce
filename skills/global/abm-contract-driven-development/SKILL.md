@@ -1,0 +1,147 @@
+---
+name: abm-contract-driven-development
+description: Thực thi ABM Workforce Delegation Chain 6 bước. Bắt buộc dùng cho mọi task (dev, business, review). Yêu cầu tạo Hợp đồng trước khi giao việc và Chứng nhận (kèm Bằng chứng) trước khi hoàn thành.
+---
+
+# ABM Contract-Driven Development
+
+Tích hợp ABM Workforce 6-Bước Delegation Chain với subagent workflow.
+
+**Nguyên tắc cốt lõi:** Không giao việc mà không có Hợp đồng. Không nhận kết quả mà không có Chứng nhận. Không tuyên bố hoàn tất mà không có Bằng chứng.
+
+## Khi nào sử dụng (Triggers)
+Auto-activate triggers (VN): "giao việc", "tạo task", "hợp đồng task", "phân việc", "bắt đầu task mới", "delegation chain"
+Auto-activate triggers (EN): "delegate task", "new task contract", "assign work", "start task coordination"
+
+Mọi task thực thi trong hệ thống ABM Workforce:
+- Dev tasks (bug fix, feature, refactor)
+- Business tasks (HR, Marketing, Sales, Finance)
+- Review tasks (audit, critique, evaluation)
+
+## 6 Bước Bắt Buộc
+
+### Bước 1: TẠO HỢP ĐỒNG (Contract)
+
+```markdown
+## Hợp Đồng Task
+
+| Trường | Giá trị |
+|---|---|
+| `task_id` | TG-{nhóm}-W{worker} |
+| `objective` | [Mục tiêu rõ ràng, đo được] |
+| `scope_in` | [Files/areas ĐƯỢC PHÉP] |
+| `scope_out` | [Files/areas CẤM] |
+| `acceptance_criteria` | [Tiêu chí chấp nhận cụ thể] |
+| `budget` | [tool calls / thời gian / retries] |
+| `risk_level` | [thấp / trung bình / cao] |
+```
+
+**KHÔNG CÓ HỢP ĐỒNG = KHÔNG GIAO VIỆC. KHÔNG NGOẠI LỆ.**
+
+### Bước 2: CHỌN WORKER
+
+| Loại việc | Worker | Skills (tối đa 3) |
+|---|---|---|
+| bug / feature | dev worker | systematic-debugging, test-driven-development, writing-plans |
+| review | code-reviewer | requesting-code-review, verification-before-completion |
+| brainstorm | orchestrator | brainstorming, writing-plans |
+
+### Bước 3: THỰC HIỆN
+
+Worker thực hiện TRONG PHẠM VI hợp đồng:
+- Đọc Hợp đồng TRƯỚC khi bắt đầu
+- CHỈ làm việc trong `scope_in`
+- KHÔNG chạm `scope_out`
+- Theo dõi budget (tool calls, thời gian)
+
+### Bước 4: TRẢ CHỨNG NHẬN (Attestation)
+
+```markdown
+## Chứng Nhận
+
+| Trường | Giá trị |
+|---|---|
+| `status` | xong / xong_có_rủi_ro / bị_chặn / thất_bại |
+| `summary` | [Tóm tắt kết quả] |
+| `files_changed` | [Danh sách files đã thay đổi] |
+| `evidence` | [Bằng chứng: log, output, test results] |
+| `confidence` | [0.0 → 1.0] |
+| `scope_violations` | [Có/Không + chi tiết] |
+```
+
+**CHỨNG NHẬN KHÔNG CÓ BẰNG CHỨNG = KHÔNG HỢP LỆ.**
+
+### Bước 5: XÁC MINH
+
+Kiểm tra 5 tiêu chí:
+1. ✅ Acceptance criteria → Output đạt TẤT CẢ criteria?
+2. ✅ Evidence → Có đủ bằng chứng?
+3. ✅ Scope → Worker ở trong scope_in?
+4. ✅ Budget → Không vượt budget?
+5. ✅ Risk → Rủi ro mới phát sinh?
+
+**REQUIRED SUB-SKILL:** Use verification-before-completion
+
+### Bước 6: CHUỖI TRÁCH NHIỆM
+
+```
+Thất bại → Thử lại với feedback cụ thể
+Bị chặn → Giao worker khác hoặc BÁO CEO
+3+ lần thất bại → DỪNG, báo cáo toàn bộ chuỗi bằng chứng
+```
+
+## Tích hợp Skills
+
+| ABM Step | Tương ứng Skill |
+|---|---|
+| Brainstorm → Contract | brainstorming → writing-plans |
+| Execute | executing-plans hoặc inline |
+| Review | requesting-code-review |
+| Verify | verification-before-completion |
+| Complete | finishing-a-development-branch |
+
+## Red Flags — DỪNG NGAY
+
+- ❌ Giao việc mà không có Hợp đồng
+- ❌ Chấp nhận "xong" mà không có bằng chứng
+- ❌ Worker sửa file ngoài scope
+- ❌ Bỏ qua bước xác minh
+- ❌ Dùng "chắc là", "có lẽ" thay cho evidence
+- ❌ Tuyên bố hoàn tất trước khi chạy verification command
+
+## Ví dụ: Bug Fix Flow (Happy Path)
+
+**CEO:** "Fix lỗi login timeout trên trang dashboard"
+
+**Bước 1 — Hợp Đồng:**
+```
+task_id: TG-dev-W1
+objective: Fix lỗi login timeout > 30s trên dashboard
+scope_in: src/auth/login.js, src/api/timeout.js
+scope_out: src/auth/register.js, database/
+acceptance_criteria: Login < 3s, 0 timeout errors trong 10 lần test
+budget: 15 tool calls, 2 retries
+risk_level: trung bình
+```
+
+**Bước 2:** Worker = dev worker, Skills = systematic-debugging, test-driven-development
+
+**Bước 3:** Worker debug → phát hiện API timeout config = 5ms thay vì 5000ms
+
+**Bước 4 — Chứng Nhận:**
+```
+status: xong
+summary: Fix timeout config 5ms → 5000ms trong timeout.js:42
+files_changed: src/api/timeout.js
+evidence: npm test → 24/24 passed, login avg 1.2s
+confidence: 0.95
+scope_violations: Không
+```
+
+**Bước 5:** Orchestrator verify → Stage 1 ✅ (spec) → Stage 2 ✅ (quality) → CHẤP NHẬN
+
+**Bước 6:** Báo CEO kèm evidence
+
+## Ngôn ngữ
+
+**100% Tiếng Việt** cho tất cả output: báo cáo, hợp đồng, chứng nhận, code comments business logic.

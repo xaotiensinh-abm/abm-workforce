@@ -1,0 +1,155 @@
+version: 1
+profile:
+  label: Single Clinic Dental Twin
+  primary_language: vi
+  source_count: 6
+  source_mix:
+    upload: 4
+    pasted_text: 1
+    url: 1
+  confidence: usable
+  status: stable
+scope:
+  team_or_business_area: Phòng khám nha khoa 1 cơ sở
+  boundary: cover tiếp nhận, xác nhận lịch, khám, tư vấn điều trị, thanh toán, dặn
+    dò và tái khám trong team nhỏ
+  primary_users:
+  - owner dentist
+  - lễ tân
+  - tư vấn
+  - phụ tá
+  time_horizon: daily and weekly
+operating_model:
+  mission: Chuẩn hóa patient journey tại một cơ sở, giảm no-show và giữ trải nghiệm
+    nhất quán dù team nhỏ.
+  operating_principles:
+  - mỗi lịch hẹn phải có trạng thái rõ
+  - bác sĩ chủ không ôm mọi việc điều phối
+  - sau điều trị phải có dặn dò và nhắc tái khám
+  service_boundaries:
+  - cover một cơ sở
+  - không mặc định cover governance chuỗi nhiều chi nhánh
+  standard_of_execution: Lịch hẹn, treatment plan, thu tiền và follow-up phải truy
+    vết được trên một dòng flow rõ ràng.
+role_system:
+  core_roles:
+  - Owner Dentist
+  - Lễ Tân
+  - Tư Vấn
+  - Phụ Tá
+  responsibilities:
+  - tiếp nhận và xác nhận lịch
+  - khám và chốt hướng điều trị
+  - chuẩn bị ghế và hỗ trợ điều trị
+  - nhắc hẹn và follow-up sau điều trị
+  handoff_patterns:
+  - lễ tân sang bác sĩ khi đủ thông tin lịch
+  - bác sĩ sang tư vấn khi cần chốt kế hoạch
+  - điều trị xong sang lễ tân hoặc tư vấn để follow-up
+  escalation_paths:
+  - ca trễ giờ liên tiếp
+  - khách phản ứng sau điều trị
+  - khách đổi lịch nhiều lần
+process_system:
+  core_processes:
+  - booking intake
+  - appointment confirmation
+  - consultation
+  - treatment visit
+  - post-treatment follow-up
+  trigger_map:
+  - khách mới nhắn hoặc gọi
+  - đến lịch hẹn
+  - chốt kế hoạch điều trị
+  - đến kỳ tái khám
+  input_output_pairs:
+  - inquiry -> appointment
+  - exam -> treatment recommendation
+  - visit -> payment và dặn dò
+  sla_expectations:
+  - lịch mới phải được xác nhận trong ngày
+  - sau điều trị phải follow-up sớm
+decision_system:
+  decision_types:
+  - đặt lịch
+  - ưu tiên slot
+  - chốt kế hoạch điều trị
+  - follow-up case nhạy cảm
+  decision_rules:
+  - không nhận lịch vượt năng lực ghế và bác sĩ
+  - case cần tư vấn thêm phải có bước follow-up rõ
+  - khách no-show nhiều lần cần xác nhận lại trước khi giữ slot đẹp
+  approval_layers:
+  - owner dentist
+  - clinic lead nếu có
+  exception_rules:
+  - ca đau cấp nên được ưu tiên nhưng phải log impact lịch
+  - mọi đổi lịch sát giờ cần cập nhật cả ghế lẫn bác sĩ
+knowledge_system:
+  canonical_artifacts:
+  - script đặt lịch
+  - phiếu tư vấn
+  - hướng dẫn sau điều trị
+  - recall list
+  reporting_cadence:
+  - daily schedule check
+  - weekly recall review
+  metric_stack:
+  - show rate
+  - treatment acceptance
+  - recall completion
+  - review rating
+  glossary_terms:
+  - show rate
+  - recall
+  - treatment plan
+tooling_system:
+  systems:
+  - zalo hoặc điện thoại
+  - lịch hẹn
+  - phiếu điều trị
+  system_roles:
+  - ghi lịch
+  - ghi treatment plan
+  - theo dõi recall
+  data_dependencies:
+  - lịch bác sĩ
+  - ghế điều trị
+  - hướng dẫn sau điều trị
+  failure_points:
+  - owner bác sĩ ôm điều phối
+  - không follow-up sau điều trị
+  - lịch hẹn thiếu trạng thái
+artifact_adaptation:
+  sop: Làm rõ luồng đặt lịch, khám, tư vấn, điều trị, follow-up.
+  playbook: Tập trung vào no-show, tư vấn treatment plan và service recovery.
+  onboarding_guide: Ưu tiên script lễ tân, flow tư vấn, dặn dò sau điều trị, recall.
+  memo: Nêu lịch căng, case nhạy cảm, owner và hành động hôm nay.
+  report_template: Khóa metric show rate, treatment acceptance, recall và đánh giá
+    dịch vụ.
+  meeting_brief: Nêu lịch ngày mai, slot trống, no-show, case cần bác sĩ owner can
+    thiệp.
+  checklist: Ngắn, theo trước lịch, trong điều trị, sau điều trị.
+  faq: Bám hỏi đáp lịch hẹn, chăm sóc sau điều trị và tái khám.
+  dashboard_note: Giải thích biến động show rate, treatment acceptance và recall.
+  escalation_note: Nêu case, triệu chứng, phản hồi khách, bước đã làm và quyết định
+    cần owner.
+anti_patterns:
+- giữ slot đẹp cho khách hay đổi lịch
+- để bác sĩ chủ ôm mọi follow-up
+convergence:
+  invariants:
+  - lịch hẹn phải có trạng thái rõ
+  - sau điều trị phải có follow-up
+  tendencies:
+  - team nhỏ nên giao việc rõ theo ca
+  accidents:
+  - tên bác sĩ cụ thể
+quality_notes:
+  strengths:
+  - phù hợp phòng khám 1 cơ sở
+  limitations:
+  - không đi sâu chuỗi nhiều chi nhánh
+  mixed_source_warning: ''
+  coverage_gaps:
+  - thiếu rule tài chính điều trị trả góp

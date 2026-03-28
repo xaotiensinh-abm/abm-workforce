@@ -1,0 +1,27 @@
+# Examples - python-word-pro
+
+Usage examples following the Happy/Edge/Anti (H/E/A) pattern.
+
+## Happy Path
+Standard, expected usage of this skill.
+
+```
+# Example: typical python-word-pro invocation
+# TODO: Add concrete happy path example
+```
+
+## Edge Case
+Boundary conditions and unusual but valid inputs.
+
+```
+# Example: edge case for python-word-pro
+# TODO: Add edge case example
+```
+
+## Anti-Pattern
+Common mistakes and what NOT to do.
+
+```
+# Anti-pattern: incorrect usage of python-word-pro
+# TODO: Add anti-pattern example
+```

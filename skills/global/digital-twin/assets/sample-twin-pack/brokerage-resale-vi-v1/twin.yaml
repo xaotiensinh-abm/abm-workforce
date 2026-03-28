@@ -1,0 +1,150 @@
+version: 1
+profile:
+  label: Brokerage Resale Twin
+  primary_language: vi
+  source_count: 6
+  source_mix:
+    upload: 3
+    pasted_text: 2
+    url: 1
+  confidence: usable
+  status: stable
+scope:
+  team_or_business_area: Môi giới bất động sản thứ cấp
+  boundary: cover sourcing hàng, matching khách, xem nhà, thương lượng, chốt cọc và
+    handoff hồ sơ cơ bản
+  primary_users:
+  - broker
+  - team lead
+  - transaction admin
+  time_horizon: daily and weekly
+operating_model:
+  mission: Chuẩn hóa motion từ hàng và khách đến cọc, giảm rơi deal vì follow-up yếu
+    hoặc thông tin thiếu.
+  operating_principles:
+  - mỗi listing phải đủ dữ liệu tối thiểu
+  - không dẫn khách xem nhà khi chưa chốt điều kiện cơ bản
+  - đàm phán phải log next step rõ
+  service_boundaries:
+  - cover resale hoặc rental brokerage
+  - không mặc định cover pháp lý công chứng sâu
+  standard_of_execution: Mỗi deal phải truy vết được listing, buyer intent, viewing
+    outcome, negotiation state và deposit action.
+role_system:
+  core_roles:
+  - Broker
+  - Team Lead
+  - Transaction Admin
+  responsibilities:
+  - sourcing listing
+  - matching buyer hoặc tenant
+  - điều phối viewing
+  - chốt deposit và giấy tờ cơ bản
+  handoff_patterns:
+  - broker sang admin khi vào cọc
+  - team lead hỗ trợ đàm phán deal khó
+  escalation_paths:
+  - listing chồng chéo
+  - viewing fail nhiều lần
+  - deposit risk hoặc seller đổi điều kiện
+process_system:
+  core_processes:
+  - listing intake
+  - buyer matching
+  - viewing coordination
+  - negotiation
+  - deposit handling
+  trigger_map:
+  - listing mới
+  - buyer inquiry
+  - viewing request
+  - offer counter
+  input_output_pairs:
+  - listing -> hồ sơ hàng
+  - buyer request -> matched options
+  - viewing -> outcome note
+  - offer -> negotiation state
+  sla_expectations:
+  - lead xem nhà phải phản hồi nhanh
+  - viewing outcome phải cập nhật trong ngày
+decision_system:
+  decision_types:
+  - listing qualification
+  - showing priority
+  - offer acceptance
+  - deposit next step
+  decision_rules:
+  - không đưa hàng thiếu dữ liệu cốt lõi
+  - ưu tiên khách có intent và ngân sách phù hợp
+  - mọi thay đổi điều kiện phải confirm lại bằng artefact
+  approval_layers:
+  - broker
+  - team lead với deal khó
+  exception_rules:
+  - không nhận cọc khi điều kiện seller chưa rõ
+  - deal có tranh chấp phải escalate
+knowledge_system:
+  canonical_artifacts:
+  - listing sheet
+  - viewing script
+  - deposit checklist
+  - negotiation note
+  reporting_cadence:
+  - daily deal board
+  - weekly conversion review
+  metric_stack:
+  - listing response
+  - viewing show-up
+  - offer to deposit
+  - days to close
+  glossary_terms:
+  - listing
+  - viewing
+  - offer
+  - cọc
+tooling_system:
+  systems:
+  - listing sheet
+  - chat nội bộ
+  - docs
+  system_roles:
+  - lưu listing
+  - ghi viewing và negotiation
+  data_dependencies:
+  - listing data
+  - buyer brief
+  - deposit terms
+  failure_points:
+  - listing mơ hồ
+  - viewing không follow-up
+  - thương lượng không log
+artifact_adaptation:
+  sop: Làm rõ flow sourcing, matching, viewing, negotiation và cọc.
+  playbook: Tập trung script xem nhà, lọc nhu cầu và thương lượng.
+  onboarding_guide: Ưu tiên listing quality, buyer matching, viewing follow-up.
+  memo: Nêu deal nóng, seller đổi điều kiện, bước tiếp theo và owner.
+  report_template: Khóa metric listing, viewing, offer, deposit và aging deal.
+  meeting_brief: Nêu deal nóng, khách nóng, hàng khó bán, rủi ro cọc.
+  checklist: Ngắn, theo listing, viewing, offer, cọc.
+  faq: Bám viewing, cọc và seller communication.
+  dashboard_note: Giải thích biến động viewing, offer, deposit.
+  escalation_note: Nêu listing, khách, rủi ro đàm phán và quyết định cần hỗ trợ.
+anti_patterns:
+- dẫn khách xem khi chưa chốt điều kiện
+- đàm phán không ghi next step
+convergence:
+  invariants:
+  - listing phải đủ dữ liệu tối thiểu
+  - viewing outcome phải được log
+  tendencies:
+  - deal review ngắn mỗi ngày
+  accidents:
+  - tên listing cụ thể
+quality_notes:
+  strengths:
+  - hợp với motion môi giới resale
+  limitations:
+  - không đi sâu sang tên công chứng
+  mixed_source_warning: ''
+  coverage_gaps:
+  - thiếu rule cho co-broking phức tạp

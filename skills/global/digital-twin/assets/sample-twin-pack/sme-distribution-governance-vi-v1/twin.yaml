@@ -1,0 +1,174 @@
+version: 1
+profile:
+  label: SME Distribution Governance Twin
+  primary_language: vi
+  source_count: 9
+  source_mix:
+    upload: 5
+    pasted_text: 3
+    url: 1
+  confidence: usable
+  status: stable
+scope:
+  team_or_business_area: Doanh nghiệp phân phối SMEs với governance founder-led
+  boundary: cover order-to-cash, stock/debt review, approval lanes và weekly ops governance
+  primary_users:
+  - sales admin
+  - warehouse lead
+  - finance ops
+  - ops lead
+  - founder
+  time_horizon: daily and weekly
+operating_model:
+  mission: Giảm nghẽn founder và làm cho order-to-cash gắn với review cadence, approval
+    và action tracking.
+  operating_principles:
+  - mọi exception phải vào đúng lane
+  - review cadence phải đóng owner và due date
+  - founder chỉ giữ quyết định ngưỡng cao
+  service_boundaries:
+  - cover distribution ops + governance layer
+  - không mặc định cover sản xuất
+  standard_of_execution: Tín hiệu từ đơn hàng, tồn kho và công nợ phải đi vào cùng
+    một nhịp review có owner và escalation rõ.
+role_system:
+  core_roles:
+  - Sales Admin
+  - Warehouse Lead
+  - Finance Ops
+  - Ops Lead
+  - Founder
+  responsibilities:
+  - order accuracy
+  - execution signal
+  - debt truth
+  - weekly review
+  - high-threshold approval
+  handoff_patterns:
+  - daily ops signal -> weekly review
+  - price exception -> approver
+  - debt risk -> founder/ops lead
+  escalation_paths:
+  - credit hold kéo dài
+  - stock aging tăng
+  - delivery failure lặp lại
+process_system:
+  core_processes:
+  - order-to-cash
+  - stock control
+  - debt review
+  - weekly ops governance
+  trigger_map:
+  - new hot order
+  - credit hold
+  - aging debt threshold
+  - weekly review cycle
+  input_output_pairs:
+  - daily issue log -> weekly action board
+  - approval request -> approved next step
+  - debt aging report -> collection action owner
+  sla_expectations:
+  - daily hot issues phải có owner trong ngày
+  - weekly review phải chốt due date rõ
+decision_system:
+  decision_types:
+  - price exception
+  - credit hold release
+  - return approval
+  - weekly priority reset
+  decision_rules:
+  - không bỏ credit hold nếu chưa có approver
+  - issue lặp lại 2 chu kỳ review phải escalate lane cao hơn
+  - founder không duyệt việc dưới ngưỡng đã định
+  approval_layers:
+  - ops lead
+  - finance approver
+  - founder
+  exception_rules:
+  - order nóng vẫn phải đi qua lane ngoại lệ rõ
+  - issue chưa có owner không được xem là closed
+knowledge_system:
+  canonical_artifacts:
+  - sales order
+  - aging debt report
+  - weekly ops review board
+  - approval matrix
+  reporting_cadence:
+  - daily hot-issue review
+  - weekly ops review
+  metric_stack:
+  - fill rate
+  - on-time delivery
+  - debt aging
+  - stock aging
+  - unresolved escalations
+  glossary_terms:
+  - credit hold
+  - weekly action board
+  - approval threshold
+tooling_system:
+  systems:
+  - erp hoặc sheet
+  - review board
+  - chat group
+  system_roles:
+  - log issue
+  - log approval
+  - track action owner
+  data_dependencies:
+  - stock status
+  - customer credit
+  - delivery status
+  - action tracker
+  failure_points:
+  - owner không rõ
+  - approval lane mờ
+  - weekly review không follow-through
+artifact_adaptation:
+  sop: Làm rõ nối giữa order-to-cash và governance lane.
+  playbook: Tập trung exception, approval và weekly review.
+  onboarding_guide: Ưu tiên approval threshold, action board, debt/stock review.
+  memo: Nêu issue, lane, owner, due date, escalation.
+  report_template: Khóa metric delivery, debt, stock, unresolved escalations.
+  meeting_brief: Nêu hot issues, decision cần duyệt, owner và next step.
+  checklist: Theo daily issue review và weekly close-loop.
+  faq: Bám giá, credit hold, debt, approval, return.
+  dashboard_note: Giải thích bottleneck giữa flow vận hành và governance.
+  escalation_note: Nêu issue, impact, owner, approver, due date.
+anti_patterns:
+- founder duyệt mọi việc nhỏ
+- review không đóng action owner
+convergence:
+  invariants:
+  - mọi exception phải vào lane duyệt rõ
+  - review cadence phải sinh action owner
+  tendencies:
+  - weekly review là trung tâm điều phối
+  accidents:
+  - tên khách hàng cụ thể
+quality_notes:
+  strengths:
+  - mạnh ở ghép vận hành phân phối với governance
+  limitations:
+  - không cover sản xuất hoặc đa chi nhánh sâu
+  mixed_source_warning: ''
+  coverage_gaps:
+  - thiếu policy rebate hậu kiểm
+orchestration_system:
+  source_packs:
+  - trading-distribution-vi-v1
+  - sme-ops-vi-v1
+  - founder-office-vi-v1
+  composition_goal: Nối order-to-cash với governance, approval và weekly review cho
+    SMEs phân phối.
+  integration_points:
+  - daily issue -> weekly review
+  - price/debt exception -> approval lane
+  - unresolved issue -> founder/ops escalation
+  shared_metrics:
+  - fill rate
+  - debt aging
+  - stock aging
+  - unresolved escalations
+  boundary_notes:
+  - Không copy ngưỡng phê duyệt cụ thể từ sample pack.

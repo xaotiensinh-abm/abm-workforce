@@ -1,0 +1,204 @@
+# ═══════════════════════════════════════════════════════════════
+# ABM-Workforce Quarterly Audit Process v1.0
+# Governance & Quality Assurance Playbook
+# ═══════════════════════════════════════════════════════════════
+
+# Cadence: Every 3 months (Q1=Jan, Q2=Apr, Q3=Jul, Q4=Oct)
+# Owner: W8:CriticAgent + Human review
+# Duration: 2-3 hours per audit cycle
+
+version: 1.0
+cadence: quarterly
+next_audit: 2026-06-28
+
+# ═══════════════════════════════════════════════════════════════
+# PHASE 1: AUTOMATED SCAN (30 min)
+# ═══════════════════════════════════════════════════════════════
+
+phase_1_scan:
+  description: "Run automated health check across all skills"
+  
+  steps:
+    - name: "Scan global skills"
+      command: |
+        python _standards/scripts/skill_health_check.py --report C:/Users/PC/.gemini/antigravity/skills
+      output: "global-skills-report.txt"
+      
+    - name: "Scan agent skills"
+      command: |
+        python _standards/scripts/skill_health_check.py --report D:/AntigravityWorkspace/.agent/skills
+      output: "agent-skills-report.txt"
+      
+    - name: "Generate JSON for tracking"
+      command: |
+        python _standards/scripts/skill_health_check.py --all --json C:/Users/PC/.gemini/antigravity/skills > audit-Q{quarter}-{year}.json
+      output: "audit-Q{quarter}-{year}.json"
+      
+  success_criteria:
+    - "All skills have SKILL.md (L2 = 100%)"
+    - "Overall Health Score > previous quarter"
+    - "No new Tier-C skills introduced"
+
+# ═══════════════════════════════════════════════════════════════
+# PHASE 2: TREND ANALYSIS (30 min)
+# ═══════════════════════════════════════════════════════════════
+
+phase_2_trends:
+  description: "Compare with previous quarter's audit"
+  
+  metrics:
+    - metric: "Tier Distribution"
+      target: "Tier-S ↑, Tier-C ↓ vs last quarter"
+      
+    - metric: "Layer Coverage"
+      target: "L7 (Output Contract) > 30% of all skills"
+      
+    - metric: "Health Score"
+      target: "> previous quarter's score"
+      
+    - metric: "New Skills Added"
+      target: "All new skills ≥ Tier-B on creation"
+      
+    - metric: "Skills Archived"
+      target: "All orphans identified in previous audit → resolved"
+      
+  deliverable: "quarterly-trend-report.md"
+
+# ═══════════════════════════════════════════════════════════════
+# PHASE 3: MANUAL REVIEW (60 min) 
+# ═══════════════════════════════════════════════════════════════
+
+phase_3_review:
+  description: "Human review of top skills and anomalies"
+  
+  review_targets:
+    - category: "Top 5 Most Used Skills"
+      action: "Verify examples are current, references up-to-date"
+      
+    - category: "Recently Modified Skills"
+      action: "Check changes don't break existing contracts"
+      
+    - category: "Tier-S Skills"
+      action: "Full 9-layer deep review, CHANGELOG up-to-date"
+      
+    - category: "Newly Created Skills"
+      action: "Compliance with SKILL-TEMPLATE-V2"
+      
+    - category: "Trigger Map Conflicts"
+      action: "Test ambiguous trigger phrases, verify routing"
+      
+  checklist:
+    - "[ ] All Tier-S skills have current CHANGELOG entries"
+    - "[ ] No duplicate skills covering same use case"
+    - "[ ] Trigger map updated for new/renamed skills"
+    - "[ ] Output contracts aligned with current _standards/"
+    - "[ ] Archive folder reviewed (no skills accidentally archived)"
+
+# ═══════════════════════════════════════════════════════════════
+# PHASE 4: ACTION PLAN (30 min)
+# ═══════════════════════════════════════════════════════════════
+
+phase_4_actions:
+  description: "Generate action items for next quarter"
+  
+  template: |
+    # Quarterly Audit Report — Q{quarter}/{year}
+    
+    ## Executive Summary
+    - Total Skills: {total}
+    - Health Score: {score}/100 ({delta} vs last quarter)
+    - Tier Distribution: S={s}, A={a}, B={b}, C={c}
+    
+    ## Key Findings
+    1. ...
+    2. ...
+    3. ...
+    
+    ## Action Items for Q{next_quarter}
+    | # | Priority | Action | Owner | Deadline |
+    |---|----------|--------|-------|----------|
+    | 1 | P0 | ... | W1 | ... |
+    
+    ## Skills to Archive
+    - ...
+    
+    ## Skills to Upgrade (Next Sprint)
+    - ... → Target Tier: ...
+    
+  update_targets:
+    - "00-SKILL-MATURITY-REGISTRY.yaml — update tier assignments"
+    - "01-TRIGGER-MAP.yaml — add/remove/update triggers"
+    - "task.md — new upgrade tasks for next quarter"
+
+# ═══════════════════════════════════════════════════════════════
+# SKILL LIFECYCLE MANAGEMENT
+# ═══════════════════════════════════════════════════════════════
+
+lifecycle:
+  states:
+    draft:
+      description: "Skill being developed"
+      entry_criteria: "Idea approved, use case defined"
+      exit_criteria: "SKILL.md created, ≥ Tier-B"
+      
+    active:
+      description: "Skill in production use"
+      entry_criteria: "≥ Tier-B, tested, added to trigger map"
+      exit_criteria: "N/A (ongoing)"
+      governance: "Quarterly audit"
+      
+    mature:
+      description: "Tier-S skill with full 9-layer compliance"
+      entry_criteria: "Score ≥ 7/9, CHANGELOG, output contract"
+      exit_criteria: "N/A (aspirational state)"
+      governance: "Quarterly deep review"
+      
+    deprecated:
+      description: "Skill being phased out"
+      entry_criteria: "Replacement available, migration guide exists"
+      exit_criteria: "All references updated, moved to archive"
+      timeline: "2 quarters max"
+      
+    archived:
+      description: "Skill removed from active use"
+      location: "_archive/removed-skills/"
+      recovery: "Can be restored if needed"
+      
+  transitions:
+    - from: draft
+      to: active
+      trigger: "SKILL.md complete + added to trigger map"
+      
+    - from: active
+      to: mature
+      trigger: "9-layer audit score ≥ 7/9"
+      
+    - from: active
+      to: deprecated
+      trigger: "Better alternative exists OR no usage in 2 quarters"
+      
+    - from: deprecated
+      to: archived
+      trigger: "Migration complete + 1 quarter grace period"
+      
+    - from: archived
+      to: active
+      trigger: "Manual restore + re-audit"
+
+# ═══════════════════════════════════════════════════════════════
+# KPIs & TARGETS
+# ═══════════════════════════════════════════════════════════════
+
+kpis:
+  q2_2026_targets:
+    health_score: "> 55"
+    tier_s_count: "> 5"
+    tier_c_count: "0"
+    l7_coverage: "> 25%"  # skills with output contract
+    new_skill_min_tier: "B"
+    
+  q3_2026_targets:
+    health_score: "> 65"
+    tier_s_count: "> 10"
+    l3_coverage: "> 40%"  # skills with references
+    l7_coverage: "> 40%"

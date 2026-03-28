@@ -1,0 +1,69 @@
+version: 1
+profile:
+  label: "Real Estate Ops Twin"
+  primary_language: "vi"
+  source_count: 8
+  source_mix:
+    upload: 5
+    pasted_text: 2
+    url: 1
+  confidence: usable
+  status: stable
+scope:
+  team_or_business_area: "Sales và vận hành giao dịch bất động sản"
+  boundary: "cover lead intake, qualify, site visit, booking, đặt cọc, hồ sơ giao dịch và bàn giao sang CSKH"
+  primary_users: ["sales manager", "team lead", "admin giao dịch", "pháp lý", "cskh"]
+  time_horizon: "daily, weekly and monthly"
+operating_model:
+  mission: "Chuẩn hóa quy trình chuyển lead thành booking và hợp đồng với owner, hồ sơ và ngoại lệ rõ ràng."
+  operating_principles: ["lead phải có owner", "booking phải đi kèm điều kiện và deadline rõ", "ngoại lệ pháp lý và tồn kho phải escalate sớm"]
+  service_boundaries: ["cover sale và giao dịch nội bộ", "không mặc định cover thi công hoặc quản lý tòa nhà"]
+  standard_of_execution: "Mỗi deal phải có trạng thái rõ, hồ sơ bám checklist và quyết định booking phải truy vết được."
+role_system:
+  core_roles: ["Sales Consultant", "Sales Team Lead", "Admin Giao Dịch", "Pháp Lý Nội Bộ", "CSKH Sau Bán"]
+  responsibilities: ["nhận và qualify lead", "điều phối site visit và booking", "hoàn tất hồ sơ giao dịch", "kiểm tra điều kiện pháp lý", "chăm sóc sau bán và bàn giao thông tin"]
+  handoff_patterns: ["sales sang admin sau booking", "admin sang pháp lý khi thiếu hồ sơ hoặc có ngoại lệ", "giao dịch sang cskh sau ký HĐ hoặc cần follow-up sau bán"]
+  escalation_paths: ["escalate khi căn giữ chỗ có xung đột", "escalate khi hồ sơ pháp lý thiếu hoặc chậm", "escalate khi khách yêu cầu ngoại lệ về thanh toán hoặc đổi căn"]
+process_system:
+  core_processes: ["lead intake và qualify", "điều phối site visit", "booking và đặt cọc", "hoàn tất hồ sơ và ký hợp đồng", "chuyển giao hậu mãi"]
+  trigger_map: ["lead mới vào từ marketing hoặc referral", "khách yêu cầu đi xem hoặc chốt căn", "booking phát sinh ngoại lệ", "hồ sơ đến hạn ký"]
+  input_output_pairs: ["lead data -> lead owner và trạng thái qualify", "site visit request -> lịch hẹn và follow-up", "booking request -> phiếu booking và điều kiện giữ chỗ", "bộ hồ sơ -> trạng thái ký HĐ"]
+  sla_expectations: ["lead mới phải có owner trong ngày", "booking phải xác nhận điều kiện giữ chỗ trong cửa sổ đã định", "hồ sơ thiếu phải được follow-up trong chu kỳ ngắn"]
+decision_system:
+  decision_types: ["lead routing", "booking approval", "ngoại lệ thanh toán", "đổi căn", "hồ sơ pháp lý"]
+  decision_rules: ["ưu tiên lead cho owner đang trực hoặc theo giỏ hàng", "booking chỉ xác nhận khi tồn kho và điều kiện cọc hợp lệ", "ngoại lệ thanh toán cần team lead hoặc quản lý duyệt", "đổi căn phải kiểm lại giỏ hàng, giá và hồ sơ"]
+  approval_layers: ["sales owner", "team lead", "sales manager", "pháp lý hoặc quản lý giao dịch khi có ngoại lệ"]
+  exception_rules: ["luôn log lý do giữ chỗ ngoại lệ", "không hứa tiến độ hồ sơ nếu chưa được admin hoặc pháp lý xác nhận", "mọi thay đổi điều kiện booking phải có xác nhận nội bộ"]
+knowledge_system:
+  canonical_artifacts: ["script tư vấn", "policy booking", "checklist hồ sơ", "báo cáo booking", "meeting brief"]
+  reporting_cadence: ["daily lead review", "weekly booking review", "monthly conversion review"]
+  metric_stack: ["lead response", "site visit show-up", "booking rate", "conversion to contract", "hồ sơ tồn"]
+  glossary_terms: ["giỏ hàng", "booking", "đặt cọc", "đổi căn", "hồ sơ tồn"]
+tooling_system:
+  systems: ["crm hoặc sheet lead", "file giỏ hàng", "checklist hồ sơ", "chat nội bộ", "docs"]
+  system_roles: ["ghi nhận lead và pipeline", "theo dõi tồn kho và trạng thái căn", "lưu hồ sơ giao dịch", "điều phối ngoại lệ và follow-up"]
+  data_dependencies: ["lead source", "inventory hoặc giỏ hàng", "hồ sơ khách hàng", "lịch ký HĐ"]
+  failure_points: ["lead không có owner rõ", "booking không khóa điều kiện", "hồ sơ thiếu nhưng không escalate", "handoff sales sang admin không đủ context"]
+artifact_adaptation:
+  sop: "Làm rõ lead routing, owner, các mốc qualify, booking, hồ sơ, exception và escalation nội bộ."
+  playbook: "Tập trung vào tình huống bán hàng, script xử lý phản đối, booking rule và handoff giao dịch."
+  onboarding_guide: "Ưu tiên giỏ hàng, pipeline, quy trình booking, checklist hồ sơ và những ngoại lệ thường gặp."
+  memo: "Nêu quyết định về inventory, booking, pricing ngoại lệ, owner và hạn follow-up."
+  report_template: "Khóa metric về lead, site visit, booking, contract và hồ sơ tồn; luôn gắn action expectation."
+  meeting_brief: "Nêu nguồn lead, booking cần quyết, hồ sơ chậm, ngoại lệ cần duyệt và owner follow-up."
+  checklist: "Ngắn, theo mốc qualify, booking, hồ sơ, ký HĐ và bàn giao."
+  faq: "Bám policy booking, hồ sơ và các ngoại lệ phổ biến của khách."
+  dashboard_note: "Giải thích biến động lead, show-up, booking, contract và hồ sơ tồn."
+  escalation_note: "Nêu căn liên quan, rủi ro, điều kiện ngoại lệ, owner đề xuất và người cần quyết."
+anti_patterns:
+  - "chốt booking nhưng không khóa điều kiện giữ chỗ"
+  - "handoff hồ sơ mà thiếu owner hoặc thiếu timeline"
+convergence:
+  invariants: ["lead phải có owner rõ", "booking phải gắn điều kiện và deadline", "ngoại lệ pháp lý hoặc inventory phải escalate sớm"]
+  tendencies: ["ưa dùng checklist hồ sơ", "ưu tiên họp ngắn nhưng bám metric booking"]
+  accidents: ["cụm từ campaign hoặc tên dự án cụ thể"]
+quality_notes:
+  strengths: ["phản ánh được lead-to-booking-to-contract flow", "đủ để tạo SOP, decision rules và role handbook"]
+  limitations: ["chưa cover đầy đủ tài chính ngân hàng hoặc quản lý bàn giao chi tiết", "một số SLA mới ở mức ngụ ý"]
+  mixed_source_warning: ""
+  coverage_gaps: ["thiếu policy xử lý tranh chấp booking phức tạp", "thiếu automation rule giữa crm và inventory"]

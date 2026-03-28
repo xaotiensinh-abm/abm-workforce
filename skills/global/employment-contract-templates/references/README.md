@@ -1,0 +1,5 @@
+# References - employment-contract-templates
+
+Domain knowledge sources for this skill.
+
+> Add reference .md files here.

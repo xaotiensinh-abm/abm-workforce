@@ -1,0 +1,158 @@
+version: 1
+profile:
+  label: Multi Chair Clinic Twin
+  primary_language: vi
+  source_count: 7
+  source_mix:
+    upload: 5
+    pasted_text: 1
+    url: 1
+  confidence: usable
+  status: stable
+scope:
+  team_or_business_area: Phòng khám nha khoa nhiều ghế
+  boundary: cover capacity planning, chair assignment, bác sĩ schedule, vô trùng,
+    no-show, turn-time và handoff front-to-back office
+  primary_users:
+  - clinic manager
+  - scheduler
+  - dentist
+  - assistant
+  - front desk
+  time_horizon: daily and weekly
+operating_model:
+  mission: Tối ưu công suất ghế và trải nghiệm bệnh nhân khi nhiều ghế và nhiều bác
+    sĩ cùng chạy.
+  operating_principles:
+  - mọi slot phải nhìn được chair và doctor fit
+  - turn-time phải được chuẩn hóa
+  - no-show và delay phải có playbook phục hồi
+  service_boundaries:
+  - cover capacity và daily clinic flow
+  - không mặc định cover mở thêm cơ sở
+  standard_of_execution: Ghế, bác sĩ, phụ tá và vô trùng phải được điều phối theo
+    nhịp chung thay vì xử lý ad hoc.
+role_system:
+  core_roles:
+  - Clinic Manager
+  - Scheduler
+  - Dentist
+  - Assistant
+  - Front Desk
+  responsibilities:
+  - điều phối ghế và lịch bác sĩ
+  - chuẩn bị và turnover ghế
+  - xác nhận lịch và phục hồi no-show
+  - theo dõi công suất
+  handoff_patterns:
+  - front desk sang scheduler
+  - scheduler sang chair team
+  - chair team sang front desk sau điều trị
+  escalation_paths:
+  - delay domino nhiều ghế
+  - thiếu ghế vô trùng
+  - bác sĩ đổi lịch phút chót
+process_system:
+  core_processes:
+  - schedule planning
+  - chair assignment
+  - day-of-flow management
+  - sterilization handoff
+  - no-show recovery
+  trigger_map:
+  - lịch mới
+  - thay đổi lịch bác sĩ
+  - patient no-show
+  - delay kéo dài
+  input_output_pairs:
+  - appointment -> chair assignment
+  - treatment completion -> room turnover
+  - delay alert -> resequenced schedule
+  sla_expectations:
+  - slot phải confirm trước
+  - turnover phải theo chuẩn nội bộ
+decision_system:
+  decision_types:
+  - chair assignment
+  - reschedule priority
+  - walk-in acceptance
+  - overflow handling
+  decision_rules:
+  - không overbook ghế nếu không có overflow plan
+  - delay trên ngưỡng phải re-sequence lịch ngay
+  - ca dài phải ưu tiên ghế phù hợp và backup assistant
+  approval_layers:
+  - clinic manager
+  - lead dentist với case phức tạp
+  exception_rules:
+  - walk-in chỉ nhận khi không phá năng lực ngày
+  - đổi bác sĩ phải notify và confirm lại expectation bệnh nhân
+knowledge_system:
+  canonical_artifacts:
+  - capacity board
+  - chair matrix
+  - sterilization checklist
+  - no-show playbook
+  reporting_cadence:
+  - daily morning huddle
+  - midday capacity check
+  - weekly utilization review
+  metric_stack:
+  - chair utilization
+  - turn-time
+  - no-show rate
+  - delay minutes
+  - same-day recovery
+  glossary_terms:
+  - chair utilization
+  - turn-time
+  - overflow
+tooling_system:
+  systems:
+  - scheduling system
+  - chair board
+  - chat group
+  system_roles:
+  - điều phối chair
+  - ghi delay
+  - log sterilization state
+  data_dependencies:
+  - doctor schedule
+  - chair availability
+  - sterilization readiness
+  failure_points:
+  - overbook không có plan
+  - delay không re-sequence
+  - ghế chưa ready nhưng vẫn nhận ca
+artifact_adaptation:
+  sop: Làm rõ lịch, ghế, bác sĩ, turnover, no-show và overflow.
+  playbook: Tập trung delay recovery, chair assignment và walk-in handling.
+  onboarding_guide: Ưu tiên board ghế, quy tắc delay, no-show, vô trùng và handoff
+    ca.
+  memo: Nêu bottleneck chair, bác sĩ thiếu slot, ca dài, action và owner.
+  report_template: Khóa metric chair utilization, delay minutes, no-show, recovery.
+  meeting_brief: Nêu plan ngày, điểm nghẽn capacity, bác sĩ đổi lịch, ca rủi ro.
+  checklist: Ngắn, theo mở ca, turnover, vô trùng, đóng ngày.
+  faq: Bám đổi lịch, trễ lịch, no-show, overflow.
+  dashboard_note: Giải thích utilization, delay, same-day recovery.
+  escalation_note: Nêu ghế, bác sĩ, bệnh nhân bị ảnh hưởng, phương án xử lý và người
+    quyết.
+anti_patterns:
+- overbook mà không có overflow plan
+- để delay dây chuyền không ai ownership
+convergence:
+  invariants:
+  - chair assignment phải nhìn cùng doctor fit
+  - delay phải được xử lý chủ động
+  tendencies:
+  - huddle ngắn nhưng đều
+  accidents:
+  - tên bác sĩ cụ thể
+quality_notes:
+  strengths:
+  - mạnh về capacity và turn-time
+  limitations:
+  - không đi sâu treatment plan dài hạn
+  mixed_source_warning: ''
+  coverage_gaps:
+  - thiếu rule cho phối hợp giữa nhiều cơ sở

@@ -1,0 +1,157 @@
+version: 1
+profile:
+  label: Trading Distribution Twin
+  primary_language: vi
+  source_count: 7
+  source_mix:
+    upload: 4
+    pasted_text: 2
+    url: 1
+  confidence: usable
+  status: stable
+scope:
+  team_or_business_area: Doanh nghiệp thương mại phân phối
+  boundary: cover mua hàng, tồn kho, đơn hàng, giao hàng, công nợ, đổi trả và review
+    doanh số
+  primary_users:
+  - procurement
+  - sales admin
+  - warehouse
+  - delivery coordinator
+  - finance ops
+  time_horizon: daily and weekly
+operating_model:
+  mission: Giảm mất kiểm soát giữa mua hàng, tồn kho, giao hàng và công nợ trong mô
+    hình phân phối.
+  operating_principles:
+  - đơn hàng phải gắn tồn và giá đúng
+  - giao hàng và công nợ phải nhìn cùng một dòng trạng thái
+  - đổi trả phải có reason code
+  service_boundaries:
+  - cover trading and distribution ops
+  - không mặc định cover sản xuất
+  standard_of_execution: Từ PO đến giao hàng và thu tiền phải truy vết được trên cùng
+    logic owner và exception.
+role_system:
+  core_roles:
+  - Procurement
+  - Sales Admin
+  - Warehouse
+  - Delivery Coordinator
+  - Finance Ops
+  responsibilities:
+  - đặt mua và theo dõi hàng về
+  - xử lý đơn và xác nhận giá
+  - soạn hàng và giao
+  - đối chiếu công nợ
+  handoff_patterns:
+  - sales admin sang warehouse khi đơn chốt
+  - warehouse sang delivery khi ready
+  - delivery sang finance khi giao xong cần đối chiếu
+  escalation_paths:
+  - thiếu tồn
+  - giao trễ
+  - công nợ quá hạn
+  - đổi trả nhiều
+process_system:
+  core_processes:
+  - procurement planning
+  - order processing
+  - pick-pack-ship
+  - debt follow-up
+  - return handling
+  trigger_map:
+  - đơn hàng mới
+  - tồn xuống ngưỡng
+  - giao thất bại
+  - nợ quá hạn
+  input_output_pairs:
+  - customer order -> confirmed sales order
+  - stock allocation -> delivery order
+  - delivery completion -> receivable status
+  sla_expectations:
+  - đơn mới phải confirm nhanh
+  - giao trễ phải notify và replan
+decision_system:
+  decision_types:
+  - stock allocation
+  - price exception
+  - credit hold
+  - return approval
+  decision_rules:
+  - không confirm đơn nếu tồn chưa khóa
+  - ngoại lệ giá hoặc nợ phải có phê duyệt
+  - đổi trả phải có reason code và trạng thái xử lý
+  approval_layers:
+  - sales admin lead
+  - finance approver
+  - ops manager
+  exception_rules:
+  - không xuất hàng khi credit hold chưa gỡ
+  - giao thiếu phải ghi backorder rõ
+knowledge_system:
+  canonical_artifacts:
+  - sales order
+  - stock report
+  - aging debt report
+  - return log
+  reporting_cadence:
+  - daily order review
+  - weekly stock and debt review
+  metric_stack:
+  - fill rate
+  - on-time delivery
+  - stock aging
+  - debt aging
+  - return rate
+  glossary_terms:
+  - fill rate
+  - credit hold
+  - backorder
+tooling_system:
+  systems:
+  - erp hoặc sheet
+  - warehouse tracker
+  - debt report
+  system_roles:
+  - giữ tồn
+  - log đơn
+  - đối chiếu nợ
+  data_dependencies:
+  - stock position
+  - price list
+  - customer credit status
+  failure_points:
+  - confirm đơn khi chưa khóa tồn
+  - backorder không được thông báo
+  - nợ quá hạn không owner
+artifact_adaptation:
+  sop: Làm rõ flow từ đơn hàng, tồn kho, giao hàng, công nợ, đổi trả.
+  playbook: Tập trung thiếu tồn, giao trễ, nợ quá hạn và return.
+  onboarding_guide: Ưu tiên order flow, stock control, debt logic và exception path.
+  memo: Nêu tồn rủi ro, đơn trễ, nợ quá hạn, owner và action.
+  report_template: Khóa metric fill rate, giao đúng hạn, aging tồn, aging nợ, return.
+  meeting_brief: Nêu đơn nóng, thiếu tồn, giao trễ, nợ xấu và quyết định cần duyệt.
+  checklist: Ngắn, theo order, stock, ship, debt, return.
+  faq: Bám giá, tồn, giao, nợ, đổi trả.
+  dashboard_note: Giải thích biến động tồn, giao, nợ, return.
+  escalation_note: Nêu đơn, tồn, nợ hoặc return, rủi ro và người cần quyết.
+anti_patterns:
+- confirm đơn khi chưa khóa tồn
+- đổi trả không reason code
+convergence:
+  invariants:
+  - đơn phải gắn tồn và giá đúng
+  - nợ quá hạn phải có owner
+  tendencies:
+  - review stock và debt theo tuần
+  accidents:
+  - tên SKU cụ thể
+quality_notes:
+  strengths:
+  - mạnh cho trading-distribution
+  limitations:
+  - không cover planning sản xuất
+  mixed_source_warning: ''
+  coverage_gaps:
+  - thiếu rule rebate hoặc chiết khấu hậu kiểm
