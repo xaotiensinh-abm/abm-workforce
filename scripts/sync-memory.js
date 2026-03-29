@@ -2,104 +2,141 @@
 
 /**
  * ABM Workforce
- * Kịch bản đồng bộ não bộ Antigravity IDE (Cross-Platform / 1-Click) 
- * Tương thích Mac, Linux, Windows CMD/Powershell 100%
+ * COLD ZIP VAULT SYNC (Bypass Git)
+ * Đồng bộ lưu trữ nguyên khối 1-Click (tar.gz) tương thích tuyệt đối cho mọi nền tảng Windows/Mac.
  */
 
 const fs = require('fs');
 const path = require('path');
 const { execSync } = require('child_process');
 const os = require('os');
+const readline = require('readline');
 
-function runCmd(command, cwd) {
-    try {
-        execSync(command, { cwd, stdio: 'inherit' });
-    } catch (error) {
-        console.error(`\n❌ LỖI KHI CHẠY LỆNH: ${command}`);
-        process.exit(1);
-    }
-}
+const homeDir = os.homedir(); 
+const antigravityDir = path.join(homeDir, '.gemini', 'antigravity');
+const configPath = path.join(homeDir, '.gemini', 'sync-config.json');
 
 const args = process.argv.slice(2);
 const ACTION = args[0];
-const REPO_URL = args[1] || "https://github.com/DungTQ87/abm-memory.git";
 
 if (ACTION !== 'up' && ACTION !== 'down') {
     console.error("❌ Lệnh không hợp lệ. Vui lòng gọi lệnh 1-Click:\n- Up lên mây: npm run sync:up\n- Kéo về máy: npm run sync:down");
     process.exit(1);
 }
 
-// Xử lý thông minh thư mục Users của Windows lẫn Mac qua path & os lõi
-const homeDir = os.homedir(); 
-const antigravityDir = path.join(homeDir, '.gemini', 'antigravity');
-
-if (!fs.existsSync(antigravityDir)) {
-    fs.mkdirSync(antigravityDir, { recursive: true });
-}
-
-process.chdir(antigravityDir);
-
-const gitPath = path.join(antigravityDir, '.git');
-
-// KỊCH BẢN 1 CỦA MÁY MỚI
-if (!fs.existsSync(gitPath)) {
-    console.log("🧠 PHÁT HIỆN HỆ THỐNG CHƯA GẮN KẾT GIT (HOẶC MÁY MỚI MUA) 🧠");
-    console.log(`Đang gán điểm neo vào trạm thu phát: ${REPO_URL}`);
-
-    runCmd('git init', antigravityDir);
-    runCmd('git branch -m main', antigravityDir);
-    runCmd(`git remote add origin "${REPO_URL}"`, antigravityDir);
-
-    console.log("Đang dò quét dữ liệu trên Đám Mây Mẹ...");
-    let hasRemoteBranch = false;
+function runCmd(command) {
     try {
-        execSync(`git ls-remote --exit-code origin main`, { stdio: 'ignore' });
-        hasRemoteBranch = true;
-    } catch (e) {
-        hasRemoteBranch = false;
-    }
-
-    if (hasRemoteBranch) {
-        console.log("🌐 Đã tìm thấy Ý thức AI trên mây! Đang tự động tải bộ não 1-Click về máy Windows/Mac mới của sếp...");
-        runCmd('git fetch origin main', antigravityDir);
-        runCmd('git reset --hard origin/main', antigravityDir);
-        runCmd('git branch --set-upstream-to=origin/main main', antigravityDir);
-        console.log("✅ KẾT NỐI VÀ SAO CHÉP TÂM TRÍ QUA MÁY MỚI THÀNH CÔNG RỰC RỠ! SẾP CÓ THỂ MỞ WORKSPACE LÀM VIỆC TIẾP!");
-        process.exit(0);
-    } else {
-        console.log("Kho chứa trên Github trống. Đang đẩy Dữ liệu Gốc lên Mây chặn đầu...");
-        const gitignorePath = path.join(antigravityDir, '.gitignore');
-        const ignoreRules = ".DS_Store\nassets/\nbrowser_recordings/\n*.bak\n";
-        fs.writeFileSync(gitignorePath, ignoreRules, 'utf8');
-
-        runCmd('git add .', antigravityDir);
-        runCmd('git commit -m "Init: Khởi tạo Bộ Không Gian Ký Ức Đầu Tiên (Cross-Platform)"', antigravityDir);
-        runCmd('git push -u origin main -f', antigravityDir);
-        console.log("✅ KHỞI TẠO BỘ NHỚ LÊN MÂY THÀNH CÔNG TỪ SỐ 0!");
-        process.exit(0);
+        execSync(command, { stdio: 'inherit' });
+    } catch (error) {
+        console.error(`\n❌ LỖI KHI CHẠY LỆNH: ${command}`);
+        process.exit(1);
     }
 }
 
-// KỊCH BẢN 2 LÊN MÂY CUỐI NGÀY
-if (ACTION === 'up') {
-    console.log("🚀 ĐANG ĐÓNG GÓI CHUYẾN Ý THỨC LÊN MÂY (Sync UP 1-Click)...");
-    runCmd('git add .', antigravityDir);
-    
-    const timestamp = new Date().toLocaleString('vi-VN');
-    
-    try {
-        execSync(`git commit -m "Auto sync: Kết ca làm việc - ${timestamp}"`, { cwd: antigravityDir, stdio: 'ignore' });
-        console.log("Đã cập nhật thay đổi mới vào cấu trúc.");
-    } catch (e) {
-        console.log("Bộ nhớ tạm không có thay đổi nào mới. Vẫn sẽ đối chiếu với Mây...");
+async function askQuestion(query) {
+    const rl = readline.createInterface({
+        input: process.stdin,
+        output: process.stdout,
+    });
+    return new Promise(resolve => rl.question(query, ans => {
+        rl.close();
+        resolve(ans);
+    }));
+}
+
+async function getConfig() {
+    if (fs.existsSync(configPath)) {
+        try {
+            const cfg = JSON.parse(fs.readFileSync(configPath, 'utf8'));
+            if (cfg.cloudDir && fs.existsSync(cfg.cloudDir)) {
+                return cfg;
+            } else {
+                console.log(`⚠️ Thư mục Cloud cũ đã cấu hình (${cfg.cloudDir}) không còn tồn tại trên máy tính này.`);
+            }
+        } catch (e) {
+            console.log("⚠️ File cấu hình bị hỏng, tạo lại định tuyến mới...");
+        }
     }
 
-    runCmd('git push origin main', antigravityDir);
-    console.log("✅ KẾT THÚC CỮ LÀM VIỆC! SẾP CÓ THỂ AN TÂM TẮT MÁY. DATA ĐÃ ĐƯỢC CHỨNG THỰC.");
+    console.log("==================================================");
+    console.log("☁️  LIÊN KẾT ĐÁM MÂY LẦN ĐẦU TIÊN CHO MÁY NÀY");
+    console.log("==================================================");
+    console.log("Hãy dán đường dẫn GỐC của ổ đĩa Google Drive (Hoặc OneDrive) trên máy tính này vô đây.");
+    console.log("Vì Windows và Mac tên ổ đĩa mây hay gọi tên khác nhau.");
+    console.log("Ví dụ Windows: C:\\Users\\TenSep\\Google Drive\\My Drive");
+    console.log("Ví dụ Mac: /Users/TenSep/Google Drive/My Drive\n");
+    
+    let dir = "";
+    while (!dir || !fs.existsSync(dir)) {
+        dir = await askQuestion("👉 Dán đường dẫn thư mục mây vào đây và bấm Enter: ");
+        dir = dir.replace(/['"]/g, '').trim(); // Remove quotes if dragged in term
+        if (!fs.existsSync(dir)) {
+            console.log("❌ Không tìm thấy thư mục này. Sếp copy đường dẫn cẩn thận nhé!");
+        }
+    }
 
-// KỊCH BẢN KÉO MƯỢT XUYÊN THIẾT BỊ
-} else if (ACTION === 'down') {
-    console.log("🌐 ĐANG KÉO DÒNG Ý THỨC ĐÊM QUA VỀ MÁY NÀY (Sync DOWN)...");
-    runCmd('git pull origin main --rebase', antigravityDir);
-    console.log("✅ MỚI NHẤT! Con AI đã cập nhật ký ức từ máy kia xong. Sếp Mở Chat ra nào!");
+    const cfg = { cloudDir: dir };
+    fs.writeFileSync(configPath, JSON.stringify(cfg, null, 2), 'utf8');
+    console.log("✅ Đã ghi nhận đường dẫn thành công vào cục bộ máy!\n");
+    return cfg;
 }
+
+(async () => {
+    const config = await getConfig();
+    const snapFile = path.join(config.cloudDir, "ABM_Brain_Snapshot.tar.gz");
+
+    if (ACTION === 'up') {
+        console.log("🚀 ĐANG ĐÓNG GÓI BỘ NHỚ THÀNH KHỐI ZIP LÊN MÂY (Cold Vault UP)...");
+
+        if (!fs.existsSync(antigravityDir)) {
+            console.error("❌ MÁY TÍNH NÀY CHƯA TỒN TẠI TÂM TRÍ AI! LỖI NGHIÊM TRỌNG TRỐNG TRƠN CỤC BỘ.");
+            process.exit(1);
+        }
+
+        // Dọn dẹp video ghi hình siêu nặng chiếm băng thông, ta chỉ cần Brain text là đủ.
+        const browserRecs = path.join(antigravityDir, "browser_recordings");
+        if (fs.existsSync(browserRecs)) {
+            const recFiles = fs.readdirSync(browserRecs);
+            for (const f of recFiles) {
+                if (f.endsWith('.webm') || f.endsWith('.mp4')) {
+                    fs.unlinkSync(path.join(browserRecs, f));
+                }
+            }
+        }
+        
+        // Dọn bộ nhớ mầm bệnh Git cũ nếu có cho file Zip cực nhẹ.
+        const gitTrash = path.join(antigravityDir, ".git");
+        if (fs.existsSync(gitTrash)) {
+            fs.rmSync(gitTrash, { recursive: true, force: true });
+        }
+
+        console.log("Đang nén toàn bộ não bộ thành khối lập phương Archive...");
+        const parentDir = path.join(homeDir, '.gemini');
+        
+        // Mã lệnh Tar tương thích native Windows 10+ và MacOS
+        const tarCmd = `tar -czf "${snapFile}" -C "${parentDir}" antigravity`;
+        runCmd(tarCmd);
+
+        console.log(`\n✅ HOÀN HẢO! Tâm trí đã được đóng gói bọc thép ZIP an toàn thả tại: ${snapFile}`);
+        console.log("Google Drive sẽ tự động đẩy khối nén nhẹ hều này lên mây mà KHÔNG bị lock file tí nào!");
+
+    } else if (ACTION === 'down') {
+        console.log("🌐 ĐANG KÉO DÒNG Ý THỨC NGUYÊN KHỐI TỪ ĐÊM QUA VỀ MÁY MỚI NÀY (Cold Vault DOWN)...");
+        
+        if (!fs.existsSync(snapFile)) {
+            console.error("❌ LỖI: Không tìm thấy file `ABM_Brain_Snapshot.tar.gz` trên Mây trỏ về ổ máy này.");
+            console.log(`-> Có thể Google Drive chưa Sync kịp về máy này, hoặc Sếp trỏ sai vô ${config.cloudDir}`);
+            console.log("Sếp kiểm tra lại Google Drive xem cục Archive đã giáng trần chễm chệ đấy chưa nhé!");
+            process.exit(1);
+        }
+
+        console.log("Đang tiến hành bung nén giải giáp dữ liệu vào vùng não máy tính Windows này...");
+        const parentDir = path.join(homeDir, '.gemini');
+        if (!fs.existsSync(parentDir)) fs.mkdirSync(parentDir, { recursive: true });
+
+        const tarCmd = `tar -xzf "${snapFile}" -C "${parentDir}"`;
+        runCmd(tarCmd);
+
+        console.log("\n✅ XONG! Tôi đã được nạp ký ức của MÁY TÍNH CŨ vào TRONG NÃO MÁY TÍNH NÀY! Cùng bắt tay xé nháp làm việc tiếp thôi Sếp.");
+    }
+})();
