@@ -1,0 +1,56 @@
+# Success Patterns — Mẫu thành công đã học
+# Mỗi pattern = 1 cách làm đã được chứng minh hiệu quả
+# Dùng bởi: knowledge-crystallizer, capability-evolver, jarvis decision-making
+
+patterns:
+  - pattern_id: "SP-001"
+    name: "Email Sequence Psychology"
+    learned_from: ["TG-002-W1"]
+    category: "marketing"
+    description: "Email sequence 4 bước áp dụng 4 mô hình tâm lý khác nhau"
+    recipe:
+      step_1: "Welcome email — dùng Reciprocity (cho giá trị miễn phí)"
+      step_2: "Nurture email — dùng Authority (chia sẻ expertise)"
+      step_3: "Offer email — dùng Scarcity + Urgency (khan hiếm + gấp)"
+      step_4: "Re-engage email — dùng Social Proof (bằng chứng xã hội)"
+    kpi: "Predicted open rate: 25-35%"
+    confidence: 0.9
+    times_used: 1
+
+  - pattern_id: "SP-002"
+    name: "JD Vietnam Market"
+    learned_from: ["TG-001-W1"]
+    category: "hr"
+    description: "JD cho thị trường IT Việt Nam — cấu trúc + mức lương phù hợp"
+    recipe:
+      structure: "Overview → Responsibilities (8) → Requirements (6) → Benefits (5) → Interview Process"
+      salary_tip: "Luôn range (VD: 15-25M) — không fixed. Tham khảo thị trường."
+      bonus: "Thêm Interview Scorecard → hỗ trợ tuyển dụng thực tế"
+    confidence: 0.85
+    times_used: 1
+
+  - pattern_id: "SP-003"
+    name: "Script-Based Restructure"
+    learned_from: ["S-002"]
+    category: "architecture"
+    description: "Dùng PowerShell script cho mọi restructure lớn (>50 files)"
+    recipe:
+      step_1: "Tạo script — New-Item directories"
+      step_2: "Copy-Item files theo mapping"
+      step_3: "Chạy verify script — check tất cả paths"
+      step_4: "Batch-replace content references nếu paths đổi"
+    antipattern: "KHÔNG manual copy — dễ miss files, mất tracking"
+    confidence: 0.95
+    times_used: 1
+
+  - pattern_id: "SP-004"
+    name: "Weighted Scoring Review"
+    learned_from: ["CS-001"]
+    category: "review"
+    description: "Chấm điểm weighted trung thực hơn unweighted"
+    recipe:
+      top_weights: "Kiến trúc (15%) + Enforcement (15%) = 30% tổng"
+      key_insight: "Unweighted inflate score — enforcement thường thấp nhưng quan trọng nhất"
+      perspectives: "8 personas minimum — mỗi persona PHẢI có verdict riêng kèm evidence"
+    confidence: 0.92
+    times_used: 3

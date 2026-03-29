@@ -1,0 +1,208 @@
+# Governance Policy Configuration
+# Production-grade security and approval policies for the Multi-Agent system
+
+# === DEFAULT SECURITY MODES ===
+default_security:
+  strict_mode: false # Enable for sensitive repos
+  sandbox_mode: false # Enable for shell commands with network/system write
+  browser_profile: "isolated" # Separate Chrome profile for browser subagent
+
+# === HUMAN GATE TRIGGERS ===
+# When ANY of these conditions are true, human approval is MANDATORY
+human_gate_required:
+  - condition: "auth_changes"
+    description: "Changes to authentication, authorization, OAuth, session management"
+    applies_to: ["auth/", "login/", "session/", "oauth/", "middleware/auth"]
+
+  - condition: "payment_changes"
+    description: "Changes to payment processing, billing, subscriptions"
+    applies_to: ["payment/", "billing/", "stripe/", "checkout/"]
+
+  - condition: "iam_changes"
+    description: "Changes to IAM, RBAC, permissions, user roles"
+    applies_to: ["iam/", "rbac/", "permissions/", "roles/"]
+
+  - condition: "production_config"
+    description: "Changes to production environment configurations"
+    applies_to: ["*.production.*", "*.prod.*", ".env.production"]
+
+  - condition: "db_schema"
+    description: "Database schema changes, migrations"
+    applies_to: ["migrations/", "schema/", "*.migration.*"]
+
+  - condition: "secrets"
+    description: "Creating, modifying, or deleting secrets"
+    applies_to: [".env", "secrets/", "*.key", "*.pem", "*.cert"]
+
+  - condition: "destructive_commands"
+    description: "Commands that delete data, drop tables, rm -rf, etc."
+    command_patterns: ["DROP", "DELETE FROM", "rm -rf", "truncate", "destroy"]
+
+  - condition: "network_egress"
+    description: "New outbound network connections not in allowlist"
+    requires: "allowlist check"
+
+# === ROLE PERMISSIONS ===
+role_permissions:
+  jarvis-orchestrator:
+    read: "wide" # Can read entire repo and artifacts
+    write: "limited" # Should delegate writes to workers
+    deploy: false
+    execute_commands: false
+    create_artifacts: true
+
+  code-worker:
+    read: "scoped" # Only files in contract scope
+    write: "scoped" # Only files in contract scope
+    deploy: false
+    execute_commands: true # tests only
+    create_artifacts: true
+
+  test-verifier:
+    read: "wide" # Needs to read tests and source
+    write: false # Read-only verifier
+    deploy: false
+    execute_commands: true # run tests
+    create_artifacts: true
+
+  browser-qa:
+    read: "browser_only"
+    write: false
+    deploy: false
+    execute_commands: false # browser interaction only
+    create_artifacts: true # screenshots, recordings
+
+  security-evaluator:
+    read: "wide" # Needs full visibility
+    write: false # Read-only auditor
+    deploy: false
+    execute_commands: true # security scans
+    create_artifacts: true
+    override_by_agents: false # Cannot be overridden
+
+  data-worker:
+    read: "mcp_only" # Read through MCP only
+    write: false # Read-only by default
+    deploy: false
+    execute_commands: false
+    create_artifacts: true
+
+  docs-worker:
+    read: "wide"
+    write: "docs_only" # Can only write documentation files
+    deploy: false
+    execute_commands: false
+    create_artifacts: true
+
+# === AGENT PERMISSION TREE (from CLAWDBOT pattern) ===
+# Defines which agents can spawn/delegate-to which other agents
+# Inspired by CLAWDBOT's openclaw.json "allowAgents" permission model
+agent_permission_tree:
+  jarvis-orchestrator:
+    allowAgents: ["task-router", "code-worker", "test-verifier", "browser-qa", "security-evaluator", "data-worker", "docs-worker", "marketing-specialist", "hr-specialist", "office-manager", "automation-engineer", "business-analyst"]
+    roma_tiers: ["Tier1-Strategy", "Tier6-Synthesis"]
+    max_spawn_depth: 3
+    max_children: 10
+
+  task-router:
+    allowAgents: []  # Leaf node — only classifies, never delegates
+    roma_tiers: ["Tier1-Strategy"]
+    max_spawn_depth: 0
+    max_children: 0
+
+  code-worker:
+    allowAgents: []  # Leaf node — executes only
+    roma_tiers: ["Tier3-Content"]
+    max_spawn_depth: 0
+    max_children: 0
+
+  test-verifier:
+    allowAgents: []
+    roma_tiers: ["Tier5-Validation"]
+    max_spawn_depth: 0
+    max_children: 0
+
+  browser-qa:
+    allowAgents: []
+    roma_tiers: ["Tier5-Validation"]
+    max_spawn_depth: 0
+    max_children: 0
+
+  security-evaluator:
+    allowAgents: []
+    roma_tiers: ["Tier5-Validation"]
+    max_spawn_depth: 0
+    max_children: 0
+    override_by_agents: false  # Cannot be overridden by any agent
+
+  data-worker:
+    allowAgents: []
+    roma_tiers: ["Tier2-Intelligence", "Tier4-Analysis"]
+    max_spawn_depth: 0
+    max_children: 0
+
+  docs-worker:
+    allowAgents: []
+    roma_tiers: ["Tier3-Content"]
+    max_spawn_depth: 0
+    max_children: 0
+
+  marketing-specialist:
+    allowAgents: []  # Leaf node — content creator
+    roma_tiers: ["Tier2-Intelligence", "Tier3-Content"]
+    max_spawn_depth: 0
+    max_children: 0
+
+  hr-specialist:
+    allowAgents: []  # Leaf node — HR operations
+    roma_tiers: ["Tier3-Content"]
+    max_spawn_depth: 0
+    max_children: 0
+
+  office-manager:
+    allowAgents: ["marketing-specialist"]  # Can request marketing copy for proposals
+    roma_tiers: ["Tier3-Content", "Tier6-Synthesis"]
+    max_spawn_depth: 1
+    max_children: 2
+
+  automation-engineer:
+    allowAgents: ["code-worker"]  # Can request code implementation for automation scripts
+    roma_tiers: ["Tier2-Intelligence", "Tier4-Analysis"]
+    max_spawn_depth: 1
+    max_children: 2
+
+  business-analyst:
+    allowAgents: ["office-manager"]  # Can request document formatting for reports
+    roma_tiers: ["Tier2-Intelligence", "Tier4-Analysis"]
+    max_spawn_depth: 1
+    max_children: 2
+
+# === CONCURRENCY LIMITS (from CLAWDBOT pattern) ===
+# Controls parallel agent execution to prevent resource exhaustion
+concurrency:
+  max_concurrent_workers: 4  # Max workers running simultaneously
+  max_subagent_concurrent: 8  # Max subagents across all workers
+  max_spawn_depth: 3  # Maximum delegation depth (Jarvis→Worker→SubAgent)
+  max_children_per_agent: 10  # Max children any agent can spawn
+  queue_policy: "fifo"  # fifo | priority
+  timeout_per_worker_minutes: 30
+
+# === ROLLBACK POLICY ===
+rollback:
+  every_plan_must_have:
+    - "files_impacted"
+    - "revert_strategy"
+    - "test_to_confirm_revert"
+    - "fallback_owner"
+  auto_rollback_triggers:
+    - "test_suite_failure_after_merge"
+    - "security_evaluator_critical_finding"
+    - "production_error_spike"
+
+# === RETRY POLICY ===
+retry:
+  max_retries_per_task: 2
+  retry_with_different_approach: true
+  escalate_after_max_retries: true
+  escalate_to: "human"
+

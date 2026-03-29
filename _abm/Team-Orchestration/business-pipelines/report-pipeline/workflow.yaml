@@ -1,0 +1,97 @@
+# Report Generation Pipeline v2.0
+# Tier1 → Tier2(∥) → Tier3 → Tier5 → Tier6
+# Enhanced: parallel data gathering, accuracy gate, revision loop
+
+name: report-pipeline
+version: "2.0"
+description: "Data-driven report pipeline with parallel research and accuracy validation"
+trigger: task_type in [report, data]
+
+steps:
+  - step: 1
+    name: "Scope & Requirements"
+    tier: "Tier1-Strategy"
+    agent: "jarvis-orchestrator"
+    action: |
+      Define scope:
+      - Report type: monthly | quarterly | ad-hoc | comparison | forecast
+      - Period & KPIs
+      - Audience: board | team | investors | clients
+      - Data sources available
+    output: "Report Brief"
+    on_fail: "Ask human for missing data/scope"
+
+  - step: 2
+    name: "Data Analysis"
+    tier: "Tier2-Intelligence"
+    agent: "business-analyst"
+    skills: [data-analysis]
+    parallel: true  # Can run alongside step 2b
+    action: |
+      Analyze provided data:
+      - Calculate KPIs
+      - Identify trends (MoM, QoQ, YoY)
+      - Compare to benchmarks/targets
+      - Extract top 3-5 insights
+      - Generate chart descriptions
+    output: "Analysis package (tables, insights, chart specs)"
+    acceptance:
+      - "Every number has source and calculation"
+      - "Trends identified with % change"
+      - "Insights are actionable, not descriptive"
+    on_fail: "RETRY with clarified data requirements"
+
+  - step: 3
+    name: "Draft Report"
+    tier: "Tier3-Content"
+    agent: "office-manager"
+    skills: [office-documents]
+    action: |
+      Draft using office-documents template:
+      1. Executive Summary (≤200 words)
+      2. KPI Dashboard (table format)
+      3. Detailed Analysis (by section)
+      4. Charts/Visualizations (descriptions)
+      5. Risks & Opportunities
+      6. Recommendations (prioritized)
+      7. Next Steps & Action Items
+    output: "Draft report"
+    depends_on: [2]  # Must have analysis first
+    max_retries: 2
+    on_fail: "RETRY with simpler structure"
+
+  - step: 4
+    name: "Accuracy & Quality Gate"
+    tier: "Tier5-Validation"
+    agent: "jarvis-orchestrator"
+    action: |
+      Validate:
+      □ Numbers consistent throughout document?
+      □ Executive summary matches details?
+      □ Every insight backed by specific data?
+      □ Recommendations are actionable (who, what, when)?
+      □ Format professional for target audience?
+    gate:
+      - condition: "data accurate + format good"
+        action: "PROCEED"
+      - condition: "data inconsistency"
+        action: "RETURN to step 2 — recheck numbers"
+      - condition: "format issues only"
+        action: "RETURN to step 3 — reformat"
+
+  - step: 5
+    name: "Finalize & Deliver"
+    tier: "Tier6-Synthesis"
+    agent: "jarvis-orchestrator"
+    action: |
+      Final assembly:
+      - Add cover page
+      - Verify page/section numbering
+      - Package for delivery
+    output: "Final report"
+
+error_handling:
+  max_pipeline_retries: 3
+  timeout_minutes: 30
+  on_timeout: "Deliver draft with [PRELIMINARY] watermark"
+  on_data_missing: "ESCALATE to human — request data sources"

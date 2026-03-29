@@ -1,0 +1,87 @@
+name,tags,tier,lines,has_checklist
+agent-email-cli,,2,157,yes
+agentic-memory,,1,113,no
+agent-improve,,1,118,no
+ai-trend-radar,,2,169,yes
+benchmark-lab,,2,182,yes
+brainstorming,,1,112,no
+canvas-design,,2,137,yes
+capability-evolver,meta, ai, self-improvement, core,2,137,yes
+certification-program,,3,270,yes
+client-success,sales, coaching, operations,2,136,yes
+code-review,,1,107,no
+cold-email,marketing, sales,2,153,yes
+competitive-landscape,,1,95,no
+competitor-intelligence,,1,112,no
+content-creator,,2,124,yes
+content-strategy,,1,101,no
+context-engineering,meta, core, context, optimization,2,174,yes
+contract-review,,2,126,yes
+copywriting,,1,119,no
+course-design,,3,331,yes
+critical-thinking,,2,124,no
+cro-master,marketing, cro,2,145,yes
+data-analysis,,1,113,no
+database-management,,2,167,yes
+delegation-chain,,1,116,no
+email-marketing,marketing, sales,1,114,no
+frontend-design,,2,180,yes
+frontend-developer,,2,172,yes
+growth-engine,marketing, strategy, growth,1,107,no
+high-ticket-sales,sales, coaching, strategy,2,178,yes
+hr-operations,,2,228,yes
+imagen,,3,478,yes
+innovation-report,,2,145,yes
+internal-comms,,2,120,yes
+kaizen,,1,97,no
+knowledge-builder,,2,149,yes
+knowledge-crystallizer,meta, ai, self-improvement, core,2,154,yes
+landing-page-builder,web, marketing, design,2,132,no
+launch-strategy,marketing, strategy,2,129,yes
+lms-management,,2,215,yes
+market-sizing-analysis,,1,95,no
+multi-dimensional-review,meta, review, quality, process,2,150,yes
+pdf,,1,111,no
+performance-review,hr,2,162,yes
+pricing-strategy,strategy, sales,1,97,no
+product-marketing-context,marketing, foundation,1,93,no
+prompt-sentinel,há»‡ thá»‘ng, review, quality, prompt,3,273,yes
+proposal-generator,sales, coaching,1,97,no
+research-to-training,,3,263,yes
+responsive-web-design,web, design, frontend,1,105,no
+roi-calculator,sales, strategy,1,103,no
+sales-automator,,1,105,no
+sales-enablement,marketing, sales,2,167,yes
+save,,2,129,yes
+security-review,,1,67,no
+seo-audit,,1,96,no
+seo-content-planner,,1,105,no
+seo-fundamentals,marketing, web, seo,1,113,no
+skill-generator,,3,428,yes
+social-content,,1,98,no
+sprint-planning,,1,108,no
+startup-financial-modeling,,2,164,yes
+student-assessment,,2,220,yes
+subagent-driven-development,,2,141,yes
+supply-chain-ops,operations,2,132,yes
+systematic-debugging,,1,118,no
+talent-acquisition,hr,2,133,yes
+task-planning,,2,136,yes
+tech-scouting,,2,140,yes
+training-content,,3,302,yes
+veo-video-gen,,2,236,yes
+verification-before-completion,,1,95,no
+web-accessibility,web, design, compliance,1,116,no
+web-design-guidelines,,2,182,yes
+website-conversion,marketing, website, design,2,142,yes
+workflow-automation,,2,136,yes
+workshop-facilitation,,2,141,yes
+writing-plans,,1,105,no
+context7-docs,development,1,169,no
+mental-health-screening,psychology, health, education, screening,2,165,yes
+student-counseling,psychology, counseling, education,2,178,yes
+crisis-intervention,psychology, crisis, safety, critical,3,195,yes
+psychoeducation,psychology, education, life-skills,2,152,yes
+parent-teacher-guidance,psychology, guidance, parent, teacher,2,168,yes
+iep-mental-health,psychology, planning, individual, intervention,2,175,yes
+anti-bullying,psychology, bullying, prevention, safety,2,185,yes

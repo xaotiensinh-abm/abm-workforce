@@ -1,0 +1,94 @@
+# Marketing Campaign Pipeline v2.0
+# Tier1 → Tier2 → Tier3 → Tier5 → Tier6
+# Enhanced: error handling, branching, parallel steps
+
+name: marketing-pipeline
+version: "2.0"
+description: "End-to-end marketing content pipeline with quality gates and error recovery"
+trigger: task_type in [marketing, content, seo]
+
+steps:
+  - step: 1
+    name: "Brief & Strategy"
+    tier: "Tier1-Strategy"
+    agent: "jarvis-orchestrator"
+    action: |
+      Phân tích yêu cầu CEO:
+      1. Xác định: mục tiêu, đối tượng, kênh, KPI
+      2. Classify sub-type: content_calendar | email_sequence | social_post | landing_page | seo_audit
+      3. Select skills based on sub-type
+    output: "Content Brief document"
+    on_fail: "ESCALATE to human — unclear brief"
+
+  - step: 2
+    name: "Research & Data"
+    tier: "Tier2-Intelligence"
+    agent: "marketing-specialist"
+    skills: [content-strategy]
+    action: |
+      Research phase (BEFORE writing):
+      - Keyword research (if SEO relevant)
+      - Competitor content scan
+      - Audience pain points identification
+      - Content pillar mapping
+    output: "Research brief with data"
+    optional: true  # Skip if CEO provided full brief
+    on_fail: "SKIP — proceed with CEO brief only"
+
+  - step: 3
+    name: "Content Creation"
+    tier: "Tier3-Content"
+    agent: "marketing-specialist"
+    skills: [copywriting, marketing-psychology]
+    action: |
+      Tạo content theo brief + research:
+      - Apply psychology models (scarcity, authority, social proof...)
+      - Write copy following copywriting skill templates
+      - Include variations for A/B testing
+    output: "Draft content package"
+    acceptance:
+      - "Có hook rõ ràng (first 3 seconds rule)"
+      - "CTA cụ thể và measurable"
+      - "Tone phù hợp đối tượng mục tiêu"
+      - "Psychology model applied and labeled"
+    max_retries: 2
+    on_fail: "RETRY with different psychology model. If 2 retries fail → ESCALATE."
+
+  - step: 4
+    name: "Quality Gate"
+    tier: "Tier5-Validation"
+    agent: "jarvis-orchestrator"
+    action: |
+      Review checklist:
+      □ Grammar & spelling correct?
+      □ Brand voice consistent?
+      □ Psychology models properly applied?
+      □ CTA clear and actionable?
+      □ No sensitive/controversial content?
+      Score: 1-10
+    output: "APPROVED (≥7/10) | REVISION (4-6) | REJECT (<4)"
+    gate:
+      - condition: "score >= 7"
+        action: "PROCEED to step 5"
+      - condition: "score >= 4 AND score < 7"
+        action: "RETURN to step 3 with specific revision feedback"
+      - condition: "score < 4"
+        action: "ESCALATE to human — quality too low"
+
+  - step: 5
+    name: "Package & Deliver"
+    tier: "Tier6-Synthesis"
+    agent: "jarvis-orchestrator"
+    action: |
+      Finalize:
+      - Assemble all content pieces
+      - Create content calendar (if applicable)
+      - Format for target channel (social/email/web)
+      - Generate distribution schedule
+    output: "Final content package ready for publication"
+
+error_handling:
+  max_pipeline_retries: 3
+  timeout_minutes: 30
+  on_timeout: "ESCALATE to human with partial results"
+  on_worker_unavailable: "Queue task, notify human"

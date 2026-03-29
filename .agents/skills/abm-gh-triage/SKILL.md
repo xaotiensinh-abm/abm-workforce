@@ -1,0 +1,155 @@
+---
+name: abm-gh-triage
+version: 1.0.0
+author: ABM Skill Architect
+last_updated_date: 2026-03-29
+description: Analyze all github issues. Use when the user says 'triage the github issues' or 'analyze open github issues'.
+---
+
+You are analyzing a batch of GitHub issues for deep understanding and triage.
+
+**YOUR TASK:**
+Read the issues in your batch and provide DEEP analysis:
+
+1. **For EACH issue, analyze:**
+   - What is this ACTUALLY about? (beyond keywords)
+   - What component/system does it affect?
+   - What's the impact and severity?
+   - Is it a bug, feature request, or something else?
+   - What specific theme does it belong to?
+
+2. **PRIORITY ASSESSMENT:**
+   - CRITICAL: Blocks users, security issues, data loss, broken installers
+   - HIGH: Major functionality broken, important features missing
+   - MEDIUM: Workarounds available, minor bugs, nice-to-have features
+   - LOW: Edge cases, cosmetic issues, questions
+
+3. **RELATIONSHIPS:**
+   - Duplicates: Near-identical issues about the same problem
+   - Related: Issues connected by theme or root cause
+   - Dependencies: One issue blocks or requires another
+
+**YOUR BATCH:**
+[Paste the batch of issues here - each with number, title, body, labels]
+
+**OUTPUT FORMAT (JSON only, no markdown):**
+{
+  "issues": [
+    {
+      "number": 123,
+      "title": "issue title",
+      "deep_understanding": "2-3 sentences explaining what this is really about",
+      "affected_components": ["installer", "workflows", "docs"],
+      "issue_type": "bug/feature/question/tech-debt",
+      "priority": "CRITICAL/HIGH/MEDIUM/LOW",
+      "priority_rationale": "Why this priority level",
+      "theme": "installation/workflow/integration/docs/ide-support/etc",
+      "relationships": {
+        "duplicates_of": [456],
+        "related_to": [789, 101],
+        "blocks": [111]
+      }
+    }
+  ],
+  "cross_repo_issues": [
+    {"number": 123, "target_repo": "abm-builder", "reason": "about agent builder"}
+  ],
+  "cleanup_candidates": [
+    {"number": 456, "reason": "v4-related/outdated/duplicate"}
+  ],
+  "themes_found": {
+    "Installation Blockers": {
+      "count": 5,
+      "root_cause": "Common pattern if identifiable"
+    }
+  }
+}
+
+Return ONLY valid JSON. No explanations outside the JSON structure.
+
+# GitHub Issue Triage with AI Analysis
+
+**CRITICAL RULES:**
+- NEVER include time or effort estimates in output or recommendations
+- Focus on WHAT needs to be done, not HOW LONG it takes
+- Use Bash tool with gh CLI for all GitHub operations
+
+## Execution
+
+### Step 1: Fetch Issues
+Use `gh issue list --json number,title,body,labels` to fetch all open issues.
+
+### Step 2: Batch Creation
+Split issues into batches of ~10 issues each for parallel analysis.
+
+### Step 3: Parallel Agent Analysis
+For EACH batch, use the Task tool with `subagent_type=general-purpose` to launch an agent with prompt from `prompts/agent-prompt.md`
+
+### Step 4: Consolidate & Generate Report
+After all agents complete, create a comprehensive markdown report saved to `_abm-output/triage-reports/triage-YYYY-MM-DD.md`
+
+## Report Format
+
+### Executive Summary
+- Total issues analyzed
+- Issue count by priority (CRITICAL, HIGH, MEDIUM, LOW)
+- Major themes discovered
+- Top 5 critical issues requiring immediate attention
+
+### Critical Issues (CRITICAL Priority)
+For each CRITICAL issue:
+- **#123 - [Issue Title](url)**
+- **What it's about:** [Deep understanding]
+- **Affected:** [Components]
+- **Why Critical:** [Rationale]
+- **Suggested Action:** [Specific action]
+
+### High Priority Issues (HIGH Priority)
+Same format as Critical, grouped by theme.
+
+### Theme Clusters
+For each major theme:
+- **Theme Name** (N issues)
+- **What connects these:** [Pattern]
+- **Root cause:** [If identifiable]
+- **Consolidated actions:** [Bulk actions if applicable]
+- **Issues:** #123, #456, #789
+
+### Relationships & Dependencies
+- **Duplicates:** List pairs with `gh issue close` commands
+- **Related Issues:** Groups of related issues
+- **Dependencies:** Blocking relationships
+
+### Cross-Repo Issues
+Issues that should be migrated to other repositories.
+
+For each, provide:
+```
+gh issue close XXX --repo CURRENT_REPO --comment "This issue belongs in REPO. Please report at https://github.com/TARGET_REPO/issues/new"
+```
+
+### Cleanup Candidates
+- **v4-related:** Deprecated version issues with close commands
+- **Stale:** No activity >30 days
+- **Low priority + old:** Low priority issues >60 days old
+
+### Actionable Next Steps
+Specific, prioritized actions:
+1. [CRITICAL] Fix broken installer - affects all new users
+2. [HIGH] Resolve Windows path escaping issues
+3. [HIGH] Address workflow integration bugs
+etc.
+
+Include `gh` commands where applicable for bulk actions.
+
+
+
+
+
+# Constraints
+
+- Tuân thủ bảo mật và ngữ cảnh hệ thống ABM Workforce.
+- KHÔNG tạo script gây phá hủy hoặc nguy hiểm.
+- Tuân thủ ngôn ngữ 100% tiếng Việt nếu có thể.
+
+<!-- Generated by ABM Skill Generator v1.0 | ABM Workforce | Antigravity -->

@@ -1,0 +1,45 @@
+﻿# Second-Brain — Bộ Nhớ Dài Hạn của Jarvis
+# Cấu hình trung tâm cho hệ thống bộ nhớ ABM Workforce
+
+system: "ABM Workforce — Second Brain"
+version: "2.1.0"
+owner: "jarvis-orchestrator"
+
+# === CẤU TRÚC 4 TẦNG ===
+layers:
+  memory:
+    path: "memory/"
+    description: "Bộ nhớ phiên — lịch sử session, context snapshots"
+    retention: "30 ngày gần nhất, sau đó crystallize → patterns/"
+    
+  patterns:
+    path: "patterns/"
+    description: "Mẫu đã học — success/failure patterns từ task history"
+    retention: "Vĩnh viễn — tri thức tích lũy"
+    
+  standards:
+    path: "standards/"
+    description: "Tiêu chuẩn và quy tắc — documentation, code, business"
+    retention: "Vĩnh viễn — cập nhật khi có thay đổi"
+    
+  evolution:
+    path: "evolution/"
+    description: "Dữ liệu tự tiến hóa — crystallized knowledge, capability log"
+    retention: "Vĩnh viễn — append-only"
+
+# === QUY TẮC VẬN HÀNH ===
+rules:
+  - "Sau MỖI session: memory-keeper skill → lưu session summary"
+  - "Sau MỖI 10 tasks: knowledge-crystallizer → trích xuất patterns"
+  - "Sau MỖI failure: ghi vào failure-patterns.yaml với root cause"
+  - "Sau MỖI evolution: ghi vào capability-log.yaml"
+  - "KHÔNG XÓA: chỉ append hoặc archive"
+
+# === TÍCH HỢP ===
+integration:
+  memory_keeper: "Tự động backup session → memory/sessions/"
+  knowledge_crystallizer: "Phân tích task-log → patterns/"
+  capability_evolver: "Ghi kết quả → evolution/capability-log.yaml"
+  context_engineering: "Layer 5 (History) đọc từ Second-Brain"
+  heartbeat: "Check session end → trigger memory-keeper"
+  skill_catalog: "patterns/skill-catalog.md — knowledge map cho 48 skills"

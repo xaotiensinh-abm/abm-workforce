@@ -1,0 +1,49 @@
+# Attestation Template
+# Every worker MUST return an attestation in this format when completing a task
+# Based on: Delegation Chain Management — liability flows up
+
+# --- TASK REFERENCE ---
+task_id: "" # Must match the Task Contract task_id
+contract_reference: "" # Path to the original task contract
+
+# --- STATUS ---
+status: "" # done | done_with_risks | blocked | failed | needs_review
+completion_percentage: 100 # 0-100
+
+# --- SUMMARY ---
+summary: "" # What was accomplished, in one paragraph
+
+# --- EVIDENCE ---
+files_changed:
+  - "" # List all files modified
+files_created:
+  - "" # List all files created
+files_deleted:
+  - "" # List all files deleted
+
+tests_run:
+  - command: "" # e.g. "npm test"
+    result: "" # pass | fail
+    coverage: "" # optional percentage
+
+evidence:
+  - type: "" # test_log | screenshot | browser_recording | lint_report | security_scan
+    path: "" # Path to the evidence artifact
+    description: "" # Brief description
+
+# --- RISK ASSESSMENT ---
+known_risks:
+  - "" # Known risks or concerns
+confidence: 0.0 # 0.0 to 1.0 — worker's confidence in their own output
+
+# --- FOLLOW-UP ---
+needs_followup: false
+recommended_next_agent: "" # e.g. "browser_qa_subagent" or "security-evaluator"
+followup_reason: "" # Why follow-up is needed
+
+# --- SCOPE COMPLIANCE ---
+scope_violations: [] # Any deviations from the contract scope_in/scope_out
+budget_usage:
+  tool_calls_used: 0
+  runtime_minutes: 0
+  retries_used: 0

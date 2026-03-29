@@ -1,0 +1,68 @@
+# Task Contract Template
+# Every delegation from Orchestrator to Worker MUST follow this schema
+# Based on: Delegation Chain Management architecture
+
+# --- TASK IDENTIFICATION ---
+task_id: "" # Format: TG-{group}-W{worker} e.g. TG-03-W2
+parent_task_id: "" # Parent task group ID
+delegation_level: 1 # 1 = Orchestrator→Worker, 2 = Worker→SubAgent
+
+# --- PARTIES ---
+owner_agent: "jarvis-orchestrator" # The delegator (liability holder)
+executor_agent: "" # The worker receiving the contract
+
+# --- SCOPE ---
+objective: "" # Clear, single-sentence task description
+scope_in: # Files/areas the worker CAN touch
+  - ""
+scope_out: # Files/areas the worker MUST NOT touch
+  - ""
+workspace: "" # Branch or workspace path
+
+# --- PERMISSIONS ---
+allowed_tools: # Which tools the worker can use
+  - "editor"
+  - "terminal:test"
+  - "read_files"
+allowed_mcp_resources: [] # MCP resources accessible
+
+# --- DELIVERABLES ---
+required_artifacts: # What the worker must produce
+  - "diff_summary"
+  - "test_result"
+  - "risk_note"
+handoff_format: "structured_markdown" # Format for returning results
+
+# --- ACCEPTANCE CRITERIA ---
+acceptance_criteria: # Specific, measurable criteria
+  - ""
+
+# --- BUDGET ---
+budget:
+  max_tool_calls: 20
+  max_runtime_minutes: 15
+  max_retries: 2
+  max_spawn_depth: 1 # How deep this worker can delegate (0 = leaf)
+  max_children: 0 # How many subagents this worker can spawn
+
+# --- ROMA PIPELINE ---
+roma:
+  tier: "" # Tier1-Strategy | Tier2-Intelligence | Tier3-Content | Tier4-Analysis | Tier5-Validation | Tier6-Synthesis
+  pipeline_position: 1 # Position in the pipeline (1-6)
+  upstream_task_id: "" # Task that feeds into this one
+  downstream_task_id: "" # Task this feeds into
+
+# --- RISK ---
+risk_level: "medium" # low | medium | high | critical
+requires_human_gate: false # Set true for high/critical risk
+requires_security_eval: false # Set true for auth/payment/infra changes
+
+# --- CONTEXT ---
+context_files: [] # Specific files to provide as context
+context_artifacts: [] # Previous artifacts relevant to this task
+context_knowledge_items: [] # Knowledge items to reference
+
+# --- SKILLS ---
+required_skills: [] # Skills the worker MUST load before executing
+recommended_skills: [] # Skills the worker SHOULD consider
+

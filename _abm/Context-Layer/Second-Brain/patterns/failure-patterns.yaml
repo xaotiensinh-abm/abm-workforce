@@ -1,0 +1,48 @@
+# Failure Patterns — Mẫu thất bại và cách tránh
+# Mỗi failure pattern = 1 bài học từ sai lầm
+# Dùng bởi: jarvis decision-making, HEARTBEAT red flags
+
+patterns:
+  - pattern_id: "FP-001"
+    name: "Context Bomb"
+    discovered_in: "Critical Review v3"
+    category: "architecture"
+    description: "Load tất cả 25 skills vào orchestrator → 3,500 tokens trước khi user nói gì"
+    root_cause: "Liệt kê đầy đủ mọi skill inline thay vì lazy loading"
+    impact: "Context window bị lấp → giảm chất lượng response"
+    fix_applied: "Context Engineering 5-layer + 3 mandatory only + skill-routing lazy load"
+    prevention: "RULE: Mỗi agent tối đa 3 skills loaded cùng lúc"
+    severity: "critical"
+
+  - pattern_id: "FP-002"
+    name: "Phantom Agents"
+    discovered_in: "Critical Review v2"
+    category: "governance"
+    description: "Agent được tham chiếu trong routing nhưng không có file definition"
+    root_cause: "Thêm agent vào permission tree mà không tạo SOUL.md/agent file"
+    impact: "Jarvis delegate cho agent không tồn tại → task fail silently"
+    fix_applied: "Tạo SOUL.md cho tất cả 5 business agents"
+    prevention: "RULE: Dùng add-agent workflow — 5 bước + verification checklist"
+    severity: "high"
+
+  - pattern_id: "FP-003"
+    name: "Spec Without Evidence"
+    discovered_in: "Critical Review v4"
+    category: "observability"
+    description: "Hệ thống có đầy đủ spec nhưng 0 runtime evidence"
+    root_cause: "Chỉ thiết kế framework mà không chạy task thật"
+    impact: "Evolver, crystallizer, KPI dashboard = tất cả inert. Auditor score = 3/10."
+    fix_applied: "Seed 5 tasks + 3 contracts + 2 attestations"
+    prevention: "RULE: Sau khi thêm bất kỳ cơ chế nào → PHẢI chạy ít nhất 1 task để verify"
+    severity: "high"
+
+  - pattern_id: "FP-004"
+    name: "Manual Multi-File Rename"
+    discovered_in: "BMAD → ABM rebrand"
+    category: "operations"
+    description: "Rename thủ công trên 200+ files → dễ miss, syntax errors"
+    root_cause: "PowerShell quoting issues khi dùng inline commands"
+    impact: "Script fails → phải viết file .ps1 riêng"
+    fix_applied: "Luôn viết script .ps1 riêng cho batch operations"
+    prevention: "RULE: Batch operations > 10 files → viết .ps1 script, KHÔNG inline"
+    severity: "medium"

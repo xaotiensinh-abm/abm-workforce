@@ -1,0 +1,123 @@
+# Brand Guideline — abmedu.vn
+# Thu thap: 09/03/2026
+# Nguon: https://abmedu.vn (screenshot + CSS extract)
+
+brand_name: "ABM - AI Business Master"
+slogan: "Vi Mot Viet Nam Pho Cap A.I"
+positioning: "Don vi tien phong dao tao A.I Thuc Dung tai Viet Nam"
+value_prop: "Tang nang suat va hieu qua cong viec"
+social_proof: "4,000+ hoc vien, 60+ doanh nghiep, 35+ cong cu AI"
+website: "https://abmedu.vn"
+
+# === BANG MAU ===
+colors:
+  primary:
+    name: "ABM Red"
+    hex: "#FF0000"
+    rgb: "255, 0, 0"
+    usage: "CTA, nut bam, headings nhan, vien avatar"
+  secondary:
+    name: "Dark Navy"
+    hex: "#020827"
+    rgb: "2, 8, 39"
+    usage: "Tieu de chinh, nen footer, text dam"
+  accent:
+    name: "Accent Gold"
+    hex: "#F9B508"
+    rgb: "249, 181, 8"
+    usage: "Logo icon, chi tiet nhan, so lieu thong ke"
+  background:
+    name: "Light Gray"
+    hex: "#F9F9FA"
+    rgb: "249, 249, 250"
+    usage: "Nen sections, cards"
+  white:
+    hex: "#FFFFFF"
+    usage: "Nen trang chinh"
+  text_gray:
+    hex: "#6B7280"
+    usage: "Body text phu, descriptions"
+  border:
+    hex: "#E5E7EB"
+    usage: "Vien cards, duong phan cach"
+
+# === TYPOGRAPHY ===
+typography:
+  font_family: "Montserrat"
+  font_source: "Google Fonts"
+  style: "Sans-serif, hien dai, cong nghe"
+  levels:
+    h1_hero: { weight: 800, size: "48-56px", color: "#020827" }
+    h2_section: { weight: 700, size: "36-42px", color: "#020827" }
+    h3_card: { weight: 600, size: "24-28px", color: "#020827" }
+    body: { weight: 400, size: "16-18px", color: "#374151" }
+    label: { weight: 500, size: "12-14px", color: "#FF0000" }
+    stats: { weight: 700, size: "36-48px", color: "#FF0000" }
+
+# === LOGO ===
+logo:
+  icon: "Bieu tuong bo nao cach dieu - mau do + vang"
+  text: "ABM - Montserrat Bold, mau do #FF0000"
+  badge_ai: "Nen tim dam, chu trang, bo goc rounded"
+
+# === BUTTON STYLES ===
+buttons:
+  primary:
+    background: "#FF0000"
+    color: "#FFFFFF"
+    border_radius: "6px (0.375rem)"
+    padding: "12px 32px"
+    hover: "#CC0000"
+  secondary:
+    background: "transparent"
+    color: "#FF0000"
+    border: "1px solid #FF0000"
+    hover_bg: "#FFF0F0"
+
+# === LAYOUT ===
+layout:
+  grid: "Flexbox/Grid hien dai, whitespace rong rai"
+  card_radius: "12px (0.75rem)"
+  card_shadow: "0 1px 3px rgba(0,0,0,0.1)"
+  avatar_border: "3px solid #FF0000, border-radius 0.75rem"
+
+# === TONE OF VOICE ===
+tone:
+  language: "100% tieng Viet"
+  style: "Chuyen nghiep, tu tin, truyen cam hung"
+  keywords: ["Thuc dung", "Tien phong", "Pho cap", "Tang nang suat"]
+  cta_phrases: ["Kham Pha Ngay", "Xem Tat Ca", "Bat Dau Hanh Trinh"]
+
+# === MO HINH 3 TANG ===
+education_model:
+  tier1: { name: "Nen Tang Chung", label: "FOUNDATION" }
+  tier2: { name: "Nang Luc Cot Loi", label: "SKILL LABS" }
+  tier3: { name: "Giai Phap Chuyen Sau", label: "CAPSTONE CLINICS" }
+
+# === DOI NGU ===
+trainers:
+  - name: "Ong Dang Tu"
+    role: "CEO, Founder ABM"
+    expertise: "Chuyen gia huan luyen AI thuc dung hang dau tai Viet Nam"
+  - name: "Ong Duong Thanh Son"
+    role: "Giam doc Du an ABM BECA"
+    expertise: "Chuyen gia chuyen doi so cho khoi hanh chinh cong"
+  - name: "TS. Tran Minh Hoang"
+    role: "Tien si Quan tri Kinh doanh"
+    expertise: "Tu van, dao tao ung dung AI vao quan tri kinh doanh"
+
+# === CSS VARIABLES (san sang implement) ===
+css_variables:
+  "--abm-red": "#FF0000"
+  "--abm-red-dark": "#CC0000"
+  "--abm-red-light": "#FFF0F0"
+  "--abm-navy": "#020827"
+  "--abm-gold": "#F9B508"
+  "--abm-gray-bg": "#F9F9FA"
+  "--abm-gray-text": "#6B7280"
+  "--abm-white": "#FFFFFF"
+  "--abm-border": "#E5E7EB"
+  "--font-primary": "'Montserrat', sans-serif"
+  "--radius-sm": "0.375rem"
+  "--radius-md": "0.75rem"
+  "--shadow-card": "0 1px 3px rgba(0,0,0,0.1)"

@@ -1,0 +1,40 @@
+# Skill Manifest — Jarvis Multi-Agent System (27 Skills)
+# Updated: 2026-03-08 — Context Engineering Edition
+
+# === SYSTEM / META SKILLS ===
+name,category,description,mandatory,path
+"delegation-chain","system","Core contract→attest→verify protocol",true,"skills/delegation-chain/SKILL.md"
+"verification-before-completion","system","IRON LAW: Evidence before claims",true,"skills/verification-before-completion/SKILL.md"
+"context-engineering","system","5-layer context assembly + token budget enforcer",true,"skills/context-engineering/SKILL.md"
+"knowledge-crystallizer","meta","Ascension Protocol — extract lessons",false,"skills/knowledge-crystallizer/SKILL.md"
+"capability-evolver","meta","Self-evolution: introspect→diagnose→evolve→validate",false,"skills/capability-evolver/SKILL.md"
+"skill-creator","meta","Auto-generate skills from patterns",false,"skills/skill-creator/SKILL.md"
+"memory-keeper","meta","Backup context to git archive",false,"skills/memory-keeper/SKILL.md"
+"multi-dimensional-review","meta","6-step multi-perspective evaluation framework",false,"skills/multi-dimensional-review/SKILL.md"
+
+# === DEVELOPMENT SKILLS ===
+"subagent-driven-development","development","Fresh subagent per task + 2-stage review",false,"skills/subagent-driven-development/SKILL.md"
+"dispatching-parallel-agents","development","Parallel domain split pattern",false,"skills/dispatching-parallel-agents/SKILL.md"
+"writing-plans","development","Bite-sized TDD implementation plans",false,"skills/writing-plans/SKILL.md"
+"code-review","development","2-stage structured code reviews",false,"skills/code-review/SKILL.md"
+"systematic-debugging","development","6-step root cause analysis",false,"skills/systematic-debugging/SKILL.md"
+"finishing-a-development-branch","development","Merge/PR/discard completion",false,"skills/finishing-a-development-branch/SKILL.md"
+"git-worktrees","development","Isolated workspaces for parallel dev",false,"skills/git-worktrees/SKILL.md"
+
+# === MARKETING SKILLS ===
+"content-strategy","marketing","Content pillars, keyword research, calendar",false,"skills/content-strategy/SKILL.md"
+"copywriting","marketing","Professional copy for all channels",false,"skills/copywriting/SKILL.md"
+"social-content","marketing","Social media hooks, repurposing",false,"skills/social-content/SKILL.md"
+"email-marketing","marketing","Email sequences",false,"skills/email-marketing/SKILL.md"
+"marketing-psychology","marketing","50+ mental models for persuasion",false,"skills/marketing-psychology/SKILL.md"
+"seo-audit","marketing","Technical + on-page SEO audit",false,"skills/seo-audit/SKILL.md"
+
+# === OFFICE & HR SKILLS ===
+"internal-comms","office","3P updates, newsletters, incident reports",false,"skills/internal-comms/SKILL.md"
+"hr-operations","office","JD, onboarding, review, training, exit",false,"skills/hr-operations/SKILL.md"
+"office-documents","office","Reports, proposals, SOPs, meeting minutes",false,"skills/office-documents/SKILL.md"
+"brainstorming","office","Diverge/converge, canvas, prioritization",false,"skills/brainstorming/SKILL.md"
+
+# === ANALYTICS SKILLS ===
+"data-analysis","analytics","KPI dashboards, trend analysis, insights",false,"skills/data-analysis/SKILL.md"
+"workflow-automation","automation","SOP→automation, trigger→action, ROI",false,"skills/workflow-automation/SKILL.md"

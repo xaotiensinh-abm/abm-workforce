@@ -1,0 +1,122 @@
+# SAVE-002 — Daily Save
+# Ngày: 09/03/2026 14:56
+# Loại: daily_save
+# Phiên: ABM Workforce v2.4 → v2.5
+
+save_id: "SAVE-002"
+save_type: "daily_save"
+timestamp: "2026-03-09T14:56:00+07:00"
+title: "ABM v2.5 — Mô Hình Doanh Nghiệp Số hoàn tất"
+
+# === TASKS ĐÃ HOÀN THÀNH ===
+completed_tasks:
+  - task: "P0-P2 nâng cấp 7 Web Skills"
+    details: "Inline web-design-guidelines 100+ rules, thêm KHÔNG sử dụng + Quick Start cho 7 skills, 10 palettes + 10 font pairings cho ui-ux-pro-max, route landing-page"
+    commit: "1f6b1556"
+
+  - task: "Mô hình Doanh Nghiệp Số — 6 Office Skills"
+    details: "Tạo docx (python-docx), xlsx (openpyxl), pdf (fpdf2+PyPDF2), pptx (python-pptx), agent-email-cli (SMTP/API), task-planning (WBS)"
+    commit: "2457648e"
+
+  - task: "4 Workflows phòng ban mới"
+    details: "/sales, /cskh, /finance, /legal — mapping 9 phòng ban"
+    commit: "2457648e"
+
+  - task: "7 Routes mới trong orchestrator"
+    details: "sales, cskh, finance, legal, office, presentation, planning + fallback general"
+    commit: "968cf725"
+
+  - task: "README.md viết lại hoàn toàn mới"
+    details: "322 dòng, 9 phòng ban mapping, 13 slash commands, 5 ví dụ sử dụng"
+    commit: "437d5606"
+
+  - task: "Multi-Dimensional Review toàn hệ thống"
+    details: "8.33/10, 8 personas phản biện, 3 P0 + 6 P1 + 4 P2 phát hiện"
+    commit: "-"
+
+  - task: "P0+P1 từ Review"
+    details: "37 skills thêm KHÔNG sử dụng khi (66/66), email sandbox mode, fallback route general"
+    commit: "968cf725"
+
+  - task: "README v2.5 update phiên bản"
+    details: "Version + Routes badges, What's New section, sandbox highlight, footer v2.5"
+    commit: "df0be6b4"
+
+# === TRẠNG THÁI HỆ THỐNG ===
+system_state:
+  version: "v2.5"
+  skills: 66
+  kb_entries: 66
+  manifest_entries: 66
+  sync_status: "66/66/66 — PERFECT SYNC"
+  subagents: 5
+  workers: 10
+  workflows: 13
+  routes: 23
+  review_score: "8.33 → ~9.0/10 (after P0 fixes)"
+
+# === FILES ĐÃ TẠO/SỬA ===
+files_created:
+  - "_abm/bmm/agents/skills/docx/SKILL.md"
+  - "_abm/bmm/agents/skills/xlsx/SKILL.md"
+  - "_abm/bmm/agents/skills/pdf/SKILL.md"
+  - "_abm/bmm/agents/skills/pptx/SKILL.md"
+  - "_abm/bmm/agents/skills/agent-email-cli/SKILL.md"
+  - "_abm/bmm/agents/skills/task-planning/SKILL.md"
+  - ".agents/workflows/sales.md"
+  - ".agents/workflows/cskh.md"
+  - ".agents/workflows/finance.md"
+  - ".agents/workflows/legal.md"
+
+files_modified:
+  - "README.md — viết lại hoàn toàn v2.5"
+  - "_abm/_config/skill-manifest.csv — 60→66"
+  - "_abm/bmm/agents/jarvis-orchestrator.md — 60→66 + 23 routes"
+  - "_abm/bmm/agents/skills/web-design-guidelines/SKILL.md — inline 100+ rules"
+  - "_abm/bmm/agents/skills/ui-ux-pro-max/SKILL.md — +10 palettes +10 fonts"
+  - "_abm/bmm/agents/skills/frontend-developer/SKILL.md — ranh giới rõ"
+  - "_abm/bmm/agents/skills/vercel-react-best-practices/SKILL.md — KHÔNG sử dụng + Quick Start"
+  - "_abm/bmm/agents/skills/vercel-composition-patterns/SKILL.md — KHÔNG sử dụng + Quick Start"
+  - "_abm/bmm/agents/skills/canvas-design/SKILL.md — Quick Start"
+  - "_abm/bmm/agents/skills/frontend-design/SKILL.md — Quick Start"
+  - "37 skills khác — thêm KHÔNG sử dụng khi"
+
+# === QUYẾT ĐỊNH QUAN TRỌNG ===
+decisions:
+  - "Inline web-design-guidelines thay vì fetch URL → tăng reliability"
+  - "Email sandbox mặc định BẬT → CEO phải duyệt mới gửi thật"
+  - "Fallback route 'general' → xử lý unmatched tasks"
+  - "Manifest giữ CSV (chưa chuyển YAML) — chờ 100+ skills"
+  - "Phòng ban Vận Hành + Pháp Chế chưa có SubAgent riêng — backlog"
+
+# === KIẾN THỨC MỚI ===
+knowledge:
+  - "9 phòng ban: BGĐ, HC-NS, Kế Toán, Marketing, KD, CSKH, IT, Vận Hành, Pháp Chế"
+  - "Mức phủ trung bình từ 56% → 83% sau nâng cấp"
+  - "Marketing + IT phủ 100% — phòng ban mạnh nhất"
+  - "4 office skills (docx/xlsx/pdf/pptx) là foundation cho 6/9 phòng ban"
+  - "KHÔNG sử dụng khi giúp cross-reference skills, tránh misrouting"
+
+# === GIT LOG ===
+git_commits:
+  - "1f6b1556 — ABM v2.3.1 P0-P2 web skills"
+  - "2457648e — ABM v2.4 6 office skills + 4 workflows"
+  - "437d5606 — README v2.4 mới"
+  - "968cf725 — P0 review 37 skills + sandbox + fallback"
+  - "df0be6b4 — README v2.5 update phiên bản"
+
+# === NGÀY MAI ===
+next_session_priority:
+  - "P2: Tạo health check script (verify sync + lint)"
+  - "P2: FAQ + Troubleshooting docs"
+  - "P3: GitHub Actions CI/CD"
+  - "P3: Usage metrics dashboard"
+  - "Xem xét tạo SubAgents cho CSKH + Pháp Chế"
+
+# === SKILLS ĐÃ SỬ DỤNG ===
+skills_used:
+  - "multi-dimensional-review"
+  - "skill-creator"
+  - "delegation-chain"
+  - "verification-before-completion"
+  - "save"

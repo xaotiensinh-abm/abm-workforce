@@ -1,0 +1,34 @@
+﻿# ABM Workforce .gitignore
+
+# Output (runtime generated)
+_abm-output/
+
+# OS files
+Thumbs.db
+.DS_Store
+desktop.ini
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# Logs
+*.log
+
+# Dependencies
+node_modules/
+
+# Temporary
+/tmp/
+*.tmp
+
+# Gemini brain
+.gemini/antigravity/brain/
+
+# Build artifacts
+dist/
+build/
+
+# GitHub workflow (needs workflow scope token)
+.github/workflows/

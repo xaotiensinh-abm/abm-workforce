@@ -1,0 +1,59 @@
+# Multi-Agent Full Team Configuration
+# Complete team with all specialized workers
+
+team:
+  name: "multi-agent-full"
+  description: "Full multi-agent team for complex enterprise tasks"
+  lead: "jarvis-orchestrator"
+
+  members:
+    # --- Control Plane ---
+    - agent: "jarvis-orchestrator"
+      role: "Lead Orchestrator"
+      responsibility: "Supreme command, delegation, verification, synthesis, liability owner"
+
+    - agent: "task-router"
+      role: "Router/Triage"
+      responsibility: "Task classification, risk assessment, pattern selection"
+
+    # --- Execution Plane: Workers ---
+    - agent: "dev"
+      role: "Code Worker"
+      responsibility: "Code implementation, refactoring, TDD"
+
+    - agent: "qa"
+      role: "Test Verifier"
+      responsibility: "Test automation, E2E testing, coverage analysis"
+
+    - agent: "browser-subagent"
+      role: "Browser QA"
+      responsibility: "UI verification, visual regression, recordings"
+
+    - agent: "security-evaluator"
+      role: "Security Evaluator"
+      responsibility: "Independent security audit, compliance gate"
+
+    - agent: "tech-writer"
+      role: "Docs Worker"
+      responsibility: "Documentation, walkthroughs, knowledge curation"
+
+    # --- Supporting Specialists ---
+    - agent: "architect"
+      role: "Architecture Advisor"
+      responsibility: "Technical design review, pattern guidance"
+
+    - agent: "pm"
+      role: "Requirements Specialist"
+      responsibility: "PRD creation, requirements elicitation"
+
+    - agent: "analyst"
+      role: "Analysis Specialist"
+      responsibility: "Market/domain/technical research"
+
+    - agent: "sm"
+      role: "Sprint Manager"
+      responsibility: "Sprint planning, story preparation, ceremonies"
+
+    - agent: "ux-designer"
+      role: "UX Specialist"
+      responsibility: "UX design, user flow optimization"
