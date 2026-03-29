@@ -18,27 +18,37 @@ fi
 mkdir -p "$ANTIGRAVITY_DIR"
 cd "$ANTIGRAVITY_DIR" || exit 1
 
-# Kịch bản 1: Chưa từng Initialize Git
+# Kịch bản 1: Chưa từng Initialize Git (Máy mới hoặc lần đầu cắm)
 if [ ! -d ".git" ]; then
-    echo "🧠 HỆ THỐNG GHI NHỚ LẦN ĐẦU TIÊN (GIT VAULT INIT) 🧠"
-    echo "Trí nhớ AI của Sếp chưa được gắn khóa (Private Git)."
-    echo "Đang tự động gán điểm neo (Anchor) vào: $REPO_URL"
+    echo "🧠 PHÁT HIỆN HỆ THỐNG CHƯA GẮN KẾT GIT VAULT 🧠"
+    echo "Đang gán điểm neo (Anchor) vào: $REPO_URL"
     
     git init
     git branch -m main
     git remote add origin "$REPO_URL"
     
-    # Tạo Gitignore đặc thù cho Brain (Để không rác repo quá lớn)
-    echo ".DS_Store" > .gitignore
-    echo "assets/" >> .gitignore
-    
-    git add .
-    git commit -m "Init: Khởi tạo Bộ Không Gian Ký Ức Đầu Tiên"
-    
-    # Lần Push đầu tiên có thể chưa có nhánh remote
-    git push -u origin main -f
-    echo "✅ KHỞI TẠO BỘ NHỚ THÀNH CÔNG LÊN BIỂN MÂY!"
-    exit 0
+    # Kiểm tra xem kho trên Github có dữ liệu chưa
+    if git ls-remote --exit-code origin main >/dev/null 2>&1; then
+        echo "🌐 Đã tìm thấy Ý thức AI trên mây! Đang đồng bộ về máy mới..."
+        git fetch origin main
+        git reset --hard origin/main
+        git branch --set-upstream-to=origin/main main
+        echo "✅ KẾT NỐI VÀ SAO CHÉP BỘ NHỚ THÀNH CÔNG! SẾP CÓ THỂ MỞ CHAT!"
+        exit 0
+    else
+        echo "Trí nhớ AI cài đặt lần đầu tiên. Đang đẩy lên Mây..."
+        # Tạo Gitignore tiêu chuẩn
+        echo ".DS_Store" > .gitignore
+        echo "assets/" >> .gitignore
+        echo "browser_recordings/" >> .gitignore
+        echo "*.bak" >> .gitignore
+        
+        git add .
+        git commit -m "Init: Khởi tạo Bộ Không Gian Ký Ức Đầu Tiên"
+        git push -u origin main -f
+        echo "✅ KHỞI TẠO BỘ NHỚ THÀNH CÔNG LÊN BIỂN MÂY!"
+        exit 0
+    fi
 fi
 
 if [ "$ACTION" == "up" ]; then
