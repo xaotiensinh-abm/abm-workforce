@@ -1,6 +1,9 @@
 ---
 name: dispatching-parallel-agents
 description: Use when facing 2+ independent tasks that can be worked on without shared state or sequential dependencies
+version: 1.0.0
+author: ABM Skill Architect
+last_updated_date: 2026-03-29
 ---
 
 # Dispatching Parallel Agents
@@ -180,3 +183,6 @@ From debugging session (2025-10-03):
 - All investigations completed concurrently
 - All fixes integrated successfully
 - Zero conflicts between agent changes
+
+
+<!-- 📦 Refactored by ABM Skill Architect v1.0 | ABM Workforce | 9-Layer Token Optimized -->

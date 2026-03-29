@@ -1,6 +1,9 @@
 ---
 name: test-driven-development
 description: Use when implementing any feature or bugfix, before writing implementation code
+version: 1.0.0
+author: ABM Skill Architect
+last_updated_date: 2026-03-29
 ---
 
 # Test-Driven Development (TDD)
@@ -369,3 +372,6 @@ Otherwise → not TDD
 ```
 
 No exceptions without your human partner's permission.
+
+
+<!-- 📦 Refactored by ABM Skill Architect v1.0 | ABM Workforce | 9-Layer Token Optimized -->

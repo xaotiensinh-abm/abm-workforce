@@ -1,6 +1,9 @@
 ---
 name: evidence-driven-verification
 description: Use when about to claim any work is complete, fixed, or passing — combines ABM LUẬT 2 (Bằng chứng trước khẳng định) with Superpowers verification-before-completion for maximum rigor
+version: 1.0.0
+author: ABM Skill Architect
+last_updated_date: 2026-03-29
 ---
 
 # Evidence-Driven Verification (Xác Minh Dựa Trên Bằng Chứng)
@@ -80,3 +83,6 @@ Khi xác minh xong, tạo Attestation:
 **Thay thế:** superpowers:verification-before-completion (tất cả chức năng + ABM Attestation)
 **Kết hợp:** superpowers:test-driven-development (RED-GREEN verification)
 **Kết hợp:** abm-contract-driven-development (Bước 5: Xác minh)
+
+
+<!-- 📦 Refactored by ABM Skill Architect v1.0 | ABM Workforce | 9-Layer Token Optimized -->
