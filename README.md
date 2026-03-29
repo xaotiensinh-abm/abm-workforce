@@ -31,6 +31,59 @@ Mô hình hoạt động:
 ✅ **100% Tiếng Việt:** AI chỉ được phép Report và phân tích bằng tiếng mẹ đẻ, tiết kiệm não bộ để đọc logic.
 ✅ **Luật Thép - Có Hợp Đồng Mới Làm Việc:** AI không bao giờ hùa theo ý bạn kiểu "Ok em làm luôn". Nó sẽ lập 1 bản Implementation Plan (Hợp đồng gia công), bắt bạn duyệt thiết kế, xong mới nhúng tay vào làm. Hạn chế 99% bug ngay từ khâu ý tưởng.
 
+### 💎 Hệ Thống Lõi "Chống Vỡ Cấu Trúc" (Anti-Hallucination)
+Sự khác biệt lớn nhất của ABM so với các thư viện Tools/Prompts khác nằm ở **Chuỗi Xác Minh Niềm Tin (Trust Verification Chain)**. AI không bao giờ được phép báo cáo "Em làm xong rồi" nếu chưa nộp Bằng Chứng (Evidence) tường minh.
+
+```mermaid
+sequenceDiagram
+    participant CEO as Bạn (CEO)
+    participant Jarvis as Jarvis (Orchestrator)
+    participant Worker as SubAgent / Worker
+    participant System as System (Compiler/Test)
+
+    CEO->>Jarvis: Yêu cầu tính năng (VD: Đăng nhập/Setup)
+    Jarvis->>CEO: Trình Hợp Đồng (Implementation Plan)
+    Note over CEO,Jarvis: CEO Duyệt Hợp Đồng 📝
+    
+    Jarvis->>Worker: Kích hoạt Lính Đánh Thuê (Task Contract)
+    
+    loop Bằng Chứng Trước Khẳng Định (Luật 2)
+        Worker->>System: Viết Code & Chạy Test Tools
+        System-->>Worker: Trả về Lỗi (Error/Fail)
+        Worker->>System: Phân tích & Fix Bug & Re-test
+    end
+    
+    System-->>Worker: Báo Xanh (Pass 100%)
+    Worker->>Jarvis: Trình Chứng Nhận (Attestation)
+    Jarvis-->>CEO: Tổng kết Walkthrough thành quả!
+```
+
+### 🧬 Kiến Trúc 9 Lớp Tiêu Chuẩn Doanh Nghiệp (The 9-Layer Architecture)
+Mọi Skill trong ABM Workforce đều tuân thủ chặt chẽ kiến trúc 9 lớp rẽ ròi nhằm cô lập bộ nhớ, giúp AI sở hữu Ngữ Cảnh Cục Bộ siêu sắc nét mà không bị tràn RAM ảo.
+
+```mermaid
+graph TD
+    A[Project Root] --> B(.agents/skills)
+    B --> C[ten-cua-skill-bat-ky]
+    
+    C --> L1(1. SKILL.md: Khởi Động & Vai Trò)
+    C --> L2(2. assets: Tài nguyên Tĩnh)
+    C --> L3(3. scripts: Công cụ Tự Động Hóa)
+    C --> L4(4. references: Cẩm nang Kiến thức)
+    C --> L5(5. templates: Biểu mẫu Đầu ra)
+    C --> L6(6. workflows: Quy trình Tuần tự)
+    C --> L7(7. memory: State & Lịch sử)
+    C --> L8(8. tests: Tiêu chuẩn Kiểm định)
+    C --> L9(9. changelog: Nhật ký Cập nhật)
+    
+    style A fill:#1c1c1c,stroke:#333,stroke-width:2px,color:#fff
+    style B fill:#2b2b2b,stroke:#00bcd4,stroke-width:2px,color:#fff
+    style C fill:#3f51b5,stroke:#00bcd4,stroke-width:2px,color:#fff
+    style L1 fill:#ffc107,color:#000
+    style L3 fill:#4CAF50,color:#fff
+    style L4 fill:#9C27B0,color:#fff
+```
+
 ---
 
 ## ⚡ Cài Đặt (Trong Lòng 1 Phút)
