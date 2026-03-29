@@ -1,8 +1,5 @@
 ---
 name: git-workflow-optimization
-version: 1.0.0
-author: ABM Skill Architect
-last_updated_date: 2026-03-28
 description: Use when preparing to push code to GitHub, creating PRs, or managing git workflow — ensures clean commits, proper branch management, and optimized push strategy
 ---
 

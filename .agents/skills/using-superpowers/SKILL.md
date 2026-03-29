@@ -1,73 +1,115 @@
 ---
 name: using-superpowers
-version: 1.0.0
-author: ABM Skill Architect
-last_updated_date: 2026-03-29
-description: Khởi chạy trước MỌI cuộc hội thoại - thiết lập tư duy truy xuất và sử dụng skill ABM Workforce, BẮT BUỘC ưu tiên gọi Skill trước khi trả lời hoặc hành động.
+description: Use when starting any conversation - establishes how to find and use skills, requiring Skill tool invocation before ANY response including clarifying questions
 ---
 
 <SUBAGENT-STOP>
-Nếu bạn là Subagent (ví dụ: Code Worker, Reviewer) được Delegator/Jarvis phân công một Hợp đồng (Contract) cụ thể, bỏ qua skill này và tập trung vào task.
+If you were dispatched as a subagent to execute a specific task, skip this skill.
 </SUBAGENT-STOP>
 
 <EXTREMELY-IMPORTANT>
-Nếu có dù chỉ 1% khả năng một hệ thống skill có thể áp dụng cho yêu cầu hiện tại, bạn TUYỆT ĐỐI BẮT BUỘC phải gọi tool/skill đó ra để đọc.
+If you think there is even a 1% chance a skill might apply to what you are doing, you ABSOLUTELY MUST invoke the skill.
 
-NẾU CÓ SKILL PHÙ HỢP CÔNG VIỆC CỦA BẠN, BẠN KHÔNG CÓ QUYỀN LỰA CHỌN. BẠN PHẢI DÙNG NÓ.
+IF A SKILL APPLIES TO YOUR TASK, YOU DO NOT HAVE A CHOICE. YOU MUST USE IT.
 
-Đây là điều khoản không thể thương lượng. Đừng cố vòng vo để chối bỏ trách nhiệm này.
+This is not negotiable. This is not optional. You cannot rationalize your way out of this.
 </EXTREMELY-IMPORTANT>
 
-## Trình Tự Ưu Tiên (Instruction Priority)
+## Instruction Priority
 
-Các Skill nội bộ của ABM Workforce sẽ ghi đè lên prompt mặc định của hệ thống, tuy nhiên **Mệnh lệnh của CEO/Người dùng luôn đứng cao nhất**:
+Superpowers skills override default system prompt behavior, but **user instructions always take precedence**:
 
-1. **Chỉ thị trực tiếp của User** (CLAUDE.md, GEMINI.md, AGENTS.md, tin nhắn trực tiếp) — Quyền lực tuyệt đối
-2. **Hệ thống Kỹ năng (Skills)** — Ghi đè hệ thống khi có xung đột
-3. **System prompt mặc định** — Nền tảng phụ trợ, ưu tiên thấp nhất
+1. **User's explicit instructions** (CLAUDE.md, GEMINI.md, AGENTS.md, direct requests) — highest priority
+2. **Superpowers skills** — override default system behavior where they conflict
+3. **Default system prompt** — lowest priority
 
-Ví dụ: Nếu User bảo "Không dùng TDD" nhưng Skill bảo "Luôn dùng TDD", hãy chiều theo User.
+If CLAUDE.md, GEMINI.md, or AGENTS.md says "don't use TDD" and a skill says "always use TDD," follow the user's instructions. The user is in control.
 
-## Cách Gọi Skill
+## How to Access Skills
 
-- **Trên Claude Code / IDE:** Dùng tool `Skill`. Khi kích hoạt, đọc kỹ và làm theo. Không tự ý dùng tool File Read để đọc lén nội dung `SKILL.md`.
-- **Trên Gemini CLI:** Dùng tool `activate_skill`. Metadata đã được nạp sẵn.
+**In Claude Code:** Use the `Skill` tool. When you invoke a skill, its content is loaded and presented to you—follow it directly. Never use the Read tool on skill files.
 
-# Hướng Dẫn Kích Hoạt
+**In Gemini CLI:** Skills activate via the `activate_skill` tool. Gemini loads skill metadata at session start and activates the full content on demand.
 
-## Nguyên Tắc Cốt Lõi (The Rule)
+**In other environments:** Check your platform's documentation for how skills are loaded.
 
-**Gọi những skill có vẻ liên quan TRƯỚC BẤT KỲ CÂU TRẢ LỜI HAY HÀNH ĐỘNG NÀO.** 
-Ngay cả 1% cơ hội cũng phải kiểm tra. Nếu check xong thấy không hợp lý thì không dùng. 
+## Platform Adaptation
 
-> **Sơ đồ tư duy (Decision Flowchart):** Được lưu trữ tại `references/process-flow.md`. AI hãy đọc nếu cần rà soát quá trình định tuyến luồng hội thoại.
+Skills use Claude Code tool names. Non-CC platforms: see `references/codex-tools.md` (Codex) for tool equivalents. Gemini CLI users get the tool mapping loaded automatically via GEMINI.md.
 
-## Cờ Đỏ (Red Flags)
+# Using Skills
 
-Nếu bạn vừa có những suy nghĩ sau, HÃY DỪNG LẠI—đây là biểu hiện của sự lười biếng, làm ẩu:
+## The Rule
 
-| Suy Nghĩ Ngụy Biện | Sự Thật Phũ Phàng |
+**Invoke relevant or requested skills BEFORE any response or action.** Even a 1% chance a skill might apply means that you should invoke the skill to check. If an invoked skill turns out to be wrong for the situation, you don't need to use it.
+
+```dot
+digraph skill_flow {
+    "User message received" [shape=doublecircle];
+    "About to EnterPlanMode?" [shape=doublecircle];
+    "Already brainstormed?" [shape=diamond];
+    "Invoke brainstorming skill" [shape=box];
+    "Might any skill apply?" [shape=diamond];
+    "Invoke Skill tool" [shape=box];
+    "Announce: 'Using [skill] to [purpose]'" [shape=box];
+    "Has checklist?" [shape=diamond];
+    "Create TodoWrite todo per item" [shape=box];
+    "Follow skill exactly" [shape=box];
+    "Respond (including clarifications)" [shape=doublecircle];
+
+    "About to EnterPlanMode?" -> "Already brainstormed?";
+    "Already brainstormed?" -> "Invoke brainstorming skill" [label="no"];
+    "Already brainstormed?" -> "Might any skill apply?" [label="yes"];
+    "Invoke brainstorming skill" -> "Might any skill apply?";
+
+    "User message received" -> "Might any skill apply?";
+    "Might any skill apply?" -> "Invoke Skill tool" [label="yes, even 1%"];
+    "Might any skill apply?" -> "Respond (including clarifications)" [label="definitely not"];
+    "Invoke Skill tool" -> "Announce: 'Using [skill] to [purpose]'";
+    "Announce: 'Using [skill] to [purpose]'" -> "Has checklist?";
+    "Has checklist?" -> "Create TodoWrite todo per item" [label="yes"];
+    "Has checklist?" -> "Follow skill exactly" [label="no"];
+    "Create TodoWrite todo per item" -> "Follow skill exactly";
+}
+```
+
+## Red Flags
+
+These thoughts mean STOP—you're rationalizing:
+
+| Thought | Reality |
 |---------|---------|
-| "Cái này là câu hỏi đơn giản thôi" | Câu hỏi = Task. Phải check skill. |
-| "Tôi cần hỏi lại (Clarify) User trước đã" | Bắt buộc check Skill TRƯỚC khi đặt câu hỏi. |
-| "Để tôi đọc lướt qua codebase trước đã" | Kỹ năng định hướng CÁCH khảo sát code. Check trước. |
-| "Tôi gõ lệnh search nhanh là ra" | Lệnh bash/search không có tư duy ngữ cảnh. Check skill gốc. |
-| "Cái này dùng skill thì to tát quá" | Nếu skill đã sinh ra, BẮT BUỘC phải dùng. |
-| "Tôi thuộc lòng nội dung skill này rồi" | Skill luôn được Release bản mới. Phải đọc bản mới nhất. |
-| "Tôi sẽ làm fix nhanh file này rồi tính tiếp" | Rủi ro sập hệ thống cao. Kiểm tra gốc gác trước. |
-| "Tôi hiểu khái niệm này mà" | Hiểu khái niệm (kiến thức chung) ≠ Tuân thủ quy trình (ABM System). |
+| "This is just a simple question" | Questions are tasks. Check for skills. |
+| "I need more context first" | Skill check comes BEFORE clarifying questions. |
+| "Let me explore the codebase first" | Skills tell you HOW to explore. Check first. |
+| "I can check git/files quickly" | Files lack conversation context. Check for skills. |
+| "Let me gather information first" | Skills tell you HOW to gather information. |
+| "This doesn't need a formal skill" | If a skill exists, use it. |
+| "I remember this skill" | Skills evolve. Read current version. |
+| "This doesn't count as a task" | Action = task. Check for skills. |
+| "The skill is overkill" | Simple things become complex. Use it. |
+| "I'll just do this one thing first" | Check BEFORE doing anything. |
+| "This feels productive" | Undisciplined action wastes time. Skills prevent this. |
+| "I know what that means" | Knowing the concept ≠ using the skill. Invoke it. |
 
-## Phân Loại & Ưu Tiên Skill
+## Skill Priority
 
-Khi có nhiều skill có thể áp dụng, sắp xếp thứ tự nạp:
+When multiple skills could apply, use this order:
 
-1. **Nhóm Quy trình (Process Skills):** (`brainstorming`, `systematic-debugging`) - Đây là La Bàn. Quyết định HOW (Cách làm).
-2. **Nhóm Trực thi (Implementation Skills):** (`frontend-design`, `mcp-builder`) - Đây là Công Cụ. Hỗ trợ quá trình Gõ Code.
+1. **Process skills first** (brainstorming, debugging) - these determine HOW to approach the task
+2. **Implementation skills second** (frontend-design, mcp-builder) - these guide execution
 
-"Xây giùm tôi app X" -> Mở `brainstorming` trước, sau đó mới đến các skill frontend.
-"Fix cho tôi lỗi này" -> Mở `systematic-debugging` trước.
+"Let's build X" → brainstorming first, then implementation skills.
+"Fix this bug" → debugging first, then domain-specific skills.
 
-## Nối Mạch ABM Workforce
-Mọi hoạt động phải tuân theo chuỗi **Delegation Chain** của Jarvis:
-- Lệnh User đến -> Mọi hành vi lập kế hoạch phải qua `writing-plans` để lập **Hợp Đồng (Contract)**.
-- Khi hoàn tất công việc -> Bắt buộc qua `verification-before-completion` để tạo **Chứng Nhận (Attestation)** trước khi báo hiệu "Xong!".
+## Skill Types
+
+**Rigid** (TDD, debugging): Follow exactly. Don't adapt away discipline.
+
+**Flexible** (patterns): Adapt principles to context.
+
+The skill itself tells you which.
+
+## User Instructions
+
+Instructions say WHAT, not HOW. "Add X" or "Fix Y" doesn't mean skip workflows.

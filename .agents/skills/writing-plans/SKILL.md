@@ -1,126 +1,145 @@
 ---
 name: writing-plans
-version: 1.0.0
-author: ABM Skill Architect
-last_updated_date: 2026-03-29
-description: "Sử dụng khi đã có bản thiết kế (Spec) hoàn chỉnh hoặc yêu cầu nhiều bước, BẮT BUỘC dùng để lập Hợp Đồng Code (Contract) trước khi tiến hành code thật."
+description: Use when you have a spec or requirements for a multi-step task, before touching code
 ---
 
-# Lập Hợp Đồng Code (Writing Plans)
+# Writing Plans
 
-## Tổng Quan
+## Overview
 
-Khi có Spec thiết kế, hãy lập Hợp Đồng Triển Khai (Implementation Plan) với giả định rằng Dev Worker sẽ code mà **không hề biết ngữ cảnh trước đó** của dự án. 
+Write comprehensive implementation plans assuming the engineer has zero context for our codebase and questionable taste. Document everything they need to know: which files to touch for each task, code, testing, docs they might need to check, how to test it. Give them the whole plan as bite-sized tasks. DRY. YAGNI. TDD. Frequent commits.
 
-Văn bản này chính là Bản Giao Việc chuẩn ABM Workforce. Chia kế hoạch thành các task nhỏ cỡ "vài miếng cắn" (Bite-sized). Tuân thủ tối đa: DRY, YAGNI, TDD, và commit liên tục.
+Assume they are a skilled developer, but know almost nothing about our toolset or problem domain. Assume they don't know good test design very well.
 
-Giả định Worker là thợ gõ code giỏi, nhưng "mù tịt" về cấu trúc code hay hệ thống hiện tại của app. 
+**Announce at start:** "I'm using the writing-plans skill to create the implementation plan."
 
-**Khai báo khi bắt đầu:** "Tôi sẽ dùng skill `writing-plans` để đúc bản Hợp Đồng Triển Khai."
+**Context:** This should be run in a dedicated worktree (created by brainstorming skill).
 
-**Lưu Hợp đồng tại:** `docs/superpowers/plans/YYYY-MM-DD-<feature-name>.md`
+**Save plans to:** `docs/superpowers/plans/YYYY-MM-DD-<feature-name>.md`
+- (User preferences for plan location override this default)
 
-## Rà Soát Phạm Vi Lần Cuối (Scope Check)
+## Scope Check
 
-Nếu Spec nói nãy giờ bao phủ đến tận nhiều phân hệ độc lập, thì nên chia thành nhiều Hợp đồng rời rạc (1 Hợp đồng 1 tính năng). Mỗi hợp đồng phải đem lại một Output Testable độc lập.
+If the spec covers multiple independent subsystems, it should have been broken into sub-project specs during brainstorming. If it wasn't, suggest breaking this into separate plans — one per subsystem. Each plan should produce working, testable software on its own.
 
-## Kiến Trúc File
+## File Structure
 
-Trước khi list task, phải vạch ra rõ ràng **những file nào bị chạm đến**, và file nào được sinh ra mới. Khóa chặt phạm vi ảnh hưởng.
-Đừng tạo file rác (1 file to 1000 dòng). Tách theo trách nhiệm (Single Responsibility Principle). Nếu thấy file hiện tại quá to, cứ mạnh dạn thêm 1 step Refactor vào.
+Before defining tasks, map out which files will be created or modified and what each one is responsible for. This is where decomposition decisions get locked in.
 
-## Độ Chia Nhỏ Của Task (Granularity)
+- Design units with clear boundaries and well-defined interfaces. Each file should have one clear responsibility.
+- You reason best about code you can hold in context at once, and your edits are more reliable when files are focused. Prefer smaller, focused files over large ones that do too much.
+- Files that change together should live together. Split by responsibility, not by technical layer.
+- In existing codebases, follow established patterns. If the codebase uses large files, don't unilaterally restructure - but if a file you're modifying has grown unwieldy, including a split in the plan is reasonable.
 
-**Mỗi Step chỉ là 1 khoảnh khắc gõ code (2-5 phút thao tác thao tác nhanh):**
-- "Viết 1 file Test lỗi" - 1 Step
-- "Chạy thử CLI xem báo lỗi đỏ chưa" - 1 Step
-- "Đắp đoạn code bé tí ti vào để fix cho Test xanh lại" - 1 Step
-- "Chạy lại Test thấy xanh xanh" - 1 Step
-- "Gõ git commit" - 1 Step
+This structure informs the task decomposition. Each task should produce self-contained changes that make sense independently.
 
-## Mẫu Tiêu Đề Bắt Buộc 
+## Bite-Sized Task Granularity
 
-**Moị Hợp đồng (Plan) PHẢI bắt đầu bằng Header sau:**
+**Each step is one action (2-5 minutes):**
+- "Write the failing test" - step
+- "Run it to make sure it fails" - step
+- "Implement the minimal code to make the test pass" - step
+- "Run the tests and make sure they pass" - step
+- "Commit" - step
+
+## Plan Document Header
+
+**Every plan MUST start with this header:**
 
 ```markdown
-# Hợp Đồng Triển Khai: [Tên Tính Năng]
+# [Feature Name] Implementation Plan
 
-> **Dành cho Agent:** BẮT BUỘC gọi SUB-SKILL `superpowers:subagent-driven-development` hoặc `superpowers:executing-plans` để code theo từng task của hợp đồng này. Đánh dấu checkbox (`- [ ]`) khi gõ xong mỗi Step.
+> **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
-**Mục Tiêu:** [1 câu tóm gọn cái sẽ xây]
+**Goal:** [One sentence describing what this builds]
 
-**Kiến Trúc:** [2-3 dòng miêu tả cách tiếp cận]
+**Architecture:** [2-3 sentences about approach]
 
-**Tech Stack:** [VD: React, Node, SQL]
+**Tech Stack:** [Key technologies/libraries]
 
 ---
 ```
 
-## Cấu Trúc Khung Rập Khuôn
+## Task Structure
 
-```markdown
-### Task 1: [Tên Component]
+````markdown
+### Task N: [Component Name]
 
-**Phạm Vi File (Scope):**
-- Tạo mới: `exact/path/to/file.py`
-- Sửa đổi: `exact/path/to/existing.py:123-145`
-- File Test: `tests/exact/path/to/test.py`
+**Files:**
+- Create: `exact/path/to/file.py`
+- Modify: `exact/path/to/existing.py:123-145`
+- Test: `tests/exact/path/to/test.py`
 
-- [ ] **Step 1: Viết test báo lỗi đỏ**
+- [ ] **Step 1: Write the failing test**
 
-  ```python
-  def test_specific_behavior():
-      result = function(input)
-      assert result == expected
-  ```
-
-- [ ] **Step 2: Chạy thử Test thấy thất bại**
-
-  Chạy lệnh: `pytest tests/path/test.py::test_name -v`
-  Kết quả hy vọng: Báo FAIL vì thiếu hàm
-
-- [ ] **Step 3: Viết Code chống cháy bé nhất có thể**
-
-  ```python
-  def function(input):
-      return expected
-  ```
-
-- [ ] **Step 4: Chạy lại Test thấy PASS**
-
-  Chạy lệnh: `pytest tests/path/test.py::test_name -v`
-  Kết quả: PASS xanh rờn
-  
-- [ ] **Step 5: Dọn dẹp Commit**
-
-  ```bash
-  git add tests/path/test.py src/path/file.py
-  git commit -m "feat: add specific feature"
-  ```
+```python
+def test_specific_behavior():
+    result = function(input)
+    assert result == expected
 ```
 
-## Khắc Cốt Ghi Tâm
-- Đường dẫn file LUÔN LUÔN ghi chính xác Absolute Path hoặc Relative chuẩn.
-- Ghi thẳng Code nhúng vào văn bản (KHÔNG hướng dẫn chung chung trừu tượng).
-- Lệnh chạy CLI phải dán sẵn nguyên si để tiện Copy-Paste.
-- Đừng quên tư duy YAGNI (làm ít ăn nhiều).
+- [ ] **Step 2: Run test to verify it fails**
 
-## Vòng Lặp Duyệt Hợp Đồng (Plan Review)
+Run: `pytest tests/path/test.py::test_name -v`
+Expected: FAIL with "function not defined"
 
-Sau khi viết xong Hợp đồng:
-1. Bạn hãy hỏi ý kiến `plan-document-reviewer` subagent. Ném Link file/path cho nó.
-2. Nếu nó chê ❌: Lập tức Fix lại Hợp đồng và gọi nó Review lần 2. (AI viết thì AI tự sửa).
-3. Nếu ✅ Approved: Đi tới bước Bàn Giao.
+- [ ] **Step 3: Write minimal implementation**
 
-*Quá 3 vòng chưa duyệt xong thì vẫy cờ gọi CEO (Human) ra khuyên bảo.*
+```python
+def function(input):
+    return expected
+```
 
-## Bàn Giao Triển Khai (Execution Handoff)
+- [ ] **Step 4: Run test to verify it passes**
 
-Lưu xong Hợp đồng, Mời CEO chọn đường hướng tác chiến:
+Run: `pytest tests/path/test.py::test_name -v`
+Expected: PASS
 
-**"Hợp đồng đã soạn xong ở `docs/superpowers/plans/<filename>.md`. Xin CEO đưa ra Lệnh triển khai:**
+- [ ] **Step 5: Commit**
 
-**1. Giao Subagent (Subagent-Driven - Highly Recommended):** Tôi sẽ cắt cử từng lính đánh thuê ra làm từng cái Task một, cứ múc xong 1 cục tôi xin báo cáo lại. Vừa đi vừa dò cho chắc. 
-**2. Code Nguyên Khối (Inline Execution):** Tự tôi (Main Agent) sẽ làm hết từ A-Z dùng skill `executing-plans`, tôi tự check point định kỳ. 
+```bash
+git add tests/path/test.py src/path/file.py
+git commit -m "feat: add specific feature"
+```
+````
 
-**Giám đốc muốn ra chỉ thị số 1 hay số 2?"**
+## Remember
+- Exact file paths always
+- Complete code in plan (not "add validation")
+- Exact commands with expected output
+- Reference relevant skills with @ syntax
+- DRY, YAGNI, TDD, frequent commits
+
+## Plan Review Loop
+
+After writing the complete plan:
+
+1. Dispatch a single plan-document-reviewer subagent (see plan-document-reviewer-prompt.md) with precisely crafted review context — never your session history. This keeps the reviewer focused on the plan, not your thought process.
+   - Provide: path to the plan document, path to spec document
+2. If ❌ Issues Found: fix the issues, re-dispatch reviewer for the whole plan
+3. If ✅ Approved: proceed to execution handoff
+
+**Review loop guidance:**
+- Same agent that wrote the plan fixes it (preserves context)
+- If loop exceeds 3 iterations, surface to human for guidance
+- Reviewers are advisory — explain disagreements if you believe feedback is incorrect
+
+## Execution Handoff
+
+After saving the plan, offer execution choice:
+
+**"Plan complete and saved to `docs/superpowers/plans/<filename>.md`. Two execution options:**
+
+**1. Subagent-Driven (recommended)** - I dispatch a fresh subagent per task, review between tasks, fast iteration
+
+**2. Inline Execution** - Execute tasks in this session using executing-plans, batch execution with checkpoints
+
+**Which approach?"**
+
+**If Subagent-Driven chosen:**
+- **REQUIRED SUB-SKILL:** Use superpowers:subagent-driven-development
+- Fresh subagent per task + two-stage review
+
+**If Inline Execution chosen:**
+- **REQUIRED SUB-SKILL:** Use superpowers:executing-plans
+- Batch execution with checkpoints for review

@@ -1,8 +1,5 @@
 ---
 name: abm-contract-driven-development
-version: 1.0.0
-author: ABM Skill Architect
-last_updated_date: 2026-03-28
 description: Use when executing any ABM Workforce task — enforces 6-step Delegation Chain with Contract, Attestation, and Verification before claiming completion
 ---
 

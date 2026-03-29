@@ -1,69 +1,182 @@
 ---
 name: dispatching-parallel-agents
-version: 1.0.0
-author: ABM Skill Architect
-last_updated_date: 2026-03-29
-description: "Dùng khi đối mặt với 2 hoặc nhiều Bug/Task Độc lập (Không chung State hay thứ tự) - Gọi nhiều Lính chém song song."
+description: Use when facing 2+ independent tasks that can be worked on without shared state or sequential dependencies
 ---
 
-# Lệnh Bài Phân Thân (Dispatching Parallel Agents)
+# Dispatching Parallel Agents
 
-## Tổng Quan
+## Overview
 
-Khi dự án nổ ra nhiều lỗi Bug hoàn toàn không dính dáng tới nhau (Ví dụ: Lỗi ở file UI và Lỗi cắm Database), việc cử 1 thằng đệ đi soi từng cái theo tuần tự là cực kỳ lãng phí Token thời gian.
-Đây là lúc bạn (Jarvis/Orchestrator) phân thân và thả nhiều Subagent cùng lúc.
+You delegate tasks to specialized agents with isolated context. By precisely crafting their instructions and context, you ensure they stay focused and succeed at their task. They should never inherit your session's context or history — you construct exactly what they need. This also preserves your own context for coordination work.
 
-**Tôn Chỉ:** Cử 1 Thợ cho 1 vùng đất độc lập. Để chúng cày Song Song.
+When you have multiple unrelated failures (different test files, different subsystems, different bugs), investigating them sequentially wastes time. Each investigation is independent and can happen in parallel.
 
-> **Sơ đồ ra quyết định:** Lưu tại `references/parallel-flowchart.md`.
+**Core principle:** Dispatch one agent per independent problem domain. Let them work concurrently.
 
-## Dấu Hiệu Nhận Biết
+## When to Use
 
-**Mở Skill này khi:**
-- Có từ 3+ File test fail vì những nguyên nhân cực kỳ khác biệt.
-- 2 chức năng khác nhau bị vỡ riêng lẻ.
-- Tự tin là 2 tác vụ đó mà code thì không bao giờ đâm đầu commit chung vào 1 file hệ thống (Shared state = 0).
+```dot
+digraph when_to_use {
+    "Multiple failures?" [shape=diamond];
+    "Are they independent?" [shape=diamond];
+    "Single agent investigates all" [shape=box];
+    "One agent per problem domain" [shape=box];
+    "Can they work in parallel?" [shape=diamond];
+    "Sequential agents" [shape=box];
+    "Parallel dispatch" [shape=box];
 
-**Cất Skill này đi khi:**
-- Đám Bug có vẻ dính nhau dây chuyền (đụng thằng này chết thằng kia).
-- Cần cái nhìn kiến trúc bao quát để hiểu toàn hệ thống.
-- Tụi Subagent sẽ phải tranh giành file để sửa đụng nhau.
-
-## Chiến Thuật (The Pattern)
-
-### 1. Gom Vùng Sự Cố (Identify Domains)
-Phân loại lỗi theo cụm kiến trúc.
-Ví dụ: Cụm A (Lỗi Tool Approval), Cụm B (Lỗi hiển thị Batch Completion). Đây là 2 vùng độc lập, chia 2 Hỏng.
-
-### 2. Soạn Nhánh Chuyên Biệt
-Cho mỗi Subagent:
-- **Scope (Phạm vi):** Đóng khung vùng cấm địa (Chỉ được sửa file test Auth, cấm đụng thư mục khác).
-- **Goal (Mục tiêu):** Kéo bằng được test Auth về trạng thái Pass.
-- **Constraints (Khóa Giới Hạn):** Cấm sửa production code, chỉ sửa UI component.
-- **Output:** Buộc chúng trả về một báo cáo Root Cause rõ ràng.
-
-### 3. Khai Hỏa Cùng Lúc (Dispatch in Parallel)
-```typescript
-// Ý niệm Logic cho các nền tảng:
-Task("Sửa file agent-tool-abort.test")
-Task("Sửa file batch-completion.test")
-Task("Sửa file tool-approval.test")
-// Cả 3 anh thợ lên đường cùng 1 lúc!
+    "Multiple failures?" -> "Are they independent?" [label="yes"];
+    "Are they independent?" -> "Single agent investigates all" [label="no - related"];
+    "Are they independent?" -> "Can they work in parallel?" [label="yes"];
+    "Can they work in parallel?" -> "Parallel dispatch" [label="yes"];
+    "Can they work in parallel?" -> "Sequential agents" [label="no - shared state"];
+}
 ```
 
-### 4. Thu Thập & Hội Quân (Integration)
-Đám lính báo cáo chiến công về:
-- Đọc từng Summary.
-- Validate xem code tụi nó có đụng nhau đôm đốp chưa.
-- Bấm chạy tổng duyệt lại toàn bộ Test Suite (Verification).
+**Use when:**
+- 3+ test files failing with different root causes
+- Multiple subsystems broken independently
+- Each problem can be understood without context from others
+- No shared state between investigations
 
-## Bệnh Rập Khuôn Cốt Lõi (Common Mistakes)
-**❌ Khoán việc ngáo:** "Đi fix hết test giùm tao" -> Subagent đi lạc.
-**✅ Trúng đích:** "Fix duy nhất lỗi ThreadId ở file `abort.test.js`".
+**Don't use when:**
+- Failures are related (fix one might fix others)
+- Need to understand full system state
+- Agents would interfere with each other
 
-**❌ Thiếu Constraint:** Subagent hăng máu đập đi xây lại cả hệ thống.
-**✅ Có Rào Cản:** "Tuyệt đối không đụng vào config Production".
+## The Pattern
 
-## Thực Chiến
-- Bạn tiết kiệm được 1/3 thời gian suy luận nổ não so với Serial Execution.
-- Token context không lấp đầy vào não của Main Agent.
+### 1. Identify Independent Domains
+
+Group failures by what's broken:
+- File A tests: Tool approval flow
+- File B tests: Batch completion behavior
+- File C tests: Abort functionality
+
+Each domain is independent - fixing tool approval doesn't affect abort tests.
+
+### 2. Create Focused Agent Tasks
+
+Each agent gets:
+- **Specific scope:** One test file or subsystem
+- **Clear goal:** Make these tests pass
+- **Constraints:** Don't change other code
+- **Expected output:** Summary of what you found and fixed
+
+### 3. Dispatch in Parallel
+
+```typescript
+// In Claude Code / AI environment
+Task("Fix agent-tool-abort.test.ts failures")
+Task("Fix batch-completion-behavior.test.ts failures")
+Task("Fix tool-approval-race-conditions.test.ts failures")
+// All three run concurrently
+```
+
+### 4. Review and Integrate
+
+When agents return:
+- Read each summary
+- Verify fixes don't conflict
+- Run full test suite
+- Integrate all changes
+
+## Agent Prompt Structure
+
+Good agent prompts are:
+1. **Focused** - One clear problem domain
+2. **Self-contained** - All context needed to understand the problem
+3. **Specific about output** - What should the agent return?
+
+```markdown
+Fix the 3 failing tests in src/agents/agent-tool-abort.test.ts:
+
+1. "should abort tool with partial output capture" - expects 'interrupted at' in message
+2. "should handle mixed completed and aborted tools" - fast tool aborted instead of completed
+3. "should properly track pendingToolCount" - expects 3 results but gets 0
+
+These are timing/race condition issues. Your task:
+
+1. Read the test file and understand what each test verifies
+2. Identify root cause - timing issues or actual bugs?
+3. Fix by:
+   - Replacing arbitrary timeouts with event-based waiting
+   - Fixing bugs in abort implementation if found
+   - Adjusting test expectations if testing changed behavior
+
+Do NOT just increase timeouts - find the real issue.
+
+Return: Summary of what you found and what you fixed.
+```
+
+## Common Mistakes
+
+**❌ Too broad:** "Fix all the tests" - agent gets lost
+**✅ Specific:** "Fix agent-tool-abort.test.ts" - focused scope
+
+**❌ No context:** "Fix the race condition" - agent doesn't know where
+**✅ Context:** Paste the error messages and test names
+
+**❌ No constraints:** Agent might refactor everything
+**✅ Constraints:** "Do NOT change production code" or "Fix tests only"
+
+**❌ Vague output:** "Fix it" - you don't know what changed
+**✅ Specific:** "Return summary of root cause and changes"
+
+## When NOT to Use
+
+**Related failures:** Fixing one might fix others - investigate together first
+**Need full context:** Understanding requires seeing entire system
+**Exploratory debugging:** You don't know what's broken yet
+**Shared state:** Agents would interfere (editing same files, using same resources)
+
+## Real Example from Session
+
+**Scenario:** 6 test failures across 3 files after major refactoring
+
+**Failures:**
+- agent-tool-abort.test.ts: 3 failures (timing issues)
+- batch-completion-behavior.test.ts: 2 failures (tools not executing)
+- tool-approval-race-conditions.test.ts: 1 failure (execution count = 0)
+
+**Decision:** Independent domains - abort logic separate from batch completion separate from race conditions
+
+**Dispatch:**
+```
+Agent 1 → Fix agent-tool-abort.test.ts
+Agent 2 → Fix batch-completion-behavior.test.ts
+Agent 3 → Fix tool-approval-race-conditions.test.ts
+```
+
+**Results:**
+- Agent 1: Replaced timeouts with event-based waiting
+- Agent 2: Fixed event structure bug (threadId in wrong place)
+- Agent 3: Added wait for async tool execution to complete
+
+**Integration:** All fixes independent, no conflicts, full suite green
+
+**Time saved:** 3 problems solved in parallel vs sequentially
+
+## Key Benefits
+
+1. **Parallelization** - Multiple investigations happen simultaneously
+2. **Focus** - Each agent has narrow scope, less context to track
+3. **Independence** - Agents don't interfere with each other
+4. **Speed** - 3 problems solved in time of 1
+
+## Verification
+
+After agents return:
+1. **Review each summary** - Understand what changed
+2. **Check for conflicts** - Did agents edit same code?
+3. **Run full suite** - Verify all fixes work together
+4. **Spot check** - Agents can make systematic errors
+
+## Real-World Impact
+
+From debugging session (2025-10-03):
+- 6 failures across 3 files
+- 3 agents dispatched in parallel
+- All investigations completed concurrently
+- All fixes integrated successfully
+- Zero conflicts between agent changes

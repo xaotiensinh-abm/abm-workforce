@@ -1,8 +1,5 @@
 ---
 name: evidence-driven-verification
-version: 1.0.0
-author: ABM Skill Architect
-last_updated_date: 2026-03-28
 description: Use when about to claim any work is complete, fixed, or passing — combines ABM LUẬT 2 (Bằng chứng trước khẳng định) with Superpowers verification-before-completion for maximum rigor
 ---
 

@@ -1,63 +1,105 @@
 ---
 name: requesting-code-review
-version: 1.0.0
-author: ABM Skill Architect
-last_updated_date: 2026-03-29
-description: "Dùng sau mỗi cụm task lớn để triệu hồi Reviewer từ bên ngoài soát lại lỗi trước khi dính chấu lỗi chuỗi (Cascading bugs)."
+description: Use when completing tasks, implementing major features, or before merging to verify work meets requirements
 ---
 
-# Triệu Hồi Giám Khảo (Requesting Code Review)
+# Requesting Code Review
 
-Triệu hồi thanh tra `superpowers:code-reviewer` (nhân dạng Subagent) để lùng bắt lỗi tàng hình thối trước khi chúng đẻ nhộng sang các file khác. Đưa cho thanh tra đúng Tờ Khai Ngữ Cảnh Tinh Lọc, đéo thảy cả lốc Lịch sử Chat vào cho nó ngồi bươi móc. Cơ chế này bảo toàn token ngữ cảnh quý giá cho chính mạng sống của bạn.
+Dispatch superpowers:code-reviewer subagent to catch issues before they cascade. The reviewer gets precisely crafted context for evaluation — never your session's history. This keeps the reviewer focused on the work product, not your thought process, and preserves your own context for continued work.
 
-**Tôn Chỉ:** Review càng sớm, Sẹo càng nhỏ (Review early, review often).
+**Core principle:** Review early, review often.
 
-## Thời Khắc Triệu Hồi
+## When to Request Review
 
-**Bắt Buộc Nhập Lệnh (Mandatory):**
-- Ngay sau mỗi Task hoàn thành trong phương án Lính Đánh Thuê (`subagent-driven-development`).
-- Vừa đóng hòm một Feature to nạc đẫy đà.
-- Sát giờ G (Ngay trước khi nổ lệnh Merge vào nhánh `main` cấm kỵ).
+**Mandatory:**
+- After each task in subagent-driven development
+- After completing major feature
+- Before merge to main
 
-**Có Thể Nhập Góp Vui (Optional):**
-- Đang gắp Code mà thấy rối tung rối mù (Cần bộ não thứ 2).
-- Trước cú hích đập đi xây lại (Xin cái baseline check/Screenshot).
+**Optional but valuable:**
+- When stuck (fresh perspective)
+- Before refactoring (baseline check)
+- After fixing complex bug
 
-## Nghi Thức Triệu Hồi (How to Request)
+## How to Request
 
-**Bước 1: Bắt Mạch Lịch Sử (Git SHAs):**
+**1. Get git SHAs:**
 ```bash
-BASE_SHA=$(git rev-parse HEAD~1)  # Hoặc origin/main
+BASE_SHA=$(git rev-parse HEAD~1)  # or origin/main
 HEAD_SHA=$(git rev-parse HEAD)
 ```
 
-**Bước 2: Phát Lệnh Cấm Vệ (Dispatch):**
-Điền vào form mẫu triệu hồi (Dùng `Task` tool hoặc gọi lệnh Subagent tương tự) dựa trên chuẩn `/references/code-reviewer-prompt.md`.
-**Bộ Tham Số mớm cho nó:**
-- `{WHAT_WAS_IMPLEMENTED}` - Bạn vừa rớt nước mắt xây cái quần què gì?
-- `{PLAN_OR_REQUIREMENTS}` - Theo Hợp đồng gốc thì đúng ra nó nên múa thế nào?
-- `{BASE_SHA}` - Khởi đoan?
-- `{HEAD_SHA}` - Cắt ngọn ở đâu?
-- `{DESCRIPTION}` - Khái lược (3 dòng).
+**2. Dispatch code-reviewer subagent:**
 
-**Bước 3: Hứng Đá (Act on Feedback):**
-- **Lỗi Nghiêm Trọng (Critical)** -> Fix cháy máy ngay tắp lự.
-- **Lỗi Quan Trọng (Important)** -> Vá ngay trước khi bốc Task 2.
-- Lỗi Rác Mắt (Minor) -> Note lại gọt dũa nếu rảnh.
-- **Nói Xàm** -> Bật lại bằng skill `receiving-code-review` (Rất đanh thép).
+Use Task tool with superpowers:code-reviewer type, fill template at `code-reviewer.md`
 
-## Tích hợp Khung Workflow (Integration)
+**Placeholders:**
+- `{WHAT_WAS_IMPLEMENTED}` - What you just built
+- `{PLAN_OR_REQUIREMENTS}` - What it should do
+- `{BASE_SHA}` - Starting commit
+- `{HEAD_SHA}` - Ending commit
+- `{DESCRIPTION}` - Brief summary
 
-**Băng Lính Đánh Thuê (Subagent-Driven Development):**
-- Đứng gác cuối 1 Task. Đập ruồi sớm trước khi chúng gây thối các task sau.
+**3. Act on feedback:**
+- Fix Critical issues immediately
+- Fix Important issues before proceeding
+- Note Minor issues for later
+- Push back if reviewer is wrong (with reasoning)
 
-**Băng Tự Múc (Executing Plans):**
-- Tuýt còi Review sau mỗi cụm mẻ lưới (3 task gom 1 chẳng hạn).
+## Example
 
-## Cờ Đỏ Chót
+```
+[Just completed Task 2: Add verification function]
 
-**TUYỆT ĐỐI NGHIÊM CẤM:**
-- Bỏ qua review vì thấy task "dễ òm mà có mẹ gì đâu". (Sai rành rành chết mợ!).
-- Lơ đẹp các lỗi Critical của thằng Reviewer chỉ ra. Cãi ngu bị CEO tế sống.
-- Quăng lên PR Code chưa vá xong lỗi Important.
-- Cãi dỗi hờn với một bài Feedback sắc bén đúng chuẩn Kỹ thuật. Hèn!
+You: Let me request code review before proceeding.
+
+BASE_SHA=$(git log --oneline | grep "Task 1" | head -1 | awk '{print $1}')
+HEAD_SHA=$(git rev-parse HEAD)
+
+[Dispatch superpowers:code-reviewer subagent]
+  WHAT_WAS_IMPLEMENTED: Verification and repair functions for conversation index
+  PLAN_OR_REQUIREMENTS: Task 2 from docs/superpowers/plans/deployment-plan.md
+  BASE_SHA: a7981ec
+  HEAD_SHA: 3df7661
+  DESCRIPTION: Added verifyIndex() and repairIndex() with 4 issue types
+
+[Subagent returns]:
+  Strengths: Clean architecture, real tests
+  Issues:
+    Important: Missing progress indicators
+    Minor: Magic number (100) for reporting interval
+  Assessment: Ready to proceed
+
+You: [Fix progress indicators]
+[Continue to Task 3]
+```
+
+## Integration with Workflows
+
+**Subagent-Driven Development:**
+- Review after EACH task
+- Catch issues before they compound
+- Fix before moving to next task
+
+**Executing Plans:**
+- Review after each batch (3 tasks)
+- Get feedback, apply, continue
+
+**Ad-Hoc Development:**
+- Review before merge
+- Review when stuck
+
+## Red Flags
+
+**Never:**
+- Skip review because "it's simple"
+- Ignore Critical issues
+- Proceed with unfixed Important issues
+- Argue with valid technical feedback
+
+**If reviewer wrong:**
+- Push back with technical reasoning
+- Show code/tests that prove it works
+- Request clarification
+
+See template at: requesting-code-review/code-reviewer.md

@@ -1,8 +1,5 @@
 ---
 name: abm-multi-persona-review
-version: 1.0.0
-author: ABM Skill Architect
-last_updated_date: 2026-03-28
 description: Use when evaluating any system, project, code, or idea — dispatches 8 specialist personas for comprehensive multi-dimensional critique with weighted scoring
 ---
 

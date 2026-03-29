@@ -1,74 +1,200 @@
 ---
 name: finishing-a-development-branch
-version: 1.0.0
-author: ABM Skill Architect
-last_updated_date: 2026-03-29
-description: "Sử dụng khi đã code xong, Pass 100% test, và cần quyết định cách gộp (Merge) nhánh code này vào cội nguồn hiện tại."
+description: Use when implementation is complete, all tests pass, and you need to decide how to integrate the work - guides completion of development work by presenting structured options for merge, PR, or cleanup
 ---
 
-# Đóng Gói Nhánh Phát Triển (Finishing Branch)
+# Finishing a Development Branch
 
-## Tổng Quan
+## Overview
 
-Sau khi đâm chém chán chê ở nhánh ảo (nhánh dev), kỹ năng này giúp dọn mâm sạch sẽ, trình diện các Option gộp nhánh rõ ràng cho sếp (CEO).
+Guide completion of development work by presenting clear options and handling chosen workflow.
 
-**Nguyên Tắc Lõi:** Kiểm chứng Test -> Đưa Option Cơ Học -> Thi Hành Lệnh -> Đốt Rác (Clean up).
+**Core principle:** Verify tests → Present options → Execute choice → Clean up.
 
-**Khai báo khi bắt đầu:** "Tôi sẽ dùng lệnh `finishing-a-development-branch` để chốt sổ công việc nhánh hiện tại."
+**Announce at start:** "I'm using the finishing-a-development-branch skill to complete this work."
 
-## Quy Trình (The Process)
+## The Process
 
-### Bước 1: Ấn Chứng (Verify Tests)
-**TRƯỚC KHI trình bày option, phải chạy full bộ Test:**
+### Step 1: Verify Tests
+
+**Before presenting options, verify tests pass:**
+
 ```bash
+# Run project's test suite
 npm test / cargo test / pytest / go test ./...
 ```
-**Nếu lòi ra cục Đỏ (Fail):**
-> Phát ngôn báo lại: "Thưa CEO, Test vẫn fail <N> phát. [Show Log Lỗi Nhỏ]. Tuyệt đối không dọn mâm gộp code được cho tới khi vá xong lỗ hổng."
-DỪNG. Không nhảy sang Bước 2.
 
-### Bước 2: Xác Định Nguồn Cội (Base Branch)
+**If tests fail:**
+```
+Tests failing (<N> failures). Must fix before completing:
+
+[Show failures]
+
+Cannot proceed with merge/PR until tests pass.
+```
+
+Stop. Don't proceed to Step 2.
+
+**If tests pass:** Continue to Step 2.
+
+### Step 2: Determine Base Branch
+
 ```bash
+# Try common base branches
 git merge-base HEAD main 2>/dev/null || git merge-base HEAD master 2>/dev/null
 ```
-Hoặc hỏi CEO để chắc ăn: "Có phải nhánh này chẻ ra từ `main` không sếp?"
 
-### Bước 3: Dâng Tấu Cố Định (Present Options)
-Luôn luôn rập khuôn đưa ra đúng 4 Lựa Chọn này, CẤM thêm thắt lời bình:
+Or ask: "This branch split from main - is that correct?"
+
+### Step 3: Present Options
+
+Present exactly these 4 options:
+
 ```
-Nhiệm vụ đã hoàn tất xanh mượt. Xin CEO chỉ đạo phương thức Góp Nhánh:
+Implementation complete. What would you like to do?
 
-1. Gộp trực tiếp vào <base-branch> ở Local.
-2. Push lên Github và tạo Pull Request (PR).
-3. Giữ nguyên nhánh này chưa làm gì cả (Lưu trạng thái chờ duyệt sau).
-4. Khai tử toàn bộ công sức này (Discard work).
+1. Merge back to <base-branch> locally
+2. Push and create a Pull Request
+3. Keep the branch as-is (I'll handle it later)
+4. Discard this work
 
-Sếp chọn số mấy?
+Which option?
 ```
-**KHÔNG CHÈN THÊM Tán Gẫu** - Càng lạnh lùng càng thượng tôn pháp luật.
 
-### Bước 4: Khâm Thử (Execute Choice)
-**Option 1: Gộp Local**
-Checkout base branch -> pull latest -> git merge <nhánh feature> -> Chạy lại test kết quả -> Test xanh thì `git branch -d <nhánh feature>`. Sang Bước 5.
+**Don't add explanation** - keep options concise.
 
-**Option 2: Push & Bắn PR**
-Push branch lên origin -> `gh pr create` -> Điền Summary + Test Plan bằng chuẩn markdown. Sang Bước 5.
+### Step 4: Execute Choice
 
-**Option 3: Treo đó chờ**
-Báo cáo: "Đã lưu trữ thành quả tại nhánh <name>". Dừng. KHÔNG xóa worktree.
+#### Option 1: Merge Locally
 
-**Option 4: Khai tử (Discard)**
-Hỏi xác nhận chốt trạm thu phí tâm lý: "XÓA SẠCH SẼ ĐÓ NHA SẾP? Xác nhận gõ 'discard'".
-Đợi đúng lệnh `discard` rồi mới chạy `git branch -D`.
+```bash
+# Switch to base branch
+git checkout <base-branch>
 
-### Bước 5: Đốt Rác (Cleanup Worktree)
-Nếu CEO nãy chốt Option 1, 2, 4 mà bạn đang ở cơ chế `git worktree`:
-Quét list: `git worktree list | grep ...`
-Có thì chặt đứt: `git worktree remove ...`
+# Pull latest
+git pull
 
-## Cờ Đỏ Chết người
-**Tuyệt Đối Cấm Trong Lịch Sử ABM:**
-- Dám mồm trình phương án Merge khi Test chưa xanh màn.
-- Tự thêm Option linh tinh (Hỏi mẹo "Sướng ý sếp không").
-- Xóa code mồ hôi nước mắt mà không hỏi bằng chữ `discard`.
-- Dám gõ lệnh Force-Push mà sếp đéo dặn.
+# Merge feature branch
+git merge <feature-branch>
+
+# Verify tests on merged result
+<test command>
+
+# If tests pass
+git branch -d <feature-branch>
+```
+
+Then: Cleanup worktree (Step 5)
+
+#### Option 2: Push and Create PR
+
+```bash
+# Push branch
+git push -u origin <feature-branch>
+
+# Create PR
+gh pr create --title "<title>" --body "$(cat <<'EOF'
+## Summary
+<2-3 bullets of what changed>
+
+## Test Plan
+- [ ] <verification steps>
+EOF
+)"
+```
+
+Then: Cleanup worktree (Step 5)
+
+#### Option 3: Keep As-Is
+
+Report: "Keeping branch <name>. Worktree preserved at <path>."
+
+**Don't cleanup worktree.**
+
+#### Option 4: Discard
+
+**Confirm first:**
+```
+This will permanently delete:
+- Branch <name>
+- All commits: <commit-list>
+- Worktree at <path>
+
+Type 'discard' to confirm.
+```
+
+Wait for exact confirmation.
+
+If confirmed:
+```bash
+git checkout <base-branch>
+git branch -D <feature-branch>
+```
+
+Then: Cleanup worktree (Step 5)
+
+### Step 5: Cleanup Worktree
+
+**For Options 1, 2, 4:**
+
+Check if in worktree:
+```bash
+git worktree list | grep $(git branch --show-current)
+```
+
+If yes:
+```bash
+git worktree remove <worktree-path>
+```
+
+**For Option 3:** Keep worktree.
+
+## Quick Reference
+
+| Option | Merge | Push | Keep Worktree | Cleanup Branch |
+|--------|-------|------|---------------|----------------|
+| 1. Merge locally | ✓ | - | - | ✓ |
+| 2. Create PR | - | ✓ | ✓ | - |
+| 3. Keep as-is | - | - | ✓ | - |
+| 4. Discard | - | - | - | ✓ (force) |
+
+## Common Mistakes
+
+**Skipping test verification**
+- **Problem:** Merge broken code, create failing PR
+- **Fix:** Always verify tests before offering options
+
+**Open-ended questions**
+- **Problem:** "What should I do next?" → ambiguous
+- **Fix:** Present exactly 4 structured options
+
+**Automatic worktree cleanup**
+- **Problem:** Remove worktree when might need it (Option 2, 3)
+- **Fix:** Only cleanup for Options 1 and 4
+
+**No confirmation for discard**
+- **Problem:** Accidentally delete work
+- **Fix:** Require typed "discard" confirmation
+
+## Red Flags
+
+**Never:**
+- Proceed with failing tests
+- Merge without verifying tests on result
+- Delete work without confirmation
+- Force-push without explicit request
+
+**Always:**
+- Verify tests before offering options
+- Present exactly 4 options
+- Get typed confirmation for Option 4
+- Clean up worktree for Options 1 & 4 only
+
+## Integration
+
+**Called by:**
+- **subagent-driven-development** (Step 7) - After all tasks complete
+- **executing-plans** (Step 5) - After all batches complete
+
+**Pairs with:**
+- **using-git-worktrees** - Cleans up worktree created by that skill
