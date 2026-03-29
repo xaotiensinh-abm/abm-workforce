@@ -10,12 +10,12 @@ description: Giao việc dev cho Jarvis — bug fix, feature, refactor
 - Load file: `{project-root}/_abm/bmm/agents/jarvis-orchestrator.md`
 - Follow activation steps 1-4
 
-## Bước 2: Triage
-Jarvis sẽ tự phân loại task thành 1 trong:
-- **Bug fix** → bug-fix-pipeline (Code → Test → Browser QA → Synthesis)
-- **Feature** → feature-pipeline (Plan → Code∥ → Test → Browser QA → Docs)
-- **Refactor** → refactor-pipeline (Impact → Code → Static → Risk Eval)
-- **Data** → data-pipeline (MCP/Data → Code → Integration Verify)
+## Bước 2: Triage (Định Tuyến Cứng 39 Skills)
+Jarvis sẽ tự phân loại task thành 1 trong các luồng và **CHỈ ĐƯỢC LOAD** các Skill đích danh sau (khóa cứng tính năng Auto-Load của IDE):
+- **Bug fix** → Load `systematic-debugging` và `code-review`.
+- **Feature** → Load `writing-plans` và `subagent-driven-development`.
+- **Refactor** → Load `git-workflow-optimization` và `writing-plans`.
+- **Data** → Giao khoán cho `typescript-expert`.
 
 ## Bước 3: Mô tả task
 Bạn chỉ cần mô tả task cần làm, Jarvis sẽ:

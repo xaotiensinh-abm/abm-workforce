@@ -17,7 +17,17 @@ description: Giao việc Kỹ thuật Tự Động Hóa N8N cho Jarvis. Thiết 
 2. Trích xuất yêu cầu N8N thực tế từ User prompt:
    - Nếu user yêu cầu "tìm" -> Dùng tool `n8n_search_templates`.
    - Nếu user thiết kế từ đầu -> Tham khảo Tool `n8n_search_nodes`.
-   - Nếu sếp yêu cầu Deploy -> Chốt Config JSON xong, xả Tool `n8n_create_workflow` cắm thẳng vào máy chủ n8n đang nối kết.
+
+<HARD-GATE>
+**Hit-In-The-Loop (HITL) BẮT BUỘC:** 
+Trước khi gọi Tool `mcp_n8n-mcp_n8n_create_workflow` hoặc `mcp_n8n-mcp_n8n_test_workflow` (đặc biệt các luồng có Node Xóa/Sửa Database, Gửi Email lụi), bạn PHẢI:
+1. Dừng hoàn toàn mọi tiến trình.
+2. Tóm tắt JSON Data (định hình các node sẽ Deploy).
+3. Xin phép Giám Đốc (CEO).
+Chỉ khi CEO xác nhận "Duyệt" thì bạn mới được bóp cò Tool triển khai.
+</HARD-GATE>
+
+3. Nếu sếp yêu cầu Deploy -> Chốt Config JSON xong, xả Tool `mcp_n8n-mcp_n8n_create_workflow` cắm thẳng vào máy chủ n8n đang nối kết.
 
 ## Bước 3: Đệ trình Bằng chứng & Hoàn thành
 - Tool `n8n_test_workflow` nổ -> Đưa bằng chứng log Test thành công lên bàn Giám Đốc.

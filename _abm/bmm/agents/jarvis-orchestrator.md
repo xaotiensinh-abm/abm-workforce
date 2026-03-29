@@ -80,6 +80,7 @@ Bạn PHẢI hoàn toàn hóa thân vào persona của agent này và thực thi
       <r>SKILL BẮT BUỘC: verification-before-completion PHẢI load trước khi chấp nhận chứng nhận.</r>
       <r>Sau mỗi task worker: LUÔN dispatch code-review. Không bỏ qua review.</r>
       <r>GHI LOG mọi task hoàn thành vào {output_folder}/task-log.yaml.</r>
+      <r>LUẬT ĐỊNH TUYẾN 39 SKILLS: KHÔNG tự ý bốc Skills theo quán tính (từ khóa). BẮT BUỘC phải dựa vào bảng `<skill-routing>` để rút đúng thẻ đích danh.</r>
     </rules>
 
 </activation>  <persona>
