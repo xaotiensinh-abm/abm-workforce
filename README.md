@@ -72,27 +72,32 @@ sequenceDiagram
 
 ---
 
-## 🧠 Hệ Sinh Thái Doanh Nghiệp (Enterprise Ecosystem)
+## 🧠 Mô Hình Cấu Trúc Tập Đoàn (Virtual Enterprise Ecosystem)
 
-ABM Workforce được trang bị sẵn **35+ Năng lực Cốt lõi (Skills)** và **15+ Quy trình Chuẩn hóa (Workflows)**, mô phỏng cấu trúc của một tập đoàn công nghệ.
+Điểm độc đáo nhất của ABM Workforce không nằm ở code, mà là **Sự Phân Lập Môi Trường Thành Hệ Thống Phòng Ban**. Thay vì một "trợ lý vạn năng" lộn xộn, hệ thống sở hữu **hơn 10 Phòng Ban Chuyên Trách** (Ban Công nghệ, Ban Marketing, Hành chính Nhân sự, Tài chính Pháp chế...) với các quy trình (SOPs) và Agent được thiết lập sẵn.
 
-### Trạm Điều Phối & Lệnh Khởi Động (Workflows)
-Sử dụng Slash Commands (`/`) trong IDE để luân chuyển trạng thái dự án:
-- `/jarvis`: Triệu hồi Trưởng bộ phận điều phối (Lead Orchestrator).
-- `/brainstorm`: Thiết kế hệ thống, phân tích yêu cầu trước khi code (Giai đoạn R&D).
-- `/write-plan`: Biên dịch tài liệu Spec thành Hợp đồng Triển khai mã lệnh.
-- `/execute-plan`: Khai hỏa thực thi Hợp đồng Code từng bước (Inline hoặc Parallel).
-- `/review`: Đánh giá phản biện đa chiều (Multi-persona Critique) cho hệ thống/ý tưởng.
-- `/docs`: Khởi tạo và đồng bộ tài liệu kiến trúc, SOP, API Reference.
-- `/security-audit`: Kích hoạt quy trình rà soát bảo mật toàn diện.
+Sử dụng Slash Commands (`/`) trong IDE để luân chuyển hồ sơ sang đúng phòng ban xử lý:
 
-### Các Chuyên Viên & Kỹ Năng Kỹ Thuật (SubAgents & Skills)
-- **Raven's Verdict (`abm-review-pr`)**: Hệ thống Code Review 2 lớp tàn nhẫn (Adversarial Cynical Review + Edge Case Hunter). Tìm diệt lỗi tư duy kiến trúc và lỗ hổng bảo mật ẩn sâu.
-- **RCA Specialist (`abm-root-cause-analysis`)**: Phân tích tận gốc rễ (5 Whys) khi hệ thống sụp đổ, xuất báo cáo nguyên nhân và đề xuất cơ chế phòng ngừa.
-- **Systematic Debugger (`systematic-debugging`)**: Bắt buộc kích hoạt trước khi Fix Bug để cô lập vấn đề bằng dữ liệu log (Log-driven), chống việc AI "đoán mò" và phá code.
-- **TDD Master (`test-driven-development`)**: Chèn Test Cases tiêu chuẩn trước khi triển khai Logic.
-- **UI/UX Pro Max (`ui-ux-pro-max`)**: Chuyên gia thiết kế giao diện (React, Tailwind, Svelte), xử lý hệ thống Design Token, Dark Mode, Animations.
-- **TypeScript Expert (`typescript-expert`)**: Tối ưu Type-level programming, kiểm soát kiến trúc Monorepo.
+### 👑 Ban Giám Đốc & Điều Phối (Executive Board)
+- **`/jarvis` (Orchestrator):** Trưởng bộ phận điều phối. Phân loại yêu cầu của CEO và định tuyến xuống các phòng ban.
+- **`/brainstorm` & `/write-plan`:** Ban R&D. Thiết kế chiến lược, phân tích khả thi và soạn thảo Hợp đồng Triển khai trước khi hành động.
+- **`/council` & `/review`:** Hội đồng Thẩm định Tối cao. Đánh giá phản biện đa chiều cho các quyết định kiến trúc/kinh doanh lớn.
+
+### 💻 Ban Công Nghệ & R&D (Engineering & Tech)
+- **`/dev` (Trưởng nhóm Phát triển):** Chịu trách nhiệm Code, Refactor và thực thi kỹ thuật. Triển khai theo `/execute-plan`.
+- **Raven's Verdict (`abm-review-pr`) & Systematic Debugger:** Khắc tinh của Bug. Thực hiện Code Review tàn tẫn và phân tích Log-driven RCA (Root Cause Analysis).
+- **`/security-audit` & TDD Master:** Đội ngũ QA (Đảm bảo Chất lượng) và An toàn thông tin (AppSec Ops).
+- **`/docs`:** Ban Thư ký kỹ thuật. Chuẩn hóa tài liệu Diátaxis.
+
+### 📢 Ban Sales & Marketing
+- **`/marketing` & `/viet` (Tòa Soạn):** Tổ chức bộ máy Marketing đa kênh. Viết Content, Email marketing, lên kịch bản nuôi dưỡng (Lead Nurturing). Phối hợp 6 ban chuyên môn (Biên tập, Đồ họa, SEO...).
+- **`/sales`:** Ban Kinh doanh. Soạn Sales Deck, Proposal thầu, email chào hàng (Cold Email), tối ưu phễu giá (Pricing Strategy).
+- **`/cskh`:** Chăm sóc khách hàng. Xử lý khiếu nại, churn prevention và thiết lập khảo sát sự hài lòng.
+
+### 🏢 Ban Vận Hành & Hỗ Trợ (Back-Office)
+- **`/hr` & `/training`:** Quản trị Nhân sự & Đào tạo. Soạn thảo JD (Mô tả công việc), Onboarding nhân sự mới, thiết kế khung bài giảng và Workshop.
+- **`/finance`:** Ban Kế toán Tài chính. Phân tích điểm hòa vốn, lập bảng lương, tối ưu dòng tiền (Cashflow).
+- **`/legal`:** Ban Pháp chế. Soát xét hợp đồng, soạn thảo điều khoản sử dụng (TOS), đảm bảo tuân thủ (Compliance).
 
 ---
 
