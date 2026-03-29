@@ -5,6 +5,8 @@
 # Lệnh gọi: npm run sync:up / npm run sync:down
 
 ACTION=$1
+REPO_URL=${2:-"https://github.com/DungTQ87/abm-memory.git"}
+
 # Hỗ trợ cả Mac/Linux và Windows subsystem
 if [[ "$OSTYPE" == "msys" || "$OSTYPE" == "win32" ]]; then
     ANTIGRAVITY_DIR="$USERPROFILE/.gemini/antigravity"
@@ -20,12 +22,7 @@ cd "$ANTIGRAVITY_DIR" || exit 1
 if [ ! -d ".git" ]; then
     echo "🧠 HỆ THỐNG GHI NHỚ LẦN ĐẦU TIÊN (GIT VAULT INIT) 🧠"
     echo "Trí nhớ AI của Sếp chưa được gắn khóa (Private Git)."
-    read -p "Sếp dán Link Git Private rỗng vào đây (VD: https://github.com/DungTQ87/abm-memory.git): " REPO_URL
-    
-    if [ -z "$REPO_URL" ]; then
-        echo "❌ Hủy. Không có mỏ neo thì không thể lên mây!"
-        exit 1
-    fi
+    echo "Đang tự động gán điểm neo (Anchor) vào: $REPO_URL"
     
     git init
     git branch -m main
@@ -36,7 +33,7 @@ if [ ! -d ".git" ]; then
     echo "assets/" >> .gitignore
     
     git add .
-    git commit -m "Init: Khởi tạo Bộ Não Đầu Tiên"
+    git commit -m "Init: Khởi tạo Bộ Không Gian Ký Ức Đầu Tiên"
     
     # Lần Push đầu tiên có thể chưa có nhánh remote
     git push -u origin main -f
