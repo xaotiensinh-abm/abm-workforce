@@ -1,13 +1,16 @@
 ---
 name: xlsx-official
-version: 1.0.0
+version: 1.0.1
 author: ABM Skill Architect
-last_updated_date: 2026-03-28
-description: "Comprehensive spreadsheet creation, editing, and analysis with support for formulas, formatting, data analysis, and visualization. When Claude needs to work with spreadsheets (.xlsx, .xlsm, .csv, ...."
+last_updated_date: 2026-04-09
+description: "LOCAL-ONLY — Đọc, sửa, phân tích file .xlsx/.csv hiện có trên máy bằng openpyxl. Chỉ dùng khi user YÊU CẦU CỤ THỂ thao tác file local (sửa Excel, chỉnh formula, format cells). Mặc định tạo Excel MỚI → dùng skywork-excel."
 risk: unknown
 source: community
 date_added: "2026-02-27"
 ---
+
+> [!IMPORTANT]
+> **Routing Rule:** Mặc định tạo Excel/spreadsheet mới → dùng `skywork-excel` (Skywork Cloud API). Skill này CHỈ dùng khi user yêu cầu: (1) sửa file .xlsx local có sẵn, (2) chỉnh formula/formatting, (3) user nói rõ "làm offline" hoặc "không upload".
 
 # Requirements for Outputs
 

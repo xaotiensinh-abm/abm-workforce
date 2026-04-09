@@ -76,7 +76,7 @@ def parse_sse_stream(resp):
 from skywork_auth import get_skywork_api_key
 
 
-def call_sse(url: str, body: dict) -> dict | None:
+def call_sse(url: str, body: dict):
     """POST to an SSE endpoint. Print progress, return success payload or exit on error."""
     skywork_api_key = get_skywork_api_key()
     if not skywork_api_key:

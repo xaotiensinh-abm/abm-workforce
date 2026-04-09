@@ -1,5 +1,8 @@
 ---
 name: Skywork Search
+version: 1.0.0
+author: ABM Skill Architect
+last_updated_date: 2026-04-09
 description: Search the web for real-time information using the Skywork web search API. Use this skill whenever the user needs up-to-date information from the internet — for example, researching a topic, looking up recent events, finding facts or statistics, gathering material for a document or presentation, or answering questions that require current data. Also trigger when the user says things like "search for" / "搜索" / "検索" / "검색", "look up" / "查询" / "調べる" / "조회하다", "find information about" / "查找关于……的信息" / "……に関する情報を探す" / "…에 대한 정보를 찾다", "what's the latest on" / "……最新进展" / "……の最新情報" / "…의 최신 소식", or any request that implies needing information beyond your training data.
 metadata:
   openclaw:
@@ -11,81 +14,42 @@ metadata:
     primaryEnv: SKYWORK_API_KEY
 ---
 
-# Web Search Skill
+# Goal
+Thực hiện quét (Crawl) Internet và Tìm kiếm Web (Web Search) thời gian thực thông qua Skywork Search API. Thu thập số liệu, tin tức, tài liệu tham khảo để làm input đầu vào cho các Skill khác hoặc trực tiếp trả lời User một cách chuẩn xác, cập nhật nhất.
 
-Search the web for real-time information via the Skywork search API. This skill lets you run up to 3 queries in a single invocation and returns structured results with source URLs and content snippets.
+# Instructions
 
-## When to use
+## Bước 1: Quyết định Cụm từ Tìm kiếm (Search Queries)
+Khi User yêu cầu tra cứu thông tin:
+- Đặc tả càng rõ càng tốt, chứa tham số thời gian nếu cần (VD: `Doanh thu VinFast Q4 2025` tốt hơn là `Tình hình Vinfast`).
+- Có thể kết hợp 1 đến tối đa 3 câu query trong 1 lần chạy script để quét tổng thể vấn đề.
 
-- The user asks you to research a topic or find current information
-- You need up-to-date facts, statistics, or news to answer a question
-- Another task (writing a report, creating a PPT, drafting a document) needs web research as a preliminary step
-- The user explicitly asks to search or look something up
-
-## Prerequisites
-
-### API Key Configuration (Required First)
-This skill requires a **SKYWORK_API_KEY** to be configured in OpenClaw.
-
-If you don't have an API key yet, please visit:
-**https://skywork.ai**
-
-For detailed setup instructions, see:
-[references/apikey-fetch.md](references/apikey-fetch.md)
-
-## How to use
-
-Run the bundled script from this skill's `scripts/` directory:
-
+## Bước 2: Thực Thi Script
+Truyền các câu query (nằm trong dấu ngoặc kép `""`) vào argument của Command.
 ```bash
-python3 <skill-path>/scripts/web_search.py "query1" ["query2"] ["query3"]
+python3 _abm/bmm/agents/skills/skywork-search/scripts/web_search.py "query1" "query2" "query3"
 ```
+Đợi script chạy xong, nó sẽ in ra đường dẫn lưu file dữ liệu JSON/Text chứa hàng chục nguồn trích dẫn từ Internet lên giao diện CLI.
 
-- Pass 1–3 search queries as positional arguments
-- Results are saved to individual text files in a temporary directory
-- The script prints the file paths to stdout so you can read them
+## Bước 3: Đọc và Tổng Hợp
+- Đọc nội dung file kết quả từ Bước 2.
+- Nhặt những thông tin hữu ích và tóm tắt lại cho User. MỌI THÔNG TIN phải đi kèm link Nguồn (URL) ngay cạnh để minh chứng.
 
-## Crafting good queries
+# Examples
 
-Search quality depends heavily on query phrasing. A few tips:
-
-- **Be specific**: "Tesla Q4 2025 revenue" works better than "Tesla financials"
-- **Use natural language**: The API handles full questions well — "What is the current population of Tokyo?" is fine
-- **Split broad topics**: If the user wants a comprehensive overview, break it into 2–3 focused queries rather than one vague one
-- **Include time context** when relevant: "best Python web frameworks 2026" rather than just "best Python web frameworks"
-
-## Reading results
-
-After running the script, read the output files. Each file contains:
-
+## Ví dụ 1: Đi Tìm Thông Tin Mới Mẻ
+**Input User:** "Tesla có đột phá gì về pin tháng trước không sếp?"
+**Workflow Agent chạy:**
+1. Chạy CLI tìm kiếm:
+```bash
+python3 _abm/bmm/agents/skills/skywork-search/scripts/web_search.py "Tesla battery breakthrough latest news 2026" "Tesla new battery patent update"
 ```
-query: <the original query>
+2. Đọc file kết quả bằng tool `view_file` theo hướng dẫn của code trên.
+3. Trả lời User: "Báo cáo sếp, Tesla vừa ra mắt công nghệ pin XYZ... (Nguồn: `https://...`)"
 
-[result-1] <source URL>
-<content snippet>
+# Constraints
+- 🚫 **Giới hạn số lượng:** Tối đa lệnh chỉ nhận 3 Argument (3 Query) / lần để tránh nghẽn server API.
+- ✅ **Bảo Mật Key:** Tuyệt đối không thay thế hoặc hiển thị giá trị thật của `SKYWORK_API_KEY` ra ngoài hội thoại.
+- ✅ **Khắc Phục Lỗi:** Nếu gọi API quá nhiều (`429 Too Many Requests`), xin vui lòng đợi 30 - 60s sau rồi gọi lại.
 
-[result-2] <source URL>
-<content snippet>
-...
-```
-
-Synthesize the results into a clear answer for the user. Always cite sources when presenting factual information — include the URLs from the results so the user can verify.
-
-## Example workflow
-
-User asks: "What are the latest developments in quantum computing?"
-
-1. Run the search with focused queries:
-   ```bash
-   python3 <skill-path>/scripts/web_search.py \
-     "quantum computing breakthroughs 2026" \
-     "quantum computing industry news latest"
-   ```
-2. Read the result files
-3. Synthesize findings into a clear, sourced summary for the user
-
-## Limitations
-
-- Maximum 3 queries per invocation (the script caps it)
-- Each query has a 30-second timeout
-- Results depend on the Skywork search API availability
+<!-- Generated by ABM Skill Generator v1.0 | ABM Workforce -->

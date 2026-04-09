@@ -9,7 +9,7 @@ tags: [marketing, sales]
 
 ## KHONG su dung khi
 
-- Can tao slide PowerPoint -> dung pptx-official. Can viet proposal Word -> dung docx-official.
+- Can tao slide PowerPoint -> dung skywork-ppt (mac dinh) hoac pptx-official (local). Can viet proposal Word -> dung skywork-doc (mac dinh) hoac docx-official (local).
 
 # 🤝 Sales Enablement — Hỗ Trợ Bán Hàng Chuyên Nghiệp
 

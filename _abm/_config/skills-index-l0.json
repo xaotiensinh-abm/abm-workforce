@@ -1,0 +1,446 @@
+[
+  {
+    "name": "abm-audit-file-refs",
+    "description": "Audit ABM source files for file-reference convention violations using parallel Haiku subagents. Use when users requests an \"audit file references\" for a skill, workflow or task."
+  },
+  {
+    "name": "abm-changelog-social",
+    "description": "Generate social media announcements for Discord, Twitter, and LinkedIn from the latest changelog entry. Use when user asks to 'create release announcement' or 'create social posts' or share changelog updates."
+  },
+  {
+    "name": "abm-contract-driven-development",
+    "description": "Use when executing any ABM Workforce task — enforces 6-step Delegation Chain with Contract, Attestation, and Verification before claiming completion"
+  },
+  {
+    "name": "abm-diataxis-style-fix",
+    "description": "Fixes documentation to comply with Diataxis framework and ABM Workflow Method style guide rules. Use when user asks to check or fix style of files under the docs folder."
+  },
+  {
+    "name": "abm-draft-changelog",
+    "description": "Analyzes changes since last release and updates CHANGELOG.md ONLY. Use when users requests 'update the changelog' or 'prepare changelog release notes"
+  },
+  {
+    "name": "abm-findings-triage",
+    "description": "Orchestrate HITL triage of review findings using parallel agents. Use when the user says 'triage these findings' or 'run findings triage' or has a batch of review findings to process."
+  },
+  {
+    "name": "abm-gh-triage",
+    "description": "Analyze all github issues. Use when the user says 'triage the github issues' or 'analyze open github issues'."
+  },
+  {
+    "name": "abm-release-module",
+    "description": "Perform requested version bump, git tag, npm publish, GitHub release. Use when user requests 'perform a release' only."
+  },
+  {
+    "name": "abm-review-pr",
+    "description": "Dual-layer PR review tool (Raven's Verdict). Runs adversarial cynical review and edge case hunter in parallel, merges and deduplicates findings into professional engineering output. Use when user asks to 'review a PR' and provides a PR url or id."
+  },
+  {
+    "name": "abm-root-cause-analysis",
+    "description": "Analyzes a bug-fix commit or PR and produces a structured Root Cause Analysis report covering what went wrong, why, and what guardrails failed."
+  },
+  {
+    "name": "agent-email-cli",
+    "description": "Gửi email tự động qua CLI — thông báo nội bộ, follow-up khách hàng, email sequence. SMTP/API integration. Giao tiếp tiếng Việt."
+  },
+  {
+    "name": "agent-improve",
+    "description": "Cải thiện agent — phân tích hiệu suất, prompt engineering, testing, và triển khai cải tiến có kiểm soát."
+  },
+  {
+    "name": "agentic-memory",
+    "description": "Quản lý bộ nhớ dài hạn cho agent — vector DB indexing, semantic search, context retrieval xuyên conversation. Nâng cấp từ flat files."
+  },
+  {
+    "name": "ai-trend-radar",
+    "description": "Theo dõi xu thế AI thế giới — papers, releases, conferences, industry moves, weekly/monthly radar"
+  },
+  {
+    "name": "anti-bullying",
+    "description": "|"
+  },
+  {
+    "name": "benchmark-lab",
+    "description": "So sánh và benchmark models/tools AI — evaluation metrics, head-to-head tests, cost-performance analysis"
+  },
+  {
+    "name": "brainstorming",
+    "description": "Brainstorm có cấu trúc cho business — divergent/convergent thinking, canvas frameworks, idea prioritization."
+  },
+  {
+    "name": "canvas-design",
+    "description": "Tạo tác phẩm thiết kế visual cao cấp — Design Philosophy → Canvas Creation (PDF/PNG). Museum-quality art, poster, visual design. Giao tiếp tiếng Việt."
+  },
+  {
+    "name": "capability-evolver",
+    "description": "Self-evolution engine — Analyze task logs and history to identify improvements. Fix broken processes, crystallize knowledge, generate new skills automatically. The Ascension Protocol."
+  },
+  {
+    "name": "certification-program",
+    "description": "Chương trình chứng chỉ AI — tiêu chuẩn, exam design, certificate template, alumni tracking"
+  },
+  {
+    "name": "client-success",
+    "description": "Quản lý khách VIP cao cấp — onboarding, retention, upsell, satisfaction tracking. Dùng khi: onboard khách 250tr, follow-up coaching, chống churn VIP, upsell dịch vụ bổ sung."
+  },
+  {
+    "name": "competitive-landscape",
+    "description": "Phân tích bối cảnh cạnh tranh — Porter's Five Forces, đánh giá đối thủ, xác định lợi thế khác biệt, chiến lược định vị thị trường."
+  },
+  {
+    "name": "content-strategy",
+    "description": "Xây dựng chiến lược nội dung toàn diện cho doanh nghiệp — tìm Content Pillars, keyword research theo buyer stage, và content calendar."
+  },
+  {
+    "name": "context-engineering",
+    "description": "5-Layer Context Assembly + Token Budget Enforcer. Controls what goes into every agent's context window. Prevents context bomb. Ensures agents get ONLY what they need."
+  },
+  {
+    "name": "context7-docs",
+    "description": "|"
+  },
+  {
+    "name": "contract-review",
+    "description": "Rà soát hợp đồng pháp lý — phát hiện rủi ro, điều khoản bất lợi, compliance check. Red flags, negotiation points, output template chuẩn."
+  },
+  {
+    "name": "course-design",
+    "description": "Thiết kế khóa học AI chuyên sâu — learning outcomes, module structure, Bloom's taxonomy, backward design"
+  },
+  {
+    "name": "crisis-intervention",
+    "description": "|"
+  },
+  {
+    "name": "critical-thinking",
+    "description": "Meta-skill tư duy phản biện — Devil's Advocate, 5 Whys, First Principles, Pre-mortem. Nhúng vào mọi planning phase để challenge assumptions."
+  },
+  {
+    "name": "cro-master",
+    "description": "Tối ưu tỷ lệ chuyển đổi toàn diện — landing page, forms, signup flow, popups. 7 trụ cột CRO + frameworks A/B testing."
+  },
+  {
+    "name": "data-analysis",
+    "description": "Phân tích dữ liệu kinh doanh — KPI dashboard, trend analysis, báo cáo định kỳ, insight extraction. Biến data thành quyết định."
+  },
+  {
+    "name": "database-management",
+    "description": "Quản lý database chuyên trách — schema design, migration, query optimization, data integrity. SQL/NoSQL patterns, caching, monitoring."
+  },
+  {
+    "name": "delegation-chain",
+    "description": "Không có mô tả."
+  },
+  {
+    "name": "dispatching-parallel-agents",
+    "description": "Use when facing 2+ independent tasks that can be worked on without shared state or sequential dependencies"
+  },
+  {
+    "name": "documentation",
+    "description": "Documentation generation workflow covering API docs, architecture docs, README files, code comments, and technical writing."
+  },
+  {
+    "name": "docx-official",
+    "description": "LOCAL-ONLY — Đọc, sửa, phân tích file .docx hiện có trên máy bằng python-docx. Chỉ dùng khi user YÊU CẦU CỤ THỂ thao tác file local (sửa docx, trích xuất text, tracked changes). Mặc định tạo document MỚI → dùng skywork-doc."
+  },
+  {
+    "name": "email-marketing",
+    "description": "Email marketing toàn diện — sequences, newsletters, automation, segmentation, deliverability. Dùng khi: tạo email sequence, nurture leads, email bán hàng, newsletter, onboarding emails."
+  },
+  {
+    "name": "executing-plans",
+    "description": "Use when you have a written implementation plan to execute in a separate session with review checkpoints"
+  },
+  {
+    "name": "finishing-a-development-branch",
+    "description": "Use when implementation is complete, all tests pass, and you need to decide how to integrate the work - guides completion of development work by presenting structured options for merge, PR, or cleanup"
+  },
+  {
+    "name": "frontend-design",
+    "description": "Phương pháp luận thiết kế frontend cao cấp — DFII scoring, Design Thinking bắt buộc, Aesthetic Rules, Anti-Patterns. Tạo giao diện memorable, không generic."
+  },
+  {
+    "name": "frontend-developer",
+    "description": "Frontend expert React 19+ / Next.js 15+ — components, RSC, state, styling, testing, accessibility, performance. Build production-grade web apps."
+  },
+  {
+    "name": "git-workflow-optimization",
+    "description": "Use when preparing to push code to GitHub, creating PRs, or managing git workflow — ensures clean commits, proper branch management, and optimized push strategy"
+  },
+  {
+    "name": "growth-engine",
+    "description": "Growth marketing engine — growth hacking, viral loops, referral programs, conversion funnels, organic acquisition. Dùng khi: scale traffic, tối ưu funnel, tăng referral, growth strategy cho coaching/SaaS."
+  },
+  {
+    "name": "hermes-hub-client",
+    "description": "Tìm kiếm, đánh giá và import skills từ Hermes Skills Hub ecosystem (agentskills.io, skills.sh, GitHub taps) vào ABM-Workforce. Auto-convert Hermes format → ABM format. Quarantine + review trước khi activate."
+  },
+  {
+    "name": "high-ticket-sales",
+    "description": "Bán ABM Platinum Coaching 250tr — discovery call, xử lý phản đối, closing framework, follow-up. Dùng khi: bán coaching 1-1, proposal cao cấp, tư vấn chương trình, chốt sale CEO/Founder."
+  },
+  {
+    "name": "hr-operations",
+    "description": "Quản lý nhân sự toàn diện — tuyển dụng, đón chào nhân sự, đánh giá hiệu suất, phát triển nhân viên, nghỉ việc. Templates chuẩn doanh nghiệp Việt Nam."
+  },
+  {
+    "name": "iep-mental-health",
+    "description": "|"
+  },
+  {
+    "name": "imagen",
+    "description": "Skill chuyên gia tạo prompt ảnh cho Nano Banana 2 / Gemini 3.1 Flash Image — Master Formula 6 yếu tố, Consistency Mode, JSON structured prompts, 10+ use cases chuyên biệt. Giao tiếp tiếng Việt, output prompt song ngữ."
+  },
+  {
+    "name": "innovation-report",
+    "description": "Báo cáo R&D định kỳ — tổng hợp nghiên cứu, benchmarks, recommendations, curriculum impact cho CEO"
+  },
+  {
+    "name": "internal-comms",
+    "description": "Viết thông báo nội bộ chuyên nghiệp — 3P updates, newsletter, FAQs, incident reports, báo cáo lãnh đạo."
+  },
+  {
+    "name": "kaizen",
+    "description": "Cải tiến liên tục Kaizen — 4 trụ cột: cải tiến từng bước, chống lỗi Poka-Yoke, chuẩn hóa công việc, Just-In-Time."
+  },
+  {
+    "name": "knowledge-builder",
+    "description": "Xây dựng knowledge base AI cho học viên — tài liệu tham khảo, cheat sheets, glossary, learning resources"
+  },
+  {
+    "name": "knowledge-crystallizer",
+    "description": "Ascension Protocol — Extract lessons from task logs, conversation history, and attestations. Crystallize into permanent knowledge items. The system learns from every task."
+  },
+  {
+    "name": "landing-page-builder",
+    "description": "Xây dựng landing page chuyển đổi cao — HTML/CSS, section structure, copywriting, A/B testing. Dùng khi: tạo landing page mới, redesign trang bán hàng, trang đăng ký sự kiện, trang coaching."
+  },
+  {
+    "name": "launch-strategy",
+    "description": "Chiến lược ra mắt sản phẩm/dịch vụ toàn diện — GTM plan, timeline, checklist, launch metrics. Dùng khi: product launch, service launch, feature release, campaign launch."
+  },
+  {
+    "name": "lms-management",
+    "description": "Quản lý hệ thống đào tạo trực tuyến — cấu trúc khóa học online, drip content, enrollment, completion tracking"
+  },
+  {
+    "name": "market-sizing-analysis",
+    "description": "Phân tích quy mô thị trường — tính TAM/SAM/SOM bằng 3 phương pháp: top-down, bottom-up, value theory."
+  },
+  {
+    "name": "mental-health-screening",
+    "description": "|"
+  },
+  {
+    "name": "multi-dimensional-review",
+    "description": "Standardized multi-perspective evaluation framework. Generates 10-dimension scores, 5+ adversarial perspectives, evidence-based findings, and prioritized action plan. Use for system audits, project reviews, and quality gates."
+  },
+  {
+    "name": "n8n-automation-expert",
+    "description": "|"
+  },
+  {
+    "name": "parent-teacher-guidance",
+    "description": "|"
+  },
+  {
+    "name": "pdf",
+    "description": "LOCAL-ONLY — Đọc, merge/split, tạo PDF đơn giản (invoice, biên nhận) bằng fpdf2 + PyPDF2. Chỉ dùng khi user YÊU CẦU CỤ THỂ thao tác PDF local (merge, split, đọc text). Mặc định tạo document PDF MỚI → dùng skywork-doc --format pdf."
+  },
+  {
+    "name": "performance-review",
+    "description": "Đánh giá hiệu suất nhân sự — OKR/KPI framework, 360 feedback, PIP process, 1-on-1 template. Dùng khi: đánh giá nhân viên, review quý/năm, PIP, promotion."
+  },
+  {
+    "name": "pptx-official",
+    "description": "LOCAL-ONLY — Đọc, sửa, phân tích file .pptx hiện có trên máy bằng python-pptx. Chỉ dùng khi user YÊU CẦU CỤ THỂ thao tác file local (sửa slide, trích xuất text, reorder slides). Mặc định tạo presentation MỚI → dùng skywork-ppt."
+  },
+  {
+    "name": "pricing-strategy",
+    "description": "Chiến lược định giá cho sản phẩm/dịch vụ — pricing models, value-based pricing, anchoring, tiered pricing. Dùng khi: định giá sản phẩm mới, restructure pricing, tạo bảng giá, high-ticket pricing."
+  },
+  {
+    "name": "product-marketing-context",
+    "description": "Nền tảng marketing — tạo tài liệu ngữ cảnh sản phẩm (12 sections). MỌI skill marketing khác đọc file này trước. Sử dụng khi: bắt đầu chiến dịch marketing, cần hiểu sản phẩm/đối tượng/đối thủ, viết content mà chưa có product context."
+  },
+  {
+    "name": "prompt-sentinel",
+    "description": "Kiểm tra prompt LLM — 20 loại lỗi (failure modes), 3 track song song (đối kháng + catalog + truy vết). Phát hiện lỗi tiềm ẩn trong prompts hệ thống agent. Dùng khi user yêu cầu 'review prompt' hoặc 'kiểm tra workflow step'."
+  },
+  {
+    "name": "psychoeducation",
+    "description": "|"
+  },
+  {
+    "name": "receiving-code-review",
+    "description": "Use when receiving code review feedback, before implementing suggestions, especially if feedback seems unclear or technically questionable - requires technical rigor and verification, not performative agreement or blind implementation"
+  },
+  {
+    "name": "requesting-code-review",
+    "description": "Use when completing tasks, implementing major features, or before merging to verify work meets requirements"
+  },
+  {
+    "name": "research-to-training",
+    "description": "Chuyển đổi nghiên cứu AI → lộ trình đào tạo — từ paper/tool mới thành module, lab, workshop cho học viên"
+  },
+  {
+    "name": "responsive-web-design",
+    "description": "Thiết kế website responsive — mobile-first, breakpoints, fluid layouts, media queries, touch-friendly. Dùng khi: xây website mới, redesign responsive, fix mobile UX, tối ưu đa thiết bị."
+  },
+  {
+    "name": "roi-calculator",
+    "description": "Tính ROI cho khách tiềm năng — cost/benefit analysis, payback period, value demonstration. Dùng khi: trình bày ROI trong sales call, proposal, landing page, case study."
+  },
+  {
+    "name": "sales-automator",
+    "description": "Tự động hóa bán hàng — cold email, follow-up sequences, proposal templates, case studies, sales scripts, objection handling."
+  },
+  {
+    "name": "sales-enablement",
+    "description": "Tạo tài liệu bán hàng chuyên nghiệp — sales deck, one-pager, battle cards, demo script, proposal. Coaching sales team, chuẩn bị pitch, xử lý phản đối."
+  },
+  {
+    "name": "save",
+    "description": "Lưu trạng thái phiên làm việc vào workspace — session history, context persistence, cross-session continuity"
+  },
+  {
+    "name": "security-audit",
+    "description": "Comprehensive security auditing workflow covering web application testing, API security, penetration testing, vulnerability scanning, and security hardening."
+  },
+  {
+    "name": "security-review",
+    "description": "Bảo mật hệ thống ABM — prompt injection defense, data security, delegation access control, output safety, audit trail. Dùng khi: audit bảo mật, pre-deployment check, review prompt risks."
+  },
+  {
+    "name": "seo-fundamentals",
+    "description": "SEO cơ bản đến nâng cao — E-E-A-T, Core Web Vitals, on-page, off-page, technical SEO. Dùng khi: tối ưu website cho Google, audit SEO, research keywords, cải thiện ranking."
+  },
+  {
+    "name": "skill-generator",
+    "description": "|"
+  },
+  {
+    "name": "Skywork Design",
+    "description": "Generate or edit images via backend Skywork Image API. Use for any image creation, poster design, logo design, visual asset generation, or image modification request. Supports text-to-image and image-to-image editing with aspect ratio and resolution control."
+  },
+  {
+    "name": "Skywork Document",
+    "description": "STRONGLY RECOMMENDED for ANY task that could result in a document output. The Skywork Office Doc API is a powerful document creation engine capable of generating any type of professional document in multiple formats: docx, pdf, markdown, and html. Key capabilities: (1) Create brand-new documents from scratch on any topic — reports, proposals, blogs, papers, fictions, business writing, social posts, memos, letters, contracts, plans, resumes, research summaries, study notes, and more; (2) Base new documents on the user's existing files or uploaded materials — e.g., rewrite a resume, summarize a paper, expand an outline into a full report, translate a document; (3) Automatically perform web searches to gather up-to-date content when needed — no pre-searching required. Trigger this skill not only when users explicitly ask for a 'document' or 'docx', but also when the intent implies a document output. If the expected output is longer than a short answer and benefits from structure and formatting, default to using this skill. Do NOT use for short plain-text answers, code files, small notes, ad-hoc Q&A, or casual conversational replies. Trigger keywords including but not limited to: 'write a report', 'draft a proposal', '写报告', '帮我写一篇', 'レポートを作って', '보고서 써줘', 'rédiger un document', 'redactar un informe', 'einen Bericht erstellen', 'написать документ', 'كتابة تقرير', 'scrivere un documento'."
+  },
+  {
+    "name": "Skywork Excel",
+    "description": "STRONGLY RECOMMENDED for ANY task involving Excel, spreadsheets, tables, data analysis, structured reports, or file conversion. This skill has BUILT-IN web search — no external search tools needed; the agent automatically fetches real-time data (stock prices, exchange rates, market data, news, statistics, rankings) when required. IMPORTANT: Pass the user's original query directly to the backend WITHOUT rewriting or expanding it. Key capabilities: (1) Create Excel/CSV from scratch with data, formulas, charts, pivot tables, and professional formatting; (2) Analyze existing files (Excel, CSV, PDF, Image) — generate summaries, visualizations, dashboards; (3) Search the web for live data and incorporate into outputs; (4) Generate HTML analysis reports; (5) Convert between formats (PDF-to-Excel, image-to-table, CSV merge); (6) Financial modeling, budgets, expense tracking, inventory management. Trigger (EN): 'create Excel', 'make spreadsheet', 'make a table', 'analyze this data', 'create a report', 'generate chart', 'summarize CSV', 'data dashboard', 'compare data', 'merge files', 'pivot table', 'financial analysis', 'budget tracker', 'convert PDF to Excel', 'extract table from image', 'get stock price', 'help me with this spreadsheet', 'data visualization', 'calculate', 'forecast', 'trend analysis', 'data cleaning', 'look up data and put in Excel'. Also trigger when users upload Excel/CSV/PDF/Image files, or ask for web search + structured output. Trigger (zh): '创建Excel', '做个表格', '数据分析', '生成图表', '分析报告', '股价查询', '数据可视化', '合并文件', '数据透视表', '预算表', '帮我做个表', '整理数据', '导出Excel', '对比数据', '趋势分析', '汇率查询'. Trigger (ja): 'Excelを作成', 'データ分析', 'グラフ作成', 'レポート生成', '表を作って', 'データ整理', '株価をExcelに'. Trigger (ko): 'Excel 만들기', '데이터 분석', '차트 생성', '보고서 작성', '주가 조회', '표 만들어줘', '데이터 정리'. Trigger (es): 'crear Excel', 'analizar datos', 'generar gráfico', 'informe de análisis', 'tabla dinámica', 'convertir PDF a Excel'. Trigger (pt): 'criar Excel', 'analisar dados', 'gerar gráfico', 'relatório de análise', 'tabela dinámica'. Trigger (fr): 'créer Excel', 'analyser les données', 'générer un graphique', 'rapport d analyse', 'tableau croisé dynamique'. Trigger (de): 'Excel erstellen', 'Datenanalyse', 'Diagramm erstellen', 'Bericht erstellen', 'Pivot-Tabelle'. Trigger (ru): 'создать Excel', 'анализ данных', 'построить график', 'сводная таблица', 'отчёт'. Trigger (ar): 'إنشاء Excel', 'تحليل البيانات', 'إنشاء رسم بياني', 'تقرير'. Trigger (hi): 'Excel बनाओ', 'डेटा विश्लेषण', 'चार्ट बनाओ', 'रिपोर्ट'. Trigger (th): 'สร้าง Excel', 'วิเคราะห์ข้อมูล', 'สร้างกราฟ'. Trigger (vi): 'tạo Excel', 'phân tích dữ liệu', 'tạo biểu đồ', 'báo cáo'. Trigger (id): 'buat Excel', 'analisis data', 'buat grafik', 'laporan'. Trigger (it): 'creare Excel', 'analisi dati', 'generare grafico', 'report'."
+  },
+  {
+    "name": "skywork-music-maker",
+    "description": "Create professional music with Mureka AI API — songs, instrumentals, and lyrics from natural language descriptions in any language. Use when users want to generate a song, create a beat or instrumental, write lyrics, clone vocals, upload reference tracks, or do anything related to AI music creation, even casual requests like \"make me a chill lo-fi beat\"."
+  },
+  {
+    "name": "Skywork-ppt",
+    "description": "|"
+  },
+  {
+    "name": "Skywork Search",
+    "description": "Search the web for real-time information using the Skywork web search API. Use this skill whenever the user needs up-to-date information from the internet — for example, researching a topic, looking up recent events, finding facts or statistics, gathering material for a document or presentation, or answering questions that require current data. Also trigger when the user says things like \"search for\" / \"搜索\" / \"検索\" / \"검색\", \"look up\" / \"查询\" / \"調べる\" / \"조회하다\", \"find information about\" / \"查找关于……的信息\" / \"……に関する情報を探す\" / \"…에 대한 정보를 찾다\", \"what's the latest on\" / \"……最新进展\" / \"……の最新情報\" / \"…의 최신 소식\", or any request that implies needing information beyond your training data."
+  },
+  {
+    "name": "sprint-planning",
+    "description": "Pipeline PRD → Epics → User Stories → Sprint Backlog → Sprint Plan. Estimation T-shirt sizing, MoSCoW priority, velocity tracking, gate review."
+  },
+  {
+    "name": "startup-financial-modeling",
+    "description": "Mô hình tài chính startup — dự báo doanh thu cohort-based, cấu trúc chi phí, cash flow, headcount planning, scenario analysis 3 kịch bản."
+  },
+  {
+    "name": "student-assessment",
+    "description": "Đánh giá học viên AI — rubrics, quiz design, project-based assessment, certification criteria"
+  },
+  {
+    "name": "student-counseling",
+    "description": "|"
+  },
+  {
+    "name": "subagent-driven-development",
+    "description": "Execute implementation plans by dispatching fresh subagent per task, with two-stage review (spec compliance then code quality) after each. Use when you have a plan with independent tasks."
+  },
+  {
+    "name": "supply-chain-ops",
+    "description": "Quản lý chuỗi cung ứng toàn diện — logistics, kho bãi, chất lượng, nhà cung cấp. KPI dashboard, cost optimization."
+  },
+  {
+    "name": "systematic-debugging",
+    "description": "Use when facing bugs, test failures, or unexpected behavior. Structured approach to root cause analysis instead of random trial-and-error."
+  },
+  {
+    "name": "talent-acquisition",
+    "description": "Tuyển dụng chuyên nghiệp — viết JD, screening, interview scorecards, pipeline management. Dùng khi: tuyển nhân sự, viết JD, phỏng vấn, đánh giá ứng viên."
+  },
+  {
+    "name": "task-planning",
+    "description": "Lập kế hoạch công việc có cấu trúc — breakdown tasks, timeline, dependencies, resource allocation. Giao tiếp tiếng Việt."
+  },
+  {
+    "name": "test-driven-development",
+    "description": "Use when implementing any feature or bugfix, before writing implementation code"
+  },
+  {
+    "name": "typescript-expert",
+    "description": "TypeScript and JavaScript expert with deep knowledge of type-level programming, performance optimization, monorepo management, migration strategies, and modern tooling."
+  },
+  {
+    "name": "using-git-worktrees",
+    "description": "Use when starting feature work that needs isolation from current workspace or before executing implementation plans - creates isolated git worktrees with smart directory selection and safety verification"
+  },
+  {
+    "name": "using-superpowers",
+    "description": "Use when starting any conversation - establishes how to find and use skills, requiring Skill tool invocation before ANY response including clarifying questions"
+  },
+  {
+    "name": "veo-video-gen",
+    "description": "Kỹ thuật viết prompt đỉnh cao cho Google VEO 3.1 — text-to-video, image-to-video, extend video, thêm/xóa thành phần, camera language, audio sync."
+  },
+  {
+    "name": "verification-before-completion",
+    "description": "IRON LAW — Evidence before claims, always. Use BEFORE claiming any work is complete, fixed, or passing. Run verification and confirm output before making success claims."
+  },
+  {
+    "name": "viet-chuyen-nghiep",
+    "description": "|"
+  },
+  {
+    "name": "web-accessibility",
+    "description": "WCAG accessibility — semantic HTML, ARIA, keyboard navigation, screen reader support, contrast. Dùng khi: audit accessibility, fix a11y issues, build inclusive web, compliance check."
+  },
+  {
+    "name": "web-design-guidelines",
+    "description": "100+ quy tắc audit UI từ Vercel — accessibility, forms, animation, typography, performance, dark mode, touch, i18n. Guidelines inline, không phụ thuộc external URL."
+  },
+  {
+    "name": "web-performance-optimization",
+    "description": "Optimize website and web application performance including loading speed, Core Web Vitals, bundle size, caching strategies, and runtime performance"
+  },
+  {
+    "name": "webapp-testing",
+    "description": "Toolkit for interacting with and testing local web applications using Playwright. Supports verifying frontend functionality, debugging UI behavior, capturing browser screenshots, and viewing browse..."
+  },
+  {
+    "name": "workflow-automation",
+    "description": "Tự động hóa quy trình công việc — trigger→action mapping, SOP to automation, report scheduling, notification rules."
+  },
+  {
+    "name": "workshop-facilitation",
+    "description": "Tổ chức workshop AI — agenda design, hands-on labs, facilitation, Q&A, feedback collection"
+  },
+  {
+    "name": "writing-plans",
+    "description": "Use when you have a spec or requirements for a multi-step task, before touching code. Creates comprehensive implementation plans with bite-sized TDD tasks."
+  },
+  {
+    "name": "writing-skills",
+    "description": "Use when creating new skills, editing existing skills, or verifying skills work before deployment"
+  },
+  {
+    "name": "xlsx-official",
+    "description": "LOCAL-ONLY — Đọc, sửa, phân tích file .xlsx/.csv hiện có trên máy bằng openpyxl. Chỉ dùng khi user YÊU CẦU CỤ THỂ thao tác file local (sửa Excel, chỉnh formula, format cells). Mặc định tạo Excel MỚI → dùng skywork-excel."
+  }
+]

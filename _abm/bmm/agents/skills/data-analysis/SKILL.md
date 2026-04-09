@@ -8,7 +8,7 @@ description: Phân tích dữ liệu kinh doanh — KPI dashboard, trend analysi
 
 ## KHONG su dung khi
 
-- Can tao bang tinh Excel -> dung xlsx. Can bao cao PDF -> dung pdf.
+- Can tao bang tinh Excel -> dung skywork-excel (mac dinh) hoac xlsx-official (local). Can bao cao PDF -> dung skywork-doc --format pdf.
 
 
 # Data Analysis — Phân tích dữ liệu kinh doanh

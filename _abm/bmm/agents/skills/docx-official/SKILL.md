@@ -1,13 +1,16 @@
 ---
 name: docx-official
-version: 1.0.0
+version: 1.0.1
 author: ABM Skill Architect
-last_updated_date: 2026-03-28
-description: "Comprehensive document creation, editing, and analysis with support for tracked changes, comments, formatting preservation, and text extraction. When Claude needs to work with professional document..."
+last_updated_date: 2026-04-09
+description: "LOCAL-ONLY — Đọc, sửa, phân tích file .docx hiện có trên máy bằng python-docx. Chỉ dùng khi user YÊU CẦU CỤ THỂ thao tác file local (sửa docx, trích xuất text, tracked changes). Mặc định tạo document MỚI → dùng skywork-doc."
 risk: unknown
 source: community
 date_added: "2026-02-27"
 ---
+
+> [!IMPORTANT]
+> **Routing Rule:** Mặc định tạo document mới → dùng `skywork-doc` (Skywork Cloud API). Skill này CHỈ dùng khi user yêu cầu: (1) sửa file .docx local có sẵn, (2) trích xuất text/metadata từ .docx, (3) tracked changes, comments, (4) user nói rõ "làm offline" hoặc "không upload".
 
 # DOCX creation, editing, and analysis
 

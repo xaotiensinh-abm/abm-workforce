@@ -8,7 +8,7 @@ description: Quản lý nhân sự toàn diện — tuyển dụng, đón chào 
 
 ## KHÔNG sử dụng khi
 
-- Cần tạo file Word → dùng docx. Cần phân tích dữ liệu HR → dùng data-analysis.
+- Cần tạo file Word → dùng skywork-doc (mặc định) hoặc docx-official (local). Cần phân tích dữ liệu HR → dùng data-analysis.
 
 
 # HR Operations — Quản lý nhân sự doanh nghiệp

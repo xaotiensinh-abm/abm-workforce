@@ -1,5 +1,8 @@
 ---
 name: Skywork Design
+version: 1.0.0
+author: ABM Skill Architect
+last_updated_date: 2026-04-09
 description: Generate or edit images via backend Skywork Image API. Use for any image creation, poster design, logo design, visual asset generation, or image modification request. Supports text-to-image and image-to-image editing with aspect ratio and resolution control.
 metadata:
   openclaw:
@@ -11,139 +14,81 @@ metadata:
     primaryEnv: SKYWORK_API_KEY
 ---
 
-# Visual Design — Image Generation & Editing
+# Goal
+Tạo hoặc chỉnh sửa hình ảnh (Poster, Graphic Design, Infographic, Logo) chất lượng cao thông qua Skywork Image API, ứng dụng chuẩn viết Prompt đặc biệt của model Nano Banana 2.
 
-Generate new images or edit existing ones via the backend image API.
-Be patient, it takes about 2 minutes to generate an image each time.
+# Instructions
 
----
+## Bước 1: Thu thập Yêu cầu & Xác định Thông số
+Hỏi người dùng để chốt các thông số thiết kế (nếu họ chưa nói rõ):
+1. **Chế độ**: Tạo mới (Generate) hay Chỉnh sửa ảnh có sẵn (Edit)?
+2. **Kích thước (Aspect Ratio)**:
+   - `1:1` (Avatar, Social)
+   - `3:4` / `4:3` (Poster nhỏ, Slide)
+   - `9:16` / `16:9` (Story, Hình nền Desktop, Video Cover)
+   - `21:9` (Banner rộng)
+3. **Độ phân giải (Resolution)**: Default là `2K`. Dùng `1K` cho nháp, `4K` cho in ấn/chất lượng cao.
+4. **Nội dung Văn Bản**: **TUYỆT ĐỐI 100% TIẾNG VIỆT** đối với dòng chữ muốn hiển thị trên ảnh. Model render Tiếng Việt cực kỳ xuất sắc.
 
-## Prerequisites
+## Bước 2: Thiết kế Prompt theo chuẩn Nano Banana
+Nano Banana 2 cực mạnh ở khả năng hiểu cấu trúc (Parametric Design) thay vì miêu tả mơ hồ. Không cần viết mây gió, hãy chia prompt thành các cấu trúc rõ ràng:
+- **Style/Material**: Dùng "Liquid Glass", "3D Glossy", "Apple liquid glass" giúp ảnh cực kì Premium.
+- **Data-Injected**: Nếu làm Infographic, ép thông số có thật (VD: 85 độ C, 99 kcal) vào để tăng độ chân thực.
+- **Text Injection**: Ghi rõ text nào hiển thị ở đâu (VD: Tiêu đề lớn: "GIẢM GIÁ 50%", Tiêu đề phụ: "Chỉ hôm nay").
 
-### API Key Configuration (Required First)
-This skill requires a **SKYWORK_API_KEY** to be configured in OpenClaw.
+## Bước 3: Chạy Lệnh Thực Thi (Command)
+Sử dụng python script được lưu ở `_abm/bmm/agents/skills/skywork-design/scripts/generate_image.py`.
+*Lưu ý: Luôn chạy ở thư mục hiện tại của workspace.*
 
-If you don't have an API key yet, please visit:
-**https://skywork.ai**
-
-For detailed setup instructions, see:
-[references/apikey-fetch.md](references/apikey-fetch.md)
-
-## Usage
-
-Run the script using absolute path (do NOT cd to skill directory):
-
-**Generate new image:**
+**Tạo Ảnh (Generate):**
 ```bash
-python3 <SKILL_DIR>/scripts/generate_image.py --prompt "description" --filename "output.png" [--aspect-ratio 3:4] [--resolution 1K|2K|4K]
+python3 _abm/bmm/agents/skills/skywork-design/scripts/generate_image.py --prompt "<NỘI_DUNG_PROMPT>" --filename "<TÊN_FILE.png>" --aspect-ratio 16:9 --resolution 2K
 ```
 
-**Edit existing image:**
+**Sửa Ảnh (Edit):**
 ```bash
-python3 <SKILL_DIR>/scripts/generate_image.py --prompt "edit instructions" --filename "output.png" --input-image "source.png" [--aspect-ratio 3:4] [--resolution 2K]
+python3 _abm/bmm/agents/skills/skywork-design/scripts/generate_image.py --prompt "<NỘI_DUNG_CẦN_SỬA>" --filename "<TÊN_FILE_MỚI.png>" --input-image "<FILE_GỐC.png>"
 ```
 
-**Edit with multiple reference images:**
-```bash
-python3 <SKILL_DIR>/scripts/generate_image.py --prompt "combine these styles" --filename "output.png" -i "ref1.png" -i "ref2.png"
+# Examples
+
+## Ví dụ 1: Tạo Infographic Dạng Bento Grid (Xịn nhất hiện nay)
+**Input User:** "Làm cho tôi 1 ảnh infographic giới thiệu Trà Sen Tây Hồ."
+**Prompt Agent dùng chạy lệnh (Nên giữ System Prompt là tiếng Anh, nhưng text truyền vào bắt buộc Tiếng Việt):**
+```text
+System Instruction:
+Create an image of premium liquid glass Bento grid product infographic with 8 modules (card 2 to 8 show text titles only).
+1) Product Analysis: dominant natural color -> delicate lotus pink and fresh green.
+2) Color Palette: full saturation lotus pink and green. Icons, borders: muted.
+3) Visual Style: Hero product: real photography of porcelain tea cup filled with golden tea and fresh lotus flowers on a wooden table. Cards: Apple liquid glass (90% transparent) with whisper-thin borders and subtle drop shadow. Asymmetric Bento grid layout.
+4) Module Content (Text must be exactly rendered in Vietnamese):
+M1 - Hero Box: "Trà Sen Tây Hồ" label.
+M2 - Core Benefits: 4 unique benefits ("An Thần", "Thải Độc", "Chống Lão Hóa", "Ngủ Ngon") + icons.
+M3 - How to Brew: 4 steps to brew ("Đun Sôi", "Tráng Trà", "Hãm 3 Phút", "Thưởng Thức") + icons.
+M4 - Key Metrics: "Xuất Xứ: Hồ Tây", "Nhiệt Độ: 85°C", "Nhịp Độ: 3-5 Phút", "Mùa Vụ: Mùa Hè".
+M5 - Who It's For: 4 recommended groups ("Dân Văn Phòng", "Người Mất Ngủ", "Đam Mê Trà Đạo").
+M6 - Important Notes: 4 precautions ("Bảo quản kín", "Tránh ánh nắng", "Không dùng ruột rỗng", "Không để qua đêm").
+M7 - Quick Reference: Taste profile ("Hương Hoa Sen", "Vị Ngọt Hậu").
+M8 - Artisan Process: "Nghệ Thuật Ướp Trà Truyền Thống".
+
+Make ALL text clearly visible natively inside the generated image IN VIETNAMESE completely. Do not use random placeholder characters.
 ```
 
-Always run from the user's working directory so images save there.
+## Ví dụ 2: Tạo Poster Cinematic / Tạp Chí
+**Input User:** "Làm 1 cái poster ra mắt phim ngắn về Sài Gòn Mưa"
+**Prompt Agent dùng chạy lệnh:**
+```text
+A glossy magazine cover / Cinematic Event Poster. Aspect Ratio 3:4.
+Visual scene: A dynamic photograph of a raining scene in Saigon at night, neon lights reflecting on wet asphalt.
+Lighting: Chiaroscuro lighting, moody.
+Typography overlay: Bold Title "SÀI GÒN MƯA RƠI" in elegant serif font at the top. Smaller sub-text "Ngày 15 Tháng 8" floating at the bottom right.
+Details: Issue number and date in the corner with a minimalist barcode. The image must feel like a premium printed asset. All texts are exclusively in Vietnamese.
+```
 
-## When to Generate vs Edit
+# Constraints
+- 🚫 **Bảo Mật Keys:** Tuyệt đối không thay đổi `SKYWORK_API_KEY`.
+- 🚫 **Tuân thủ Ngôn Ngữ:** Nội dung văn bản xuất hiện in lên ảnh BẮT BUỘC 100% TIẾNG VIỆT, vì model render Tiếng Việt rất tốt.
+- ✅ **Chờ Đợi & Cập Nhật:** Lệnh tạo ảnh chạy 30s-120s. Trong quá trình đó script sẽ in phần trăm [0%] -> [100%]. Hãy dùng tool status để canh và báo người dùng không cần sốt ruột.
+- ✅ **Lỗi Benefit:** Nếu API in ra `Insufficient benefit`, báo user "Gói cước Skywork hết hạn hoặc không đủ quyền, yêu cầu nâng cấp" cùng với link nâng cấp có trong log. Không tự bịa ra lý do khác.
 
-- **Generation** (`--prompt` only): Creating new images from scratch — posters, logos, illustrations, photos, infographics.
-- **Editing** (`--prompt` + `--input-image`): User provides existing image(s) and wants modifications — style changes, element addition/removal, color adjustments, format conversion.
-  - Notice: Edit api supports character resemblance of up to 4 characters and the fidelity of up to 10 objects in a single workflow
-
-If the user uploads/references images and wants changes, always use `--input-image`.
-
-## Resolution
-
-- **1K** — ~1024px, fast drafts
-- **2K** (default) — ~2048px, good for most deliverables
-- **4K** — ~4096px, final high-res output
-
-Map user requests: "low/draft" → 1K, "normal/medium/2K" → 2K, "high-res/hi-res/4K/ultra" → 4K.
-
-## Aspect Ratio
-
-Supported ratios: `1:1`, `2:3`, `3:2`, `3:4`, `4:3`, `4:5`, `5:4`, `9:16`, `16:9`, `21:9`.
-
-Selection guidance:
-- **1:1** — Social media avatars, icons, album covers
-- **3:4 / 4:3** — General posters, presentations
-- **4:5 / 5:4** — Instagram posts, portraits
-- **9:16 / 16:9** — Mobile stories / desktop wallpapers, video covers
-- **2:3 / 3:2** — Print posters, book covers
-- **21:9** — Ultra-wide banners, cinema format
-
-If the user doesn't specify, omit `--aspect-ratio` and let the API decide.
-
-## Filename Convention
-
-Pattern: `yyyy-mm-dd-hh-mm-ss-descriptive-name.png`
-
-Examples:
-- "A serene Japanese garden" → `2026-03-10-14-23-05-japanese-garden.png`
-- "sunset over mountains" → `2026-03-10-15-30-12-sunset-mountains.png`
-- Unclear context → `2026-03-10-17-12-48-x9k2.png`
-
-## Preflight
-
-- `command -v python3` (must exist)
-- If editing: verify each `--input-image` file exists
-
-## Common Failures
-
-- `Error: Input image not found:` → wrong path; verify `--input-image` file exists
-- `HTTP error 500` → backend service error; retry or check server status
-- `Request failed: Connection refused` → backend service unavailable; ensure the service is running
-- **Insufficient benefit**: The script or log may show a message like `Insufficient benefit. Please upgrade your account at {url}`, meaning the user's benefit level does not meet the requirement for this skill.
-
-### How to reply when benefit is insufficient
-
-When you detect the above, **reply in the user's current language** — do not echo the English message. Use this pattern:
-
-- Convey: "Sorry, image generation failed. This skill requires upgrading your Skywork membership to use." then a single call-to-action link.
-- **Format**: One short sentence in the user's language + a link like `[Upgrade now →](url)` or the equivalent in their language.
-- **URL**: Extract the upgrade URL from the log/script output (e.g. the `at https://...` part).
-
-> Note: Only suggest upgrading when the error is **Insufficient benefit**. For auth errors like `NO_TOKEN` / `INVALID_TOKEN` / `401` / “invalid API key”, keep the error code / raw message and guide users to update `SKYWORK_API_KEY`. **Do not** suggest upgrading membership.
-
-## Output
-
-- Script prints the local file path and the OSS URL.
-- Depending on the platform, use the most appropriate way to deliver the image (e.g. send as image message, display inline, or print the URLs). By default, return both the local path and OSS URL to the user. The OSS URL ensures cross-platform accessibility.
-
-## Design Scenarios
-
-Match the user's request to a scenario and read the corresponding file for specialized workflow:
-
-- **E-commerce product image**: See [scenarios/e-commerce.md](scenarios/e-commerce.md)
-- **Storyboard**: See [scenarios/storyboard.md](scenarios/storyboard.md)
-- **Infographic**: See [scenarios/infographic.md](scenarios/infographic.md)
-- **Logo**: See [scenarios/logo.md](scenarios/logo.md)
-- **Branding / VI**: See [scenarios/branding.md](scenarios/branding.md)
-- **Brochure**: See [scenarios/brochure.md](scenarios/brochure.md)
-- **Social media**: See [scenarios/social-media.md](scenarios/social-media.md)
-- **Poster**: See [scenarios/poster.md](scenarios/poster.md)
-
-## Prompt Engineering
-
-### Prompts Best Practices
-
-Follow these principles for quality prompts using the image API for generation or editing:
-
-- **Describe the scene, don't just list keywords.** A narrative, descriptive paragraph produces much better results than disconnected words. The model's core strength is deep language understanding.
-  - Weak: "cat, sunset, beach"
-  - Strong: "A ginger tabby cat sitting on a sandy beach at golden hour, facing the camera with soft warm backlighting, shallow depth of field, ocean waves blurred in the background"
-- **Be hyper-specific.** The more detail you provide, the more control you have. Include all visual details: style, colors, composition, lighting, background, textures.
-- **Provide context and intent.** Explain the purpose of the image — the model's understanding of context influences the output.
-- **Use step-by-step instructions** for complex scenes with many elements. Break the prompt into layers: foreground, middle ground, background.
-- **Use "semantic negative prompts."** Instead of "no cars," describe positively: "an empty, deserted street with no signs of traffic."
-- **Control the camera.** Use photographic and cinematic terms: "wide-angle shot", "macro shot", "low-angle perspective", "bird's eye view", "rule of thirds", "shallow depth of field".
-- **Time perception.** If the result needs real-time timeliness, mention the current time context in the prompt.
-- **Text in images.** Place text content within double quotation marks:
-  > A movie poster with the title "INCEPTION" in large silver metallic letters at the top
-- Clearly specify and emphasize the elements that require modification. Describe reference images by their order (first image, second image), not by filename.
+<!-- Generated by ABM Skill Generator v1.0 | ABM Workforce -->

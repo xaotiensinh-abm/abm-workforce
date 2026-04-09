@@ -12,6 +12,11 @@ date_added: "2026-02-27"
 
 # Documentation Workflow Bundle
 
+**[QUY TRÌNH XUẤT BẢN TÀI LIỆU BẮT BUỘC (MARKDOWN-FIRST)]**
+1. **Soạn thảo Markdown thô**: Viết toàn bộ nội dung ra file `.md` trước và xin ý kiến duyệt của CEO. KHÔNG tự tiện gọi sinh file PDF/DOCX ngay lúc viết.
+2. **Quyết định Định dạng**: Khi CEO duyệt "ok", hãy hỏi CEO muốn lưu ra định dạng nào (Word `.docx`, PDF `.pdf`, hay Slide `.pptx`).
+3. **Mặc định dùng Skywork**: Luôn sử dụng kỹ năng `skywork-doc` hoặc `skywork-ppt` để xuất bản file theo quyết định của CEO (Skywork sẽ tự map dữ liệu với `modern-slide-pdf-design.md` để trình bày đẳng cấp).
+
 ## Overview
 
 Comprehensive documentation workflow for generating API documentation, architecture documentation, README files, code comments, and technical content from codebases.

@@ -1,10 +1,13 @@
 ---
 name: "pdf"
-version: 1.0.0
+version: 1.0.1
 author: ABM Skill Architect
-last_updated_date: 2026-03-28
-description: "Tạo, đọc và xử lý file PDF — báo cáo, invoice, hợp đồng, merge/split. Dùng fpdf2 + PyPDF2. Giao tiếp tiếng Việt."
+last_updated_date: 2026-04-09
+description: "LOCAL-ONLY — Đọc, merge/split, tạo PDF đơn giản (invoice, biên nhận) bằng fpdf2 + PyPDF2. Chỉ dùng khi user YÊU CẦU CỤ THỂ thao tác PDF local (merge, split, đọc text). Mặc định tạo document PDF MỚI → dùng skywork-doc --format pdf."
 ---
+
+> [!IMPORTANT]
+> **Routing Rule:** Mặc định tạo file PDF mới → dùng `skywork-doc --format pdf` (Skywork Cloud API). Skill này CHỈ dùng khi: (1) merge/split PDF local, (2) đọc/trích xuất text từ PDF, (3) tạo PDF đơn giản (invoice template) mà không cần AI viết nội dung, (4) user nói rõ "làm offline".
 
 # 📄 PDF — Tạo & Xử Lý File PDF
 
@@ -20,9 +23,9 @@ Skill tạo, đọc và xử lý file `.pdf` — dùng `fpdf2` (tạo) + `PyPDF2
 
 ## KHÔNG sử dụng khi
 
-- Cần file Word editable → dùng `docx`
-- Cần bảng tính → dùng `xlsx`
-- Cần visual art/poster → dùng `canvas-design`
+- Cần file Word editable → dùng `skywork-doc` (mặc định) hoặc `docx-official` (local)
+- Cần bảng tính → dùng `skywork-excel` (mặc định) hoặc `xlsx-official` (local)
+- Cần visual art/poster → dùng `skywork-design` hoặc `canvas-design`
 
 ## VÍ DỤ NHANH
 

@@ -1,0 +1,219 @@
+{
+  "main": {
+    "id": "3b095e606717e23a",
+    "type": "split",
+    "children": [
+      {
+        "id": "145e16f2c6bdebab",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "6b6216f8118658e0",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "Tab mới"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "7e3f83c3898be3b8",
+    "type": "split",
+    "children": [
+      {
+        "id": "4c948ba854164c60",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "4171f0ebbce818a7",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Trình duyệt tệp"
+            }
+          },
+          {
+            "id": "5838aa2d379b47c5",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "1685c4d846596d91",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "ac603890e5901d2f",
+    "type": "split",
+    "children": [
+      {
+        "id": "cd2cd8b5ea14f44f",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "1153da9066cf6412",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks"
+            }
+          },
+          {
+            "id": "372f110417ea5dfa",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links"
+            }
+          },
+          {
+            "id": "cee58894d4ac6ba6",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "f47cb65162cef77d",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          },
+          {
+            "id": "eea0b111b3c20a7f",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Mở bộ chuyển đổi nhanh": false,
+      "graph:Mở xem biểu đồ": false,
+      "canvas:Tạo bảng mới": false,
+      "daily-notes:Mở ghi chú hôm nay": false,
+      "templates:Chèn mẫu": false,
+      "command-palette:Mở khay lệnh": false,
+      "bases:Tạo cơ sở mới": false
+    }
+  },
+  "active": "6b6216f8118658e0",
+  "lastOpenFiles": [
+    "_abm/_config/mcp-registry.yaml",
+    "_abm/bmm/agents/skills/abm-agent-evals/SKILL.md",
+    "_abm/bmm/agents/skills/abm-agent-evals/scripts",
+    "_abm/bmm/agents/skills/abm-agent-evals",
+    "AGENTS.md",
+    "CLAUDE.md",
+    "_abm/_config/telegram_ceo_chat_id.txt",
+    "_abm/bmm/agents/skills/hermes-telegram-bridge/scripts/jarvis_bot.py",
+    "_abm/bmm/agents/skills/hermes-telegram-bridge/SKILL.md",
+    "_abm/_config/telegram_bot_token.txt",
+    "_abm/bmm/agents/skills/hermes-telegram-bridge/scripts",
+    "_abm/bmm/agents/skills/hermes-telegram-bridge",
+    "_abm/_config/skills-index-l0.json",
+    "_abm/Team-Orchestration/scripts/sync_l0_index.py",
+    "_abm/Team-Orchestration/scripts",
+    "_abm/bmm/agents/skills/hermes-hub-client/SKILL.md",
+    "_abm/bmm/agents/skills/_archive/tech-scouting/changelog/README.md",
+    "_abm/bmm/agents/skills/_archive/tech-scouting/SKILL.md",
+    "_abm/bmm/agents/skills/_archive/tech-scouting/CHECKLIST.md",
+    "_abm/bmm/agents/skills/_archive/website-conversion/changelog/README.md",
+    "_abm/bmm/agents/skills/_archive/website-conversion/CHECKLIST.md",
+    "_abm/bmm/agents/skills/_archive/website-conversion/SKILL.md",
+    "_abm/bmm/agents/skills/_archive/cold-email/changelog/README.md",
+    "_abm/bmm/agents/skills/_archive/cold-email/SKILL.md",
+    "_abm/bmm/agents/skills/_archive/cold-email/CHECKLIST.md",
+    "_abm/bmm/agents/skills/_archive/seo-audit/changelog/README.md",
+    "_abm/bmm/agents/skills/_archive/seo-audit/SKILL.md",
+    "_abm/bmm/agents/skills/_archive/competitor-intelligence/changelog/README.md",
+    "_abm/bmm/agents/skills/_archive/competitor-intelligence/SKILL.md",
+    "_abm/bmm/agents/skills/_archive/web-security-testing/references/sop.md",
+    "_abm/bmm/agents/skills/_archive/web-security-testing/changelog/README.md",
+    "_abm/bmm/agents/skills/_archive/web-security-testing/SKILL.md",
+    "_abm/bmm/agents/skills/_archive/abm-multi-persona-review/references/sop.md",
+    "_abm/bmm/agents/skills/_archive/abm-multi-persona-review/changelog/README.md",
+    "_abm/bmm/agents/skills/_archive/abm-multi-persona-review/SKILL.md",
+    "_abm/bmm/agents/skills/_archive/abm-review-prompt/SKILL.md",
+    "TraSenTayHo_BentoGrid_VN.png"
+  ]
+}

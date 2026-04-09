@@ -1,0 +1,31 @@
+# ============================================================
+# ABM Skill Registry — Quản lý phân phối skills cho các IDE
+# ============================================================
+# Source of Truth: _abm/bmm/agents/skills/
+# Script sync:    _abm/scripts/skill-sync.sh
+# Cập nhật:       2026-03-30
+# ============================================================
+
+# Mỗi target = 1 thư mục mà IDE đọc skills
+sync_targets:
+
+  # ─── Antigravity IDE ───────────────────────────────────
+  antigravity:
+    path: ".agents/skills"
+    include: "all"                    # "all" | danh sách tên skill
+    exclude:
+      - "_archive"                    # thư mục archive
+
+  # ─── Gemini CLI (global + project) ─────────────────────
+  gemini_cli:
+    path: ".gemini/skills"
+    include: "all"
+    exclude:
+      - "_archive"
+
+# ─── Metadata ────────────────────────────────────────────
+metadata:
+  version: "1.0.0"
+  source: "_abm/bmm/agents/skills"
+  last_sync: "2026-04-08T04:56:54Z"
+  total_skills: 120

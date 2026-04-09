@@ -1,0 +1,22 @@
+# ABM MCP Registry (Model Context Protocol)
+# This file serves as the centralized directory for all external tools
+# connected via MCP to ABM-Workforce, as recommended by Uni-CLI harness standards.
+
+version: 1.0
+last_updated: 2026-04-09
+mcp_servers:
+  n8n_core:
+    description: "N8N automation endpoints for marketing and sales"
+    transport: "http"
+    url: "http://localhost:5678/webhook/"
+    status: active
+    skills_associated: 
+      - "n8n-automation-expert"
+      - "sales-automator"
+      
+  # Example Sandbox (SWE-ReX inspired)
+  # local_docker_exec:
+  #   description: "Isolated execution environment for arbitrary web testing"
+  #   transport: "stdio"
+  #   command: "docker run -i alpine"
+  #   status: pending

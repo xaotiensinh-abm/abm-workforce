@@ -27,11 +27,13 @@ identify failures or inefficiencies, and autonomously improve the system by:
 - Optimizing pipeline routing
 - Extracting lessons learned
 
-## Khi nào sử dụng
+## Khi nào sử dụng (Triggers)
+- **Hoàn thành Non-trivial Workflow**: Khi một task tốn > 5 tool calls thành công và phức tạp
+- **User Correction**: Khi user phải chỉnh sửa/phản hồi > 2 lần để đạt kết quả đúng
+- **Task Lặp Lại**: Khi nhận ra pattern giống hệt các task trong quá khứ (task history analysis)
 - After every 10 completed tasks (via HEARTBEAT)
 - After FAIL or ESCALATION event
-- Monthly system review
-- When user requests "optimize" or "improve"
+- When user requests "optimize", "improve", hoặc "tự động hóa workflow này"
 
 ## The Ascension Protocol
 
@@ -50,6 +52,8 @@ Scan for signals:
 Pattern Classification:
 | Pattern | Signal | Action |
 |---------|--------|--------|
+| Tác vụ phức tạp thành công | > 5 tool calls, kết quả tốt | Đóng gói thành Skill mới |
+| User correction | User phải sửa sai agent nhiều lần | Cập nhật Skill hiện tại (Pitfalls/Rules) |
 | Repeated failure | Same task_type fails >2x | Investigate root cause |
 | High retry rate | avg retries > 1.0 | Worker skill gap |
 | Low confidence | avg confidence < 0.7 | Need better acceptance criteria |
@@ -72,11 +76,21 @@ CRYSTALLIZE: For new knowledge
 - Run knowledge-crystallizer skill
 - Create KNOWLEDGE_BASE entry
 
-GENERATE: For new capabilities
-- Analyze common task pattern → extract template
-- Generate SKILL.md with proper frontmatter
-- Register in skill-manifest.csv
-- Test manually before promoting
+CONDENSE (Context Condensation): For long-running memory
+- Khi conversation history quá dài (>10,000 tokens), kích hoạt nén bộ nhớ.
+- Tạo/Cập nhật file `.agents/memory/goals.md` chứa tóm tắt tiến trình và file quan trọng.
+- Xóa bớt log không cần thiết.
+
+GENERATE (Inspired by Hermes `skill_manage`): For new capabilities
+1. Analyze successful execution path → extract tool sequence & parameters.
+2. Auto-generate `SKILL.md` (ABM Format: Goal, Triggers, Output format).
+3. Đặt vào thư mục `_quarantine` hoặc dán nhãn `Draft`.
+4. **REVIEW GATE**: Yêu cầu CEO approve trước khi chuyển thành Active Skill.
+5. Đăng ký vào `skill-manifest.csv`.
+
+UPDATE: Nâng cấp Skill hiện có
+- Thêm "Quy tắc sắt" (Pitfalls) dựa trên lỗi vừa gặp.
+- Tối ưu hóa "Quy trình" (Procedure) để giảm số bước.
 
 OPTIMIZE: For efficiency
 - Adjust ROMA tier routing rules

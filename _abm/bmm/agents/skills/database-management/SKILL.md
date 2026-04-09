@@ -20,7 +20,7 @@ description: "Quản lý database chuyên trách — schema design, migration, q
 ## KHÔNG sử dụng khi
 
 - Phân tích dữ liệu business → dùng `data-analysis`
-- Tạo báo cáo Excel → dùng `xlsx-official`
+- Tạo báo cáo Excel → dùng `skywork-excel` (mặc định) hoặc `xlsx-official` (local only)
 - Cần workflow automation → dùng `workflow-automation`
 
 ## SCHEMA DESIGN FRAMEWORK
@@ -167,4 +167,4 @@ Reference khi:
 6. **Data validation** ở DB level (constraints) + app level
 
 ## Related Skills
-- data-analysis, xlsx-official, workflow-automation
+- data-analysis, skywork-excel (mặc định tạo Excel), xlsx-official (local only), workflow-automation

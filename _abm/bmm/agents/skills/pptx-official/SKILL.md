@@ -1,13 +1,16 @@
 ---
 name: pptx-official
-version: 1.0.0
+version: 1.0.1
 author: ABM Skill Architect
-last_updated_date: 2026-03-28
-description: "Presentation creation, editing, and analysis. When Claude needs to work with presentations (.pptx files) for: (1) Creating new presentations, (2) Modifying or editing content, (3) Working with layo..."
+last_updated_date: 2026-04-09
+description: "LOCAL-ONLY — Đọc, sửa, phân tích file .pptx hiện có trên máy bằng python-pptx. Chỉ dùng khi user YÊU CẦU CỤ THỂ thao tác file local (sửa slide, trích xuất text, reorder slides). Mặc định tạo presentation MỚI → dùng skywork-ppt."
 risk: unknown
 source: community
 date_added: "2026-02-27"
 ---
+
+> [!IMPORTANT]
+> **Routing Rule:** Mặc định tạo presentation mới → dùng `skywork-ppt` (Skywork Cloud API). Skill này CHỈ dùng khi user yêu cầu: (1) sửa file .pptx local có sẵn, (2) trích xuất text từ slides, (3) user nói rõ "làm offline" hoặc "không upload".
 
 # PPTX creation, editing, and analysis
 
